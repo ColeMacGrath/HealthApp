@@ -1,0 +1,5 @@
+Pods
+Podfile
+Podfile.lock
+HealthApp/HealthApp.entitlements
+HealthApp/GoogleService-Info.plist
