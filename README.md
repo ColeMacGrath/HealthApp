@@ -36,8 +36,6 @@ In addition incorporates an image analyzer, working in conjunction with automate
 
 ![alt text](https://user-images.githubusercontent.com/42153044/51432666-ffe0a180-1c00-11e9-9358-e00ee5b00947.png)
 
-## Screenshots
-
 ## About Trained Model
 
 The model was trained with more than 3,000 images in high resolution
