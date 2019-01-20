@@ -1,4 +1,4 @@
-![alt text](https://user-images.githubusercontent.com/42153044/51432658-cb6ce580-1c00-11e9-9593-efea6e7cc575.png)
+# HealthApp ![alt text](https://user-images.githubusercontent.com/42153044/51432658-cb6ce580-1c00-11e9-9593-efea6e7cc575.png)
 
 HealthApp provides a series of tools to provide a better interaction between patients and doctors.
 This application is integrated with HealthKit and Firebase, it means that every record of alimentation, sports and more are synchronized between doctor and patient in real time.
