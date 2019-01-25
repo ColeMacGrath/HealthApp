@@ -161,7 +161,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func infoButtonPressed(_ sender: UIButton) {
-        DatabaseService.shared.addInfoFromHealthKit(patient: patient!)
+        //DatabaseService.shared.addInfoFromHealthKit(patient: patient!)
         performSegue(withIdentifier: "detailPageVC", sender: nil)
     }
     

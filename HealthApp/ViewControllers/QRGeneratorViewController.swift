@@ -23,4 +23,13 @@ class QRGeneratorViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func signOutButtonPressed(_ sender: UIButton) {
+        try! Auth.auth().signOut()
+        
+        if let storyboard = self.storyboard {
+            let viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController") 
+            self.present(viewController, animated: true, completion: nil)
+        }
+    }
 }

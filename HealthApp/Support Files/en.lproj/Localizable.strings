@@ -23,7 +23,7 @@
 "login.welcome.message" = "You've succesffully identified";
 "login.authError.title" = "Auth Error";
 "login.authError.message" = "Not verified";
-"login.touchIdError.title" = "Touch Id not available";
+"login.touchIdError.title" = "Touch ID not available";
 "login.touchIdError.message" = "Your device is not properly configurated";
 "map.address" = "Address of";
 "table.heart" = "Hearth Records";
