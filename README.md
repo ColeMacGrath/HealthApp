@@ -71,7 +71,7 @@ The app was manually translated to
 * 🇫🇷 French (FR) (Beta)
 
 ## Some Screenshots
-![alt text](https://user-images.githubusercontent.com/42153044/51432782-18ea5200-1c03-11e9-82f8-81e0c76a3d3b.png)
+![alt text](https://user-images.githubusercontent.com/42153044/51717067-f8583880-2004-11e9-8459-da5ac8c4ec11.png)
 ![alt text](https://user-images.githubusercontent.com/42153044/51432783-18ea5200-1c03-11e9-85a3-1d437f152890.png)
 ![alt text](https://user-images.githubusercontent.com/42153044/51432784-1982e880-1c03-11e9-9f50-01975056499f.png)
 ![alt text](https://user-images.githubusercontent.com/42153044/51432785-1982e880-1c03-11e9-94aa-81990b9da442.png)
