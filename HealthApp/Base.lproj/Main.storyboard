@@ -2291,6 +2291,10 @@
                                                 <constraint firstItem="tqQ-pP-Jhn" firstAttribute="centerY" secondItem="YjY-fs-YpU" secondAttribute="centerY" id="vlA-6N-F1w"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dataLabel" destination="Wky-Z3-dMk" id="YDc-vG-Ntu"/>
+                                            <outlet property="detailLabel" destination="ejq-7x-tPI" id="4oT-hj-6cO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
