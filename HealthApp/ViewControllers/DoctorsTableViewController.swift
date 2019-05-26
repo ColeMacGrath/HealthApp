@@ -33,8 +33,11 @@ class DoctorsTableViewController: UITableViewController {
         DatabaseService.shared.usersRef.child(patient.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let doctorsUid = value?["doctors"] as? NSDictionary ?? [:]
+            var i = 0
             for doctor in doctorsUid {
+                
                 DatabaseService.shared.doctorsRef.child("\(doctor.key)").child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+                    i += 1
                     let value = snapshot.value as? NSDictionary
                     let firstName = value?["firstName"] as? String ?? ""
                     let lastName = value?["lastName"] as? String ?? ""
@@ -42,10 +45,10 @@ class DoctorsTableViewController: UITableViewController {
                     let email = value?["email"] as? String ?? ""
                     let phone = value?["phone"] as? String ?? ""
                     let specialty = value?["speciality"] as? String ?? NSLocalizedString("doctor.general", comment: "")
-                    let newDoctor = Doctor(uid: "\(doctor.key)", firstName: firstName, lastName: lastName, direction: address, email: email, phone: phone, specialty: specialty, profilePicture: UIImage(named: "Doctor-Profile1")!)
-                    if self.doctors.count >= 1 {
+                    let newDoctor = Doctor(uid: "\(doctor.key)", firstName: firstName, lastName: lastName, direction: address, email: email, phone: phone, specialty: specialty, profilePicture: UIImage(named: "Doctor-Profile\(i)")!)
+                    /*if self.doctors.count >= 1 {
                         newDoctor.profilePicture = UIImage(named: "Doctor-Profile2")!
-                    }
+                    }*/
                     self.doctors.append(newDoctor)
                     self.refreshControl?.endRefreshing()
                     self.spinner.stopAnimating()
@@ -149,5 +152,4 @@ class DoctorsTableViewController: UITableViewController {
             }
         }
     }
-    
 }

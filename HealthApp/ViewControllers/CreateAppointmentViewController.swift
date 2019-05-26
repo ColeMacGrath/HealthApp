@@ -20,7 +20,6 @@ class CreateAppointmentViewController: UIViewController, UITableViewDelegate, UI
         tableView.delegate = self
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -30,7 +29,6 @@ class CreateAppointmentViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath) as! NameCell
             cell.nameLabel.text = doctor.username
@@ -151,10 +149,42 @@ class CreateAppointmentViewController: UIViewController, UITableViewDelegate, UI
             let results = doctorAppointments.filter { $0.startDate == appointment.startDate }
             if results.count < 1 {
                 isBusy = false
+                //isBusy = isDoctorBusy(doctor: doctor) ?? false
             }
         }
         return isBusy
     }
+    
+    /*func isDoctorBusy(doctor: Doctor) -> Bool? {
+        var isBusy = false
+        /*DatabaseService.shared.doctorsRef.child("\(doctor.uid)").child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let busy = value?["busy"] as? Bool ?? true
+            isBusy = busy
+            //print("El valor de la base de datos es: \(isBusy)")
+            //group.leave()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        //let group = DispatchGroup()
+        //group.enter()
+        //group.wait()
+        //print("El valor final es: \(isBusy)")
+        */
+        return isBusy
+    }*/
+    
+    /*func isDoctorBusy(doctor: Doctor) -> Bool {
+        var isBusy = false
+        DatabaseService.shared.doctorsRef.child("\(doctor.uid)").child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let busy = value?["busy"] as? Bool ?? true
+            isBusy = busy
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        return isBusy
+    }*/
     
     func eventExists(appointment: Appointment, eventStore: EKEventStore) -> EKEvent? {
         var event: EKEvent? = nil

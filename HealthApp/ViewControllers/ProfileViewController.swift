@@ -16,7 +16,7 @@ enum MeasurementUnit: Int {
 enum HealthValue: Int {
     case weight = 0
     case height = 1
-    case hearth = 2
+    case hearth = 2 
 }
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -307,6 +307,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 readeableBiologicalSex = NSLocalizedString("profile.male", comment: "")
             case .other:
                 readeableBiologicalSex = NSLocalizedString("profile.other", comment: "")
+            @unknown default:
+                readeableBiologicalSex = "Other"
             }
         } else {
             return nil

@@ -15,8 +15,8 @@ class ViewController: UIViewController {
             performSegue(withIdentifier: "showLoginVC", sender: nil)
             return
         }
-        authenticateUser()
-        //self.performSegue(withIdentifier: "showMainPageVC", sender: nil)
+        //authenticateUser()
+        self.performSegue(withIdentifier: "showMainPageVC", sender: nil)
     }
     
     func authenticateUser() {

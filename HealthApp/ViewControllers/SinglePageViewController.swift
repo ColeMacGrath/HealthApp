@@ -43,6 +43,11 @@ class SinglePageViewController: UIViewController, UITableViewDelegate, UITableVi
                 castedArray.append(genericDataType)
             }
             
+        } else if let array = array as? [Height] {
+            for heightRecord in array {
+                let genericDataType = GenericDataHealthType(data: "\(heightRecord.height / 100.0) Mt", detail: heightRecord.startDate.formattedDate)
+                castedArray.append(genericDataType)
+            }
         } else if let array = array as? [WorkoutRecord] {
             for workoutRecord in array {
                 let genericDataType = GenericDataHealthType(data: "\(workoutRecord.calories) Cal", detail: workoutRecord.time)
@@ -55,12 +60,6 @@ class SinglePageViewController: UIViewController, UITableViewDelegate, UITableVi
                 castedArray.append(genericDataType)
             }
             
-        } else if let array = array as? [Height] {
-            for heightRecord in array {
-                print(heightRecord.height)
-                let genericDataType = GenericDataHealthType(data: "\(heightRecord.height) Mt", detail: heightRecord.startDate.formattedDate)
-                castedArray.append(genericDataType)
-            }
         }
         return castedArray
     }

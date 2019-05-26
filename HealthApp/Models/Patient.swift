@@ -17,7 +17,7 @@ class Patient {
     private var _workoutRecords: [WorkoutRecord]
     private var _hearthRecords: [HearthRecord]
     private var _appointments: [Appointment]
-    private var _doctors: [Doctor]    
+    private var _doctors: [Doctor]
     
     init(uid: String) {
         _uid = uid

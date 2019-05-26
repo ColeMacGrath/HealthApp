@@ -48,7 +48,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         case "ExerciseVC":
             viewController?.arrayToShow = patient.workoutRecords as [AnyObject]
         case "HeightVC":
-            viewController?.arrayToShow = patient.workoutRecords as [AnyObject]
+            viewController?.arrayToShow = patient.heightRecords as [AnyObject]
         default:
             break
         }
@@ -58,7 +58,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = self.pageViewControllers.index(of: viewController) else { return nil }
+        guard let viewControllerIndex = self.pageViewControllers.firstIndex(of: viewController) else { return nil }
         let previousIndex = viewControllerIndex - 1
         if previousIndex >= 0 {
             return self.pageViewControllers[previousIndex]
@@ -67,7 +67,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = self.pageViewControllers.index(of: viewController) else { return nil }
+        guard let viewControllerIndex = self.pageViewControllers.firstIndex(of: viewController) else { return nil }
         let nextIndex = viewControllerIndex + 1
         if nextIndex < self.pageViewControllers.count {
             return self.pageViewControllers[nextIndex]
@@ -77,7 +77,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let currentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = self.pageViewControllers.index(of: currentViewController)!
+        self.pageControl.currentPage = self.pageViewControllers.firstIndex(of: currentViewController)!
     }
 
 }

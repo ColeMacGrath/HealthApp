@@ -13,7 +13,6 @@
 		B30C98D721EFFFA000A91836 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C98D621EFFFA000A91836 /* PageViewController.swift */; };
 		B31B02C621D0258F00F5EA8C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B02C521D0258F00F5EA8C /* RegisterViewController.swift */; };
 		B31B02C821D0311300F5EA8C /* QRAnalyzerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B02C721D0311300F5EA8C /* QRAnalyzerViewController.swift */; };
-		B31CAA4521C4567A00BC8E68 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31CAA4421C4567A00BC8E68 /* HealthKit.framework */; };
 		B31E650221D00D7D001CE274 /* ImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B31E650121D00D7D001CE274 /* ImageClassifier.mlmodel */; };
 		B31EF42921D011C300B1B161 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31EF42821D011C300B1B161 /* QRGeneratorViewController.swift */; };
 		B32F017221D2A6220090575A /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F017121D2A6220090575A /* Section.swift */; };
@@ -22,7 +21,6 @@
 		B3430D4721F16AB200926AF1 /* HealthTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3430D4621F16AB200926AF1 /* HealthTypeCell.swift */; };
 		B3B5D97621E09C38001E6F8D /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5D97521E09C38001E6F8D /* AppointmentTableViewCell.swift */; };
 		B3C7BDB421DC2A6F00826DDA /* CreateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BDB321DC2A6F00826DDA /* CreateAppointmentViewController.swift */; };
-		B3CB1EB321CF59020011A62A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CB1EB221CF59020011A62A /* MapKit.framework */; };
 		B3CB1EB521CF5A130011A62A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB1EB421CF5A130011A62A /* MapViewController.swift */; };
 		B3CD69C121DF1EBB00042298 /* DetailedNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD69C021DF1EBB00042298 /* DetailedNameCell.swift */; };
 		B3CD69C321DF1EC500042298 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD69C221DF1EC500042298 /* DateCell.swift */; };
@@ -50,6 +48,8 @@
 		B3D23E4321CF20CA00BB381C /* DoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D23E2F21CF20C900BB381C /* DoctorCell.swift */; };
 		B3D23E4521CF20CA00BB381C /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D23E3121CF20CA00BB381C /* DatabaseService.swift */; };
 		B3D51FE121DFDB64004A6F91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3D51FE021DFDB64004A6F91 /* Assets.xcassets */; };
+		B3DAE6862239C74F002DB7C2 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DAE6852239C74F002DB7C2 /* HealthKit.framework */; };
+		B3DAE6882239C757002DB7C2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DAE6872239C757002DB7C2 /* MapKit.framework */; };
 		B3DB1A8321D5E86B00B26211 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3DB1A8521D5E86B00B26211 /* Localizable.strings */; };
 		B3E31B9C21BF2BF400BD0387 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E31B9B21BF2BF400BD0387 /* AppDelegate.swift */; };
 		B3E31BA121BF2BF400BD0387 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E31B9F21BF2BF400BD0387 /* Main.storyboard */; };
@@ -68,7 +68,6 @@
 		B31B02C521D0258F00F5EA8C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B31B02C721D0311300F5EA8C /* QRAnalyzerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRAnalyzerViewController.swift; sourceTree = "<group>"; };
 		B31CAA4321C4567900BC8E68 /* HealthApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthApp.entitlements; sourceTree = "<group>"; };
-		B31CAA4421C4567A00BC8E68 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B31E650121D00D7D001CE274 /* ImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImageClassifier.mlmodel; sourceTree = "<group>"; };
 		B31EF42821D011C300B1B161 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 		B32F017121D2A6220090575A /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
@@ -78,7 +77,6 @@
 		B3B5D97121E09759001E6F8D /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		B3B5D97521E09C38001E6F8D /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		B3C7BDB321DC2A6F00826DDA /* CreateAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentViewController.swift; sourceTree = "<group>"; };
-		B3CB1EB221CF59020011A62A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B3CB1EB421CF5A130011A62A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B3CD69C021DF1EBB00042298 /* DetailedNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedNameCell.swift; sourceTree = "<group>"; };
 		B3CD69C221DF1EC500042298 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
@@ -106,6 +104,8 @@
 		B3D23E2F21CF20C900BB381C /* DoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCell.swift; sourceTree = "<group>"; };
 		B3D23E3121CF20CA00BB381C /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B3D51FE021DFDB64004A6F91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3DAE6852239C74F002DB7C2 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		B3DAE6872239C757002DB7C2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B3DB1A8421D5E86B00B26211 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3DB1A8621D5E87000B26211 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B3DB1A8721D5E87300B26211 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				983889BFE8FD4BF84C9B67C6 /* Pods_HealthApp.framework in Frameworks */,
-				B3CB1EB321CF59020011A62A /* MapKit.framework in Frameworks */,
-				B31CAA4521C4567A00BC8E68 /* HealthKit.framework in Frameworks */,
+				B3DAE6882239C757002DB7C2 /* MapKit.framework in Frameworks */,
+				B3DAE6862239C74F002DB7C2 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +140,8 @@
 		0D1D7229687E804B8AA5A46A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B3CB1EB221CF59020011A62A /* MapKit.framework */,
-				B31CAA4421C4567A00BC8E68 /* HealthKit.framework */,
+				B3DAE6872239C757002DB7C2 /* MapKit.framework */,
+				B3DAE6852239C74F002DB7C2 /* HealthKit.framework */,
 				F2BF16C9669CA1D1CF0CED63 /* Pods_HealthApp.framework */,
 			);
 			name = Frameworks;
@@ -336,9 +336,13 @@
 				TargetAttributes = {
 					B3E31B9721BF2BF400BD0387 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -641,7 +645,9 @@
 			baseConfigurationReference = 724CCF16799E88A948BB893A /* Pods-HealthApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = HealthApp/HealthApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R27L3GB44P;
 				INFOPLIST_FILE = HealthApp/Info.plist;
@@ -650,9 +656,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthAppTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -662,7 +669,9 @@
 			baseConfigurationReference = 62B7F24CDB6288027AD77CFB /* Pods-HealthApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = HealthApp/HealthApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R27L3GB44P;
 				INFOPLIST_FILE = HealthApp/Info.plist;
@@ -671,9 +680,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthAppTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -17,6 +17,10 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIcons</key>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -33,19 +37,24 @@
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array>
-		<string>MKDirectionsModeBus</string>
+		<string>MKDirectionsModeBike</string>
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModeOther</string>
-		<string>MKDirectionsModePedestrian</string>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We need your permission to create appointments in your calendar</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need your premission to take photos and analyze them</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We need your permission to use FaceID and authenticate you</string>
 	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
 	<string>We need your permission to collect and send your medical information to your doctor</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>We need your permission to collect and send your medical information to your doctor</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>We need your permission to collect and send your medical information to your doctor</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need your permission to update your profile picture</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -68,11 +77,5 @@
 	</array>
 	<key>UISupportsDocumentBrowser</key>
 	<false/>
-	<key>NSCalendarsUsageDescription</key>
-	<string>We need your permission to create appointments in your calendar</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need your permission to update your profile picture</string>
-	<key>NSFaceIDUsageDescription</key>
-	<string>We need your permission to use FaceID and authenticate you</string>
 </dict>
 </plist>
