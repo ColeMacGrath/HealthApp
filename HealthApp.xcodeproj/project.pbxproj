@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		983889BFE8FD4BF84C9B67C6 /* Pods_HealthApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BF16C9669CA1D1CF0CED63 /* Pods_HealthApp.framework */; };
 		B304C72321DEEB14006B5E99 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B304C72221DEEB14006B5E99 /* Appointment.swift */; };
+		B30B7FEE22CFFEE0005DF0CE /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30B7FED22CFFEE0005DF0CE /* ContactTableViewController.swift */; };
+		B30B7FF222D00517005DF0CE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30B7FF122D00517005DF0CE /* ProfileViewController.swift */; };
+		B30B7FF422D00535005DF0CE /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30B7FF322D00535005DF0CE /* ProfileTableViewCell.swift */; };
 		B30C98D521EFFD5400A91836 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C98D421EFFD5400A91836 /* SinglePageViewController.swift */; };
 		B30C98D721EFFFA000A91836 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C98D621EFFFA000A91836 /* PageViewController.swift */; };
 		B31B02C621D0258F00F5EA8C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B02C521D0258F00F5EA8C /* RegisterViewController.swift */; };
@@ -63,6 +66,11 @@
 		62B7F24CDB6288027AD77CFB /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
 		724CCF16799E88A948BB893A /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B304C72221DEEB14006B5E99 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		B30B7FEC22CFFE9F005DF0CE /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		B30B7FED22CFFEE0005DF0CE /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactTableViewController.swift; path = ../../../../../../Desktop/HealthApp/HealthApp/ContactTableViewController.swift; sourceTree = "<group>"; };
+		B30B7FF022CFFEE6005DF0CE /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		B30B7FF122D00517005DF0CE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B30B7FF322D00535005DF0CE /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		B30C98D421EFFD5400A91836 /* SinglePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		B30C98D621EFFFA000A91836 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B31B02C521D0258F00F5EA8C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +162,17 @@
 				62B7F24CDB6288027AD77CFB /* Pods-HealthApp.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B30B7FEF22CFFEE5005DF0CE /* Testing Views */ = {
+			isa = PBXGroup;
+			children = (
+				B30B7FF022CFFEE6005DF0CE /* ContactTableViewController.swift */,
+				B30B7FEC22CFFE9F005DF0CE /* ContactTableViewCell.swift */,
+				B30B7FF122D00517005DF0CE /* ProfileViewController.swift */,
+				B30B7FF322D00535005DF0CE /* ProfileTableViewCell.swift */,
+			);
+			path = "Testing Views";
 			sourceTree = "<group>";
 		};
 		B32F017021D2A60A0090575A /* ExpandibleHeaderView */ = {
@@ -294,6 +313,8 @@
 				B3DB1A8921D5F08600B26211 /* Support Files */,
 				B3E31B9F21BF2BF400BD0387 /* Main.storyboard */,
 				B3E31BA421BF2BF600BD0387 /* LaunchScreen.storyboard */,
+				B30B7FEF22CFFEE5005DF0CE /* Testing Views */,
+				B30B7FED22CFFEE0005DF0CE /* ContactTableViewController.swift */,
 				B3E31BAD21BF2DC700BD0387 /* GoogleService-Info.plist */,
 				B3E31BA721BF2BF600BD0387 /* Info.plist */,
 				B31CAA4321C4567900BC8E68 /* HealthApp.entitlements */,
@@ -444,9 +465,11 @@
 				B3D23E3D21CF20CA00BB381C /* LoginViewController.swift in Sources */,
 				B3D23E3821CF20CA00BB381C /* PulleyPassthroughScrollView.swift in Sources */,
 				B3D23E3621CF20CA00BB381C /* PulleyViewController.swift in Sources */,
+				B30B7FF422D00535005DF0CE /* ProfileTableViewCell.swift in Sources */,
 				B31B02C621D0258F00F5EA8C /* RegisterViewController.swift in Sources */,
 				B3D23E3F21CF20CA00BB381C /* Util.swift in Sources */,
 				B3D23E3221CF20CA00BB381C /* ProfileViewController.swift in Sources */,
+				B30B7FF222D00517005DF0CE /* ProfileViewController.swift in Sources */,
 				B3CD69D321DF20AF00042298 /* DetailAppointmentViewController.swift in Sources */,
 				B3D23E3A21CF20CA00BB381C /* DoctorsTableViewController.swift in Sources */,
 				B3CD69C321DF1EC500042298 /* DateCell.swift in Sources */,
@@ -482,6 +505,7 @@
 				B3D23E3721CF20CA00BB381C /* ProgressBar.swift in Sources */,
 				B3D23E3E21CF20CA00BB381C /* ResultTableViewCell.swift in Sources */,
 				B3D23E4121CF20CA00BB381C /* CameraViewController.swift in Sources */,
+				B30B7FEE22CFFEE0005DF0CE /* ContactTableViewController.swift in Sources */,
 				B3CD69D521DF21AF00042298 /* ButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
