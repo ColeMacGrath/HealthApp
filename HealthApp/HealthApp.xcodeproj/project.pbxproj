@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		B3DCE35C22D03AC000DAC751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */; };
-		B3DCE35E22D03AC000DAC751 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE35D22D03AC000DAC751 /* ViewController.swift */; };
+		B3DCE35E22D03AC000DAC751 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */; };
 		B3DCE36122D03AC000DAC751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE35F22D03AC000DAC751 /* Main.storyboard */; };
 		B3DCE36322D03AC300DAC751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE36222D03AC300DAC751 /* Assets.xcassets */; };
 		B3DCE36622D03AC300DAC751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */; };
+		B3DCE36E22D0401800DAC751 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE36D22D0401800DAC751 /* ProfileTableViewCell.swift */; };
+		B3DCE37022D042F400DAC751 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE36F22D042F400DAC751 /* CollectionViewTableViewCell.swift */; };
+		B3DCE37222D0434000DAC751 /* DataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */; };
+		B3DCE37422D046A800DAC751 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37322D046A800DAC751 /* Util.swift */; };
+		B3DCE37622D054F200DAC751 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B3DCE35822D03AC000DAC751 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3DCE35D22D03AC000DAC751 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B3DCE36022D03AC000DAC751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3DCE36222D03AC300DAC751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3DCE36522D03AC300DAC751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3DCE36722D03AC300DAC751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3DCE36D22D0401800DAC751 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		B3DCE36F22D042F400DAC751 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3DCE37322D046A800DAC751 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +65,14 @@
 			isa = PBXGroup;
 			children = (
 				B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */,
-				B3DCE35D22D03AC000DAC751 /* ViewController.swift */,
+				B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */,
+				B3DCE36D22D0401800DAC751 /* ProfileTableViewCell.swift */,
+				B3DCE36F22D042F400DAC751 /* CollectionViewTableViewCell.swift */,
+				B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */,
 				B3DCE35F22D03AC000DAC751 /* Main.storyboard */,
 				B3DCE36222D03AC300DAC751 /* Assets.xcassets */,
+				B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */,
+				B3DCE37322D046A800DAC751 /* Util.swift */,
 				B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */,
 				B3DCE36722D03AC300DAC751 /* Info.plist */,
 			);
@@ -135,8 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3DCE35E22D03AC000DAC751 /* ViewController.swift in Sources */,
+				B3DCE36E22D0401800DAC751 /* ProfileTableViewCell.swift in Sources */,
+				B3DCE35E22D03AC000DAC751 /* ProfileViewController.swift in Sources */,
+				B3DCE37022D042F400DAC751 /* CollectionViewTableViewCell.swift in Sources */,
 				B3DCE35C22D03AC000DAC751 /* AppDelegate.swift in Sources */,
+				B3DCE37422D046A800DAC751 /* Util.swift in Sources */,
+				B3DCE37222D0434000DAC751 /* DataCollectionViewCell.swift in Sources */,
+				B3DCE37622D054F200DAC751 /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
