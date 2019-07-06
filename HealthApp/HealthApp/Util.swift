@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    
-    func setRounded() {
+    func setRounded(bordedColor: UIColor = #colorLiteral(red: 0.9691175818, green: 0.9630624652, blue: 0.9590174556, alpha: 1), borderWitdht: Int = 5) {
         self.layer.cornerRadius = self.frame.size.height/2
         self.layer.borderWidth = 5
         self.layer.borderColor = #colorLiteral(red: 0.9691175818, green: 0.9630624652, blue: 0.9590174556, alpha: 1)

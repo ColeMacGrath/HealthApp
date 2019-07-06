@@ -50,7 +50,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
             cell.nameLabel.text = "Eliza Green"
-            cell.roleLabel.text = "Patient"
+            cell.roleLabel.text = "Female"
             cell.imageView?.setRounded()
             //cell.imageView?.image = UIImage(named: "profile_picture")
             cell.selectionStyle = .none
@@ -95,8 +95,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var height: CGFloat = 70.0
         switch indexPath.row {
-        case 0:
-            height = 190.0
         case 1:
             height = 100.0
         default:
