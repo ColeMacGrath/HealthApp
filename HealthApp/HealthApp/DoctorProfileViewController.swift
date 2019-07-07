@@ -15,7 +15,7 @@ class DoctorProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.largeTitleDisplayMode = .never
         // Do any additional setup after loading the view.
     }
     
@@ -83,5 +83,13 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
             height = 250.0
         }
         return height
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*if indexPath.row == 0 && indexPath.section == 1 {
+            if let viewController = storyboard?.instantiateViewController(withIdentifier: "CreateAppointmentVC") {
+                //present(viewController, animated: true)
+            }
+        }*/
     }
 }

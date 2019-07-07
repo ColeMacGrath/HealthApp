@@ -40,3 +40,15 @@ class CardView: UIView {
     }
     
 }
+
+extension Date {
+    var day: Int {
+        //Get Hour
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: self)
+        let day = components.day
+        
+        //Return Hour
+        return day!
+    }
+}
