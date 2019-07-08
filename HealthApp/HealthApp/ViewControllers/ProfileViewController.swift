@@ -60,7 +60,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,6 +104,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                 cell.topicIcon.image = UIImage(named: "hearth-icon")!
                 cell.descriptionLabel.text = "A record of beats per minute is recorded in different activities"
                 cell.quantityLabel.text = "170 bpm"
+            } else if indexPath.row == 6 {
+                cell.cardView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+                cell.titleLabel.text = "Nevus Analyzer"
+                cell.topicIcon.image = UIImage(named: "bodyScan-icon")!
+                cell.descriptionLabel.text = "Detection by artificial intelligence of a nevus' pathology"
+                cell.quantityLabel.text = "GO!"
             }
             
             return cell
@@ -145,6 +151,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 6 {
+            if let viewController = storyboard?.instantiateViewController(withIdentifier: "VisualRecognizerVC") {
+                present(viewController, animated: true)
+            }
+        } else {
+            performSegue(withIdentifier: "tableSegue", sender: nil)
+        }
     }
     
 }

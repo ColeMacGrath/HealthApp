@@ -5,7 +5,6 @@
 //  Created by Moisés Córdova on 7/7/19.
 //  Copyright © 2019 Moisés Córdova. All rights reserved.
 //
-
 import UIKit
 
 class CreateAppointmentViewController: UIPageViewController {
@@ -16,14 +15,14 @@ class CreateAppointmentViewController: UIPageViewController {
             newViewController(storyboardIdentifier: "secondStepVC"),
             newViewController(storyboardIdentifier: "doctorListVC"),
             newViewController(storyboardIdentifier: "thirdStepVC"),
-            //Aquí debería ir otro
+            newViewController(storyboardIdentifier: "notesVC"),
             newViewController(storyboardIdentifier: "fourthStepVC"),
             newViewController(storyboardIdentifier: "appointmentVC")
         ]
     }()
     
     var pageControl = UIPageControl()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
@@ -33,7 +32,7 @@ class CreateAppointmentViewController: UIPageViewController {
         }
         
         configurePageControl()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -52,10 +51,10 @@ class CreateAppointmentViewController: UIPageViewController {
     
     func newViewController(storyboardIdentifier: String) -> UIViewController {
         /*if storyboardIdentifier == "doctorListVC" {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardIdentifier) as! DoctorListViewController
-            vc.multipleSelectionIsAllowed = true
-            return vc
-        }*/
+         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardIdentifier) as! DoctorListViewController
+         vc.multipleSelectionIsAllowed = true
+         return vc
+         }*/
         
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardIdentifier)
     }
@@ -69,7 +68,7 @@ class CreateAppointmentViewController: UIPageViewController {
         pageControl.currentPageIndicatorTintColor = UIColor.white
         self.view.addSubview(pageControl)
     }
-
+    
 }
 
 extension CreateAppointmentViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
