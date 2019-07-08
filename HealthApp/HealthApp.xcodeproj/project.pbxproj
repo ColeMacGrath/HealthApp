@@ -27,6 +27,9 @@
 		B3DCE37222D0434000DAC751 /* DataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */; };
 		B3DCE37422D046A800DAC751 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37322D046A800DAC751 /* Util.swift */; };
 		B3DCE37622D054F200DAC751 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */; };
+		B3E4791E22D2BB9000BEF369 /* CreateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4791D22D2BB9000BEF369 /* CreateAppointmentViewController.swift */; };
+		B3E4A2E822D28A41008D64B1 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */; };
+		B3E4A2EA22D28BA1008D64B1 /* RecordMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4A2E922D28BA1008D64B1 /* RecordMainTableViewCell.swift */; };
 		B3FAEBA222D15F29007B7BBF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */; };
 		B3FAEBA422D15F93007B7BBF /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA322D15F93007B7BBF /* CalendarDayCell.swift */; };
 		B3FAEBA622D15FD6007B7BBF /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA522D15FD6007B7BBF /* AppointmentTableViewCell.swift */; };
@@ -58,6 +61,9 @@
 		B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewCell.swift; sourceTree = "<group>"; };
 		B3DCE37322D046A800DAC751 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		B3E4791D22D2BB9000BEF369 /* CreateAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentViewController.swift; sourceTree = "<group>"; };
+		B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		B3E4A2E922D28BA1008D64B1 /* RecordMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMainTableViewCell.swift; sourceTree = "<group>"; };
 		B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B3FAEBA322D15F93007B7BBF /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
 		B3FAEBA522D15FD6007B7BBF /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,12 +121,15 @@
 				B3FAEBA522D15FD6007B7BBF /* AppointmentTableViewCell.swift */,
 				B380F37F22D14DE000A347DD /* DoctorProfileTableViewCell.swift */,
 				B3DCE36222D03AC300DAC751 /* Assets.xcassets */,
+				B3E4791D22D2BB9000BEF369 /* CreateAppointmentViewController.swift */,
 				B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */,
 				B380F38122D14E8F00A347DD /* ButtonCardTableViewCell.swift */,
 				B380F38322D14EAB00A347DD /* TableItemCardTableViewCell.swift */,
 				B3DCE37322D046A800DAC751 /* Util.swift */,
 				B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */,
 				B3DCE36722D03AC300DAC751 /* Info.plist */,
+				B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */,
+				B3E4A2E922D28BA1008D64B1 /* RecordMainTableViewCell.swift */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -218,10 +227,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +268,7 @@
 				B3DCE36E22D0401800DAC751 /* ProfileTableViewCell.swift in Sources */,
 				B3FAEBA622D15FD6007B7BBF /* AppointmentTableViewCell.swift in Sources */,
 				B380F38222D14E8F00A347DD /* ButtonCardTableViewCell.swift in Sources */,
+				B3E4A2E822D28A41008D64B1 /* RecordViewController.swift in Sources */,
 				B380F38422D14EAB00A347DD /* TableItemCardTableViewCell.swift in Sources */,
 				B3DCE35E22D03AC000DAC751 /* ProfileViewController.swift in Sources */,
 				B3C7484A22D18325005DED97 /* CloseTableViewCell.swift in Sources */,
@@ -264,7 +276,9 @@
 				B3C7484E22D1846D005DED97 /* NoteTableViewCell.swift in Sources */,
 				B3C7485022D184B9005DED97 /* AppointmentViewController.swift in Sources */,
 				B3DCE35C22D03AC000DAC751 /* AppDelegate.swift in Sources */,
+				B3E4A2EA22D28BA1008D64B1 /* RecordMainTableViewCell.swift in Sources */,
 				B3C7484C22D183ED005DED97 /* AppointmentInformationTableViewCell.swift in Sources */,
+				B3E4791E22D2BB9000BEF369 /* CreateAppointmentViewController.swift in Sources */,
 				B380F38022D14DE000A347DD /* DoctorProfileTableViewCell.swift in Sources */,
 				B3DCE37422D046A800DAC751 /* Util.swift in Sources */,
 				B3DCE37222D0434000DAC751 /* DataCollectionViewCell.swift in Sources */,

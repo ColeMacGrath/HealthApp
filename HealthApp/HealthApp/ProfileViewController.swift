@@ -7,24 +7,42 @@
 //
 
 import UIKit
+import FloatingPanel
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, FloatingPanelControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var collectionView: UICollectionView!
+    var fpc: FloatingPanelController!
     var backgroundImages: [UIImage] = [
         #imageLiteral(resourceName: "hardBlueGradient"), #imageLiteral(resourceName: "blueGradient"), #imageLiteral(resourceName: "purpleGradient"), #imageLiteral(resourceName: "pinkGradient")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        fpc = FloatingPanelController()
+        fpc.delegate = self
+        let contentVC = storyboard?.instantiateViewController(withIdentifier: "contentVC")
+        fpc.set(contentViewController: contentVC)
+        
+        //fpc.track(scrollView: contentVC.tableView)
+        //
+        //self.present(fpc, animated: true, completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        fpc.removePanelFromParent(animated: true)
     }
     
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "QR Scan", message: "QR Scan", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alert = UIAlertController(title: "Add a Doctor", message: "How do you want to add a new doctor?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Scan DoctorID", style: .default, handler: { (_) in
+            self.fpc.addPanel(toParent: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Show my PatientID", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
     
