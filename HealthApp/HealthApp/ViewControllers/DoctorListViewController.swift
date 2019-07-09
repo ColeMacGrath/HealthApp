@@ -10,9 +10,7 @@ import UIKit
 
 class DoctorListViewController: UIViewController {
     
-    var buttonImages: [UIImage] = [
-        #imageLiteral(resourceName: "blue_button"), #imageLiteral(resourceName: "pink_button"), #imageLiteral(resourceName: "green_button"), #imageLiteral(resourceName: "blue_button"), #imageLiteral(resourceName: "aqua_button")
-    ]
+    var buttonImages: [UIImage] = [#imageLiteral(resourceName: "blue_button"), #imageLiteral(resourceName: "pink_button"), #imageLiteral(resourceName: "green_button"), #imageLiteral(resourceName: "blue_button"), #imageLiteral(resourceName: "aqua_button")]
     
     var specialityNames: [String] = [
         "Psychiatrist",

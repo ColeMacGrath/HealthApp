@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class RecordMainTableViewCell: UITableViewCell {
 
@@ -14,6 +15,7 @@ class RecordMainTableViewCell: UITableViewCell {
     @IBOutlet weak var titleRecord: UILabel!
     @IBOutlet weak var dateRecord: UILabel!
     @IBOutlet weak var imageRecord: UIImageView!
+    @IBOutlet var barChartView: BarChartView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

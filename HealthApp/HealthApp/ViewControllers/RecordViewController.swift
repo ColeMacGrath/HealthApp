@@ -7,14 +7,44 @@
 //
 
 import UIKit
+import Charts
 
 class RecordViewController: UIViewController {
     
     var records: [Record] = []
+    var mainColor: UIColor!
+    var mainIcon: UIImage!
+    var recordTitle: String!
+    let days = ["sun", "mon", "tue", "wed", "thur", "sat"]
+    let data = [150.0, 250.0 ,574.0, 152.0, 178.0, 785.0]
+    var barChartView: BarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barStyle = .default
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: mainColor!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: mainColor!]
         getRecords(number: 10)
+    }
+    
+    func createChart(dataPoints: [String], values: [Double]) {
+        
+        var dataEntries: [BarChartDataEntry] = []
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
+            dataEntries.append(dataEntry)
+        }
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
+        let chartData = BarChartData(dataSet: chartDataSet)
+        
+        barChartView.data = chartData
+        chartDataSet.colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+        barChartView.leftAxis.enabled = false
+        barChartView.rightAxis.drawGridLinesEnabled = false
+        barChartView.legend.enabled = false
+        
+        
+        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
     func getRecords(number: Int) {
@@ -46,9 +76,12 @@ extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecordMainCell", for: indexPath) as! RecordMainTableViewCell
-            cell.titleRecord.text = "Calories Burned"
-            cell.dateRecord.text = "Today, Dec 16"
-            cell.imageRecord.image = UIImage(named: "burn-icon")!
+            self.barChartView = cell.barChartView
+            self.createChart(dataPoints: days, values: data)
+            cell.cardView.backgroundColor = mainColor
+            cell.titleRecord.text = recordTitle
+            cell.dateRecord.text = "Last Records"
+            cell.imageRecord.image = mainIcon
             return cell
         }
         

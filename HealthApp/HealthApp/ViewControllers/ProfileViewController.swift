@@ -14,9 +14,8 @@ class ProfileViewController: UIViewController, FloatingPanelControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     var collectionView: UICollectionView!
     var fpc: FloatingPanelController!
-    var backgroundImages: [UIImage] = [
-        #imageLiteral(resourceName: "hardBlueGradient"), #imageLiteral(resourceName: "blueGradient"), #imageLiteral(resourceName: "purpleGradient"), #imageLiteral(resourceName: "pinkGradient")
-    ]
+    var backgroundImages: [UIImage] = [#imageLiteral(resourceName: "hardBlueGradient"), #imageLiteral(resourceName: "blueGradient"), #imageLiteral(resourceName: "purpleGradient"), #imageLiteral(resourceName: "pinkGradient")]
+    var optionPressed = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,9 +156,44 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         if indexPath.row == 6 {
             if let viewController = storyboard?.instantiateViewController(withIdentifier: "VisualRecognizerVC") {
                 present(viewController, animated: true)
+                return
             }
-        } else {
+        } else if indexPath.row > 1 {
+            optionPressed = indexPath.row
             performSegue(withIdentifier: "tableSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tableSegue" {
+            if let navigationController = segue.destination as? UINavigationController {
+                if let viewController = navigationController.topViewController as? RecordViewController {
+                    var title = ""
+                    var color = UIColor()
+                    var icon = UIImage()
+                    switch optionPressed {
+                    case 2:
+                        title = "Calories Burned"
+                        color = #colorLiteral(red: 0.9723386168, green: 0.5278795958, blue: 0.4031898975, alpha: 1)
+                        icon = UIImage(named: "burn-icon")!
+                    case 3:
+                        title = "Sleeping Hours"
+                        color = #colorLiteral(red: 0.2653386891, green: 0.2729498446, blue: 0.6093763709, alpha: 1)
+                        icon = UIImage(named: "moon-icon")!
+                    case 4:
+                        title = "Calories Consumed"
+                        color = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+                        icon = UIImage(named: "food-icon")!
+                    default:
+                        title = "Hearth BPM"
+                        color = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+                        icon = UIImage(named: "hearth-icon")!
+                    }
+                    viewController.mainColor = color
+                    viewController.mainIcon = icon
+                    viewController.recordTitle = title
+                }
+            }
         }
     }
     
