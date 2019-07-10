@@ -18,6 +18,17 @@ extension UIImageView {
     }
 }
 
+extension UITextField {
+    func useUnderline(color: UIColor = UIColor.lightGray, borderWidht: CGFloat = CGFloat(1.0)) {
+        let border = CALayer()
+        border.borderColor = color.cgColor
+        border.frame = CGRect(origin: CGPoint(x: 0,y :self.frame.size.height - borderWidht), size: CGSize(width: self.frame.size.width, height: self.frame.size.height))
+        border.borderWidth = borderWidht
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
+}
+
 @IBDesignable
 class CardView: UIView {
     
