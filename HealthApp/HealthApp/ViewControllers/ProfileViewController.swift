@@ -7,39 +7,30 @@
 //
 
 import UIKit
-import FloatingPanel
+import HealthKit
+import RealmSwift
 
-class ProfileViewController: UIViewController, FloatingPanelControllerDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
+class ProfileViewController: UIViewController{
+    let realm = try? Realm()
+    let healthKitStore: HKHealthStore = HKHealthStore()
+    var patient: Patient?
     var collectionView: UICollectionView!
-    var fpc: FloatingPanelController!
     var backgroundImages: [UIImage] = [#imageLiteral(resourceName: "hardBlueGradient"), #imageLiteral(resourceName: "blueGradient"), #imageLiteral(resourceName: "purpleGradient"), #imageLiteral(resourceName: "pinkGradient")]
     var optionPressed = -1
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fpc = FloatingPanelController()
-        fpc.delegate = self
-        let contentVC = storyboard?.instantiateViewController(withIdentifier: "contentVC")
-        fpc.set(contentViewController: contentVC)
-        
-        //fpc.track(scrollView: contentVC.tableView)
-        //
-        //self.present(fpc, animated: true, completion: nil)
+        authorizeHealthKitInApp()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        fpc.removePanelFromParent(animated: true)
     }
-    
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add a Doctor", message: "How do you want to add a new doctor?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Scan DoctorID", style: .default, handler: { (_) in
-            self.fpc.addPanel(toParent: self)
-        }))
+        alert.addAction(UIAlertAction(title: "Scan DoctorID", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Show my PatientID", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true)
@@ -50,6 +41,159 @@ class ProfileViewController: UIViewController, FloatingPanelControllerDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
     }
+    
+    func setPatientBasicData() {
+        let (age, bloodType, biologicalSex) = getPacientBasicData()
+        if let myPatient = realm?.objects(Patient.self).first {
+            self.patient = myPatient
+        } else {
+            self.patient = Patient(uid: "UID")
+            do {
+                try realm?.write {
+                    realm?.add(patient!)
+                }
+            } catch {
+                print("Error Saving user: \(error.localizedDescription)")
+            }
+        }
+        
+        let readableBloodType = getReadable(bloodType: bloodType?.bloodType)
+        let readableBiologicalSex = getReadable(biologicalSex: biologicalSex)
+        let finalAge = age ?? 0
+        
+        do {
+            try realm?.write {
+                
+                if patient?.age != finalAge {
+                    patient?.age = finalAge
+                }
+                
+                if patient?.biologicalSex != readableBiologicalSex {
+                    patient?.biologicalSex = readableBiologicalSex
+                }
+                
+                if patient?.bloodType != readableBloodType {
+                    patient?.bloodType = readableBloodType
+                }
+                
+                realm?.add(patient!)
+            }
+        } catch {
+            print("Error Saving: \(error.localizedDescription)")
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
+    func getPacientBasicData() -> (age: Int?, bloodType: HKBloodTypeObject?, biologicalSex: HKBiologicalSexObject?) {
+        var age: Int?
+        var bloodType: HKBloodTypeObject?
+        var biologicalSex: HKBiologicalSexObject?
+        do {
+            let birthDay = try healthKitStore.dateOfBirthComponents()
+            let calendar = Calendar.current
+            let currentYear = calendar.component(.year, from: Date())
+            age = currentYear - birthDay.year!
+        } catch {
+            age = 21
+        }
+        
+        do {
+            bloodType = try healthKitStore.bloodType()
+            biologicalSex = try healthKitStore.biologicalSex()
+        } catch {
+            //Algo salió mal al leer el perfil
+        }
+        return (age, bloodType, biologicalSex)
+    }
+    
+    func getReadable(bloodType: HKBloodType?) -> String {
+        var bloodTypeText = ""
+        
+        if bloodType != nil {
+            switch(bloodType!) {
+            case .aPositive:
+                bloodTypeText = "A+"
+            case .aNegative:
+                bloodTypeText = "A-"
+            case .bPositive:
+                bloodTypeText = "B+"
+            case .bNegative:
+                bloodTypeText = "B-"
+            case .abPositive:
+                bloodTypeText = "AB+"
+            case .abNegative:
+                bloodTypeText = "AB-"
+            case .oPositive:
+                bloodTypeText = "O+"
+            case .oNegative:
+                bloodTypeText = "O-"
+            default:
+                break
+            }
+        }
+        
+        return bloodTypeText
+    }
+    
+    func getReadable(biologicalSex: HKBiologicalSexObject?) -> String {
+        var readeableBiologicalSex: String = "Other"
+        if let sex = biologicalSex?.biologicalSex {
+            switch sex {
+            case .notSet:
+                readeableBiologicalSex = "Not Defined"
+            case .female:
+                readeableBiologicalSex = "Female"
+            case .male:
+                readeableBiologicalSex = "Male"
+            case .other:
+                readeableBiologicalSex = "Other"
+            @unknown default:
+                readeableBiologicalSex = "Other"
+            }
+        }
+        
+        return readeableBiologicalSex
+    }
+    
+    func authorizeHealthKitInApp() {
+        let healthKitTypesToRead: Set<HKObjectType> = [
+            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
+            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.bloodType)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+            HKObjectType.characteristicType(forIdentifier: .biologicalSex)!,
+            HKObjectType.quantityType(forIdentifier: .bodyMassIndex)!,
+            HKObjectType.quantityType(forIdentifier: .height)!,
+            HKObjectType.quantityType(forIdentifier: .bodyMass)!,
+            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+            HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!,
+            HKObjectType.workoutType(),
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
+            HKObjectType.activitySummaryType()
+        ]
+        
+        let healthKitTypesToWrite: Set<HKSampleType> = [
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+        ]
+        
+        if !HKHealthStore.isHealthDataAvailable() {
+            print("Error ocurred")
+            return
+        }
+        
+        healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (sucess, error) -> Void in
+            print("Read Write Authoriazation succeded")
+            DispatchQueue.main.async {
+                self.setPatientBasicData()
+            }
+        }
+    }
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -66,8 +210,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
-            cell.nameLabel.text = "Eliza Green"
-            cell.roleLabel.text = "Female"
+            cell.nameLabel.text = patient?.firstName
+            cell.genderLabel.text = patient?.biologicalSex
             cell.imageView?.setRounded()
             //cell.imageView?.image = UIImage(named: "profile_picture")
             cell.selectionStyle = .none

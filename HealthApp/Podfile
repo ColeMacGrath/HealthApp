@@ -11,5 +11,6 @@ target 'HealthApp' do
   pod 'JTAppleCalendar'
   pod 'Charts'
   pod 'FloatingPanel'
+  pod 'RealmSwift'
 
 end

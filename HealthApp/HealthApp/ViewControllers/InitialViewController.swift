@@ -10,7 +10,7 @@ import UIKit
 
 class InitialViewController: UIViewController {
 
-    var logged = false
+    var logged = true
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,6 +9,19 @@
 import Foundation
 import UIKit
 
+enum MeasurementUnit: Int {
+    case pound = 0
+    case kilogram = 1
+    case meter = 2
+    case feet = 3
+}
+
+enum HealthValue: Int {
+    case weight = 0
+    case height = 1
+    case hearth = 2
+}
+
 extension UIImageView {
     func setRounded(bordedColor: UIColor = #colorLiteral(red: 0.9691175818, green: 0.9630624652, blue: 0.9590174556, alpha: 1), borderWitdht: Int = 5) {
         self.layer.cornerRadius = self.frame.size.height/2
@@ -61,5 +74,22 @@ extension Date {
         
         //Return Hour
         return day!
+    }
+    
+    func offsetFrom(date : Date) -> String {
+        
+        let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
+        let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self);
+        
+        let seconds = "\(difference.second ?? 0)s"
+        let minutes = "\(difference.minute ?? 0)m" + " " + seconds
+        let hours = "\(difference.hour ?? 0)h" + " " + minutes
+        let days = "\(difference.day ?? 0)d" + " " + hours
+        
+        if let day = difference.day, day          > 0 { return days }
+        if let hour = difference.hour, hour       > 0 { return hours }
+        if let minute = difference.minute, minute > 0 { return minutes }
+        if let second = difference.second, second > 0 { return seconds }
+        return ""
     }
 }
