@@ -42,6 +42,7 @@
 		B3DCE37222D0434000DAC751 /* DataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */; };
 		B3DCE37422D046A800DAC751 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37322D046A800DAC751 /* Util.swift */; };
 		B3DCE37622D054F200DAC751 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */; };
+		B3DE9A9F22D5A1BB00D85096 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9A9E22D5A1BB00D85096 /* HealthKitService.swift */; };
 		B3E4A2E822D28A41008D64B1 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */; };
 		B3FAEBA222D15F29007B7BBF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */; };
 		B3FAEBA422D15F93007B7BBF /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA322D15F93007B7BBF /* CalendarDayCell.swift */; };
@@ -95,6 +96,7 @@
 		B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewCell.swift; sourceTree = "<group>"; };
 		B3DCE37322D046A800DAC751 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		B3DE9A9E22D5A1BB00D85096 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
 		B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B3FAEBA322D15F93007B7BBF /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				B3FD83BC22D56B5F00D3014A /* Patient.swift */,
 				B3FD83BF22D56CE600D3014A /* HealthDataType.swift */,
 				B3FD83C122D5720D00D3014A /* Doctor.swift */,
+				B3DE9A9E22D5A1BB00D85096 /* HealthKitService.swift */,
 				B3FD83C322D572AA00D3014A /* Appointment.swift */,
 				B3CC864122D2EE5B00875307 /* Cell */,
 			);
@@ -400,6 +403,7 @@
 				B3FAEBA222D15F29007B7BBF /* CalendarViewController.swift in Sources */,
 				B30A38EC22D561E00027380C /* RegisterViewController.swift in Sources */,
 				B3FD83BB22D5643500D3014A /* InitialViewController.swift in Sources */,
+				B3DE9A9F22D5A1BB00D85096 /* HealthKitService.swift in Sources */,
 				B3D0B43822D10A09009407BB /* DoctorListViewController.swift in Sources */,
 				B30A38EA22D558D30027380C /* LoginViewController.swift in Sources */,
 				B3FAEBA422D15F93007B7BBF /* CalendarDayCell.swift in Sources */,

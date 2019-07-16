@@ -10,13 +10,12 @@ import UIKit
 import Charts
 
 class RecordViewController: UIViewController {
-    
-    var records: [Record] = []
+    var records: [BasicRecord] = []
+    var myRecords: [AnyObject] = []
     var mainColor: UIColor!
     var mainIcon: UIImage!
     var recordTitle: String!
-    let days = ["sun", "mon", "tue", "wed", "thur", "sat"]
-    let data = [150.0, 250.0 ,574.0, 152.0, 178.0, 785.0]
+    let days = ["sun", "mon", "tue", "wed", "thur"]
     var barChartView: BarChartView!
     
     override func viewDidLoad() {
@@ -24,13 +23,12 @@ class RecordViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = .default
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: mainColor!]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: mainColor!]
-        getRecords(number: 10)
+        createBasicRecords()
     }
     
     func createChart(dataPoints: [String], values: [Double]) {
-        
         var dataEntries: [BarChartDataEntry] = []
-        for i in 0..<dataPoints.count {
+        for i in 0..<values.count {
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
             dataEntries.append(dataEntry)
         }
@@ -47,10 +45,32 @@ class RecordViewController: UIViewController {
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
-    func getRecords(number: Int) {
-        for _ in 0..<number {
-            let record = Record(record: "170 BPM", date: "Dec 16, 2019")
-            records.append(record)
+    func createBasicRecords() {
+        if let healthRecords = myRecords as? [HearthRecord] {
+            for hearthRecord in healthRecords {
+                records.append(BasicRecord(record: "\(hearthRecord.bpm)", date: hearthRecord.endDate.formattedDate, data: Double(hearthRecord.bpm)))
+            }
+            return
+        }
+        
+        if let healthRecords = myRecords as? [WorkoutRecord] {
+            for workoutRecord in healthRecords {
+                records.append(BasicRecord(record: "\(workoutRecord.calories)", date: workoutRecord.endDate.formattedDate, data: workoutRecord.calories))
+            }
+            return
+        }
+        
+        if let healthRecords = myRecords as? [SleepAnalisys] {
+            for sleepRecord in healthRecords {
+                records.append(BasicRecord(record: "\(sleepRecord.hoursSleeping)", date: sleepRecord.startDate.formattedDate, data: Double(sleepRecord.hoursElapsed)))
+            }
+            return
+        }
+        
+        if let workoutRecords = myRecords as? [WorkoutRecord] {
+            for workoutRecord in workoutRecords {
+                records.append(BasicRecord(record: "\(workoutRecord.calories)", date: workoutRecord.startDate.formattedDate, data: workoutRecord.calories))
+            }
         }
     }
     
@@ -75,8 +95,15 @@ extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            var data = [Double]()
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecordMainCell", for: indexPath) as! RecordMainTableViewCell
             self.barChartView = cell.barChartView
+            let values = records.suffix(6)
+            
+            for value in values {
+                data.append(value.data)
+            }
+            
             self.createChart(dataPoints: days, values: data)
             cell.cardView.backgroundColor = mainColor
             cell.titleRecord.text = recordTitle
@@ -99,14 +126,4 @@ extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
         return height
     }
     
-}
-
-struct Record {
-    var record = ""
-    var date = ""
-    
-    init(record: String, date: String) {
-        self.record = record
-        self.date = date
-    }
 }

@@ -40,7 +40,7 @@ class WorkoutRecord: Object {
         self._caloriesBurned = caloriesBurned
     }
     
-    var time:       String { return _endDate.offsetFrom(date: _startDate) }
+    var time:       String { return _endDate.offsetFrom(date: _startDate, dateTerm: .short) }
     var calories:   Double { return _caloriesBurned }
     var startDate:  Date   { return _startDate }
     var endDate:    Date   { return _endDate }
@@ -57,8 +57,9 @@ class SleepAnalisys: Object {
         self._endDate = endDate
     }
     
-    var hoursSleeping:  String { return _endDate.offsetFrom(date: _startDate) }
-    var startDate:      Date   {  return _startDate }
+    var hoursSleeping:  String { return _endDate.offsetFrom(date: _startDate, dateTerm: .short) }
+    var startDate:      Date   { return _startDate }
+    var hoursElapsed:   Int    { return _endDate.hoursElapsed(date: _startDate) }
 }
 
 class Height: Object {
@@ -73,7 +74,7 @@ class Height: Object {
         self._endDate = endDate
     }
     
-    var height: Double { return _height }
+    var height: Double  { return _height }
     var startDate: Date { return _startDate }
 }
 
@@ -107,4 +108,21 @@ class StepRecord: Object {
     
     var steps:   Int  { return _steps }
     var endDate: Date { return _endDate }
+}
+
+
+class BasicRecord {
+    private var _record = ""
+    private var _date = ""
+    private var _data: Double
+    
+    init(record: String, date: String, data: Double) {
+        _record = record
+        _date = date
+        _data = data
+    }
+    
+    var record: String { return _record  }
+    var date:   String { return _date    }
+    var data:   Double { return _data    }
 }

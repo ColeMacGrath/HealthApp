@@ -22,6 +22,12 @@ enum HealthValue: Int {
     case hearth = 2
 }
 
+enum DateTermn: Int {
+    case tinny
+    case short
+    case long
+}
+
 extension UIImageView {
     func setRounded(bordedColor: UIColor = #colorLiteral(red: 0.9691175818, green: 0.9630624652, blue: 0.9590174556, alpha: 1), borderWitdht: Int = 5) {
         self.layer.cornerRadius = self.frame.size.height/2
@@ -76,7 +82,7 @@ extension Date {
         return day!
     }
     
-    func offsetFrom(date : Date) -> String {
+    func offsetFrom(date: Date, dateTerm: DateTermn) -> String {
         
         let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
         let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self);
@@ -85,11 +91,32 @@ extension Date {
         let minutes = "\(difference.minute ?? 0)m" + " " + seconds
         let hours = "\(difference.hour ?? 0)h" + " " + minutes
         let days = "\(difference.day ?? 0)d" + " " + hours
+        let shortHour = "\(difference.hour ?? 0)h"
         
-        if let day = difference.day, day          > 0 { return days }
-        if let hour = difference.hour, hour       > 0 { return hours }
-        if let minute = difference.minute, minute > 0 { return minutes }
-        if let second = difference.second, second > 0 { return seconds }
+        switch dateTerm {
+        case .tinny:
+            if let day = difference.day, day          > 0 { return seconds }
+        case .short:
+            if let hour = difference.hour, hour       > 0 { return shortHour }
+        case .long:
+            if let minute = difference.minute, minute > 0 { return days }
+        }
+        
         return ""
+    }
+    
+    func hoursElapsed(date: Date) -> Int {
+        let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
+        let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self);
+        
+        let hours = difference.hour ?? 0
+        
+        return hours
+    }
+    
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        return dateFormatter.string(from: self)
     }
 }
