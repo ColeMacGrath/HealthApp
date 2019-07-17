@@ -2,7 +2,6 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "01-shutterstock_476340928-Irina-Bg.jpg",
       "scale" : "1x"
     },
     {
@@ -11,6 +10,7 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "calendar-tab-icon.png",
       "scale" : "3x"
     }
   ],

@@ -24,6 +24,7 @@ class Patient: Object {
     var _sleepRecords = List<SleepAnalisys>()
     var _workoutRecords = List<WorkoutRecord>()
     var _hearthRecords = List<HearthRecord>()
+    var _ingestedFoods = List<Food>()
     
     convenience init(uid: String) {
         self.init()
@@ -44,6 +45,7 @@ class Patient: Object {
     var hearthRecords:  List<HearthRecord>  { return _hearthRecords }
     var workoutRecords: List<WorkoutRecord> { return _workoutRecords}
     var sleepRecords:   List<SleepAnalisys> { return _sleepRecords }
+    var ingestedFoods: List<Food>           { return _ingestedFoods }
     
     var firstName: String {
         set {

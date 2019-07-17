@@ -67,9 +67,9 @@ class RecordViewController: UIViewController {
             return
         }
         
-        if let workoutRecords = myRecords as? [WorkoutRecord] {
-            for workoutRecord in workoutRecords {
-                records.append(BasicRecord(record: "\(workoutRecord.calories)", date: workoutRecord.startDate.formattedDate, data: workoutRecord.calories))
+        if let foods = myRecords as? [Food] {
+            for food in foods {
+                records.append(BasicRecord(record: "\(food.name) - \(food.kilocalories) cal", date: food.startDate.formattedDate, data: food.kilocalories))
             }
         }
     }

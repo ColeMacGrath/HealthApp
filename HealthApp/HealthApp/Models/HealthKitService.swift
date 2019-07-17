@@ -100,26 +100,39 @@ class HealthKitService {
             HKObjectType.quantityType(forIdentifier: .bodyMass)!,
             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
             HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!,
-            HKObjectType.workoutType(),
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!,
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryFatTotal)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryFatSaturated)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCholesterol)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCarbohydrates)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryFiber)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietarySugar)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryProtein)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCalcium)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryIron)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryPotassium)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietarySodium)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryVitaminA)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryVitaminC)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryVitaminD)!,
+            HKObjectType.workoutType(),
             HKObjectType.activitySummaryType()
         ]
         
-        let healthKitTypesToWrite: Set<HKSampleType> = [
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
-        ]
+        let healthKitTypesToWrite: Set<HKSampleType> = []
         
         if !HKHealthStore.isHealthDataAvailable() {
             print("Error ocurred")
         }
         
         healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (sucess, error) -> Void in
-            print("Read Write Authoriazation succeded")
-            NotificationCenter.default.post(name: NSNotification.Name("healthKitAuth"), object: nil)
+            if sucess {
+                NotificationCenter.default.post(name: NSNotification.Name("healthKitAuth"), object: nil)
+            }
+            
         }
     }
     
@@ -144,13 +157,45 @@ class HealthKitService {
         healthKitStore.execute(query)
     }
     
+    
+    func dietaryInformation(from: Date, to: Date, patient: Patient) {
+        
+        guard let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) else {
+            fatalError("*** This method should never fail ***")
+        }
+        
+        let predicate = HKQuery.predicateForSamples(withStart: from, end: to, options: [])
+        
+        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
+            query, results, error in
+            
+            guard let samples = results as? [HKQuantitySample] else { return }
+            
+            DispatchQueue.main.async {
+                for sample in samples {
+                    guard let foodName =
+                        sample.metadata?[HKMetadataKeyFoodType] as? String else { break }
+                    let kilocalories = sample.quantity.doubleValue(for: HKUnit.kilocalorie())
+                    let food = Food(kilocalories: kilocalories, name: foodName, startDate: sample.startDate, endDate: sample.endDate)
+                    do {
+                        try? self.realm?.write {
+                            patient.ingestedFoods.append(food)
+                        }
+                    }
+                }
+            }
+        }
+        
+        healthKitStore.execute(query)
+    }
+    
     func heightRecords(from: Date, to: Date, patient: Patient) {
         let heightType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
         let query = HKSampleQuery(sampleType: heightType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { (query, results, error) in
             if let result = results?.last as? HKQuantitySample {
                 if result.startDate >= from && result.endDate <= to {
                     DispatchQueue.main.async(execute: { () -> Void in
-                        let formatedHeight = self.getFormated(sample: result, forValue: HealthValue.height)
+                        let formatedHeight = self.getFormated(sample: result, forValue: .height)
                         let height = Height(height: formatedHeight as! Double, startDate: result.startDate, endDate: result.endDate)
                         do {
                             try? self.realm?.write {
@@ -231,15 +276,17 @@ class HealthKitService {
             }
             
             DispatchQueue.main.async(execute: { () -> Void in
-                for activity in results as! [HKQuantitySample] {
-                    let totalActiveEnergy = activity.quantity.doubleValue(for: HKUnit.kilocalorie())
-                    let activity = WorkoutRecord(startDate: activity.startDate, endDate: activity.endDate, caloriesBurned: totalActiveEnergy)
-                    do {
-                        try self.realm?.write {
-                            patient.workoutRecords.append(activity)
+                if results?.count ?? 0 > 0 {
+                    for activity in results as! [HKQuantitySample] {
+                        let totalActiveEnergy = activity.quantity.doubleValue(for: HKUnit.kilocalorie())
+                        let activity = WorkoutRecord(startDate: activity.startDate, endDate: activity.endDate, caloriesBurned: totalActiveEnergy)
+                        do {
+                            try self.realm?.write {
+                                patient.workoutRecords.append(activity)
+                            }
+                        } catch {
+                            print("Error: \(error)")
                         }
-                    } catch {
-                        print("Error: \(error)")
                     }
                 }
             })

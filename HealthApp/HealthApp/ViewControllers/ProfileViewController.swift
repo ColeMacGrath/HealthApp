@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 class ProfileViewController: UIViewController{
+    private let refreshControl = UIRefreshControl()
     let realm = try? Realm()
     var patient: Patient?
     var collectionView: UICollectionView!
@@ -20,13 +21,27 @@ class ProfileViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setPatient()
-        setAllDetails()
+        tableView.refreshControl = refreshControl
+        refreshControl.tintColor = UIColor.black
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
+        refreshControl.addTarget(self, action: #selector(initMethods), for: .valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(setPatientBasicData), name: Notification.Name("healthKitAuth"), object: nil)
+        initMethods()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+        collectionView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    @objc func initMethods() {
+        HealthKitService.shared.authorizeHealthKit()
+        setPatient()
+        setAllDetails()
     }
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
@@ -49,29 +64,28 @@ class ProfileViewController: UIViewController{
         let readableBiologicalSex = HealthKitService.shared.getReadable(biologicalSex: biologicalSex)
         let finalAge = age ?? 0
         
-        do {
-            try realm?.write {
-                
-                if patient?.age != finalAge {
-                    patient?.age = finalAge
+        DispatchQueue.main.async {
+            do {
+                try self.realm?.write {
+                    
+                    if self.patient?.age != finalAge {
+                        self.patient?.age = finalAge
+                    }
+                    
+                    if self.patient?.biologicalSex != readableBiologicalSex {
+                        self.patient?.biologicalSex = readableBiologicalSex
+                    }
+                    
+                    if self.patient?.bloodType != readableBloodType {
+                        self.patient?.bloodType = readableBloodType
+                    }
+                    
+                    self.realm?.add(self.patient!)
                 }
-                
-                if patient?.biologicalSex != readableBiologicalSex {
-                    patient?.biologicalSex = readableBiologicalSex
-                }
-                
-                if patient?.bloodType != readableBloodType {
-                    patient?.bloodType = readableBloodType
-                }
-                
-                realm?.add(patient!)
+            } catch {
+                print("Error Saving: \(error.localizedDescription)")
             }
-        } catch {
-            print("Error Saving: \(error.localizedDescription)")
         }
-        
-        tableView.reloadData()
-        collectionView.reloadData()
     }
     
     func setPatient() {
@@ -90,14 +104,19 @@ class ProfileViewController: UIViewController{
     }
     
     func setAllDetails() {
-        HealthKitService.shared.weightRecords(from: Date(timeIntervalSince1970: TimeInterval()), to: Date(), patient: patient!)
-        HealthKitService.shared.heightRecords(from:Date(timeIntervalSince1970: TimeInterval()), to: Date(), patient: patient!)
-        HealthKitService.shared.getSleepAnalysis(from: Date(timeIntervalSince1970: TimeInterval()), to: Date(), patient: patient!)
-        HealthKitService.shared.getHearthRate(from: Date(timeIntervalSince1970: TimeInterval()), to: Date(), patient: patient!)
+        let initialDate = Date(timeIntervalSince1970: TimeInterval())
+        let today = Date()
+        HealthKitService.shared.weightRecords(from: initialDate, to: today, patient: patient!)
+        HealthKitService.shared.heightRecords(from: initialDate, to: today, patient: patient!)
+        HealthKitService.shared.getSleepAnalysis(from: initialDate, to: today, patient: patient!)
+        HealthKitService.shared.getHearthRate(from: initialDate, to: today, patient: patient!)
         HealthKitService.shared.getActiveEnergy(patient: patient!)
-        HealthKitService.shared.getStepsCount(forSpecificDate: Date()) { (steps) in
+        HealthKitService.shared.dietaryInformation(from: initialDate, to: today, patient: patient!)
+        HealthKitService.shared.getStepsCount(forSpecificDate: today) { (steps) in
             self.todaySteps = Int(steps)
         }
+        
+        self.refreshControl.endRefreshing()
     }
 }
 
@@ -131,10 +150,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
             let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardTableViewCell
             cell.selectionStyle = .none
             if indexPath.row == 2 {
+                cell.cardView.backgroundColor = #colorLiteral(red: 0.9553055167, green: 0.5355370045, blue: 0.399112761, alpha: 1)
                 cell.titleLabel.text = "Calories Burned"
                 cell.topicIcon.image = UIImage(named: "burn-icon")!
                 cell.descriptionLabel.text = "This is the count of calories burned with your activity throughout the day"
-                print(patient?.workoutRecords.last?.startDate as Any)
                 cell.quantityLabel.text = "\(patient!.workoutRecords.last?.calories ?? 0)"
             } else if indexPath.row == 3 {
                 cell.cardView.backgroundColor = #colorLiteral(red: 0.2653386891, green: 0.2729498446, blue: 0.6093763709, alpha: 1)
@@ -144,11 +163,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                 cell.quantityLabel.text = "\(patient!.sleepRecords.last?.hoursSleeping ?? "0 h")"
             } else if indexPath.row == 4 {
                 cell.cardView.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                cell.titleLabel.text = "Calories today"
+                cell.titleLabel.text = "Food calories"
                 cell.topicIcon.image = UIImage(named: "food-icon")!
-                cell.descriptionLabel.text = "Counting the calories consumed throughout the day, nutrition is important"
-                //cell.quantityLabel.text = "\(patient!.workoutRecords.last?.calories ?? 0)"
-                cell.quantityLabel.text = "1500"
+                cell.descriptionLabel.text = "My last food ingested - \(patient?.ingestedFoods.last?.name ?? "")"
+                cell.quantityLabel.text = "\(patient!.ingestedFoods.last?.kilocalories ?? 0.0)"
             } else if indexPath.row == 5 {
                 cell.cardView.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
                 cell.titleLabel.text = "Hearth BPM"
@@ -237,7 +255,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                         color = #colorLiteral(red: 0.2653386891, green: 0.2729498446, blue: 0.6093763709, alpha: 1)
                         icon = UIImage(named: "moon-icon")!
                     case 4:
-                        let records = Array(patient!.sleepRecords)
+                        let records = Array(patient!.ingestedFoods)
                         viewController.myRecords = records as [AnyObject]
                         title = "Calories Consumed"
                         color = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)

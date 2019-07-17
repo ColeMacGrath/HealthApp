@@ -110,6 +110,24 @@ class StepRecord: Object {
     var endDate: Date { return _endDate }
 }
 
+class Food: Object {
+    @objc private(set) dynamic var _name: String = ""
+    @objc private(set) dynamic var _kilocalories: Double = 0.0
+    @objc private(set) dynamic var _startDate: Date = Date()
+    @objc private(set) dynamic var _endDate: Date = Date()
+    
+    convenience init(kilocalories: Double, name: String, startDate: Date, endDate: Date) {
+        self.init()
+        self._name = name
+        self._kilocalories = kilocalories
+        self._startDate = startDate
+        self._endDate = endDate
+    }
+    
+    var name:        String  { return _name         }
+    var kilocalories: Double  { return _kilocalories }
+    var startDate:    Date   { return _endDate      }
+}
 
 class BasicRecord {
     private var _record = ""
