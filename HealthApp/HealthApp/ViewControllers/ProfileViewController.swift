@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 class ProfileViewController: UIViewController{
+    
     private let refreshControl = UIRefreshControl()
     let realm = try? Realm()
     var patient: Patient?
