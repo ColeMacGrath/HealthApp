@@ -12,5 +12,9 @@ target 'HealthApp' do
   pod 'Charts'
   pod 'FloatingPanel'
   pod 'RealmSwift'
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
 end
