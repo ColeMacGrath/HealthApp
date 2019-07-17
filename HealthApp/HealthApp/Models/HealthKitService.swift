@@ -142,11 +142,14 @@ class HealthKitService {
             if let result = results?.last as? HKQuantitySample {
                 if result.startDate >= from && result.endDate <= to {
                     DispatchQueue.main.async(execute: { () -> Void in
-                        let formatedWeight = self.getFormated(sample: result, forValue: HealthValue.weight)
-                        let weight = Weight(weight: formatedWeight as! Double, startDate: result.startDate, endDate: result.endDate)
-                        do {
-                            try? self.realm?.write {
-                                patient.weightRecords.append(weight)
+                        let grams = result.quantity.doubleValue(for: HKUnit.gram())
+                        let weight = Weight(weight: grams, startDate: result.startDate, endDate: result.endDate)
+                        let primaryKey = "\(result.startDate)\(result.endDate)"
+                        if self.realm?.object(ofType: Weight.self, forPrimaryKey: primaryKey) == nil {
+                            do {
+                                try? self.realm?.write {
+                                    patient.weightRecords.append(weight)
+                                }
                             }
                         }
                     })
@@ -177,9 +180,12 @@ class HealthKitService {
                         sample.metadata?[HKMetadataKeyFoodType] as? String else { break }
                     let kilocalories = sample.quantity.doubleValue(for: HKUnit.kilocalorie())
                     let food = Food(kilocalories: kilocalories, name: foodName, startDate: sample.startDate, endDate: sample.endDate)
-                    do {
-                        try? self.realm?.write {
-                            patient.ingestedFoods.append(food)
+                    let primaryKey = "\(sample.startDate)\(sample.endDate)"
+                    if self.realm?.object(ofType: Food.self, forPrimaryKey: primaryKey) == nil {
+                        do {
+                            try? self.realm?.write {
+                                patient.ingestedFoods.append(food)
+                            }
                         }
                     }
                 }
@@ -195,11 +201,14 @@ class HealthKitService {
             if let result = results?.last as? HKQuantitySample {
                 if result.startDate >= from && result.endDate <= to {
                     DispatchQueue.main.async(execute: { () -> Void in
-                        let formatedHeight = self.getFormated(sample: result, forValue: .height)
-                        let height = Height(height: formatedHeight as! Double, startDate: result.startDate, endDate: result.endDate)
-                        do {
-                            try? self.realm?.write {
-                                patient.heightRecords.append(height)
+                        let meters = result.quantity.doubleValue(for: HKUnit.meter())
+                        let height = Height(height: meters, startDate: result.startDate, endDate: result.endDate)
+                        let primaryKey = "\(result.startDate)\(result.endDate)"
+                        if self.realm?.object(ofType: Height.self, forPrimaryKey: primaryKey) == nil {
+                            do {
+                                try? self.realm?.write {
+                                    patient.heightRecords.append(height)
+                                }
                             }
                         }
                     })
@@ -225,9 +234,12 @@ class HealthKitService {
                             if sample.startDate >= from && sample.endDate <= to {
                                 DispatchQueue.main.async(execute: { () -> Void in
                                     let sleepAnalisys = SleepAnalisys(startDate: sample.startDate, endDate: sample.endDate)
-                                    do {
-                                        try? self.realm?.write {
-                                            patient.sleepRecords.append(sleepAnalisys)
+                                    let primaryKey = "\(sample.startDate)\(sample.endDate)"
+                                    if self.realm?.object(ofType: SleepAnalisys.self, forPrimaryKey: primaryKey) == nil {
+                                        do {
+                                            try? self.realm?.write {
+                                                patient.sleepRecords.append(sleepAnalisys)
+                                            }
                                         }
                                     }
                                 })
@@ -249,9 +261,12 @@ class HealthKitService {
                         DispatchQueue.main.async(execute: { () -> Void in
                             let formatedResult = self.getFormated(sample: result, forValue: HealthValue.hearth)
                             let hearthRecord = HearthRecord(bpm: formatedResult as! Int, startDate: result.startDate, endDate: result.endDate)
-                            do {
-                                try? self.realm?.write {
-                                    patient.hearthRecords.append(hearthRecord)
+                            let primaryKey = "\(result.startDate)\(result.endDate)"
+                            if self.realm?.object(ofType: HearthRecord.self, forPrimaryKey: primaryKey) == nil {
+                                do {
+                                    try? self.realm?.write {
+                                        patient.hearthRecords.append(hearthRecord)
+                                    }
                                 }
                             }
                         })
@@ -280,12 +295,13 @@ class HealthKitService {
                     for activity in results as! [HKQuantitySample] {
                         let totalActiveEnergy = activity.quantity.doubleValue(for: HKUnit.kilocalorie())
                         let activity = WorkoutRecord(startDate: activity.startDate, endDate: activity.endDate, caloriesBurned: totalActiveEnergy)
-                        do {
-                            try self.realm?.write {
-                                patient.workoutRecords.append(activity)
+                        let primaryKey = "\(activity.startDate)\(activity.endDate)"
+                        if self.realm?.object(ofType: WorkoutRecord.self, forPrimaryKey: primaryKey) == nil {
+                            do {
+                                try? self.realm?.write {
+                                    patient.workoutRecords.append(activity)
+                                }
                             }
-                        } catch {
-                            print("Error: \(error)")
                         }
                     }
                 }
@@ -328,15 +344,14 @@ class HealthKitService {
             formatedMeasure = "\(convertedUnit.rounded()) ft"
             break
         case .kilogram:
-            convertedUnit = measure / 2.205
-            //convertedUnit = measure / 1000
+            convertedUnit = measure / 1000
             formatedMeasure = "\(convertedUnit.rounded()) kg"
         case .meter:
             if measure < 100 {
-                formatedMeasure = "\(measure) M"
+                formatedMeasure = "\(measure) Mt"
             } else {
                 convertedUnit = measure / 100
-                formatedMeasure = "\(convertedUnit) M"
+                formatedMeasure = "\(convertedUnit) Mt"
             }
         case .pound:
             convertedUnit = measure / 453.592
@@ -344,6 +359,7 @@ class HealthKitService {
         }
         return formatedMeasure
     }
+    
     
     func getFormated(sample: HKQuantitySample, forValue: HealthValue) -> AnyObject {
         var toFormat = "\(sample.quantity)"

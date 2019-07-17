@@ -47,29 +47,33 @@ class RecordViewController: UIViewController {
     
     func createBasicRecords() {
         if let healthRecords = myRecords as? [HearthRecord] {
-            for hearthRecord in healthRecords {
+            let sortedRecords = healthRecords.sorted(by: {$0.endDate > $1.endDate})
+            for hearthRecord in sortedRecords {
                 records.append(BasicRecord(record: "\(hearthRecord.bpm)", date: hearthRecord.endDate.formattedDate, data: Double(hearthRecord.bpm)))
             }
             return
         }
         
         if let healthRecords = myRecords as? [WorkoutRecord] {
-            for workoutRecord in healthRecords {
-                records.append(BasicRecord(record: "\(workoutRecord.calories)", date: workoutRecord.endDate.formattedDate, data: workoutRecord.calories))
+            let sortedRecords = healthRecords.sorted(by: {$0.endDate > $1.endDate})
+            for workoutRecord in sortedRecords {
+                records.append(BasicRecord(record: "\(workoutRecord.calories.withoutDecimals)", date: workoutRecord.endDate.formattedDate, data: workoutRecord.calories))
             }
             return
         }
         
         if let healthRecords = myRecords as? [SleepAnalisys] {
-            for sleepRecord in healthRecords {
+            let sortedRecords = healthRecords.sorted(by: {$0.startDate > $1.startDate})
+            for sleepRecord in sortedRecords {
                 records.append(BasicRecord(record: "\(sleepRecord.hoursSleeping)", date: sleepRecord.startDate.formattedDate, data: Double(sleepRecord.hoursElapsed)))
             }
             return
         }
         
         if let foods = myRecords as? [Food] {
-            for food in foods {
-                records.append(BasicRecord(record: "\(food.name) - \(food.kilocalories) cal", date: food.startDate.formattedDate, data: food.kilocalories))
+            let sortedRecords = foods.sorted(by: {$0.startDate > $1.startDate})
+            for food in sortedRecords {
+                records.append(BasicRecord(record: "\(food.name) - \(food.kilocalories.withoutDecimals) cal", date: food.startDate.formattedDate, data: food.kilocalories))
             }
         }
     }
@@ -119,11 +123,11 @@ extension RecordViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height: CGFloat = 50.0
         if indexPath.section == 0 {
-            height = 300.0
+            return 300.0
+        } else {
+            return UITableView.automaticDimension
         }
-        return height
     }
     
 }

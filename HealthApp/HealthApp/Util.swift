@@ -118,3 +118,9 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
+extension Double {
+    var withoutDecimals: String {
+        return String(format: "%.0f", self)
+    }
+}

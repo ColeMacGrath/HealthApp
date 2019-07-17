@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ProfileViewController: UIViewController{
+class ProfileViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     let realm = try? Realm()
@@ -43,6 +43,11 @@ class ProfileViewController: UIViewController{
         HealthKitService.shared.authorizeHealthKit()
         setPatient()
         setAllDetails()
+        
+        if let tableView = self.tableView, let collectionView = self.collectionView {
+            tableView.reloadData()
+            collectionView.reloadData()
+        }
     }
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
@@ -107,15 +112,15 @@ class ProfileViewController: UIViewController{
     func setAllDetails() {
         let initialDate = Date(timeIntervalSince1970: TimeInterval())
         let today = Date()
+        HealthKitService.shared.getStepsCount(forSpecificDate: today) { (steps) in
+            self.todaySteps = Int(steps)
+        }
         HealthKitService.shared.weightRecords(from: initialDate, to: today, patient: patient!)
         HealthKitService.shared.heightRecords(from: initialDate, to: today, patient: patient!)
         HealthKitService.shared.getSleepAnalysis(from: initialDate, to: today, patient: patient!)
         HealthKitService.shared.getHearthRate(from: initialDate, to: today, patient: patient!)
         HealthKitService.shared.getActiveEnergy(patient: patient!)
         HealthKitService.shared.dietaryInformation(from: initialDate, to: today, patient: patient!)
-        HealthKitService.shared.getStepsCount(forSpecificDate: today) { (steps) in
-            self.todaySteps = Int(steps)
-        }
         
         self.refreshControl.endRefreshing()
     }
@@ -135,8 +140,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
-            cell.nameLabel.text = "Awesome Name"
-            //cell.nameLabel.text = patient?.firstName
+            cell.nameLabel.text = patient?.firstName
             cell.genderLabel.text = patient?.biologicalSex
             cell.imageView?.setRounded()
             //cell.imageView?.image = UIImage(named: "profile_picture")
@@ -155,7 +159,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                 cell.titleLabel.text = "Calories Burned"
                 cell.topicIcon.image = UIImage(named: "burn-icon")!
                 cell.descriptionLabel.text = "This is the count of calories burned with your activity throughout the day"
-                cell.quantityLabel.text = "\(patient!.workoutRecords.last?.calories ?? 0)"
+                cell.quantityLabel.text = String(format: "%.0f", patient!.workoutRecords.last?.calories ?? 0.0)
             } else if indexPath.row == 3 {
                 cell.cardView.backgroundColor = #colorLiteral(red: 0.2653386891, green: 0.2729498446, blue: 0.6093763709, alpha: 1)
                 cell.titleLabel.text = "Hours sleeping"
@@ -167,7 +171,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                 cell.titleLabel.text = "Food calories"
                 cell.topicIcon.image = UIImage(named: "food-icon")!
                 cell.descriptionLabel.text = "My last food ingested - \(patient?.ingestedFoods.last?.name ?? "")"
-                cell.quantityLabel.text = "\(patient!.ingestedFoods.last?.kilocalories ?? 0.0)"
+                cell.quantityLabel.text = String(format: "%.0f", patient!.ingestedFoods.last?.kilocalories ?? 0.0)
             } else if indexPath.row == 5 {
                 cell.cardView.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
                 cell.titleLabel.text = "Hearth BPM"
@@ -210,14 +214,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
             cell.dataLabel.text = "\(todaySteps)"
             cell.descriptionLabel.text = "Steps"
         case 1:
-            cell.dataLabel.text = "\(patient!.workoutRecords.last?.calories ?? 0)"
+            cell.dataLabel.text = patient?.workoutRecords.last?.calories.withoutDecimals ?? "0"
             cell.descriptionLabel.text = "Calories"
         case 2:
             cell.dataLabel.text = "Height"
-            cell.descriptionLabel.text = "\(patient?.heightRecords.last?.height ?? 0.0) cm"
+            cell.descriptionLabel.text = String(format: "%.1f", patient?.heightRecords.last?.height ?? 0.0) + " mt"
         default:
             cell.dataLabel.text = "Weight"
-            cell.descriptionLabel.text = "\(patient?.weightRecords.last?.weight ?? 0.0) lb"
+            cell.descriptionLabel.text = HealthKitService.shared.getFormated(measure: patient?.weightRecords.last?.weight ?? 0.0, on: .kilogram)
         }
         
         return cell

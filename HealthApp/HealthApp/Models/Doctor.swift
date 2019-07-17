@@ -20,6 +20,10 @@ class Doctor: Object {
     @objc private(set) dynamic var _profileImage: Data?
     //@objc private(set) dynamic var _appointments: [Appointment]
     
+    override static func primaryKey() -> String? {
+        return "_uid"
+    }
+    
     
     var uid:        String { return _uid }
     var username:   String { return _username }

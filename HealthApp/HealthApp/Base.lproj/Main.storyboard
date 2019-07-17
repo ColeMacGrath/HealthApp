@@ -478,25 +478,25 @@
                                             <outlet property="titleRecord" destination="2eV-id-16D" id="t7L-WJ-9UQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecordCell" textLabel="rcr-e2-xZe" detailTextLabel="H6T-NE-uFi" rowHeight="50" style="IBUITableViewCellStyleValue1" id="LwN-Ha-aM4">
-                                        <rect key="frame" x="0.0" y="328" width="414" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecordCell" textLabel="rcr-e2-xZe" detailTextLabel="H6T-NE-uFi" style="IBUITableViewCellStyleSubtitle" id="LwN-Ha-aM4">
+                                        <rect key="frame" x="0.0" y="328" width="414" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LwN-Ha-aM4" id="u5c-lQ-KpW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="170 BPM" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rcr-e2-xZe">
-                                                    <rect key="frame" x="20" y="11" width="104" height="29.5"/>
+                                                    <rect key="frame" x="20" y="14" width="90" height="27.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Dec 16, 2019" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H6T-NE-uFi">
-                                                    <rect key="frame" x="282" y="16" width="112" height="22.5"/>
+                                                    <rect key="frame" x="20" y="41.5" width="89.5" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -529,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3JO-tK-lj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="-1289"/>
+            <point key="canvasLocation" x="1139.1304347826087" y="-1289.0625"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UpC-cn-MQE">
@@ -1235,8 +1235,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-7K-o0Y">
-                                                    <rect key="frame" x="30" y="0.0" width="315" height="150"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-7K-o0Y">
+                                                    <rect key="frame" x="30" y="1" width="315" height="150"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1300,8 +1300,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TOu-yJ-Qvu">
                                                     <rect key="frame" x="108.5" y="14" width="158.5" height="222"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="yGu-e1-pe2">
-                                                            <rect key="frame" x="4" y="0.0" width="150" height="150"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="yGu-e1-pe2">
+                                                            <rect key="frame" x="4" y="1" width="150" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="150" id="5OB-Ue-ZUo"/>
                                                                 <constraint firstAttribute="height" constant="150" id="c9L-Cb-KtX"/>
@@ -1362,8 +1362,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add Your Notes" translatesAutoresizingMaskIntoConstraints="NO" id="6cm-BB-yVz">
-                                                    <rect key="frame" x="30" y="0.0" width="315" height="150"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" text="Add Your Notes" translatesAutoresizingMaskIntoConstraints="NO" id="6cm-BB-yVz">
+                                                    <rect key="frame" x="30" y="1" width="315" height="150"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
@@ -1389,7 +1389,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="l5c-of-5LB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -1471,7 +1471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BeC-Lk-MGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4079" y="-502"/>
+            <point key="canvasLocation" x="4078.2608695652175" y="-502.23214285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r0Y-g6-ej9">
@@ -1631,7 +1631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGi-6f-EPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4767" y="-502"/>
+            <point key="canvasLocation" x="4766.666666666667" y="-502.23214285714283"/>
         </scene>
         <!--Appointments-->
         <scene sceneID="xFJ-Gu-Klz">
@@ -1680,7 +1680,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vI7-P9-U3D">
-                                <rect key="frame" x="0.0" y="229" width="414" height="667"/>
+                                <rect key="frame" x="0.0" y="230" width="414" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="umq-Gg-zBZ" kind="embed" id="wBH-Vt-eOy"/>
@@ -2248,7 +2248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="638-ra-VMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2116" y="596"/>
+            <point key="canvasLocation" x="-2117" y="596"/>
         </scene>
     </scenes>
     <resources>
