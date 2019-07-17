@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class InitialViewController: UIViewController {
-
-    var logged = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +18,12 @@ class InitialViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        if logged {
-            performSegue(withIdentifier: "showMainPageTBC", sender: nil)
+        
+        guard Auth.auth().currentUser != nil else {
+            performSegue(withIdentifier: "showLoginVC", sender: nil)
             return
         }
+        performSegue(withIdentifier: "showMainPageTBC", sender: nil)
         
-        performSegue(withIdentifier: "showLoginVC", sender: nil)
     }
 }

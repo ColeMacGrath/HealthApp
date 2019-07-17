@@ -122,6 +122,7 @@ class ProfileViewController: UIViewController {
         HealthKitService.shared.getActiveEnergy(patient: patient!)
         HealthKitService.shared.dietaryInformation(from: initialDate, to: today, patient: patient!)
         
+        self.patient?.saveHealthInfoInFirebase()
         self.refreshControl.endRefreshing()
     }
 }

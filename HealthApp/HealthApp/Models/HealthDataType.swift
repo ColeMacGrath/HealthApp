@@ -77,6 +77,7 @@ class SleepAnalisys: Object {
     
     var hoursSleeping:  String { return _endDate.offsetFrom(date: _startDate, dateTerm: .short) }
     var startDate:      Date   { return _startDate }
+    var endDate:        Date   { return _endDate }
     var hoursElapsed:   Int    { return _endDate.hoursElapsed(date: _startDate) }
 }
 

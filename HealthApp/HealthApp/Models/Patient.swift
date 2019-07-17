@@ -18,6 +18,7 @@ class Patient: Object {
     @objc private(set) dynamic var _lastName: String = ""
     @objc private(set) dynamic var _bloodType: String = ""
     @objc private(set) dynamic var _biologialSex: String = ""
+    @objc private(set) dynamic var _email: String = ""
     @objc private(set) dynamic var _profilePicture: Data?
     var _heightRecords = List<Height>()
     var _weightRecords = List<Weight>()
@@ -41,9 +42,9 @@ class Patient: Object {
         self._lastName = ""
         self._bloodType = ""
         self._biologialSex = ""
+        self._email = ""
     }
     
-    var uid:            String              { return _uid }
     var username:       String              { return "\(_firstName) \(_lastName)" }
     var heightRecords:  List<Height>        { return _heightRecords }
     var weightRecords:  List<Weight>        { return _weightRecords }
@@ -51,7 +52,25 @@ class Patient: Object {
     var workoutRecords: List<WorkoutRecord> { return _workoutRecords}
     var sleepRecords:   List<SleepAnalisys> { return _sleepRecords }
     var ingestedFoods:  List<Food>          { return _ingestedFoods }
-    var stepsRecords:   List<StepRecord>    {return _stepsRecords }
+    var stepsRecords:   List<StepRecord>    { return _stepsRecords }
+    
+    var uid: String {
+        set {
+            _uid = newValue
+        }
+        get {
+            return _uid
+        }
+    }
+
+    var email: String {
+        set {
+            _email = newValue
+        }
+        get {
+            return _email
+        }
+    }
     
     var firstName: String {
         set {
@@ -141,5 +160,9 @@ class Patient: Object {
     
     func add(workoutRecord: WorkoutRecord) {
         _workoutRecords.append(workoutRecord)
+    }
+    
+    func saveHealthInfoInFirebase() {
+        DatabaseService.shared.savePatientInfoInFirebase(patient: self)
     }
 }

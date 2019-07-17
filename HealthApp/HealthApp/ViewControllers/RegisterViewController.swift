@@ -67,4 +67,30 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
         
         return height
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 4 {
+            let firstName = nameTextField.text ?? ""
+            let lastName = lastNameTextField.text ?? ""
+            let email = emailTextField.text
+            let password = passwordTextField.text
+            
+            let patient = Patient()
+            patient.firstName = firstName
+            patient.lastName = lastName
+            patient.email = email!
+            
+            AuthService.shared.register(email: email!, password: password!, patient: patient, onComplete: {
+                (message, data) in
+                guard message == nil else {
+                    let alert = UIAlertController(title: "Error found", message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                    return
+                }
+                
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+    }
 }
