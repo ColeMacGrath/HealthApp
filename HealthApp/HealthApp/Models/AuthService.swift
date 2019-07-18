@@ -20,6 +20,10 @@ class AuthService {
         return _shared
     }
     
+    var fireabseAuth: Auth {
+        return Auth.auth()
+    }
+    
     func login(email: String, password: String, onComplete: Completion?) {
         //Do login
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in

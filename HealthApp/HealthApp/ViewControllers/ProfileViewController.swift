@@ -43,11 +43,7 @@ class ProfileViewController: UIViewController {
         HealthKitService.shared.authorizeHealthKit()
         setPatient()
         setAllDetails()
-        
-        if let tableView = self.tableView, let collectionView = self.collectionView {
-            tableView.reloadData()
-            collectionView.reloadData()
-        }
+        checkCloudInformation()
     }
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
@@ -109,6 +105,94 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    func checkCloudInformation() {
+        if let patientUID = AuthService.shared.fireabseAuth.currentUser?.uid {
+            DatabaseService.shared.patientsRef.child(patientUID).observeSingleEvent(of: .value) { (snapshot) in
+                if let patient = snapshot.value as? Dictionary<String, AnyObject> {
+                    if let profile = patient["profile"] as? Dictionary<String, AnyObject> {
+                        DispatchQueue.main.async {
+                            self.checkChanges(userDict: profile)
+                            //self.downloadProfileImage(userDict: profile)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func checkChanges(userDict: Dictionary<String, AnyObject>) {
+        var hasUser = true
+        if patient == nil {
+            patient = Patient()
+            hasUser = false
+        }
+        
+        guard let myDict = userDict["basicData"] else { return }
+        
+        if let UID = AuthService.shared.fireabseAuth.currentUser?.uid {
+            if UID != patient?.uid {
+                do {
+                    try realm?.write {
+                        patient?.uid = UID
+                    }
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        if let firstName = myDict["firstName"] as? String {
+            if patient?.firstName != firstName {
+                do {
+                    try realm?.write {
+                        patient?.firstName = firstName
+                    }
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        if let lastName = myDict["lastName"] as? String {
+            if patient?.lastName != lastName {
+                do {
+                    try realm?.write {
+                        patient?.lastName = lastName
+                    }
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        if let email = myDict["email"] as? String {
+            if patient?.email != email {
+                do {
+                    try realm?.write {
+                        patient?.email = email
+                    }
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        if !hasUser {
+            do {
+                try realm?.write {
+                    realm?.add(patient!.self)
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        
+        if let tableView = self.tableView, let collectionView = self.collectionView {
+            tableView.reloadData()
+            collectionView.reloadData()
+        }
+        self.refreshControl.endRefreshing()
+    }
+    
     func setAllDetails() {
         let initialDate = Date(timeIntervalSince1970: TimeInterval())
         let today = Date()
@@ -123,7 +207,6 @@ class ProfileViewController: UIViewController {
         HealthKitService.shared.dietaryInformation(from: initialDate, to: today, patient: patient!)
         
         self.patient?.saveHealthInfoInFirebase()
-        self.refreshControl.endRefreshing()
     }
 }
 

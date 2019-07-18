@@ -163,6 +163,10 @@ class Patient: Object {
     }
     
     func saveHealthInfoInFirebase() {
-        DatabaseService.shared.savePatientInfoInFirebase(patient: self)
+        DatabaseService.shared.saveHealthDataInFirebase(patient: self)
+    }
+    
+    func saveBasicInfoInFirebase() {
+        DatabaseService.shared.saveBasicInfoInFirebase(patient: self)
     }
 }

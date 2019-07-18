@@ -45,7 +45,7 @@ class DatabaseService {
     }
     
     func savePatient(patient: Patient) {
-       let profile: Dictionary<String, AnyObject> = ["firstName": patient.firstName as AnyObject, "lastName": patient.lastName as AnyObject, "age": patient.age as AnyObject, "email": patient.email as AnyObject]
+       let profile: Dictionary<String, AnyObject> = ["firstName": patient.firstName as AnyObject, "lastName": patient.lastName as AnyObject, "email": patient.email as AnyObject]
         self.mainRef.child(FIR_CHILD_PATIENTS).child(patient.uid).child("profile").setValue(profile)
     }
     
@@ -59,25 +59,29 @@ class DatabaseService {
         self.mainRef.child(FIR_CHILD_PATIENTS).child(patientUID).child("profileURL").setValue(patientRef)
     }
     
-    func savePatientInfoInFirebase(patient: Patient) {
-        let age = patient.age
+    func saveBasicInfoInFirebase(patient: Patient) {
         let firstName = patient.firstName
         let lastName = patient.lastName
+        let email = patient.email
+        let dictionary: [String: AnyObject] = [
+            "firstName": firstName as AnyObject,
+            "lastName": lastName as AnyObject,
+            "email": email as AnyObject
+        ]
+        self.mainRef.child(FIR_CHILD_PATIENTS).child("\(patient.uid)/profile/basicData/").setValue(dictionary)
+    }
+    
+    func saveHealthDataInFirebase(patient: Patient) {
+        let age = patient.age
         let bloodType = patient.bloodType
         let biologicalSex = patient.biologicalSex
-        let email = patient.email
         
         let dictionary: [String: AnyObject] = [
-            "profile": [
-                "firstName": firstName as AnyObject,
-                "lastName": lastName as AnyObject,
                 "bloodType": bloodType as AnyObject,
                 "biologicalSex": biologicalSex as AnyObject,
-                "email": email as AnyObject,
                 "age": age as AnyObject
-            ] as AnyObject
         ]
-        self.mainRef.child(FIR_CHILD_PATIENTS).child(patient.uid).setValue(dictionary)
+        self.mainRef.child(FIR_CHILD_PATIENTS).child("\(patient.uid)/profile/healthData/").setValue(dictionary)
         
         for heightRecord in patient.heightRecords {
             self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/heightRecords/").child("\(heightRecord.startDate)").setValue(heightRecord.height)
