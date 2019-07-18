@@ -27,12 +27,12 @@ class ProfileViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
         refreshControl.addTarget(self, action: #selector(initMethods), for: .valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(setPatientBasicData), name: Notification.Name("healthKitAuth"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setPatientBasicData), name: Notification.Name("UpdateTableInfo"), object: nil)
         initMethods()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
-        collectionView.reloadData()
+        reloadTables()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,6 +44,11 @@ class ProfileViewController: UIViewController {
         setPatient()
         setAllDetails()
         checkCloudInformation()
+    }
+    
+    @objc func reloadTables() {
+        tableView.reloadData()
+        collectionView.reloadData()
     }
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
@@ -87,6 +92,8 @@ class ProfileViewController: UIViewController {
             } catch {
                 print("Error Saving: \(error.localizedDescription)")
             }
+            
+            self.initMethods()
         }
     }
     
@@ -94,14 +101,17 @@ class ProfileViewController: UIViewController {
         if let myPatient = realm?.objects(Patient.self).first {
             self.patient = myPatient
         } else {
-            self.patient = Patient(uid: "UID")
-            do {
-                try realm?.write {
-                    realm?.add(patient!)
+            if let uid = AuthService.shared.fireabseAuth.currentUser?.uid {
+                self.patient = Patient(uid: uid)
+                do {
+                    try realm?.write {
+                        realm?.add(patient!)
+                    }
+                } catch {
+                    print("Error Saving user: \(error.localizedDescription)")
                 }
-            } catch {
-                print("Error Saving user: \(error.localizedDescription)")
             }
+            
         }
     }
     
@@ -122,24 +132,13 @@ class ProfileViewController: UIViewController {
     
     func checkChanges(userDict: Dictionary<String, AnyObject>) {
         var hasUser = true
+        guard let uid = AuthService.shared.fireabseAuth.currentUser?.uid else { return }
         if patient == nil {
-            patient = Patient()
+            patient = Patient(uid: uid)
             hasUser = false
         }
         
         guard let myDict = userDict["basicData"] else { return }
-        
-        if let UID = AuthService.shared.fireabseAuth.currentUser?.uid {
-            if UID != patient?.uid {
-                do {
-                    try realm?.write {
-                        patient?.uid = UID
-                    }
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
         
         if let firstName = myDict["firstName"] as? String {
             if patient?.firstName != firstName {
@@ -226,8 +225,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
             cell.nameLabel.text = patient?.firstName
             cell.genderLabel.text = patient?.biologicalSex
-            cell.imageView?.setRounded()
-            //cell.imageView?.image = UIImage(named: "profile_picture")
+            cell.profileImageView.setRounded()
+            cell.profileImageView.image = patient?.profilePicture ?? UIImage(named: "profile-placeholder")
             cell.selectionStyle = .none
             return cell
         case 1:
@@ -359,6 +358,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                     viewController.mainColor = color
                     viewController.mainIcon = icon
                     viewController.recordTitle = title
+                }
+            }
+        } else if segue.identifier == "showEditProfileNC" {
+            if let navigationController = segue.destination as? UINavigationController {
+                if let viewController = navigationController.topViewController as? EditProfileViewController {
+                    viewController.patient = self.patient
                 }
             }
         }

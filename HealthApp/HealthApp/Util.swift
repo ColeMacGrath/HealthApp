@@ -124,3 +124,9 @@ extension Double {
         return String(format: "%.0f", self)
     }
 }
+
+extension UITableView {
+    func removeExtraLines() {
+        self.tableFooterView = UIView()
+    }
+}

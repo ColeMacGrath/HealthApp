@@ -13,7 +13,6 @@ class Patient: Object {
     @objc private(set) dynamic var _uid: String = ""
     @objc private(set) dynamic var _steps: Int = 0
     @objc private(set) dynamic var _age: Int = 0
-    @objc private(set) dynamic var _username: String = ""
     @objc private(set) dynamic var _firstName: String = ""
     @objc private(set) dynamic var _lastName: String = ""
     @objc private(set) dynamic var _bloodType: String = ""
@@ -37,7 +36,6 @@ class Patient: Object {
         self._uid = uid
         self._steps = 0
         self._age = 0
-        self._username = ""
         self._firstName = ""
         self._lastName = ""
         self._bloodType = ""
@@ -45,7 +43,6 @@ class Patient: Object {
         self._email = ""
     }
     
-    var username:       String              { return "\(_firstName) \(_lastName)" }
     var heightRecords:  List<Height>        { return _heightRecords }
     var weightRecords:  List<Weight>        { return _weightRecords }
     var hearthRecords:  List<HearthRecord>  { return _hearthRecords }
@@ -81,12 +78,14 @@ class Patient: Object {
         }
     }
     
-    var profilePicture: UIImage {
+    var profilePicture: UIImage { return UIImage(data: _profilePicture!)! }
+    
+    var dataProfilePicture: Data? {
         set {
-            _profilePicture = newValue.pngData()
+            _profilePicture = newValue
         }
         get {
-            return UIImage(data: _profilePicture!)!
+            return _profilePicture
         }
     }
     
