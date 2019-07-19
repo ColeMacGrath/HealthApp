@@ -17,12 +17,14 @@ class DoctorListViewController: UIViewController {
     var patient: Patient?
     var selectedDoctor: Doctor!
     let realm = try? Realm()
+    var isSelectionAllowed = false
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsMultipleSelection = false
         tableView.refreshControl = refreshControl
-        refreshControl.tintColor = UIColor.black
+        refreshControl.tintColor = UIColor.darkGray
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching My Doctors ...", attributes: nil)
         refreshControl.addTarget(self, action: #selector(getDoctorsUID), for: .valueChanged)
         if let firstViewController = self.tabBarController?.viewControllers?.first as? ProfileViewController {
@@ -65,24 +67,12 @@ class DoctorListViewController: UIViewController {
                                 self.downloadDoctorProfileImage(doctorDict: doctorDict, doctor: localDoctor)
                                 do {
                                     try? self.realm?.write {
-                                        if localDoctor.firstName != firstName {
-                                            localDoctor.firstName = firstName
-                                        }
-                                        if localDoctor.lastName != lastName {
-                                            localDoctor.lastName = lastName
-                                        }
-                                        if localDoctor.direction != address {
-                                            localDoctor.direction = address
-                                        }
-                                        if localDoctor.phone != phone {
-                                            localDoctor.phone = phone
-                                        }
-                                        if localDoctor.email != email {
-                                            localDoctor.email = email
-                                        }
-                                        if localDoctor.specialty != specialty {
-                                            localDoctor.specialty = specialty
-                                        }
+                                        if localDoctor.firstName != firstName { localDoctor.firstName = firstName }
+                                        if localDoctor.lastName  != lastName  { localDoctor.lastName = lastName   }
+                                        if localDoctor.direction != address   { localDoctor.direction = address   }
+                                        if localDoctor.phone     != phone     { localDoctor.phone = phone         }
+                                        if localDoctor.email     != email     { localDoctor.email = email         }
+                                        if localDoctor.specialty != specialty { localDoctor.specialty = specialty }
                                     }
                                 }
                             } else {
@@ -157,7 +147,15 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedDoctor = patient?.doctors.randomElement()
-        performSegue(withIdentifier: "showDoctorProfileVC", sender: nil)
+        selectedDoctor = patient?.doctors[indexPath.row]
+        
+        if let parentViewController = self.parent as? CreateAppointmentViewController {
+            parentViewController.selectedDoctor = self.selectedDoctor
+            parentViewController.patient = self.patient
+            return
+        }
+        
+       performSegue(withIdentifier: "showDoctorProfileVC", sender: nil)
+        
     }
 }

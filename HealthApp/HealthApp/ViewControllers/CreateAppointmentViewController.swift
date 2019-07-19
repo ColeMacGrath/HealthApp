@@ -22,6 +22,9 @@ class CreateAppointmentViewController: UIPageViewController {
     }()
     
     var pageControl = UIPageControl()
+    var selectedDoctor: Doctor!
+    var patient: Patient!
+    var createdAppointment: Appointment!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +53,12 @@ class CreateAppointmentViewController: UIPageViewController {
     }
     
     func newViewController(storyboardIdentifier: String) -> UIViewController {
-        /*if storyboardIdentifier == "doctorListVC" {
-         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardIdentifier) as! DoctorListViewController
-         vc.multipleSelectionIsAllowed = true
-         return vc
-         }*/
+        
+        if storyboardIdentifier == "doctorListVC" {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardIdentifier) as! DoctorListViewController
+            viewController.isSelectionAllowed = true
+            return viewController
+        }
         
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardIdentifier)
     }

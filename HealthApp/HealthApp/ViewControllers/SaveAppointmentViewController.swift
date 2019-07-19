@@ -7,27 +7,23 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SaveAppointmentViewController: UIViewController {
 
     var textView: UITextView!
+    var doctor: Doctor!
+    var patient: Patient!
+    var date: Date!
+    var realm = try? Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let parent = self.parent as? CreateAppointmentViewController {
+            self.doctor = parent.selectedDoctor
+            self.patient = parent.patient
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -44,7 +40,9 @@ extension SaveAppointmentViewController: UITableViewDelegate, UITableViewDataSou
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! DoctorProfileTableViewCell
-            
+            cell.nameLabel.text = "\(doctor.firstName) \(doctor.lastName)"
+            cell.specialityLabel.text = doctor.specialty
+            cell.profileImageView.image = doctor.profilePicture ?? UIImage(named: "profile-placeholder")
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath)
@@ -70,7 +68,7 @@ extension SaveAppointmentViewController: UITableViewDelegate, UITableViewDataSou
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCardTableViewCell
-            
+            cell.titleLabel.text = "Save"
             return cell
         }
     }
@@ -87,6 +85,26 @@ extension SaveAppointmentViewController: UITableViewDelegate, UITableViewDataSou
             return 200.0
         default:
             return 100.0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 5 {
+            let appointment = Appointment(startDate: Date(), endDate: Date(), doctorUid: doctor.uid, patientUid: patient.uid)
+            
+            do {
+                try realm?.write {
+                    patient.appointments.append(appointment)
+                }
+            } catch {
+                print("Error saving appointment: \(error.localizedDescription)")
+            }
+            
+            _ = appointment.createInCalendar(doctor: self.doctor)
+            
+            if let parentViewController = self.parent as? CreateAppointmentViewController {
+                parentViewController.createdAppointment = appointment
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ class Patient: Object {
     var _ingestedFoods = List<Food>()
     var _stepsRecords = List<StepRecord>()
     var _myDoctors = List<Doctor>()
+    var _myAppointments = List<Appointment>()
     
     override static func primaryKey() -> String? {
         return "_uid"
@@ -52,6 +53,7 @@ class Patient: Object {
     var ingestedFoods:  List<Food>          { return _ingestedFoods }
     var stepsRecords:   List<StepRecord>    { return _stepsRecords }
     var doctors:       List<Doctor>         { return _myDoctors }
+    var appointments:  List<Appointment>    { return _myAppointments }
     
     var uid: String {
         set {

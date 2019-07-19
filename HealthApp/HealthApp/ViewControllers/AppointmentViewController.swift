@@ -10,27 +10,21 @@ import UIKit
 
 class AppointmentViewController: UIViewController {
     
+    var appointment: Appointment!
+    var doctor: Doctor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        // Do any additional setup after loading the view.
+        if let parent = self.parent as? CreateAppointmentViewController {
+            self.doctor = parent.selectedDoctor
+            self.appointment = parent.createdAppointment
+        }
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
@@ -40,7 +34,6 @@ extension AppointmentViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 4
     }
     
@@ -51,11 +44,11 @@ extension AppointmentViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell", for: indexPath) as! AppointmentInformationTableViewCell
-            cell.doctorNameLabel.text = "Sussan Gwen"
-            cell.specialityLabel.text = "Gynecologyst"
-            cell.dateLabel.text = "Dec, 16 2019"
+            cell.doctorNameLabel.text = "\(doctor.firstName) \(doctor.lastName)"
+            cell.specialityLabel.text = "\(doctor.specialty)"
+            cell.dateLabel.text = "\(appointment.startDate.formattedDate)"
             cell.hourLabel.text = "07:00 PM"
-            cell.profileImageView.image = UIImage(named: "doctor_female")!
+            cell.profileImageView.image = doctor.profilePicture ?? UIImage(named: "profile-placeholder")
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath)
@@ -67,7 +60,7 @@ extension AppointmentViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
-            cell.noteTextView.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
+            cell.noteTextView.text = "\(appointment.notes ?? "")"
             return cell
         }
     }

@@ -24,13 +24,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.refreshControl = refreshControl
-        refreshControl.tintColor = UIColor.black
+        refreshControl.tintColor = UIColor.darkGray
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
         refreshControl.addTarget(self, action: #selector(initMethods), for: .valueChanged)
         
-        /*NotificationCenter.default.addObserver(self, selector: #selector(initMethods), name: Notification.Name("healthKitAuth"), object: nil)*/
+        NotificationCenter.default.addObserver(self, selector: #selector(initMethods), name: Notification.Name("healthKitAuth"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setInformation), name: Notification.Name("UpdateTableInfo"), object: nil)
-        
+        //HealthKitService.shared.authorizeHealthKit()
         initMethods()
     }
     

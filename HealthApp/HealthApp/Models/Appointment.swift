@@ -22,7 +22,7 @@ class Appointment: Object {
     @objc private(set) dynamic var _doctorLocalIdentifier: String?
     
     override static func primaryKey() -> String? {
-        return "_localID"
+        return "_id"
     }
     
     convenience init(startDate: Date, endDate: Date, doctorUid: String, patientUid: String) {
