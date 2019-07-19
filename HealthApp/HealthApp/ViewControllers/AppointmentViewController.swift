@@ -16,9 +16,12 @@ class AppointmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        if let parent = self.parent as? CreateAppointmentViewController {
-            self.doctor = parent.selectedDoctor
-            self.appointment = parent.createdAppointment
+        
+        if appointment == nil && doctor == nil {
+            if let parent = self.parent as? CreateAppointmentViewController {
+                self.doctor = parent.selectedDoctor
+                self.appointment = parent.createdAppointment
+            }
         }
     }
     
@@ -82,6 +85,11 @@ extension AppointmentViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            if let navigationController = self.navigationController {
+                navigationController.popViewController(animated: true)
+                return
+            }
+            
             dismiss(animated: true, completion: nil)
         }
     }

@@ -145,6 +145,12 @@ extension Date {
         let minutes = calendar.component(.minute, from: self)
         return "\(hour):\(minutes)"
     }
+    
+    var shortDate: Date {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        let date = Calendar.current.date(from: components)
+        return date!
+    }
 }
 
 extension Double {

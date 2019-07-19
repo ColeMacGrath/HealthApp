@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: JTACMonthView!
+    @IBOutlet weak var tableView: UITableView!
+    var patient: Patient?
+    let realm = try? Realm()
+    var appointmentsOfDate = [Appointment]()
+    var doctorsForDate = [Doctor]()
+    var selectedAppointment: Appointment!
+    var selectedDoctor: Doctor!
     
     //calendar color
     let outsideMonthColor = UIColor.lightGray
@@ -20,10 +28,14 @@ class CalendarViewController: UIViewController {
     let currentDateSelectedViewColor = UIColor.black
     let formatter = DateFormatter()
     
-    @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let firstViewController = self.tabBarController?.viewControllers?.first as? ProfileViewController {
+            self.patient = firstViewController.patient
+            appointmentsOfDate = getAppointmentsFor(date: calendarView.selectedDates.last ?? Date())
+        }
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()   
@@ -35,10 +47,24 @@ class CalendarViewController: UIViewController {
         calendarView.minimumInteritemSpacing = 0
     }
     
+    func getAppointmentsFor(date: Date) -> [Appointment] {
+        let events = patient?.appointments.filter({ return $0.startDate.shortDate == date.shortDate })
+        return events?.sorted(by: { $0.startDate < $1.startDate }) ?? []
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCreateAppointmentVC" {
             if let pageViewController = segue.destination as? CreateAppointmentViewController {
                 pageViewController.selectedDate = self.calendarView.selectedDates.last
+            }
+        } else if segue.identifier == "showAppointmentVC" {
+            if let viewController = segue.destination as? AppointmentViewController {
+                viewController.appointment = self.selectedAppointment
+                viewController.doctor = self.selectedDoctor
             }
         }
     }
@@ -69,7 +95,11 @@ extension CalendarViewController: JTACMonthViewDataSource {
 
 extension CalendarViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        //
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarDayCell", for: indexPath) as! CalendarDayCell
+        cell.dateLabel.text = cellState.text
+        
+        handleCellSelected(view: cell, cellState: cellState)
+        handleCellTextColor(view: cell, cellState: cellState)
     }
     
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
@@ -85,7 +115,7 @@ extension CalendarViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
-        
+        appointmentsOfDate = getAppointmentsFor(date: date)
         tableView.reloadData()
     }
     
@@ -150,13 +180,18 @@ extension CalendarViewController {
 
 extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return appointmentsOfDate.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dateRecipeCell", for: indexPath) as! AppointmentTableViewCell
-        cell.doctorNameLabel.text = "Sussan Gwen"
-        cell.hourLabel.text = "02: 00 PM"
+        let doctorUID = appointmentsOfDate[indexPath.row].doctorUid
+        if let doctor = self.realm?.object(ofType: Doctor.self, forPrimaryKey: doctorUID) {
+            cell.doctorNameLabel.text = "\(doctor.firstName) \(doctor.lastName)"
+            doctorsForDate.append(doctor)
+        }
+        
+        cell.hourLabel.text = appointmentsOfDate[indexPath.row].startDate.hourAndMinutes
         cell.appointmentTitleLabel.text = "Appointment"
         
         return cell
@@ -164,5 +199,11 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedAppointment = appointmentsOfDate[indexPath.row]
+        selectedDoctor = doctorsForDate[indexPath.row]
+        performSegue(withIdentifier: "showAppointmentVC", sender: nil)
     }
 }
