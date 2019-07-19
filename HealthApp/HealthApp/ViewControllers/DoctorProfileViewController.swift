@@ -12,6 +12,7 @@ class DoctorProfileViewController: UIViewController {
     
     let options = ["Personal Info", "Address"]
     let images: [UIImage] = [#imageLiteral(resourceName: "person-icon"),#imageLiteral(resourceName: "map-icon")]
+    var doctor: Doctor!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +52,9 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! DoctorProfileTableViewCell
-            cell.profileImageView.image = UIImage(named: "doctor_female")!
-            cell.nameLabel.text = "Sussan Gwen"
-            cell.specialityLabel.text = "Gynecologyst"
+            cell.profileImageView.image = doctor.profilePicture ?? UIImage(named: "doctor_female")!
+            cell.nameLabel.text = "\(doctor.firstName) \(doctor.lastName)"
+            cell.specialityLabel.text = doctor.specialty
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCardTableViewCell

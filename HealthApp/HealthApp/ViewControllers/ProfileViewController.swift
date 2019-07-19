@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 import RealmSwift
 
 class ProfileViewController: UIViewController {
@@ -122,12 +123,34 @@ class ProfileViewController: UIViewController {
                     if let profile = patient["profile"] as? Dictionary<String, AnyObject> {
                         DispatchQueue.main.async {
                             self.checkChanges(userDict: profile)
-                            //self.downloadProfileImage(userDict: profile)
+                            self.downloadProfileImage(userDict: profile)
                         }
                     }
                 }
             }
         }
+    }
+    
+    func downloadProfileImage(userDict: Dictionary<String, AnyObject>) {
+        if let profilePictureURL = userDict["profilePicture"] as? Dictionary<String, AnyObject> {
+            if let imageURL = profilePictureURL["profilePictureURL"] as? String {
+                let httpRef = Storage.storage().reference(forURL: imageURL)
+                httpRef.getData(maxSize: 15*1024*1024, completion: { (data, error) in
+                    if error != nil {
+                        print("Error al descargar la imagen: \(String(describing: error?.localizedDescription))")
+                    } else {
+                        do {
+                            try self.realm?.write {
+                                self.patient?.dataProfilePicture = data
+                            }
+                        } catch {
+                            print("No se pudo poner la imagen")
+                        }
+                    }
+                })
+            }
+        }
+        tableView.reloadData()
     }
     
     func checkChanges(userDict: Dictionary<String, AnyObject>) {

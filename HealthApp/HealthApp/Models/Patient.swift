@@ -26,6 +26,7 @@ class Patient: Object {
     var _hearthRecords = List<HearthRecord>()
     var _ingestedFoods = List<Food>()
     var _stepsRecords = List<StepRecord>()
+    var _myDoctors = List<Doctor>()
     
     override static func primaryKey() -> String? {
         return "_uid"
@@ -50,6 +51,7 @@ class Patient: Object {
     var sleepRecords:   List<SleepAnalisys> { return _sleepRecords }
     var ingestedFoods:  List<Food>          { return _ingestedFoods }
     var stepsRecords:   List<StepRecord>    { return _stepsRecords }
+    var doctors:       List<Doctor>         { return _myDoctors }
     
     var uid: String {
         set {
@@ -78,7 +80,13 @@ class Patient: Object {
         }
     }
     
-    var profilePicture: UIImage { return UIImage(data: _profilePicture!)! }
+    var profilePicture: UIImage? {
+        guard let profileImage = _profilePicture else { return nil }
+        if let image = UIImage(data: profileImage) {
+            return image
+        }
+        return nil
+    }
     
     var dataProfilePicture: Data? {
         set {
@@ -168,4 +176,5 @@ class Patient: Object {
     func saveBasicInfoInFirebase() {
         DatabaseService.shared.saveBasicInfoInFirebase(patient: self)
     }
+    
 }

@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="382.5" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-BT-bUI">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-BT-bUI">
                                                     <rect key="frame" x="10" y="15" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="HBa-oS-qdo"/>
@@ -66,7 +66,6 @@
                                             <outlet property="nameLabel" destination="WKL-uo-QJt" id="VR7-f9-1f3"/>
                                             <outlet property="profileImageView" destination="Okp-BT-bUI" id="Rsr-Qx-dEx"/>
                                             <outlet property="specialistButton" destination="69V-eI-rnc" id="R9p-cE-w6n"/>
-                                            <segue destination="EWC-Hl-ve6" kind="show" id="0vs-Kh-BdD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,6 +89,10 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="WB1-SR-nrT" id="EoN-Xv-qWy"/>
+                        <segue destination="EWC-Hl-ve6" kind="show" identifier="showDoctorProfileVC" id="YHd-Sl-K7Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROu-TZ-J7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,13 +216,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="PbA-Jm-y3f">
                                                                         <rect key="frame" x="7" y="13" width="56" height="44.5"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-WF-PYF">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-WF-PYF">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="23.5"/>
                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zi-e9-py3">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Steps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zi-e9-py3">
                                                                                 <rect key="frame" x="0.0" y="25.5" width="56" height="19"/>
                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -572,7 +575,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-WI-4hO">
                                                     <rect key="frame" x="128" y="14" width="158.5" height="222"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="fXd-jf-TtN">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="fXd-jf-TtN">
                                                             <rect key="frame" x="4" y="0.0" width="150" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="150" id="7sF-1W-KDO"/>
@@ -599,7 +602,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7H1-XI-mng">
-                                                    <rect key="frame" x="48" y="57.5" width="60" height="60"/>
+                                                    <rect key="frame" x="68" y="57.5" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="Mn5-tH-lYp"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="RI3-LQ-Wz2"/>
@@ -611,7 +614,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6g-c7-gWX">
-                                                    <rect key="frame" x="306.5" y="62.5" width="50" height="50"/>
+                                                    <rect key="frame" x="286.5" y="62.5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="2mi-u4-rNf"/>
                                                         <constraint firstAttribute="width" constant="50" id="6rA-7Y-s1N"/>
@@ -624,9 +627,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hbd-WI-4hO" firstAttribute="leading" secondItem="7H1-XI-mng" secondAttribute="trailing" constant="20" id="BvA-G0-KGq"/>
+                                                <constraint firstItem="hbd-WI-4hO" firstAttribute="leading" secondItem="7H1-XI-mng" secondAttribute="trailing" id="BvA-G0-KGq"/>
                                                 <constraint firstItem="7H1-XI-mng" firstAttribute="centerY" secondItem="ddw-Es-pub" secondAttribute="centerY" multiplier="0.7" id="IYG-Z8-xRM"/>
-                                                <constraint firstItem="s6g-c7-gWX" firstAttribute="leading" secondItem="hbd-WI-4hO" secondAttribute="trailing" constant="20" id="IfM-zr-iyC"/>
+                                                <constraint firstItem="s6g-c7-gWX" firstAttribute="leading" secondItem="hbd-WI-4hO" secondAttribute="trailing" id="IfM-zr-iyC"/>
                                                 <constraint firstItem="hbd-WI-4hO" firstAttribute="centerX" secondItem="ddw-Es-pub" secondAttribute="centerX" id="LpR-i6-dAk"/>
                                                 <constraint firstItem="hbd-WI-4hO" firstAttribute="centerY" secondItem="ddw-Es-pub" secondAttribute="centerY" id="kTT-L0-7V8"/>
                                                 <constraint firstItem="s6g-c7-gWX" firstAttribute="centerY" secondItem="ddw-Es-pub" secondAttribute="centerY" multiplier="0.7" id="wec-uy-zmR"/>

@@ -15,10 +15,15 @@ class Appointment: Object {
     @objc private(set) dynamic var _endDate: Date = Date()
     @objc private(set) dynamic var _doctorUid: String = ""
     @objc private(set) dynamic var _patientUid: String = ""
+    @objc private(set) dynamic var _localID: String?
     @objc private(set) dynamic var _notes: String?
     @objc private(set) dynamic var _id: String = ""
     @objc private(set) dynamic var _patientLocalIdentifier: String?
     @objc private(set) dynamic var _doctorLocalIdentifier: String?
+    
+    override static func primaryKey() -> String? {
+        return "_localID"
+    }
     
     convenience init(startDate: Date, endDate: Date, doctorUid: String, patientUid: String) {
         self.init()
@@ -99,7 +104,7 @@ class Appointment: Object {
         
         eventStore.requestAccess(to: .event) { (granted, error) in
             if granted {
-                let title = "\(NSLocalizedString("createAppointment.title", comment: "")) \(doctor.specialty) \(doctor.username)"
+                let title = "\(NSLocalizedString("createAppointment.title", comment: "")) \(doctor.specialty) \(doctor.firstName) \(doctor.lastName)"
                 let event: EKEvent = EKEvent(eventStore: eventStore)
                 event.title = title
                 event.startDate = self.startDate
