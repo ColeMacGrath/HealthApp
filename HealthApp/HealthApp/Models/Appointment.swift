@@ -15,22 +15,21 @@ class Appointment: Object {
     @objc private(set) dynamic var _endDate: Date = Date()
     @objc private(set) dynamic var _doctorUid: String = ""
     @objc private(set) dynamic var _patientUid: String = ""
-    @objc private(set) dynamic var _localID: String?
     @objc private(set) dynamic var _notes: String?
     @objc private(set) dynamic var _id: String = ""
     @objc private(set) dynamic var _patientLocalIdentifier: String?
-    @objc private(set) dynamic var _doctorLocalIdentifier: String?
     
     override static func primaryKey() -> String? {
         return "_id"
     }
     
-    convenience init(startDate: Date, endDate: Date, doctorUid: String, patientUid: String) {
+    convenience init(startDate: Date, endDate: Date, doctorUid: String, patientUid: String, notes: String?) {
         self.init()
         _startDate = startDate
         _endDate = endDate
         _doctorUid = doctorUid
         _patientUid = patientUid
+        _notes = notes
         _id = "\(startDate)-\(doctorUid)-\(patientUid)"
     }
     
@@ -39,15 +38,6 @@ class Appointment: Object {
     var patientUid: String { return _patientUid }
     var startDate:  Date { return _startDate }
     var endDate:    Date { return _endDate }
-    
-    var doctorLocalIdentifier: String? {
-        set {
-            _doctorLocalIdentifier = newValue
-        }
-        get {
-            return _doctorLocalIdentifier
-        }
-    }
     
     var localIdentifier: String? {
         set {
@@ -71,11 +61,11 @@ class Appointment: Object {
         return "1 Hour"
     }
     
-    /*func sendToServer() {
+    func sendToServer() {
         DatabaseService.shared.create(appointment: self)
     }
     
-    func totalRemoveFromServer() {
+    /*func totalRemoveFromServer() {
         DatabaseService.shared.totalRemove(appointment: self)
     }
     
@@ -101,21 +91,24 @@ class Appointment: Object {
     func createInCalendar(doctor: Doctor) -> String? {
         var messageInfo: String?
         let eventStore: EKEventStore = EKEventStore()
-        
+        let title = "Medical appointment with the \(doctor.specialty) \(doctor.firstName) \(doctor.lastName)"
+        let startDate = self.startDate
+        let endDate = self.endDate
+        let notes = self.notes
+        let location = doctor.direction
+        self.sendToServer()
         eventStore.requestAccess(to: .event) { (granted, error) in
             if granted {
-                let title = "\(NSLocalizedString("createAppointment.title", comment: "")) \(doctor.specialty) \(doctor.firstName) \(doctor.lastName)"
                 let event: EKEvent = EKEvent(eventStore: eventStore)
                 event.title = title
-                event.startDate = self.startDate
-                event.endDate = self.endDate
-                event.notes = self.notes
-                event.location = doctor.direction
+                event.startDate = startDate
+                event.endDate = endDate
+                event.notes = notes
+                event.location = location
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 do {
                     try eventStore.save(event, span: .thisEvent)
-                    self.localIdentifier = event.eventIdentifier
-                    //_ = self.sendToServer()
+                    messageInfo = event.eventIdentifier
                 } catch let error as NSError {
                     messageInfo = NSLocalizedString("createAppointment.localError", comment: "")
                     //_ = self.removeFromServer()

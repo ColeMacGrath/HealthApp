@@ -25,6 +25,7 @@ class CreateAppointmentViewController: UIPageViewController {
     var selectedDoctor: Doctor!
     var patient: Patient!
     var createdAppointment: Appointment!
+    var selectedDate: Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +73,6 @@ class CreateAppointmentViewController: UIPageViewController {
         pageControl.currentPageIndicatorTintColor = UIColor.white
         self.view.addSubview(pageControl)
     }
-    
 }
 
 extension CreateAppointmentViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {

@@ -44,6 +44,18 @@ class DatabaseService {
         return mainStorageRef.child("images")
     }
     
+    func create(appointment: Appointment) {
+        let newAppointment: Dictionary<String, AnyObject> = [
+            "patientUID": appointment.patientUid as AnyObject,
+            "doctorUID": appointment.doctorUid as AnyObject,
+            "startDate": appointment.startDate.formattedDate as AnyObject,
+            "endDate": appointment.endDate.formattedDate as AnyObject
+        ]
+        self.patientsRef.child(appointment.patientUid).child("appointments").child(appointment.id).setValue(appointment.id)
+        self.doctorsRef.child(appointment.doctorUid).child("appointments").child(appointment.id).setValue(appointment.id)
+        self.appointmentsRef.child(appointment.id).setValue(newAppointment)
+    }
+    
     func savePatient(patient: Patient) {
        let profile: Dictionary<String, AnyObject> = ["firstName": patient.firstName as AnyObject, "lastName": patient.lastName as AnyObject, "email": patient.email as AnyObject]
         self.mainRef.child(FIR_CHILD_PATIENTS).child(patient.uid).child("profile").setValue(profile)

@@ -15,6 +15,7 @@ class SaveAppointmentViewController: UIViewController {
     var doctor: Doctor!
     var patient: Patient!
     var date: Date!
+    var hourPicker: UIDatePicker!
     var realm = try? Realm()
     
     override func viewDidLoad() {
@@ -22,6 +23,7 @@ class SaveAppointmentViewController: UIViewController {
         if let parent = self.parent as? CreateAppointmentViewController {
             self.doctor = parent.selectedDoctor
             self.patient = parent.patient
+            self.date = parent.selectedDate
         }
     }
 
@@ -64,7 +66,7 @@ extension SaveAppointmentViewController: UITableViewDelegate, UITableViewDataSou
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell", for: indexPath) as! PickerTableViewCell
-            
+            self.hourPicker = cell.datePicker
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCardTableViewCell
@@ -90,20 +92,31 @@ extension SaveAppointmentViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 5 {
-            let appointment = Appointment(startDate: Date(), endDate: Date(), doctorUid: doctor.uid, patientUid: patient.uid)
+            let pickerDate = hourPicker.date
+            let components = Calendar.current.dateComponents([.hour, .minute], from: pickerDate)
+            let hour = components.hour!
+            let minute = components.minute!
             
-            do {
-                try realm?.write {
-                    patient.appointments.append(appointment)
+            let finalDate = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: Date())!
+            let appointment = Appointment(startDate: finalDate, endDate: finalDate, doctorUid: doctor.uid, patientUid: patient.uid, notes: textView.text)
+            
+            if self.realm?.object(ofType: Appointment.self, forPrimaryKey: appointment.id) == nil {
+                do {
+                    try realm?.write {
+                        patient.appointments.append(appointment)
+                    }
+                } catch {
+                    print("Error saving appointment: \(error.localizedDescription)")
                 }
-            } catch {
-                print("Error saving appointment: \(error.localizedDescription)")
-            }
-            
-            _ = appointment.createInCalendar(doctor: self.doctor)
-            
-            if let parentViewController = self.parent as? CreateAppointmentViewController {
-                parentViewController.createdAppointment = appointment
+                _ = appointment.createInCalendar(doctor: self.doctor)
+                
+                if let parentViewController = self.parent as? CreateAppointmentViewController {
+                    parentViewController.createdAppointment = appointment
+                }
+            } else {
+                let alert = UIAlertController(title: "Appointmetn created", message: "you've got another appointment at same hour with same doctor", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true)
             }
         }
     }

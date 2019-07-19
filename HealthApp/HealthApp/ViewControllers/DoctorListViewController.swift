@@ -156,6 +156,5 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
        performSegue(withIdentifier: "showDoctorProfileVC", sender: nil)
-        
     }
 }

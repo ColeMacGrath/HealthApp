@@ -130,7 +130,7 @@ class HealthKitService {
         
         healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (sucess, error) -> Void in
             if sucess {
-                NotificationCenter.default.post(name: NSNotification.Name("healthKitAuth"), object: nil)
+                //NotificationCenter.default.post(name: NSNotification.Name("healthKitAuth"), object: nil)
             }
             
         }

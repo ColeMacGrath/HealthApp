@@ -28,9 +28,9 @@ class ProfileViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
         refreshControl.addTarget(self, action: #selector(initMethods), for: .valueChanged)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(initMethods), name: Notification.Name("healthKitAuth"), object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(initMethods), name: Notification.Name("healthKitAuth"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setInformation), name: Notification.Name("UpdateTableInfo"), object: nil)
-        //HealthKitService.shared.authorizeHealthKit()
+        HealthKitService.shared.authorizeHealthKit()
         initMethods()
     }
     

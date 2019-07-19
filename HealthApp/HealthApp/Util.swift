@@ -137,6 +137,14 @@ extension Date {
         dateFormatter.dateFormat = "MMM d, yyyy"
         return dateFormatter.string(from: self)
     }
+    
+    var hourAndMinutes: String {
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: self)
+        let minutes = calendar.component(.minute, from: self)
+        return "\(hour):\(minutes)"
+    }
 }
 
 extension Double {

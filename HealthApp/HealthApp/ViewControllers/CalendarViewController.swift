@@ -35,6 +35,14 @@ class CalendarViewController: UIViewController {
         calendarView.minimumInteritemSpacing = 0
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCreateAppointmentVC" {
+            if let pageViewController = segue.destination as? CreateAppointmentViewController {
+                pageViewController.selectedDate = self.calendarView.selectedDates.last
+            }
+        }
+    }
+    
 }
 
 extension CalendarViewController: JTACMonthViewDataSource {

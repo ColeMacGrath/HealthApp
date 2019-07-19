@@ -45,9 +45,9 @@ extension AppointmentViewController: UITableViewDelegate, UITableViewDataSource 
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell", for: indexPath) as! AppointmentInformationTableViewCell
             cell.doctorNameLabel.text = "\(doctor.firstName) \(doctor.lastName)"
-            cell.specialityLabel.text = "\(doctor.specialty)"
-            cell.dateLabel.text = "\(appointment.startDate.formattedDate)"
-            cell.hourLabel.text = "07:00 PM"
+            cell.specialityLabel.text = doctor.specialty
+            cell.dateLabel.text = appointment.startDate.formattedDate
+            cell.hourLabel.text = appointment.startDate.hourAndMinutes
             cell.profileImageView.image = doctor.profilePicture ?? UIImage(named: "profile-placeholder")
             return cell
         case 2:
@@ -56,7 +56,6 @@ extension AppointmentViewController: UITableViewDelegate, UITableViewDataSource 
             cell.textLabel?.tintColor = #colorLiteral(red: 0.2691037357, green: 0.3240052462, blue: 0.5610219836, alpha: 1)
             cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 22.0)
             cell.textLabel?.textAlignment = .left
-            
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
