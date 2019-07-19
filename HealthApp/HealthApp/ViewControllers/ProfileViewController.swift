@@ -27,8 +27,10 @@ class ProfileViewController: UIViewController {
         refreshControl.tintColor = UIColor.black
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
         refreshControl.addTarget(self, action: #selector(initMethods), for: .valueChanged)
-        NotificationCenter.default.addObserver(self, selector: #selector(setPatientBasicData), name: Notification.Name("healthKitAuth"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setPatientBasicData), name: Notification.Name("UpdateTableInfo"), object: nil)
+        
+        /*NotificationCenter.default.addObserver(self, selector: #selector(initMethods), name: Notification.Name("healthKitAuth"), object: nil)*/
+        NotificationCenter.default.addObserver(self, selector: #selector(setInformation), name: Notification.Name("UpdateTableInfo"), object: nil)
+        
         initMethods()
     }
     
@@ -41,15 +43,23 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func initMethods() {
-        HealthKitService.shared.authorizeHealthKit()
         setPatient()
+        setPatientBasicData()
+        setAllDetails()
+        checkCloudInformation()
+    }
+    
+    @objc func setInformation() {
+        setPatientBasicData()
         setAllDetails()
         checkCloudInformation()
     }
     
     @objc func reloadTables() {
-        tableView.reloadData()
-        collectionView.reloadData()
+        if let tableView = self.tableView, let collectionView = self.collectionView {
+            tableView.reloadData()
+            collectionView.reloadData()
+        }
     }
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
@@ -93,8 +103,6 @@ class ProfileViewController: UIViewController {
             } catch {
                 print("Error Saving: \(error.localizedDescription)")
             }
-            
-            self.initMethods()
         }
     }
     
@@ -147,10 +155,11 @@ class ProfileViewController: UIViewController {
                             print("No se pudo poner la imagen")
                         }
                     }
+                    self.refreshControl.endRefreshing()
+                    self.tableView.reloadData()
                 })
             }
         }
-        tableView.reloadData()
     }
     
     func checkChanges(userDict: Dictionary<String, AnyObject>) {
@@ -163,41 +172,21 @@ class ProfileViewController: UIViewController {
         
         guard let myDict = userDict["basicData"] else { return }
         
-        if let firstName = myDict["firstName"] as? String {
-            if patient?.firstName != firstName {
-                do {
-                    try realm?.write {
-                        patient?.firstName = firstName
-                    }
-                } catch {
-                    print("Error: \(error.localizedDescription)")
+        if let firstName = myDict["firstName"] as? String,
+        let lastName = myDict["lastName"] as? String,
+        let email = myDict["email"] as? String
+        {
+            do {
+                try realm?.write {
+                    if patient?.firstName != firstName { patient?.firstName = firstName }
+                    if patient?.lastName  != lastName  { patient?.lastName = lastName   }
+                    if patient?.email     != email     { patient?.email = email         }
                 }
+            } catch {
+                print("Error writting: \(error.localizedDescription)")
             }
         }
         
-        if let lastName = myDict["lastName"] as? String {
-            if patient?.lastName != lastName {
-                do {
-                    try realm?.write {
-                        patient?.lastName = lastName
-                    }
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        if let email = myDict["email"] as? String {
-            if patient?.email != email {
-                do {
-                    try realm?.write {
-                        patient?.email = email
-                    }
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
         if !hasUser {
             do {
                 try realm?.write {
@@ -208,11 +197,7 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        if let tableView = self.tableView, let collectionView = self.collectionView {
-            tableView.reloadData()
-            collectionView.reloadData()
-        }
-        self.refreshControl.endRefreshing()
+        reloadTables()
     }
     
     func setAllDetails() {

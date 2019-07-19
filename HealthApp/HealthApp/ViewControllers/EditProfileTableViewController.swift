@@ -117,7 +117,7 @@ class EditProfileViewController: UIViewController {
 extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,6 +133,14 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             cell.selectionStyle = .none
             return cell
             
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath)
+            cell.textLabel?.text = "Sign Out"
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.font = UIFont(name: "Helvetica", size: 25.0)
+            cell.textLabel?.textColor = UIColor.red
+            cell.selectionStyle = .none
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath) as! PlaceholderTableViewCell
             cell.selectionStyle = .none
@@ -165,6 +173,17 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             chooseImage()
+        }
+        if indexPath.row == 3 {
+            do {
+                try realm?.write {
+                    realm?.deleteAll()
+                }
+                try AuthService.shared.fireabseAuth.signOut()
+                self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+            } catch {
+                print ("Error: \(error.localizedDescription)")
+            }
         }
     }
     

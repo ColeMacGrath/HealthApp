@@ -167,6 +167,7 @@
 			children = (
 				B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */,
 				B3D0B43722D10A09009407BB /* DoctorListViewController.swift */,
+				B3DAD47322E0F57400FDF3A3 /* EditProfileTableViewController.swift */,
 				B3C7484F22D184B9005DED97 /* AppointmentViewController.swift */,
 				B30B4BC422D13C4600C22712 /* DoctorProfileViewController.swift */,
 				B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */,
@@ -176,7 +177,6 @@
 				B30A38E922D558D30027380C /* LoginViewController.swift */,
 				B30A38EB22D561E00027380C /* RegisterViewController.swift */,
 				B3FD83BA22D5643500D3014A /* InitialViewController.swift */,
-				B3DAD47322E0F57400FDF3A3 /* EditProfileTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

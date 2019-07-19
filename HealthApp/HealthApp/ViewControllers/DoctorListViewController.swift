@@ -120,6 +120,8 @@ class DoctorListViewController: UIViewController {
                         }
                         
                     }
+                    self.refreshControl.endRefreshing()
+                    self.tableView.reloadData()
                 })
             }
         }
