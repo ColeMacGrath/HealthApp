@@ -9,9 +9,10 @@
 import UIKit
 import FirebaseStorage
 import RealmSwift
+import FloatingPanel
 
 class ProfileViewController: UIViewController {
-    
+    //QRViewController
     private let refreshControl = UIRefreshControl()
     let realm = try? Realm()
     var patient: Patient?
@@ -19,27 +20,57 @@ class ProfileViewController: UIViewController {
     var backgroundImages: [UIImage] = [#imageLiteral(resourceName: "hardBlueGradient"), #imageLiteral(resourceName: "blueGradient"), #imageLiteral(resourceName: "purpleGradient"), #imageLiteral(resourceName: "pinkGradient")]
     var optionPressed = -1
     var todaySteps = 0
+    var fpc: FloatingPanelController!
+    var QRVC: QRViewController!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.refreshControl = refreshControl
-        refreshControl.tintColor = UIColor.darkGray
-        refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
-        refreshControl.addTarget(self, action: #selector(initMethods), for: .valueChanged)
+        setRefreshControl()
         
         //NotificationCenter.default.addObserver(self, selector: #selector(initMethods), name: Notification.Name("healthKitAuth"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setInformation), name: Notification.Name("UpdateTableInfo"), object: nil)
         HealthKitService.shared.authorizeHealthKit()
         initMethods()
+        createPanel()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         reloadTables()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    func setRefreshControl() {
+        tableView.refreshControl = refreshControl
+        refreshControl.tintColor = UIColor.darkGray
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
+        refreshControl.addTarget(self, action: #selector(initMethods), for: .valueChanged)
+    }
+    
+    func createPanel() {
+        guard self.patient != nil else { return }
+        // Initialize FloatingPanelController
+        fpc = FloatingPanelController()
+        fpc.delegate = self
+        fpc.show()
+        
+        // Initialize FloatingPanelController and add the view
+        fpc.surfaceView.cornerRadius = 30.0
+        fpc.surfaceView.shadowHidden = true
+        fpc.surfaceView.borderWidth = 1.0 / traitCollection.displayScale
+        fpc.surfaceView.borderColor = UIColor.black.withAlphaComponent(0.2)
+        
+        QRVC = storyboard?.instantiateViewController(withIdentifier: "QRViewController") as? QRViewController
+        QRVC.fpc = self.fpc
+        QRVC.patientUID = self.patient?.uid
+        
+        fpc.set(contentViewController: QRVC)
+        fpc.addPanel(toParent: self, belowView: nil, animated: false)
+        fpc.hide()
     }
     
     @objc func initMethods() {
@@ -64,8 +95,18 @@ class ProfileViewController: UIViewController {
     
     @IBAction func scanQRButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add a Doctor", message: "How do you want to add a new doctor?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Scan DoctorID", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Show my PatientID", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Show my PatientID", style: .default, handler: { (action) in
+            self.fpc.show(animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Scan DoctorID", style: .default, handler: { (action) in
+            if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "QRAnalyzerVC") as? QRAnalyzerViewController {
+                viewController.patient = self.patient
+                self.present(viewController, animated: true)
+                return
+            }
+        }))
+    
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
@@ -217,7 +258,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, FloatingPanelControllerDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -377,4 +418,68 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         }
     }
     
+    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+        return CustomLayout()
+    }
+    
+    func floatingPanel(_ vc: FloatingPanelController, behaviorFor newCollection: UITraitCollection) -> FloatingPanelBehavior? {
+        return CustomBehaivor()
+    }
+    
+}
+
+class CustomLayout: FloatingPanelLayout {
+    var initialPosition: FloatingPanelPosition {
+        return .half
+    }
+    
+    var supportedPositions: Set<FloatingPanelPosition> {
+        return [.half, .hidden, .full, .tip]
+    }
+    
+    var topInteractionBuffer: CGFloat { return 0.0 }
+    var bottomInteractionBuffer: CGFloat { return 0.0 }
+    
+    func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+        switch position {
+        case .full: return 56.0
+        case .half: return 350.0
+        case .tip: return 85.0 + 44.0 // Visible + ToolView
+        case .hidden: return nil
+        }
+    }
+    
+    func backdropAlphaFor(position: FloatingPanelPosition) -> CGFloat {
+        return 0.0
+    }
+}
+
+
+class CustomBehaivor: FloatingPanelBehavior {
+    var velocityThreshold: CGFloat {
+        return 15.0
+    }
+    
+    func interactionAnimator(_ fpc: FloatingPanelController, to targetPosition: FloatingPanelPosition, with velocity: CGVector) -> UIViewPropertyAnimator {
+        let timing = timeingCurve(to: targetPosition, with: velocity)
+        return UIViewPropertyAnimator(duration: 0, timingParameters: timing)
+    }
+    
+    private func timeingCurve(to: FloatingPanelPosition, with velocity: CGVector) -> UITimingCurveProvider {
+        let damping = self.damping(with: velocity)
+        return UISpringTimingParameters(dampingRatio: damping,
+                                        frequencyResponse: 0.4,
+                                        initialVelocity: velocity)
+    }
+    
+    private func damping(with velocity: CGVector) -> CGFloat {
+        switch velocity.dy {
+        case ...(-velocityThreshold):
+            return 0.7
+        case velocityThreshold...:
+            return 0.7
+        default:
+            return 1.0
+        }
+    }
 }

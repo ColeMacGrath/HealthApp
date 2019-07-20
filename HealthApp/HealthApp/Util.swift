@@ -140,7 +140,6 @@ extension Date {
     
     var hourAndMinutes: String {
         let calendar = Calendar.current
-        
         let hour = calendar.component(.hour, from: self)
         let minutes = calendar.component(.minute, from: self)
         return "\(hour):\(minutes)"
@@ -150,6 +149,14 @@ extension Date {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
         let date = Calendar.current.date(from: components)
         return date!
+    }
+    
+    var iso8601: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter.string(from: self)
     }
 }
 
@@ -162,5 +169,16 @@ extension Double {
 extension UITableView {
     func removeExtraLines() {
         self.tableFooterView = UIView()
+    }
+}
+
+extension String {
+    var createDate: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let date = dateFormatter.date(from: self)
+        return date
     }
 }

@@ -12,6 +12,7 @@ class ResultsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.removeExtraLines()
         self.tableView.estimatedRowHeight = 85.0
         self.tableView.rowHeight = UITableView.automaticDimension
     }

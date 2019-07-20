@@ -22,6 +22,7 @@ class DoctorListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.removeExtraLines()
         tableView.allowsMultipleSelection = false
         tableView.refreshControl = refreshControl
         refreshControl.tintColor = UIColor.darkGray
@@ -32,6 +33,14 @@ class DoctorListViewController: UIViewController {
         }
         
         getDoctorsUID()
+    }
+    
+    @IBAction func addNewDoctorButtonPressed(_ sender: UIBarButtonItem) {
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "QRAnalyzerVC") as? QRAnalyzerViewController {
+            viewController.patient = self.patient
+            self.present(viewController, animated: true)
+            return
+        }
     }
     
     @objc func getDoctorsUID() {

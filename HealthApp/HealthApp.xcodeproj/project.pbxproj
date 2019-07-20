@@ -23,6 +23,8 @@
 		B3C7484C22D183ED005DED97 /* AppointmentInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7484B22D183ED005DED97 /* AppointmentInformationTableViewCell.swift */; };
 		B3C7484E22D1846D005DED97 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7484D22D1846D005DED97 /* NoteTableViewCell.swift */; };
 		B3C7485022D184B9005DED97 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7484F22D184B9005DED97 /* AppointmentViewController.swift */; };
+		B3C9810622E27C8F002C51E7 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9810522E27C8F002C51E7 /* QRViewController.swift */; };
+		B3C9810822E284CE002C51E7 /* QRAnalyzerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9810722E284CE002C51E7 /* QRAnalyzerViewController.swift */; };
 		B3CC863C22D2E3DB00875307 /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC863B22D2E3DB00875307 /* PickerTableViewCell.swift */; };
 		B3CC863E22D2E40B00875307 /* CreateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC863D22D2E40B00875307 /* CreateAppointmentViewController.swift */; };
 		B3CC864022D2E41800875307 /* SaveAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC863F22D2E41800875307 /* SaveAppointmentViewController.swift */; };
@@ -81,6 +83,8 @@
 		B3C7484B22D183ED005DED97 /* AppointmentInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentInformationTableViewCell.swift; sourceTree = "<group>"; };
 		B3C7484D22D1846D005DED97 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		B3C7484F22D184B9005DED97 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
+		B3C9810522E27C8F002C51E7 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		B3C9810722E284CE002C51E7 /* QRAnalyzerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRAnalyzerViewController.swift; sourceTree = "<group>"; };
 		B3CC863B22D2E3DB00875307 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
 		B3CC863D22D2E40B00875307 /* CreateAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentViewController.swift; sourceTree = "<group>"; };
 		B3CC863F22D2E41800875307 /* SaveAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAppointmentViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				B30A38E922D558D30027380C /* LoginViewController.swift */,
 				B30A38EB22D561E00027380C /* RegisterViewController.swift */,
 				B3FD83BA22D5643500D3014A /* InitialViewController.swift */,
+				B3C9810522E27C8F002C51E7 /* QRViewController.swift */,
+				B3C9810722E284CE002C51E7 /* QRAnalyzerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				B3DAD47222E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift in Sources */,
 				B3E4A2E822D28A41008D64B1 /* RecordViewController.swift in Sources */,
 				B380F38422D14EAB00A347DD /* TableItemCardTableViewCell.swift in Sources */,
+				B3C9810822E284CE002C51E7 /* QRAnalyzerViewController.swift in Sources */,
 				B3DCE35E22D03AC000DAC751 /* ProfileViewController.swift in Sources */,
 				B30A38E422D558B40027380C /* DoctorProfileTableViewCell.swift in Sources */,
 				B3C7484A22D18325005DED97 /* CloseTableViewCell.swift in Sources */,
@@ -433,6 +440,7 @@
 				B3DCE37622D054F200DAC751 /* CardTableViewCell.swift in Sources */,
 				B3FAEBA222D15F29007B7BBF /* CalendarViewController.swift in Sources */,
 				B30A38EC22D561E00027380C /* RegisterViewController.swift in Sources */,
+				B3C9810622E27C8F002C51E7 /* QRViewController.swift in Sources */,
 				B3DAD46A22E0F4B900FDF3A3 /* IngredientTableViewCell.swift in Sources */,
 				B3FD83BB22D5643500D3014A /* InitialViewController.swift in Sources */,
 				B3DE9A9F22D5A1BB00D85096 /* HealthKitService.swift in Sources */,

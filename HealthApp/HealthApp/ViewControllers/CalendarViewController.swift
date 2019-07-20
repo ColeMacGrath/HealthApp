@@ -14,6 +14,7 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: JTACMonthView!
     @IBOutlet weak var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     var patient: Patient?
     let realm = try? Realm()
     var appointmentsOfDate = [Appointment]()
@@ -31,9 +32,15 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.refreshControl = refreshControl
+        refreshControl.tintColor = UIColor.darkGray
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
+        refreshControl.addTarget(self, action: #selector(checkInCloudAppointments), for: .valueChanged)
+        
         if let firstViewController = self.tabBarController?.viewControllers?.first as? ProfileViewController {
             self.patient = firstViewController.patient
             appointmentsOfDate = getAppointmentsFor(date: calendarView.selectedDates.last ?? Date())
+            checkInCloudAppointments()
         }
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
@@ -50,6 +57,57 @@ class CalendarViewController: UIViewController {
     func getAppointmentsFor(date: Date) -> [Appointment] {
         let events = patient?.appointments.filter({ return $0.startDate.shortDate == date.shortDate })
         return events?.sorted(by: { $0.startDate < $1.startDate }) ?? []
+    }
+    
+    @objc func checkInCloudAppointments() {
+        var uids = [String]()
+        guard let patientUID = patient?.uid else { return }
+        DatabaseService.shared.patientsRef.child(patientUID).child("appointments").observeSingleEvent(of: .value) { (snapshot) in
+            if let appointmentsUID = snapshot.value as? Dictionary<String, AnyObject> {
+                for appointmentUID in appointmentsUID {
+                    uids.append(appointmentUID.key)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.downloadAppointments(uids: uids)
+            }
+        }
+    }
+    
+    func downloadAppointments(uids: [String]) {
+        for uid in uids {
+            DatabaseService.shared.appointmentsRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+                if let appointmentDict = snapshot.value as? Dictionary<String, AnyObject> {
+                    if let doctorUID = appointmentDict["doctorUID"] as? String,
+                    let startDate = appointmentDict["startDate"] as? String,
+                    let endDate = appointmentDict["endDate"] as? String
+                    {
+                        if let myStartDate = startDate.createDate,
+                            let myEndDate = endDate.createDate {
+                            let notes = appointmentDict["notes"] as? String
+                            DispatchQueue.main.async {
+                                if self.realm?.object(ofType: Appointment.self, forPrimaryKey: uid) == nil {
+                                    let appointment = Appointment(startDate: myStartDate, endDate: myEndDate, doctorUid: doctorUID, patientUid: self.patient!.uid, notes: notes)
+                                    do {
+                                        try self.realm?.write {
+                                            self.patient?.appointments.append(appointment)
+                                        }
+                                    } catch {
+                                        print("Error writting locally: \(error.localizedDescription)")
+                                    }
+                                    
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        appointmentsOfDate = getAppointmentsFor(date: calendarView.selectedDates.last ?? Date())
+        self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -48,8 +48,9 @@ class DatabaseService {
         let newAppointment: Dictionary<String, AnyObject> = [
             "patientUID": appointment.patientUid as AnyObject,
             "doctorUID": appointment.doctorUid as AnyObject,
-            "startDate": appointment.startDate.formattedDate as AnyObject,
-            "endDate": appointment.endDate.formattedDate as AnyObject
+            "startDate": appointment.startDate.iso8601 as AnyObject,
+            "endDate": appointment.endDate.iso8601 as AnyObject,
+            "notes": appointment.notes as AnyObject
         ]
         self.patientsRef.child(appointment.patientUid).child("appointments").child(appointment.id).setValue(appointment.id)
         self.doctorsRef.child(appointment.doctorUid).child("appointments").child(appointment.id).setValue(appointment.id)
@@ -69,6 +70,15 @@ class DatabaseService {
     func saveProfilePictureRef(patientUID: String, url: URL) {
         let patientRef: Dictionary<String, AnyObject> = ["profilePicture": url.absoluteString as AnyObject]
         self.mainRef.child(FIR_CHILD_PATIENTS).child(patientUID).child("profileURL").setValue(patientRef)
+    }
+    
+    func addDoctor(doctorUID: String, patientUID: String) {
+        self.patientsRef.child(patientUID).child("doctors").child(doctorUID).setValue(doctorUID)
+            self.addPatient(doctorUID: doctorUID, userUID: patientUID)
+    }
+    
+    func addPatient(doctorUID: String, userUID: String) {
+        self.doctorsRef.child(doctorUID).child("patients").child(userUID).setValue(userUID)
     }
     
     func saveBasicInfoInFirebase(patient: Patient) {

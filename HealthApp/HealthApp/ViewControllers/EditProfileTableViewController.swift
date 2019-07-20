@@ -134,10 +134,11 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             return cell
             
         } else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath) as! PlaceholderTableViewCell
             cell.textLabel?.text = "Sign Out"
+            cell.label.text = ""
             cell.textLabel?.textAlignment = .center
-            cell.textLabel?.font = UIFont(name: "Helvetica", size: 25.0)
+            cell.textLabel?.font = UIFont(name: "Helvetica", size: 20.0)
             cell.textLabel?.textColor = UIColor.red
             cell.selectionStyle = .none
             return cell
