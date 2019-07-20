@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     //write the migration logic here
                 }
         })
+        IQKeyboardManager.shared.enable = true
         return true
     }
 

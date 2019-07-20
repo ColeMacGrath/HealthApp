@@ -88,6 +88,10 @@ class Appointment: Object {
         return removed
     }
     
+    func removeFromFirebase(appointmentUID: String, patientUID: String, doctorUID: String) {
+        DatabaseService.shared.remove(appointmentUID: appointmentUID, patientUID: patientUID, doctorUID: doctorUID)
+    }
+    
     func createInCalendar(doctor: Doctor) -> String? {
         var messageInfo: String?
         let eventStore: EKEventStore = EKEventStore()

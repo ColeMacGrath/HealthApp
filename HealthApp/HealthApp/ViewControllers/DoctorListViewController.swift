@@ -50,7 +50,16 @@ class DoctorListViewController: UIViewController {
         DatabaseService.shared.patientsRef.child(patientUID).child("doctors").observeSingleEvent(of: .value) { (snapshot) in
             if let doctorsUID = snapshot.value as? Dictionary<String, AnyObject> {
                 for doctorUID in doctorsUID {
-                    uids.append(doctorUID.key)
+                    if let removed = doctorUID.value["removed"] as? Bool {
+                        if removed {
+                            DispatchQueue.main.async {
+                                self.patient?.removeDoctorWith(uid: doctorUID.key)
+                                self.tableView.reloadData()
+                            }
+                        } else {
+                            uids.append(doctorUID.key)
+                        }
+                    }
                 }
             }
             
@@ -100,6 +109,7 @@ class DoctorListViewController: UIViewController {
                 }
             }
         }
+        self.refreshControl.endRefreshing()
     }
     
     func downloadDoctorProfileImage(doctorDict: Dictionary<String, AnyObject>, doctor: Doctor) {
@@ -148,10 +158,11 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactTableViewCell
         guard let cellDoctor = patient?.doctors[indexPath.row] else { return cell }
+        cell.allowsSelection = isSelectionAllowed
         cell.profileImageView.image = cellDoctor.profilePicture ?? UIImage(named: "profile-placeholder")
         cell.nameLabel.text = "\(cellDoctor.firstName) \(cellDoctor.lastName)"
         cell.specialistButton.setTitle(cellDoctor.specialty, for: .normal)
-        cell.specialistButton.setBackgroundImage(buttonImages[0], for: .normal)
+        cell.specialistButton.setBackgroundImage(buttonImages[Int.random(in: 0..<buttonImages.count)], for: .normal)
         return cell
     }
     
@@ -165,5 +176,25 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
        performSegue(withIdentifier: "showDoctorProfileVC", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        guard let selectedDoctor = patient?.doctors[indexPath.row] else {
+            return UISwipeActionsConfiguration(actions: [])
+        }
+        
+        let action =  UIContextualAction(style: .destructive, title: "Remove", handler: { (action,view,completionHandler ) in
+            DispatchQueue.main.async {
+                self.patient?.remove(doctor: selectedDoctor)
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+            }
+            completionHandler(true)
+        })
+        action.image = UIImage(named: "trash-circle")
+        action.backgroundColor = #colorLiteral(red: 0.9243228436, green: 0.9181587696, blue: 0.9177718163, alpha: 1)
+        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [action])
+        
+        return swipeActionsConfiguration
     }
 }

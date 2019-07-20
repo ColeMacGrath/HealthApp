@@ -179,4 +179,39 @@ class Patient: Object {
         DatabaseService.shared.saveBasicInfoInFirebase(patient: self)
     }
     
+    func remove(doctor: Doctor) {
+        DatabaseService.shared.removeDoctorWith(uid: doctor.uid, patientUID: self.uid)
+        do {
+            try realm?.write {
+                realm?.delete(doctor)
+            }
+        } catch {
+            print("Error deleting: \(error.localizedDescription)")
+        }
+    }
+    
+    func removeDoctorWith(uid: String) {
+        if let localDoctor = self.realm?.object(ofType: Doctor.self, forPrimaryKey: uid) {
+            self.remove(doctor: localDoctor)
+        }
+    }
+    
+    func removeAppoinmentWith(uid: String) {
+        if let localAppointment = self.realm?.object(ofType: Appointment.self, forPrimaryKey: uid) {
+            self.remove(appointment: localAppointment)
+        }
+    }
+    
+    
+    func remove(appointment: Appointment) {
+        DatabaseService.shared.remove(appointmentUID: appointment.id, patientUID: appointment.patientUid, doctorUID: appointment.doctorUid)
+        do {
+            try realm?.write {
+                realm?.delete(appointment)
+            }
+        } catch {
+            print("Error deleting: \(error.localizedDescription)")
+        }
+    }
+    
 }

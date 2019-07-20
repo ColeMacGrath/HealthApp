@@ -16,26 +16,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WB1-SR-nrT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WB1-SR-nrT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactCell" rowHeight="110" id="dqz-CL-4zA" customClass="ContactTableViewCell" customModule="HealthApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="110"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactCell" rowHeight="100" id="dqz-CL-4zA" customClass="ContactTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dqz-CL-4zA" id="QgL-wx-2ug">
-                                            <rect key="frame" x="0.0" y="0.0" width="348.66666666666669" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348.66666666666669" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="Okp-BT-bUI">
-                                                    <rect key="frame" x="10" y="15" width="80" height="80"/>
+                                                    <rect key="frame" x="10" y="10" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="HBa-oS-qdo"/>
                                                         <constraint firstAttribute="width" constant="80" id="qaD-iK-dAJ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="0je-BT-byr">
-                                                    <rect key="frame" x="100" y="20.333333333333336" width="135" height="69.333333333333314"/>
+                                                    <rect key="frame" x="100" y="13" width="135" height="74.333333333333329"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sussan Gwen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKL-uo-QJt">
                                                             <rect key="frame" x="0.0" y="0.0" width="135" height="30.333333333333332"/>
@@ -44,12 +44,12 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69V-eI-rnc">
-                                                            <rect key="frame" x="0.0" y="44.333333333333343" width="70" height="25"/>
+                                                            <rect key="frame" x="0.0" y="44.333333333333336" width="90" height="30.000000000000007"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="25" id="nJL-GB-sgT"/>
-                                                                <constraint firstAttribute="width" constant="70" id="rpL-Lu-2sB"/>
+                                                                <constraint firstAttribute="height" constant="30" id="nJL-GB-sgT"/>
+                                                                <constraint firstAttribute="width" constant="90" id="rpL-Lu-2sB"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                             <state key="normal" title="Cardiologist" backgroundImage="blue_button"/>
                                                         </button>
                                                     </subviews>
@@ -588,13 +588,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fb2-aS-5Ob">
                                                             <rect key="frame" x="0.0" y="160" width="158.66666666666666" height="61.666666666666657"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sussan Gwen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7e-EC-Epu">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sussan Gwen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7e-EC-Epu">
                                                                     <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="30"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cardiologyst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgY-X5-dqA">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardiologyst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgY-X5-dqA">
                                                                     <rect key="frame" x="25.333333333333321" y="38" width="107.66666666666669" height="23.666666666666671"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

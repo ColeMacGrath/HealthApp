@@ -81,6 +81,17 @@ class DatabaseService {
         self.doctorsRef.child(doctorUID).child("patients").child(userUID).setValue(userUID)
     }
     
+    func removeDoctorWith(uid: String, patientUID: String) {
+        self.patientsRef.child(patientUID).child("doctors").child(uid).child("removed").setValue(true)
+        self.doctorsRef.child(uid).child("patients").child(patientUID).child("removed").setValue(true)
+    }
+    
+    func remove(appointmentUID: String, patientUID: String, doctorUID: String) {
+        self.appointmentsRef.child(appointmentUID).removeValue()
+        self.patientsRef.child(patientUID).child("appointments").child(appointmentUID).child("removed").setValue(true)
+        self.doctorsRef.child(doctorUID).child("appointments").child(appointmentUID).child("removed").setValue(true)
+    }
+    
     func saveBasicInfoInFirebase(patient: Patient) {
         let firstName = patient.firstName
         let lastName = patient.lastName

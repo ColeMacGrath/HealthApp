@@ -36,6 +36,7 @@ class CalendarViewController: UIViewController {
         refreshControl.tintColor = UIColor.darkGray
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching User Data ...", attributes: nil)
         refreshControl.addTarget(self, action: #selector(checkInCloudAppointments), for: .valueChanged)
+        NotificationCenter.default.addObserver(self, selector: #selector(checkInCloudAppointments), name: Notification.Name("UpdateAppointmentsTable"), object: nil)
         
         if let firstViewController = self.tabBarController?.viewControllers?.first as? ProfileViewController {
             self.patient = firstViewController.patient
@@ -65,7 +66,17 @@ class CalendarViewController: UIViewController {
         DatabaseService.shared.patientsRef.child(patientUID).child("appointments").observeSingleEvent(of: .value) { (snapshot) in
             if let appointmentsUID = snapshot.value as? Dictionary<String, AnyObject> {
                 for appointmentUID in appointmentsUID {
-                    uids.append(appointmentUID.key)
+                    if let removed = appointmentUID.value["removed"] as? Bool {
+                        if removed {
+                            DispatchQueue.main.async {
+                                self.patient?.removeAppoinmentWith(uid: appointmentUID.key)
+                                self.tableView.reloadData()
+                            }
+                        } else {
+                            uids.append(appointmentUID.key)
+                        }
+                    }
+                    
                 }
             }
             
@@ -110,7 +121,8 @@ class CalendarViewController: UIViewController {
         self.refreshControl.endRefreshing()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
     
@@ -139,8 +151,8 @@ extension CalendarViewController: JTACMonthViewDataSource {
         var parameters: ConfigurationParameters
         var startDate = Date()
         var endDate = Date()
-        if let calendarStartDate = formatter.date(from: "2017 01 01"),
-            let calendarEndndDate = formatter.date(from: "2017 12 31") {
+        if let calendarStartDate = formatter.date(from: "2019 01 01"),
+            let calendarEndndDate = formatter.date(from: "2019 12 31") {
             startDate = calendarStartDate
             endDate = calendarEndndDate
         }
@@ -263,5 +275,23 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         selectedAppointment = appointmentsOfDate[indexPath.row]
         selectedDoctor = doctorsForDate[indexPath.row]
         performSegue(withIdentifier: "showAppointmentVC", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        selectedAppointment = appointmentsOfDate.remove(at: indexPath.row)
+        
+        let action =  UIContextualAction(style: .destructive, title: "Remove", handler: { (action,view,completionHandler ) in
+            DispatchQueue.main.async {
+                self.patient?.remove(appointment: self.selectedAppointment)
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+            }
+            completionHandler(true)
+        })
+        action.image = UIImage(named: "trash-circle")
+        action.backgroundColor = #colorLiteral(red: 0.9243228436, green: 0.9181587696, blue: 0.9177718163, alpha: 1)
+        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [action])
+        
+        return swipeActionsConfiguration
     }
 }

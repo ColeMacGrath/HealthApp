@@ -109,7 +109,7 @@ extension SaveAppointmentViewController: UITableViewDelegate, UITableViewDataSou
                     print("Error saving appointment: \(error.localizedDescription)")
                 }
                 _ = appointment.createInCalendar(doctor: self.doctor)
-                
+                NotificationCenter.default.post(name: NSNotification.Name("UpdateAppointmentsTable"), object: nil)
                 if let parentViewController = self.parent as? CreateAppointmentViewController {
                     parentViewController.createdAppointment = appointment
                 }

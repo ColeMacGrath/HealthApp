@@ -13,6 +13,7 @@ class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var specialistButton: UIButton!
+    var allowsSelection = false
     override func awakeFromNib() {
         super.awakeFromNib()
         profileImageView.setRounded()
@@ -21,7 +22,9 @@ class ContactTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.accessoryType = selected ? .checkmark : .none
+        if allowsSelection {
+            self.accessoryType = selected ? .checkmark : .none
+        }
     }
 
 }

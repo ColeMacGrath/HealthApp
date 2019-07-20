@@ -12,7 +12,6 @@ import RealmSwift
 import FloatingPanel
 
 class ProfileViewController: UIViewController {
-    //QRViewController
     private let refreshControl = UIRefreshControl()
     let realm = try? Realm()
     var patient: Patient?
@@ -26,11 +25,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HealthKitService.shared.authorizeHealthKit()
         setRefreshControl()
         
         //NotificationCenter.default.addObserver(self, selector: #selector(initMethods), name: Notification.Name("healthKitAuth"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setInformation), name: Notification.Name("UpdateTableInfo"), object: nil)
-        HealthKitService.shared.authorizeHealthKit()
+        
         initMethods()
         createPanel()
     }
@@ -265,7 +265,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -299,11 +299,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                 cell.descriptionLabel.text = "It takes the count of the hours in bed of the last night"
                 cell.quantityLabel.text = "\(patient!.sleepRecords.last?.hoursSleeping ?? "0 h")"
             } else if indexPath.row == 4 {
-                cell.cardView.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                cell.titleLabel.text = "Food calories"
-                cell.topicIcon.image = UIImage(named: "food-icon")!
-                cell.descriptionLabel.text = "My last food ingested - \(patient?.ingestedFoods.last?.name ?? "")"
-                cell.quantityLabel.text = String(format: "%.0f", patient!.ingestedFoods.last?.kilocalories ?? 0.0)
+                cell.cardView.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+                cell.titleLabel.text = "Weight Records"
+                cell.topicIcon.image = UIImage(named: "weight-icon")!
+                cell.descriptionLabel.text = "My Last weight measurament on kilograms"
+                cell.quantityLabel.text = HealthKitService.shared.getFormated(measure: patient?.weightRecords.last?.weight ?? 0.0, on: .kilogram)
+                
             } else if indexPath.row == 5 {
                 cell.cardView.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
                 cell.titleLabel.text = "Hearth BPM"
@@ -311,6 +312,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                 cell.descriptionLabel.text = "A record of beats per minute is recorded in different activities"
                 cell.quantityLabel.text = "\(patient!.hearthRecords.last?.bpm ?? 0)"
             } else if indexPath.row == 6 {
+                cell.cardView.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+                cell.titleLabel.text = "Food calories"
+                cell.topicIcon.image = UIImage(named: "food-icon")!
+                cell.descriptionLabel.text = "My last food ingested - \(patient?.ingestedFoods.last?.name ?? "")"
+                cell.quantityLabel.text = String(format: "%.0f", patient!.ingestedFoods.last?.kilocalories ?? 0.0)
+            } else if indexPath.row == 7 {
                 cell.cardView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
                 cell.titleLabel.text = "Nevus Analyzer"
                 cell.topicIcon.image = UIImage(named: "bodyScan-icon")!
@@ -332,6 +339,18 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         }
         
         return height
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 7 {
+            if let viewController = storyboard?.instantiateViewController(withIdentifier: "VisualRecognizerVC") {
+                present(viewController, animated: true)
+                return
+            }
+        } else if indexPath.row > 1 {
+            optionPressed = indexPath.row
+            performSegue(withIdentifier: "tableSegue", sender: nil)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -359,18 +378,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 6 {
-            if let viewController = storyboard?.instantiateViewController(withIdentifier: "VisualRecognizerVC") {
-                present(viewController, animated: true)
-                return
-            }
-        } else if indexPath.row > 1 {
-            optionPressed = indexPath.row
-            performSegue(withIdentifier: "tableSegue", sender: nil)
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tableSegue" {
             if let navigationController = segue.destination as? UINavigationController {
@@ -392,17 +399,23 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIC
                         color = #colorLiteral(red: 0.2653386891, green: 0.2729498446, blue: 0.6093763709, alpha: 1)
                         icon = UIImage(named: "moon-icon")!
                     case 4:
-                        let records = Array(patient!.ingestedFoods)
+                        let records = Array(patient!.weightRecords)
                         viewController.myRecords = records as [AnyObject]
-                        title = "Calories Consumed"
-                        color = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                        icon = UIImage(named: "food-icon")!
-                    default:
+                        title = "Weight Records"
+                        color = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+                        icon = UIImage(named: "weight-icon")!
+                    case 5:
                         let records = Array(patient!.hearthRecords)
                         viewController.myRecords = records as [AnyObject]
                         title = "Hearth BPM"
                         color = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
                         icon = UIImage(named: "hearth-icon")!
+                    default:
+                        let records = Array(patient!.ingestedFoods)
+                        viewController.myRecords = records as [AnyObject]
+                        title = "Calories Consumed"
+                        color = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+                        icon = UIImage(named: "food-icon")!
                     }
                     viewController.mainColor = color
                     viewController.mainIcon = icon
