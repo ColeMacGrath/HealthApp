@@ -85,7 +85,7 @@ A model trained to determine the pathology of a naevus
 * classLabelProbs (String -> Double): Probability of each category
 * classLabel (String): Most likely image category
 
-##Skin lesion to determine
+## Skin lesion to determine
 
 |        Skin Lesion         | **Number of images for training** | **Original Size** |
 | :------------------------: | :-------------------------------: | :---------------: |
