@@ -117,23 +117,23 @@ class DatabaseService {
         self.mainRef.child(FIR_CHILD_PATIENTS).child("\(patient.uid)/profile/healthData/").setValue(dictionary)
         
         for heightRecord in patient.heightRecords {
-            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/heightRecords/").child("\(heightRecord.startDate)").setValue(heightRecord.height)
+            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/heightRecords/").child(heightRecord.startDate.iso8601).setValue(heightRecord.height)
         }
         
         for weightRecord in patient.weightRecords {
-            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/weightRecords/").child("\(weightRecord.startDate)").setValue(weightRecord.weight)
+            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/weightRecords/").child(weightRecord.startDate.iso8601).setValue(weightRecord.weight)
         }
         
         for sleepRecord in patient.sleepRecords {
             let sleepDict: [String: AnyObject] = [
-                "startDate": "\(sleepRecord.startDate)" as AnyObject,
-                "endDate": "\(sleepRecord.endDate)" as AnyObject
+                "startDate": sleepRecord.startDate.iso8601 as AnyObject,
+                "endDate": sleepRecord.endDate.iso8601 as AnyObject
             ]
-            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/sleepRecords/").child("\(sleepRecord.startDate)").setValue(sleepDict)
+            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/sleepRecords/").child(sleepRecord.startDate.iso8601).setValue(sleepDict)
         }
         
         for workout in patient.workoutRecords {
-            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/workoutRecords/").child("\(workout.startDate)").setValue(workout.calories)
+            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/workoutRecords/").child(workout.startDate.iso8601).setValue(workout.calories)
         }
         
         for foodRecord in patient.ingestedFoods {
@@ -141,11 +141,11 @@ class DatabaseService {
                 "name": foodRecord.name as AnyObject,
                 "calories": "\(foodRecord.kilocalories)" as AnyObject
             ]
-            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/ingestedFoodRecords/").child("\(foodRecord.startDate)").setValue(foodDict)
+            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/ingestedFoodRecords/").child(foodRecord.startDate.iso8601).setValue(foodDict)
         }
         
         for hearthRecord in patient.hearthRecords {
-            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/hearthRecords/").child("\(hearthRecord.startDate)").setValue(hearthRecord.bpm)
+            self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/hearthRecords/").child(hearthRecord.startDate.iso8601).setValue(hearthRecord.bpm)
         }
     }
 }
