@@ -139,7 +139,7 @@ class DatabaseService {
         for foodRecord in patient.ingestedFoods {
             let foodDict: [String: AnyObject] = [
                 "name": foodRecord.name as AnyObject,
-                "calories": "\(foodRecord.kilocalories)" as AnyObject
+                "calories": foodRecord.kilocalories as AnyObject
             ]
             self.mainRef.child("\(FIR_CHILD_PATIENTS)/\(patient.uid)/ingestedFoodRecords/").child(foodRecord.startDate.iso8601).setValue(foodDict)
         }
