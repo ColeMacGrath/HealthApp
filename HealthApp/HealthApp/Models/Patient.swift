@@ -202,7 +202,6 @@ class Patient: Object {
         }
     }
     
-    
     func remove(appointment: Appointment) {
         DatabaseService.shared.remove(appointmentUID: appointment.id, patientUID: appointment.patientUid, doctorUID: appointment.doctorUid)
         do {
