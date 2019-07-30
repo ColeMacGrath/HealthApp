@@ -8,7 +8,7 @@ Check [Doctor App](https://github.com/ColeMacGrath/HealthApp/tree/Doctor)
 
 ## Getting started
 
-## Prerequsistes
+## Prerequisites
 
 | Software | **Minimum Version** |     **Recommended**     |
 | :------: | :-----------------: | :---------------------: |
@@ -51,7 +51,7 @@ pod 'RealmSwift'
 1. Clone the project
 2. Create a new Pod file from .xcodeproj
 3. Install packages listed before
-4. Drag and drop [Machine Learning Model](google.com) in HealthApp/Visual Recognizer (Check the Target Membership)
+4. Drag and drop [Machine Learning Model](https://1drv.ms/u/s!ArVWVB2r2uzhg-Q90YBJ1-tmu8E0AA?e=19njUT) in HealthApp/Visual Recognizer (Check the Target Membership)
 5. Drag and drop your own GoogleService-Info.plist into HealthApp/
 6. Activate HealthKit to your Apple ID (Targets -> Capabilities)
 7. Activate MapKit to your Apple ID
@@ -72,7 +72,7 @@ Image Classifier
 
 #### Description
 
-A model trained to determine the pathology of a naevus
+A model trained to determine the pathology of a nevus
 
 #### Model Evaluation Parameters
 
@@ -124,17 +124,17 @@ The app was manually translated to
 * Local saving for profile picture
 * Added profile picture saved in cloud too
 * Added four new skins lesions to determine
-* Improved cloud querys
+* Improved cloud query
 * Improved messages error in login and register
 * App not crashes on refresh
-* Appoitments are now working in cloud and local
+* Appointments are now working in cloud and local
 * Views are improved now are responsive and works in iPhone and iPad
 * Added food ingested calories and food name in health types
-* Interface redisegned from stratch
+* Interface redesigned from scratch
 
 ### Comparative table with old and new HealthApp versions
 
-|        Comparision         |       **Original version**       |                       **New version**                        |
+|        Comparison         |       **Original version**       |                       **New version**                        |
 | :------------------------: | :------------------------------: | :----------------------------------------------------------: |
 |  Original Dataset images   |            170 images            |                        12,119 images                         |
 |   Original Dataset size    |             25.9 Mb              |                           18.37 GB                           |
