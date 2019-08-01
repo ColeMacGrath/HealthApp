@@ -16,9 +16,11 @@ class DoctorListViewController: UIViewController {
     var buttonImages: [UIImage] = [#imageLiteral(resourceName: "blue_button"), #imageLiteral(resourceName: "pink_button"), #imageLiteral(resourceName: "green_button"), #imageLiteral(resourceName: "blue_button"), #imageLiteral(resourceName: "aqua_button")]
     var patient: Patient?
     var selectedDoctor: Doctor!
+    var doctorsToShow: Results<Doctor>?
     let realm = try? Realm()
     var isSelectionAllowed = false
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,7 @@ class DoctorListViewController: UIViewController {
                         if removed {
                             DispatchQueue.main.async {
                                 self.patient?.removeDoctorWith(uid: doctorUID.key)
+                                self.doctorsToShow = self.patient!.doctors.sorted(byKeyPath: "_firstName", ascending: true)
                                 self.tableView.reloadData()
                             }
                         } else {
@@ -102,6 +105,7 @@ class DoctorListViewController: UIViewController {
                                     }
                                 }
                             }
+                            self.doctorsToShow = self.patient!.doctors.sorted(byKeyPath: "_firstName", ascending: true)
                             self.tableView.reloadData()
                             self.refreshControl.endRefreshing()
                         }
@@ -129,6 +133,7 @@ class DoctorListViewController: UIViewController {
                         }
                         
                     }
+                    self.doctorsToShow = self.patient!.doctors.sorted(byKeyPath: "_firstName", ascending: true)
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 })
@@ -146,18 +151,18 @@ class DoctorListViewController: UIViewController {
     
 }
 
-extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
+extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return patient?.doctors.count ?? 0
+        return doctorsToShow?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactTableViewCell
-        guard let cellDoctor = patient?.doctors[indexPath.row] else { return cell }
+        guard let cellDoctor = doctorsToShow?[indexPath.row] else { return cell }
         cell.allowsSelection = isSelectionAllowed
         cell.profileImageView.image = cellDoctor.profilePicture ?? UIImage(named: "profile-placeholder")
         cell.nameLabel.text = "\(cellDoctor.firstName) \(cellDoctor.lastName)"
@@ -167,7 +172,7 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedDoctor = patient?.doctors[indexPath.row]
+        selectedDoctor = doctorsToShow?[indexPath.row]
         
         if let parentViewController = self.parent as? CreateAppointmentViewController {
             parentViewController.selectedDoctor = self.selectedDoctor
@@ -180,13 +185,14 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        guard let selectedDoctor = patient?.doctors[indexPath.row] else {
-            return UISwipeActionsConfiguration(actions: [])
+        guard let selectedDoctor = doctorsToShow?[indexPath.row] else {
+            return UISwipeActionsConfiguration()
         }
         
         let action =  UIContextualAction(style: .destructive, title: "Remove", handler: { (action,view,completionHandler ) in
             DispatchQueue.main.async {
                 self.patient?.remove(doctor: selectedDoctor)
+                self.doctorsToShow = self.patient?.doctors.sorted(byKeyPath: "_firstName", ascending: true)
                 self.tableView.deleteRows(at: [indexPath], with: .left)
             }
             completionHandler(true)
@@ -196,5 +202,21 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate {
         let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [action])
         
         return swipeActionsConfiguration
+    }
+    
+    func searchBarButtonClicked(_ searchbar: UISearchBar) {
+        let searchText = searchbar.text!
+        doctorsToShow = patient?.doctors.filter("_firstName: CONTAINS[cd] %@", searchText).sorted(byKeyPath: "_firstName", ascending: true)
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text!.count > 0 {
+            print("Cambio")
+            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }
