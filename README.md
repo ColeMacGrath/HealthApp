@@ -14,23 +14,23 @@ Check [Doctor App](https://github.com/ColeMacGrath/HealthApp/tree/Doctor)
 | :------: | :-----------------: | :---------------------: |
 |  macOS   | High Sierra 10.13.6 | Mojave 10.14.3 or newer |
 |  Xcode   |      Xcode 10       |       Xcode 10.2        |
-|  Swift   |      Swift 4.0      |        Swift 5.0        |
+|  Swift   |      Swift 5.0      |    Swift 5.0 or newer   |
 |   iOS    |       iOS 12        |        iOS 12.1         |
 
 ### Packages
 
-|        Package         | **Version Tested** | **Optional** |
-| :--------------------: | :----------------: | :----------: |
-|        CocaPods        |       1.5.2        |      No      |
-|        Firebase        |       6.3.0        |     Yes      |
-|     Firebase/Auth      |       6.3.0        |      No      |
-|   Firebase/Database    |       6.3.0        |      No      |
-|    Firebase/Storage    |       6.3.0        |      No      |
-|     FloatingPanel      |       1.6.1        |      No      |
-| IQKeyboardManagerSwift |       6.4.0        |     Yes      |
-|    JTAppleCalendar     |       8.0.0        |      No      |
-|         Charts         |       3.3.0        |     Yes      |
-|       RealmSwift       |       3.17.0       |      No      |
+|        Package         | **Version Tested** | 
+| :--------------------: | :----------------: |
+|        CocaPods        |       1.5.2        |
+|        Firebase        |       6.3.0        |
+|     Firebase/Auth      |       6.3.0        |
+|   Firebase/Database    |       6.3.0        |
+|    Firebase/Storage    |       6.3.0        |
+|     FloatingPanel      |       1.6.1        |
+| IQKeyboardManagerSwift |       6.4.0        |
+|    JTAppleCalendar     |       8.0.0        |
+|         Charts         |       3.3.0        |
+|       RealmSwift       |       3.17.0       |
 
 Podfile included
 
@@ -104,7 +104,6 @@ The app was manually translated to
 ## Upcoming Features
 
 * macOS Compatibility with project catalyst
-* SearchBar for doctor filtering
 * Siri Shortcuts
 * Translations
 
@@ -131,6 +130,7 @@ The app was manually translated to
 * Views are improved now are responsive and works in iPhone and iPad
 * Added food ingested calories and food name in health types
 * Interface redesigned from scratch
+* Search Bar for doctor filtering by name
 
 ### Comparative table with old and new HealthApp versions
 
