@@ -204,19 +204,25 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate, 
         return swipeActionsConfiguration
     }
     
-    func searchBarButtonClicked(_ searchbar: UISearchBar) {
-        let searchText = searchbar.text!
-        doctorsToShow = patient?.doctors.filter("_firstName: CONTAINS[cd] %@", searchText).sorted(byKeyPath: "_firstName", ascending: true)
+    func reloadDoctors(_ searchBar: UISearchBar) {
+        let searchText = searchBar.text!
+        if searchText.count > 0 {
+             doctorsToShow = patient?.doctors.filter("_firstName CONTAINS[cd] %@", searchText).sorted(byKeyPath: "_firstName", ascending: true)
+        } else {
+            doctorsToShow = patient?.doctors.sorted(byKeyPath: "_firstName", ascending: true)
+        }
+       
         tableView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        reloadDoctors(searchBar)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text!.count > 0 {
-            print("Cambio")
-            self.tableView.reloadData()
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
+        DispatchQueue.main.async {
+            self.reloadDoctors(searchBar)
         }
     }
+    
 }
