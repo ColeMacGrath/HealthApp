@@ -1,25 +1,28 @@
-#  ![alt text](https://user-images.githubusercontent.com/42153044/61584923-01d6df00-ab16-11e9-9811-9b2ece37889a.png)
+![alt text](https://user-images.githubusercontent.com/42153044/61584923-01d6df00-ab16-11e9-9811-9b2ece37889a.png)
 
 HealthApp provides a series of tools to provide a better interaction between patients and doctors.
 This application is integrated with HealthKit, Firebase and Realm it means that every record of alimentation, sports and more are synchronized between doctor and patient in real time.
 In addition incorporates an image analyzer, working in conjunction with automated learning algorithms to predict the presence of different skin lesions with just one photo.
 
-Check [Doctor App](https://github.com/ColeMacGrath/HealthApp/tree/Doctor)
+## [Doctor App](https://github.com/ColeMacGrath/HealthApp/tree/Doctor)
+
+| ![alt text](https://user-images.githubusercontent.com/42153044/61669020-42646300-aca4-11e9-913d-cfaec5f3995a.png) | ![alt text](https://user-images.githubusercontent.com/42153044/61612755-05a55700-ac25-11e9-94c7-d0a036becf06.png) | ![alt text](https://user-images.githubusercontent.com/42153044/61612757-05a55700-ac25-11e9-9220-96a1bbbff892.png) |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 
 ## Getting started
 
-## Prerequisites
+### Prerequisites
 
 | Software | **Minimum Version** |     **Recommended**     |
 | :------: | :-----------------: | :---------------------: |
 |  macOS   | High Sierra 10.13.6 | Mojave 10.14.3 or newer |
 |  Xcode   |      Xcode 10       |       Xcode 10.2        |
-|  Swift   |      Swift 5.0      |    Swift 5.0 or newer   |
+|  Swift   |      Swift 5.0      |   Swift 5.0 or newer    |
 |   iOS    |       iOS 12        |        iOS 12.1         |
 
 ### Packages
 
-|        Package         | **Version Tested** | 
+|        Package         | **Version Tested** |
 | :--------------------: | :----------------: |
 |        CocaPods        |       1.5.2        |
 |        Firebase        |       6.3.0        |
@@ -78,12 +81,12 @@ A model trained to determine the pathology of a nevus
 
 ##### Inputs:
 
-* Image (Color 299x299)
+- Image (Color 299x299)
 
 #### Outputs
 
-* classLabelProbs (String -> Double): Probability of each category
-* classLabel (String): Most likely image category
+- classLabelProbs (String -> Double): Probability of each category
+- classLabel (String): Most likely image category
 
 ## Skin lesion to determine
 
@@ -96,16 +99,18 @@ A model trained to determine the pathology of a nevus
 |    Seborrheic Keratosis    |                419                |      1.47 GB      |
 
 ## languages
+
 The app was manually translated to
-* 🇺🇸 English (US)
-* 🇲🇽 Spanish (MX) (not available)
-* 🇪🇸 Catalan (ES) (not available)
+
+- 🇺🇸 English (US)
+- 🇲🇽 Spanish (MX) (not available)
+- 🇪🇸 Catalan (ES) (not available)
 
 ## Upcoming Features
 
-* macOS Compatibility with project catalyst
-* Siri Shortcuts
-* Translations
+- macOS Compatibility with project catalyst
+- Siri Shortcuts
+- Translations
 
 ## Some Screenshots
 
@@ -114,27 +119,25 @@ The app was manually translated to
 | ![alt text](https://user-images.githubusercontent.com/42153044/61584928-026f7580-ab16-11e9-8174-5c53a3a6a252.png) | ![alt text](https://user-images.githubusercontent.com/42153044/61584932-03080c00-ab16-11e9-9bb1-99603145ce1c.png) | ![alt text](https://user-images.githubusercontent.com/42153044/61584924-026f7580-ab16-11e9-9f25-0c9eb388b30e.png) |
 | ![alt text](https://user-images.githubusercontent.com/42153044/61584927-026f7580-ab16-11e9-8861-a1fcf68904f2.png) | ![alt text](https://user-images.githubusercontent.com/42153044/61584926-026f7580-ab16-11e9-80be-9b6644326c34.png) |                                                              |
 
-
 ![alt text](https://user-images.githubusercontent.com/42153044/61584925-026f7580-ab16-11e9-980a-23e18bfbc306.png)
-
 
 ## Changelog
 
-* Local saving for profile picture
-* Added profile picture saved in cloud too
-* Added four new skins lesions to determine
-* Improved cloud query
-* Improved messages error in login and register
-* App not crashes on refresh
-* Appointments are now working in cloud and local
-* Views are improved now are responsive and works in iPhone and iPad
-* Added food ingested calories and food name in health types
-* Interface redesigned from scratch
-* Search Bar for doctor filtering by name
+- Local saving for profile picture
+- Added profile picture saved in cloud too
+- Added four new skins lesions to determine
+- Improved cloud query
+- Improved messages error in login and register
+- App not crashes on refresh
+- Appointments are now working in cloud and local
+- Views are improved now are responsive and works in iPhone and iPad
+- Added food ingested calories and food name in health types
+- Interface redesigned from scratch
+- Search Bar for doctor filtering by name
 
 ### Comparative table with old and new HealthApp versions
 
-|        Comparison         |       **Original version**       |                       **New version**                        |
+|         Comparison         |       **Original version**       |                       **New version**                        |
 | :------------------------: | :------------------------------: | :----------------------------------------------------------: |
 |  Original Dataset images   |            170 images            |                        12,119 images                         |
 |   Original Dataset size    |             25.9 Mb              |                           18.37 GB                           |
@@ -149,5 +152,5 @@ MIT
 
 ## Acknowledgements
 
-* [ISC](https://www.isic-archive.com/#!/topWithHeader/wideContentTop/main) For main image data set
-* [MED-NODE](http://www.cs.rug.nl/~imaging/databases/melanoma_naevi/)
+- [ISC](https://www.isic-archive.com/#!/topWithHeader/wideContentTop/main) For main image data set
+- [MED-NODE](http://www.cs.rug.nl/~imaging/databases/melanoma_naevi/)
