@@ -26,6 +26,15 @@ class SaveAppointmentViewController: UIViewController {
             self.date = parent.selectedDate
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let parent = self.parent as? CreateAppointmentViewController {
+            if parent.createdAppointment == nil {
+                parent.disableSwipe()
+            }
+        }
+    }
 
 }
 
@@ -112,6 +121,8 @@ extension SaveAppointmentViewController: UITableViewDelegate, UITableViewDataSou
                 NotificationCenter.default.post(name: NSNotification.Name("UpdateAppointmentsTable"), object: nil)
                 if let parentViewController = self.parent as? CreateAppointmentViewController {
                     parentViewController.createdAppointment = appointment
+                    parentViewController.enableSwipe()
+                    parentViewController.nextPage()
                 }
             } else {
                 let alert = UIAlertController(title: "Appointmetn created", message: "you've got another appointment at same hour with same doctor", preferredStyle: .alert)

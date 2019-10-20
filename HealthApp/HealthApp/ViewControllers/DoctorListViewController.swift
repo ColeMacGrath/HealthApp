@@ -37,6 +37,15 @@ class DoctorListViewController: UIViewController {
         getDoctorsUID()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let parent = self.parent as? CreateAppointmentViewController {
+            if parent.selectedDoctor == nil {
+                parent.disableSwipe()
+            }
+        }
+    }
+    
     @IBAction func addNewDoctorButtonPressed(_ sender: UIBarButtonItem) {
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "QRAnalyzerVC") as? QRAnalyzerViewController {
             viewController.patient = self.patient
@@ -177,6 +186,8 @@ extension DoctorListViewController: UITableViewDataSource, UITableViewDelegate, 
         if let parentViewController = self.parent as? CreateAppointmentViewController {
             parentViewController.selectedDoctor = self.selectedDoctor
             parentViewController.patient = self.patient
+            parentViewController.enableSwipe()
+            parentViewController.nextPage()
             return
         }
         

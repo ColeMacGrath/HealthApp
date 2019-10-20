@@ -73,6 +73,28 @@ class CreateAppointmentViewController: UIPageViewController {
         pageControl.currentPageIndicatorTintColor = UIColor.white
         self.view.addSubview(pageControl)
     }
+    
+    func nextPage() {
+        guard let currentViewController = self.viewControllers?.first else { return }
+        guard let nextViewController = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) else { return }
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+    }
+    
+    func enableSwipe() {
+        for view in self.view.subviews {
+            if let subView = view as? UIScrollView {
+                subView.isScrollEnabled = true
+            }
+        }
+    }
+
+    func disableSwipe() {
+        for view in self.view.subviews {
+            if let subView = view as? UIScrollView {
+                subView.isScrollEnabled = false
+            }
+        }
+    }
 }
 
 extension CreateAppointmentViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {

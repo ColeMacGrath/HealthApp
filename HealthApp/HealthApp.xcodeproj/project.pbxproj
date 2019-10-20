@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3013676235CC24B001150CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3013675235CC24B001150CA /* GoogleService-Info.plist */; };
 		B30A38DE22D558900027380C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38DD22D558900027380C /* ProfileTableViewCell.swift */; };
 		B30A38E022D5589D0027380C /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38DF22D5589C0027380C /* CollectionViewTableViewCell.swift */; };
 		B30A38E222D558AA0027380C /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38E122D558AA0027380C /* ContactTableViewCell.swift */; };
@@ -41,7 +42,6 @@
 		B3DAD47222E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD47122E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift */; };
 		B3DAD47422E0F57400FDF3A3 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD47322E0F57400FDF3A3 /* EditProfileTableViewController.swift */; };
 		B3DAD47622E0FBB200FDF3A3 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD47522E0FBB200FDF3A3 /* TextFieldTableViewCell.swift */; };
-		B3DCCA3822DFC2C3004EFFF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3DCCA3722DFC2C3004EFFF7 /* GoogleService-Info.plist */; };
 		B3DCE35C22D03AC000DAC751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */; };
 		B3DCE35E22D03AC000DAC751 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */; };
 		B3DCE36122D03AC000DAC751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE35F22D03AC000DAC751 /* Main.storyboard */; };
@@ -67,6 +67,7 @@
 /* Begin PBXFileReference section */
 		895BF9DD073B96435434CFD3 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
 		96DF5754DC927C8945904C99 /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B3013675235CC24B001150CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B30A38DD22D558900027380C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		B30A38DF22D5589C0027380C /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		B30A38E122D558AA0027380C /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		B3DAD47122E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTableViewCell.swift; sourceTree = "<group>"; };
 		B3DAD47322E0F57400FDF3A3 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		B3DAD47522E0FBB200FDF3A3 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		B3DCCA3722DFC2C3004EFFF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3DCE35822D03AC000DAC751 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +140,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3013673235CBFFF001150CA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B3DCE35F22D03AC000DAC751 /* Main.storyboard */,
+				B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B3013674235CC016001150CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3DCE37322D046A800DAC751 /* Util.swift */,
+				B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */,
+				B3013675235CC24B001150CA /* GoogleService-Info.plist */,
+				B3DCE36222D03AC300DAC751 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B3CC864122D2EE5B00875307 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,15 +242,11 @@
 		B3DCE35A22D03AC000DAC751 /* HealthApp */ = {
 			isa = PBXGroup;
 			children = (
-				B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */,
 				B3CC864322D2F29800875307 /* Visual Recognizer */,
 				B3CC864222D2EE9800875307 /* ViewControllers */,
 				B3FD83BE22D56B6300D3014A /* Models */,
-				B3DCE35F22D03AC000DAC751 /* Main.storyboard */,
-				B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */,
-				B3DCE36222D03AC300DAC751 /* Assets.xcassets */,
-				B3DCE37322D046A800DAC751 /* Util.swift */,
-				B3DCCA3722DFC2C3004EFFF7 /* GoogleService-Info.plist */,
+				B3013673235CBFFF001150CA /* Storyboards */,
+				B3013674235CC016001150CA /* Supporting Files */,
 				B3DCE36722D03AC300DAC751 /* Info.plist */,
 				B3FD83C522D574CB00D3014A /* HealthApp.entitlements */,
 			);
@@ -336,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3DCE36622D03AC300DAC751 /* LaunchScreen.storyboard in Resources */,
-				B3DCCA3822DFC2C3004EFFF7 /* GoogleService-Info.plist in Resources */,
+				B3013676235CC24B001150CA /* GoogleService-Info.plist in Resources */,
 				B3DCE36322D03AC300DAC751 /* Assets.xcassets in Resources */,
 				B3DCE36122D03AC000DAC751 /* Main.storyboard in Resources */,
 			);
