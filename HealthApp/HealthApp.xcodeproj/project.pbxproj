@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B301367A235CD2EB001150CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3013679235CD2EB001150CA /* GoogleService-Info.plist */; };
 		B30A38DE22D558900027380C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38DD22D558900027380C /* ProfileTableViewCell.swift */; };
 		B30A38E022D5589D0027380C /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38DF22D5589C0027380C /* CollectionViewTableViewCell.swift */; };
 		B30A38E222D558AA0027380C /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38E122D558AA0027380C /* ContactTableViewCell.swift */; };
@@ -66,6 +67,7 @@
 /* Begin PBXFileReference section */
 		895BF9DD073B96435434CFD3 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
 		96DF5754DC927C8945904C99 /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B3013679235CD2EB001150CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B30A38DD22D558900027380C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		B30A38DF22D5589C0027380C /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		B30A38E122D558AA0027380C /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				B3DCE37322D046A800DAC751 /* Util.swift */,
 				B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */,
 				B3DCE36222D03AC300DAC751 /* Assets.xcassets */,
+				B3013679235CD2EB001150CA /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3DCE36622D03AC300DAC751 /* LaunchScreen.storyboard in Resources */,
+				B301367A235CD2EB001150CA /* GoogleService-Info.plist in Resources */,
 				B3DCE36322D03AC300DAC751 /* Assets.xcassets in Resources */,
 				B3DCE36122D03AC000DAC751 /* Main.storyboard in Resources */,
 			);
