@@ -1,5 +1,5 @@
 //
-//  DoctorProfileViewController.swift
+//  DoctorsViewController.swift
 //  HealthApp
 //
 //  Created by Moisés Córdova on 09/06/20.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class DoctorProfileViewController: UIViewController {
+class DoctorsViewController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
     
 

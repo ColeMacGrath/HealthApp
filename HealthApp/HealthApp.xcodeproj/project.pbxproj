@@ -7,297 +7,145 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B301367A235CD2EB001150CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3013679235CD2EB001150CA /* GoogleService-Info.plist */; };
-		B30A38DE22D558900027380C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38DD22D558900027380C /* ProfileTableViewCell.swift */; };
-		B30A38E022D5589D0027380C /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38DF22D5589C0027380C /* CollectionViewTableViewCell.swift */; };
-		B30A38E222D558AA0027380C /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38E122D558AA0027380C /* ContactTableViewCell.swift */; };
-		B30A38E422D558B40027380C /* DoctorProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38E322D558B40027380C /* DoctorProfileTableViewCell.swift */; };
-		B30A38E622D558BF0027380C /* ButtonCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38E522D558BF0027380C /* ButtonCardTableViewCell.swift */; };
-		B30A38E822D558C60027380C /* RecordMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38E722D558C60027380C /* RecordMainTableViewCell.swift */; };
-		B30A38EA22D558D30027380C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38E922D558D30027380C /* LoginViewController.swift */; };
-		B30A38EC22D561E00027380C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30A38EB22D561E00027380C /* RegisterViewController.swift */; };
-		B30B4BC522D13C4600C22712 /* DoctorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30B4BC422D13C4600C22712 /* DoctorProfileViewController.swift */; };
-		B3625EC422DFBBEF002BBD24 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3625EC322DFBBEF002BBD24 /* DatabaseService.swift */; };
-		B3625EC622DFBC0B002BBD24 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3625EC522DFBC0B002BBD24 /* AuthService.swift */; };
-		B380F38422D14EAB00A347DD /* TableItemCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380F38322D14EAB00A347DD /* TableItemCardTableViewCell.swift */; };
-		B3C7484A22D18325005DED97 /* CloseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7484922D18325005DED97 /* CloseTableViewCell.swift */; };
-		B3C7484C22D183ED005DED97 /* AppointmentInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7484B22D183ED005DED97 /* AppointmentInformationTableViewCell.swift */; };
-		B3C7484E22D1846D005DED97 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7484D22D1846D005DED97 /* NoteTableViewCell.swift */; };
-		B3C7485022D184B9005DED97 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7484F22D184B9005DED97 /* AppointmentViewController.swift */; };
-		B3C9810622E27C8F002C51E7 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9810522E27C8F002C51E7 /* QRViewController.swift */; };
-		B3C9810822E284CE002C51E7 /* QRAnalyzerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9810722E284CE002C51E7 /* QRAnalyzerViewController.swift */; };
-		B3CC863C22D2E3DB00875307 /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC863B22D2E3DB00875307 /* PickerTableViewCell.swift */; };
-		B3CC863E22D2E40B00875307 /* CreateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC863D22D2E40B00875307 /* CreateAppointmentViewController.swift */; };
-		B3CC864022D2E41800875307 /* SaveAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC863F22D2E41800875307 /* SaveAppointmentViewController.swift */; };
-		B3CC864A22D2F29800875307 /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC864422D2F29800875307 /* PulleyViewController.swift */; };
-		B3CC864B22D2F29800875307 /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC864522D2F29800875307 /* PulleyPassthroughScrollView.swift */; };
-		B3CC864C22D2F29800875307 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC864622D2F29800875307 /* CameraViewController.swift */; };
-		B3CC864D22D2F29800875307 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC864722D2F29800875307 /* ResultTableViewCell.swift */; };
-		B3CC864E22D2F29800875307 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC864822D2F29800875307 /* ProgressBar.swift */; };
-		B3CC864F22D2F29800875307 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC864922D2F29800875307 /* ResultsTableViewController.swift */; };
-		B3D0B43822D10A09009407BB /* DoctorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D0B43722D10A09009407BB /* DoctorListViewController.swift */; };
-		B3D4AE9E22DE8093008B5E32 /* Nevus.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B3D4AE9D22DE8092008B5E32 /* Nevus.mlmodel */; };
-		B3DAD46A22E0F4B900FDF3A3 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD46922E0F4B900FDF3A3 /* IngredientTableViewCell.swift */; };
-		B3DAD46E22E0F4EC00FDF3A3 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD46D22E0F4EC00FDF3A3 /* ImageTableViewCell.swift */; };
-		B3DAD47222E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD47122E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift */; };
-		B3DAD47422E0F57400FDF3A3 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD47322E0F57400FDF3A3 /* EditProfileTableViewController.swift */; };
-		B3DAD47622E0FBB200FDF3A3 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAD47522E0FBB200FDF3A3 /* TextFieldTableViewCell.swift */; };
-		B3DCE35C22D03AC000DAC751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */; };
-		B3DCE35E22D03AC000DAC751 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */; };
-		B3DCE36122D03AC000DAC751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE35F22D03AC000DAC751 /* Main.storyboard */; };
-		B3DCE36322D03AC300DAC751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE36222D03AC300DAC751 /* Assets.xcassets */; };
-		B3DCE36622D03AC300DAC751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */; };
-		B3DCE37222D0434000DAC751 /* DataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */; };
-		B3DCE37422D046A800DAC751 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37322D046A800DAC751 /* Util.swift */; };
-		B3DCE37622D054F200DAC751 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */; };
-		B3DE9A9F22D5A1BB00D85096 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9A9E22D5A1BB00D85096 /* HealthKitService.swift */; };
-		B3E4A2E822D28A41008D64B1 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */; };
-		B3FAEBA222D15F29007B7BBF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */; };
-		B3FAEBA422D15F93007B7BBF /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA322D15F93007B7BBF /* CalendarDayCell.swift */; };
-		B3FAEBA622D15FD6007B7BBF /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAEBA522D15FD6007B7BBF /* AppointmentTableViewCell.swift */; };
-		B3FD83BB22D5643500D3014A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD83BA22D5643500D3014A /* InitialViewController.swift */; };
-		B3FD83BD22D56B5F00D3014A /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD83BC22D56B5F00D3014A /* Patient.swift */; };
-		B3FD83C022D56CE600D3014A /* HealthDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD83BF22D56CE600D3014A /* HealthDataType.swift */; };
-		B3FD83C222D5720D00D3014A /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD83C122D5720D00D3014A /* Doctor.swift */; };
-		B3FD83C422D572AA00D3014A /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD83C322D572AA00D3014A /* Appointment.swift */; };
-		B3FD83C722D574CC00D3014A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FD83C622D574CC00D3014A /* HealthKit.framework */; };
-		DD96CCE78C9F18B7786B37CA /* Pods_HealthApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC19C8BECAE9693EB6DA65BC /* Pods_HealthApp.framework */; };
+		B37A46C624900CDA009DB643 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46C524900CDA009DB643 /* Util.swift */; };
+		B37A46C824901076009DB643 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46C724901076009DB643 /* MainCollectionViewController.swift */; };
+		B37A46CB24901137009DB643 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46CA24901137009DB643 /* ProfileCollectionViewCell.swift */; };
+		B37A46CD24901195009DB643 /* QuickInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46CC24901195009DB643 /* QuickInfoCollectionViewCell.swift */; };
+		B37A46CF249011BF009DB643 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46CE249011BF009DB643 /* CardCollectionViewCell.swift */; };
+		B37A46D224901FFD009DB643 /* DoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46D124901FFD009DB643 /* DoctorsViewController.swift */; };
+		B37A46D424902025009DB643 /* DoctorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46D324902025009DB643 /* DoctorsTableViewController.swift */; };
+		B37A46D624902042009DB643 /* DoctorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A46D524902042009DB643 /* DoctorProfileViewController.swift */; };
+		B3AF526D249002E2002EFD08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF526C249002E2002EFD08 /* AppDelegate.swift */; };
+		B3AF526F249002E2002EFD08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF526E249002E2002EFD08 /* SceneDelegate.swift */; };
+		B3AF5274249002E2002EFD08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AF5272249002E2002EFD08 /* Main.storyboard */; };
+		B3AF5277249002E2002EFD08 /* HealthApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3AF5275249002E2002EFD08 /* HealthApp.xcdatamodeld */; };
+		B3AF5279249002E4002EFD08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AF5278249002E4002EFD08 /* Assets.xcassets */; };
+		B3AF527C249002E4002EFD08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AF527A249002E4002EFD08 /* LaunchScreen.storyboard */; };
+		B3AF528824900393002EFD08 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF528724900393002EFD08 /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		895BF9DD073B96435434CFD3 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
-		96DF5754DC927C8945904C99 /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
-		B3013679235CD2EB001150CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B30A38DD22D558900027380C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		B30A38DF22D5589C0027380C /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
-		B30A38E122D558AA0027380C /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
-		B30A38E322D558B40027380C /* DoctorProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorProfileTableViewCell.swift; sourceTree = "<group>"; };
-		B30A38E522D558BF0027380C /* ButtonCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCardTableViewCell.swift; sourceTree = "<group>"; };
-		B30A38E722D558C60027380C /* RecordMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordMainTableViewCell.swift; sourceTree = "<group>"; };
-		B30A38E922D558D30027380C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B30A38EB22D561E00027380C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		B30B4BC422D13C4600C22712 /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
-		B3625EC322DFBBEF002BBD24 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
-		B3625EC522DFBC0B002BBD24 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		B380F38322D14EAB00A347DD /* TableItemCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableItemCardTableViewCell.swift; sourceTree = "<group>"; };
-		B3C7484922D18325005DED97 /* CloseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseTableViewCell.swift; sourceTree = "<group>"; };
-		B3C7484B22D183ED005DED97 /* AppointmentInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentInformationTableViewCell.swift; sourceTree = "<group>"; };
-		B3C7484D22D1846D005DED97 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
-		B3C7484F22D184B9005DED97 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
-		B3C9810522E27C8F002C51E7 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
-		B3C9810722E284CE002C51E7 /* QRAnalyzerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRAnalyzerViewController.swift; sourceTree = "<group>"; };
-		B3CC863B22D2E3DB00875307 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
-		B3CC863D22D2E40B00875307 /* CreateAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentViewController.swift; sourceTree = "<group>"; };
-		B3CC863F22D2E41800875307 /* SaveAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAppointmentViewController.swift; sourceTree = "<group>"; };
-		B3CC864422D2F29800875307 /* PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyViewController.swift; sourceTree = "<group>"; };
-		B3CC864522D2F29800875307 /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
-		B3CC864622D2F29800875307 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		B3CC864722D2F29800875307 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
-		B3CC864822D2F29800875307 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		B3CC864922D2F29800875307 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
-		B3D0B43722D10A09009407BB /* DoctorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListViewController.swift; sourceTree = "<group>"; };
-		B3D4AE9D22DE8092008B5E32 /* Nevus.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Nevus.mlmodel; sourceTree = "<group>"; };
-		B3DAD46922E0F4B900FDF3A3 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
-		B3DAD46D22E0F4EC00FDF3A3 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
-		B3DAD47122E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTableViewCell.swift; sourceTree = "<group>"; };
-		B3DAD47322E0F57400FDF3A3 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
-		B3DAD47522E0FBB200FDF3A3 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		B3DCE35822D03AC000DAC751 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		B3DCE36022D03AC000DAC751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B3DCE36222D03AC300DAC751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B3DCE36522D03AC300DAC751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B3DCE36722D03AC300DAC751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewCell.swift; sourceTree = "<group>"; };
-		B3DCE37322D046A800DAC751 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
-		B3DE9A9E22D5A1BB00D85096 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
-		B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		B3FAEBA322D15F93007B7BBF /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
-		B3FAEBA522D15FD6007B7BBF /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
-		B3FD83BA22D5643500D3014A /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		B3FD83BC22D56B5F00D3014A /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
-		B3FD83BF22D56CE600D3014A /* HealthDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataType.swift; sourceTree = "<group>"; };
-		B3FD83C122D5720D00D3014A /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
-		B3FD83C322D572AA00D3014A /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
-		B3FD83C522D574CB00D3014A /* HealthApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthApp.entitlements; sourceTree = "<group>"; };
-		B3FD83C622D574CC00D3014A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		CC19C8BECAE9693EB6DA65BC /* Pods_HealthApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B37A46C524900CDA009DB643 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		B37A46C724901076009DB643 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
+		B37A46CA24901137009DB643 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		B37A46CC24901195009DB643 /* QuickInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B37A46CE249011BF009DB643 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B37A46D024901520009DB643 /* HealthApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthApp.entitlements; sourceTree = "<group>"; };
+		B37A46D124901FFD009DB643 /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsViewController.swift; sourceTree = "<group>"; };
+		B37A46D324902025009DB643 /* DoctorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsTableViewController.swift; sourceTree = "<group>"; };
+		B37A46D524902042009DB643 /* DoctorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileViewController.swift; sourceTree = "<group>"; };
+		B3AF5269249002E2002EFD08 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3AF526C249002E2002EFD08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B3AF526E249002E2002EFD08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B3AF5273249002E2002EFD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B3AF5276249002E2002EFD08 /* HealthApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthApp.xcdatamodel; sourceTree = "<group>"; };
+		B3AF5278249002E4002EFD08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3AF527B249002E4002EFD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3AF527D249002E4002EFD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3AF528724900393002EFD08 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B3DCE35522D03AC000DAC751 /* Frameworks */ = {
+		B3AF5266249002E2002EFD08 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD96CCE78C9F18B7786B37CA /* Pods_HealthApp.framework in Frameworks */,
-				B3FD83C722D574CC00D3014A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B3013673235CBFFF001150CA /* Storyboards */ = {
+		B37A46C92490111E009DB643 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				B3DCE35F22D03AC000DAC751 /* Main.storyboard */,
-				B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */,
+				B37A46CA24901137009DB643 /* ProfileCollectionViewCell.swift */,
+				B37A46CC24901195009DB643 /* QuickInfoCollectionViewCell.swift */,
+				B37A46CE249011BF009DB643 /* CardCollectionViewCell.swift */,
 			);
-			path = Storyboards;
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
-		B3013674235CC016001150CA /* Supporting Files */ = {
+		B3AF5260249002E2002EFD08 = {
 			isa = PBXGroup;
 			children = (
-				B3DCE37322D046A800DAC751 /* Util.swift */,
-				B3DCE35B22D03AC000DAC751 /* AppDelegate.swift */,
-				B3DCE36222D03AC300DAC751 /* Assets.xcassets */,
-				B3013679235CD2EB001150CA /* GoogleService-Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B3CC864122D2EE5B00875307 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				B3DAD46922E0F4B900FDF3A3 /* IngredientTableViewCell.swift */,
-				B3C7484B22D183ED005DED97 /* AppointmentInformationTableViewCell.swift */,
-				B3DCE37522D054F200DAC751 /* CardTableViewCell.swift */,
-				B30A38DD22D558900027380C /* ProfileTableViewCell.swift */,
-				B30A38DF22D5589C0027380C /* CollectionViewTableViewCell.swift */,
-				B3DCE37122D0434000DAC751 /* DataCollectionViewCell.swift */,
-				B3C7484922D18325005DED97 /* CloseTableViewCell.swift */,
-				B30A38E122D558AA0027380C /* ContactTableViewCell.swift */,
-				B3C7484D22D1846D005DED97 /* NoteTableViewCell.swift */,
-				B3FAEBA322D15F93007B7BBF /* CalendarDayCell.swift */,
-				B3FAEBA522D15FD6007B7BBF /* AppointmentTableViewCell.swift */,
-				B30A38E322D558B40027380C /* DoctorProfileTableViewCell.swift */,
-				B30A38E522D558BF0027380C /* ButtonCardTableViewCell.swift */,
-				B3CC863B22D2E3DB00875307 /* PickerTableViewCell.swift */,
-				B30A38E722D558C60027380C /* RecordMainTableViewCell.swift */,
-				B380F38322D14EAB00A347DD /* TableItemCardTableViewCell.swift */,
-				B3DAD46D22E0F4EC00FDF3A3 /* ImageTableViewCell.swift */,
-				B3DAD47122E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift */,
-				B3DAD47522E0FBB200FDF3A3 /* TextFieldTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		B3CC864222D2EE9800875307 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				B3DCE35D22D03AC000DAC751 /* ProfileViewController.swift */,
-				B3D0B43722D10A09009407BB /* DoctorListViewController.swift */,
-				B3FAEBA122D15F29007B7BBF /* CalendarViewController.swift */,
-				B3DAD47322E0F57400FDF3A3 /* EditProfileTableViewController.swift */,
-				B3C7484F22D184B9005DED97 /* AppointmentViewController.swift */,
-				B30B4BC422D13C4600C22712 /* DoctorProfileViewController.swift */,
-				B3CC863D22D2E40B00875307 /* CreateAppointmentViewController.swift */,
-				B3CC863F22D2E41800875307 /* SaveAppointmentViewController.swift */,
-				B3E4A2E722D28A41008D64B1 /* RecordViewController.swift */,
-				B30A38E922D558D30027380C /* LoginViewController.swift */,
-				B30A38EB22D561E00027380C /* RegisterViewController.swift */,
-				B3FD83BA22D5643500D3014A /* InitialViewController.swift */,
-				B3C9810522E27C8F002C51E7 /* QRViewController.swift */,
-				B3C9810722E284CE002C51E7 /* QRAnalyzerViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		B3CC864322D2F29800875307 /* Visual Recognizer */ = {
-			isa = PBXGroup;
-			children = (
-				B3D4AE9D22DE8092008B5E32 /* Nevus.mlmodel */,
-				B3CC864422D2F29800875307 /* PulleyViewController.swift */,
-				B3CC864522D2F29800875307 /* PulleyPassthroughScrollView.swift */,
-				B3CC864622D2F29800875307 /* CameraViewController.swift */,
-				B3CC864722D2F29800875307 /* ResultTableViewCell.swift */,
-				B3CC864822D2F29800875307 /* ProgressBar.swift */,
-				B3CC864922D2F29800875307 /* ResultsTableViewController.swift */,
-			);
-			path = "Visual Recognizer";
-			sourceTree = "<group>";
-		};
-		B3DCE34F22D03AC000DAC751 = {
-			isa = PBXGroup;
-			children = (
-				B3DCE35A22D03AC000DAC751 /* HealthApp */,
-				B3DCE35922D03AC000DAC751 /* Products */,
-				F628925885B13AAA019E013B /* Pods */,
-				D2530A3FD16D62AB934D721C /* Frameworks */,
+				B3AF526B249002E2002EFD08 /* HealthApp */,
+				B3AF526A249002E2002EFD08 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B3DCE35922D03AC000DAC751 /* Products */ = {
+		B3AF526A249002E2002EFD08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3DCE35822D03AC000DAC751 /* HealthApp.app */,
+				B3AF5269249002E2002EFD08 /* HealthApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B3DCE35A22D03AC000DAC751 /* HealthApp */ = {
+		B3AF526B249002E2002EFD08 /* HealthApp */ = {
 			isa = PBXGroup;
 			children = (
-				B3CC864322D2F29800875307 /* Visual Recognizer */,
-				B3CC864222D2EE9800875307 /* ViewControllers */,
-				B3FD83BE22D56B6300D3014A /* Models */,
-				B3013673235CBFFF001150CA /* Storyboards */,
-				B3013674235CC016001150CA /* Supporting Files */,
-				B3DCE36722D03AC300DAC751 /* Info.plist */,
-				B3FD83C522D574CB00D3014A /* HealthApp.entitlements */,
+				B37A46D024901520009DB643 /* HealthApp.entitlements */,
+				B3AF5283249002FF002EFD08 /* Delegates */,
+				B3AF528424900308002EFD08 /* ViewControllers */,
+				B3AF528524900314002EFD08 /* Storyboards */,
+				B3AF528624900325002EFD08 /* Utilities */,
+				B37A46C92490111E009DB643 /* CollectionViewCells */,
+				B3AF527D249002E4002EFD08 /* Info.plist */,
+				B3AF5275249002E2002EFD08 /* HealthApp.xcdatamodeld */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
 		};
-		B3FD83BE22D56B6300D3014A /* Models */ = {
+		B3AF5283249002FF002EFD08 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				B3FD83BC22D56B5F00D3014A /* Patient.swift */,
-				B3FD83BF22D56CE600D3014A /* HealthDataType.swift */,
-				B3FD83C122D5720D00D3014A /* Doctor.swift */,
-				B3DE9A9E22D5A1BB00D85096 /* HealthKitService.swift */,
-				B3FD83C322D572AA00D3014A /* Appointment.swift */,
-				B3625EC322DFBBEF002BBD24 /* DatabaseService.swift */,
-				B3625EC522DFBC0B002BBD24 /* AuthService.swift */,
-				B3CC864122D2EE5B00875307 /* Cell */,
+				B3AF526C249002E2002EFD08 /* AppDelegate.swift */,
+				B3AF526E249002E2002EFD08 /* SceneDelegate.swift */,
 			);
-			path = Models;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
-		D2530A3FD16D62AB934D721C /* Frameworks */ = {
+		B3AF528424900308002EFD08 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3FD83C622D574CC00D3014A /* HealthKit.framework */,
-				CC19C8BECAE9693EB6DA65BC /* Pods_HealthApp.framework */,
+				B3AF528724900393002EFD08 /* InitialViewController.swift */,
+				B37A46C724901076009DB643 /* MainCollectionViewController.swift */,
+				B37A46D124901FFD009DB643 /* DoctorsViewController.swift */,
+				B37A46D324902025009DB643 /* DoctorsTableViewController.swift */,
+				B37A46D524902042009DB643 /* DoctorProfileViewController.swift */,
 			);
-			name = Frameworks;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F628925885B13AAA019E013B /* Pods */ = {
+		B3AF528524900314002EFD08 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				96DF5754DC927C8945904C99 /* Pods-HealthApp.debug.xcconfig */,
-				895BF9DD073B96435434CFD3 /* Pods-HealthApp.release.xcconfig */,
+				B3AF5272249002E2002EFD08 /* Main.storyboard */,
+				B3AF527A249002E4002EFD08 /* LaunchScreen.storyboard */,
 			);
-			name = Pods;
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B3AF528624900325002EFD08 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B3AF5278249002E4002EFD08 /* Assets.xcassets */,
+				B37A46C524900CDA009DB643 /* Util.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B3DCE35722D03AC000DAC751 /* HealthApp */ = {
+		B3AF5268249002E2002EFD08 /* HealthApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3DCE36A22D03AC300DAC751 /* Build configuration list for PBXNativeTarget "HealthApp" */;
+			buildConfigurationList = B3AF5280249002E4002EFD08 /* Build configuration list for PBXNativeTarget "HealthApp" */;
 			buildPhases = (
-				48A10351A64B4A4FFFCE5FEC /* [CP] Check Pods Manifest.lock */,
-				B3DCE35422D03AC000DAC751 /* Sources */,
-				B3DCE35522D03AC000DAC751 /* Frameworks */,
-				B3DCE35622D03AC000DAC751 /* Resources */,
-				0D0AED71C7305E710237BF5A /* [CP] Embed Pods Frameworks */,
+				B3AF5265249002E2002EFD08 /* Sources */,
+				B3AF5266249002E2002EFD08 /* Frameworks */,
+				B3AF5267249002E2002EFD08 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -305,30 +153,25 @@
 			);
 			name = HealthApp;
 			productName = HealthApp;
-			productReference = B3DCE35822D03AC000DAC751 /* HealthApp.app */;
+			productReference = B3AF5269249002E2002EFD08 /* HealthApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B3DCE35022D03AC000DAC751 /* Project object */ = {
+		B3AF5261249002E2002EFD08 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1100;
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Moisés Córdova";
 				TargetAttributes = {
-					B3DCE35722D03AC000DAC751 = {
-						CreatedOnToolsVersion = 10.2;
-						SystemCapabilities = {
-							com.apple.HealthKit = {
-								enabled = 1;
-							};
-						};
+					B3AF5268249002E2002EFD08 = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
-			buildConfigurationList = B3DCE35322D03AC000DAC751 /* Build configuration list for PBXProject "HealthApp" */;
+			buildConfigurationList = B3AF5264249002E2002EFD08 /* Build configuration list for PBXProject "HealthApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -336,159 +179,64 @@
 				en,
 				Base,
 			);
-			mainGroup = B3DCE34F22D03AC000DAC751;
-			productRefGroup = B3DCE35922D03AC000DAC751 /* Products */;
+			mainGroup = B3AF5260249002E2002EFD08;
+			productRefGroup = B3AF526A249002E2002EFD08 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3DCE35722D03AC000DAC751 /* HealthApp */,
+				B3AF5268249002E2002EFD08 /* HealthApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B3DCE35622D03AC000DAC751 /* Resources */ = {
+		B3AF5267249002E2002EFD08 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3DCE36622D03AC300DAC751 /* LaunchScreen.storyboard in Resources */,
-				B301367A235CD2EB001150CA /* GoogleService-Info.plist in Resources */,
-				B3DCE36322D03AC300DAC751 /* Assets.xcassets in Resources */,
-				B3DCE36122D03AC000DAC751 /* Main.storyboard in Resources */,
+				B3AF527C249002E4002EFD08 /* LaunchScreen.storyboard in Resources */,
+				B3AF5279249002E4002EFD08 /* Assets.xcassets in Resources */,
+				B3AF5274249002E2002EFD08 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0D0AED71C7305E710237BF5A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthApp/Pods-HealthApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48A10351A64B4A4FFFCE5FEC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HealthApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		B3DCE35422D03AC000DAC751 /* Sources */ = {
+		B3AF5265249002E2002EFD08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3D4AE9E22DE8093008B5E32 /* Nevus.mlmodel in Sources */,
-				B3FAEBA622D15FD6007B7BBF /* AppointmentTableViewCell.swift in Sources */,
-				B3CC863E22D2E40B00875307 /* CreateAppointmentViewController.swift in Sources */,
-				B3DAD47222E0F53C00FDF3A3 /* PlaceholderTableViewCell.swift in Sources */,
-				B3E4A2E822D28A41008D64B1 /* RecordViewController.swift in Sources */,
-				B380F38422D14EAB00A347DD /* TableItemCardTableViewCell.swift in Sources */,
-				B3C9810822E284CE002C51E7 /* QRAnalyzerViewController.swift in Sources */,
-				B3DCE35E22D03AC000DAC751 /* ProfileViewController.swift in Sources */,
-				B30A38E422D558B40027380C /* DoctorProfileTableViewCell.swift in Sources */,
-				B3C7484A22D18325005DED97 /* CloseTableViewCell.swift in Sources */,
-				B3CC864D22D2F29800875307 /* ResultTableViewCell.swift in Sources */,
-				B3FD83C422D572AA00D3014A /* Appointment.swift in Sources */,
-				B3625EC622DFBC0B002BBD24 /* AuthService.swift in Sources */,
-				B3CC864F22D2F29800875307 /* ResultsTableViewController.swift in Sources */,
-				B3DAD47622E0FBB200FDF3A3 /* TextFieldTableViewCell.swift in Sources */,
-				B3DAD46E22E0F4EC00FDF3A3 /* ImageTableViewCell.swift in Sources */,
-				B30A38E622D558BF0027380C /* ButtonCardTableViewCell.swift in Sources */,
-				B3CC864B22D2F29800875307 /* PulleyPassthroughScrollView.swift in Sources */,
-				B30A38DE22D558900027380C /* ProfileTableViewCell.swift in Sources */,
-				B3C7484E22D1846D005DED97 /* NoteTableViewCell.swift in Sources */,
-				B30A38E822D558C60027380C /* RecordMainTableViewCell.swift in Sources */,
-				B3C7485022D184B9005DED97 /* AppointmentViewController.swift in Sources */,
-				B3DAD47422E0F57400FDF3A3 /* EditProfileTableViewController.swift in Sources */,
-				B3DCE35C22D03AC000DAC751 /* AppDelegate.swift in Sources */,
-				B3C7484C22D183ED005DED97 /* AppointmentInformationTableViewCell.swift in Sources */,
-				B30A38E222D558AA0027380C /* ContactTableViewCell.swift in Sources */,
-				B3CC863C22D2E3DB00875307 /* PickerTableViewCell.swift in Sources */,
-				B30A38E022D5589D0027380C /* CollectionViewTableViewCell.swift in Sources */,
-				B3DCE37422D046A800DAC751 /* Util.swift in Sources */,
-				B3DCE37222D0434000DAC751 /* DataCollectionViewCell.swift in Sources */,
-				B3FD83C022D56CE600D3014A /* HealthDataType.swift in Sources */,
-				B30B4BC522D13C4600C22712 /* DoctorProfileViewController.swift in Sources */,
-				B3FD83C222D5720D00D3014A /* Doctor.swift in Sources */,
-				B3DCE37622D054F200DAC751 /* CardTableViewCell.swift in Sources */,
-				B3FAEBA222D15F29007B7BBF /* CalendarViewController.swift in Sources */,
-				B30A38EC22D561E00027380C /* RegisterViewController.swift in Sources */,
-				B3C9810622E27C8F002C51E7 /* QRViewController.swift in Sources */,
-				B3DAD46A22E0F4B900FDF3A3 /* IngredientTableViewCell.swift in Sources */,
-				B3FD83BB22D5643500D3014A /* InitialViewController.swift in Sources */,
-				B3DE9A9F22D5A1BB00D85096 /* HealthKitService.swift in Sources */,
-				B3D0B43822D10A09009407BB /* DoctorListViewController.swift in Sources */,
-				B30A38EA22D558D30027380C /* LoginViewController.swift in Sources */,
-				B3FAEBA422D15F93007B7BBF /* CalendarDayCell.swift in Sources */,
-				B3625EC422DFBBEF002BBD24 /* DatabaseService.swift in Sources */,
-				B3CC864C22D2F29800875307 /* CameraViewController.swift in Sources */,
-				B3FD83BD22D56B5F00D3014A /* Patient.swift in Sources */,
-				B3CC864022D2E41800875307 /* SaveAppointmentViewController.swift in Sources */,
-				B3CC864E22D2F29800875307 /* ProgressBar.swift in Sources */,
-				B3CC864A22D2F29800875307 /* PulleyViewController.swift in Sources */,
+				B3AF528824900393002EFD08 /* InitialViewController.swift in Sources */,
+				B37A46C624900CDA009DB643 /* Util.swift in Sources */,
+				B3AF5277249002E2002EFD08 /* HealthApp.xcdatamodeld in Sources */,
+				B37A46D424902025009DB643 /* DoctorsTableViewController.swift in Sources */,
+				B37A46CB24901137009DB643 /* ProfileCollectionViewCell.swift in Sources */,
+				B37A46D624902042009DB643 /* DoctorProfileViewController.swift in Sources */,
+				B37A46CD24901195009DB643 /* QuickInfoCollectionViewCell.swift in Sources */,
+				B3AF526D249002E2002EFD08 /* AppDelegate.swift in Sources */,
+				B3AF526F249002E2002EFD08 /* SceneDelegate.swift in Sources */,
+				B37A46CF249011BF009DB643 /* CardCollectionViewCell.swift in Sources */,
+				B37A46C824901076009DB643 /* MainCollectionViewController.swift in Sources */,
+				B37A46D224901FFD009DB643 /* DoctorsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B3DCE35F22D03AC000DAC751 /* Main.storyboard */ = {
+		B3AF5272249002E2002EFD08 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B3DCE36022D03AC000DAC751 /* Base */,
+				B3AF5273249002E2002EFD08 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B3DCE36422D03AC300DAC751 /* LaunchScreen.storyboard */ = {
+		B3AF527A249002E4002EFD08 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B3DCE36522D03AC300DAC751 /* Base */,
+				B3AF527B249002E4002EFD08 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -496,7 +244,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B3DCE36822D03AC300DAC751 /* Debug */ = {
+		B3AF527E249002E4002EFD08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -528,7 +276,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -547,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -557,7 +304,7 @@
 			};
 			name = Debug;
 		};
-		B3DCE36922D03AC300DAC751 /* Release */ = {
+		B3AF527F249002E4002EFD08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -589,7 +336,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -602,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -612,43 +358,43 @@
 			};
 			name = Release;
 		};
-		B3DCE36B22D03AC300DAC751 /* Debug */ = {
+		B3AF5281249002E4002EFD08 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96DF5754DC927C8945904C99 /* Pods-HealthApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthApp/HealthApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R27L3GB44P;
 				INFOPLIST_FILE = HealthApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		B3DCE36C22D03AC300DAC751 /* Release */ = {
+		B3AF5282249002E4002EFD08 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 895BF9DD073B96435434CFD3 /* Pods-HealthApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthApp/HealthApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R27L3GB44P;
 				INFOPLIST_FILE = HealthApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -657,25 +403,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B3DCE35322D03AC000DAC751 /* Build configuration list for PBXProject "HealthApp" */ = {
+		B3AF5264249002E2002EFD08 /* Build configuration list for PBXProject "HealthApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B3DCE36822D03AC300DAC751 /* Debug */,
-				B3DCE36922D03AC300DAC751 /* Release */,
+				B3AF527E249002E4002EFD08 /* Debug */,
+				B3AF527F249002E4002EFD08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3DCE36A22D03AC300DAC751 /* Build configuration list for PBXNativeTarget "HealthApp" */ = {
+		B3AF5280249002E4002EFD08 /* Build configuration list for PBXNativeTarget "HealthApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B3DCE36B22D03AC300DAC751 /* Debug */,
-				B3DCE36C22D03AC300DAC751 /* Release */,
+				B3AF5281249002E4002EFD08 /* Debug */,
+				B3AF5282249002E4002EFD08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B3AF5275249002E2002EFD08 /* HealthApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B3AF5276249002E2002EFD08 /* HealthApp.xcdatamodel */,
+			);
+			currentVersion = B3AF5276249002E2002EFD08 /* HealthApp.xcdatamodel */;
+			path = HealthApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = B3DCE35022D03AC000DAC751 /* Project object */;
+	rootObject = B3AF5261249002E2002EFD08 /* Project object */;
 }
