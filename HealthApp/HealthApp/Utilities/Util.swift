@@ -82,3 +82,44 @@ class CardImage: UIImageView {
         
     }
 }
+
+extension UIStoryboard {
+    @available(iOS 13, *)
+    func createMenu(options: [String], images: [UIImage]?, title: String?, image: UIImage?) -> (menu: OptionsViewController, activityController: CustomActivityViewController)? {
+        
+        guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OptionsVC") as? OptionsViewController else { return nil }
+        controller.options = options
+        controller.headerTitle = title ?? ""
+        controller.headerImage = image
+        controller.images = images
+        let activityViewController = CustomActivityViewController(controller: controller)
+        return (controller, activityViewController)
+    }
+}
+
+enum LINE_POSITION {
+    case top
+    case bottom
+}
+
+extension UIView {
+    func addLine(position: LINE_POSITION = .bottom, color: UIColor = UIColor.lightGray, width: Double = 1.0) {
+        let lineView = UIView()
+        lineView.backgroundColor = color
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(lineView)
+        
+        let metrics = ["width" : NSNumber(value: width)]
+        let views = ["lineView" : lineView]
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[lineView]|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
+        
+        switch position {
+        case .top:
+            self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[lineView(width)]", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
+            break
+        case .bottom:
+            self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[lineView(width)]|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
+            break
+        }
+    }
+}
