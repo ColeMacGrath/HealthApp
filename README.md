@@ -110,7 +110,7 @@ The app was manually translated to
 
 ## Upcoming Features
 
-- macOS Compatibility with project catalyst
+- macOS Compatibility with project catalyst (In progress)
 - Siri Shortcuts
 - Translations
 
