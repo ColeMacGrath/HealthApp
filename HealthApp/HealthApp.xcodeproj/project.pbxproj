@@ -22,6 +22,7 @@
 		B3AF5279249002E4002EFD08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AF5278249002E4002EFD08 /* Assets.xcassets */; };
 		B3AF527C249002E4002EFD08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AF527A249002E4002EFD08 /* LaunchScreen.storyboard */; };
 		B3AF528824900393002EFD08 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF528724900393002EFD08 /* InitialViewController.swift */; };
+		B3C9814324913CB000B38A12 /* DoctorProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9814224913CB000B38A12 /* DoctorProfileTableViewCell.swift */; };
 		B3D5C5B424903F74009B29B2 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5B324903F74009B29B2 /* QRViewController.swift */; };
 		B3D5C5B7249040D7009B29B2 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5B5249040D7009B29B2 /* MenuTableViewCell.swift */; };
 		B3D5C5B8249040D7009B29B2 /* CustomActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5B6249040D7009B29B2 /* CustomActivityViewController.swift */; };
@@ -30,7 +31,7 @@
 		B3D5C5C024905A82009B29B2 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5BF24905A82009B29B2 /* ImageTableViewCell.swift */; };
 		B3D5C5C224905AA0009B29B2 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5C124905AA0009B29B2 /* TextFieldTableViewCell.swift */; };
 		B3D5C5C424905C2B009B29B2 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5C324905C2B009B29B2 /* ButtonTableViewCell.swift */; };
-		B3D5C5C624906066009B29B2 /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5C524906066009B29B2 /* DoctorTableViewCell.swift */; };
+		B3D5C5C624906066009B29B2 /* ImageDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D5C5C524906066009B29B2 /* ImageDescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B3AF527B249002E4002EFD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3AF527D249002E4002EFD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3AF528724900393002EFD08 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		B3C9814224913CB000B38A12 /* DoctorProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileTableViewCell.swift; sourceTree = "<group>"; };
 		B3D5C5B324903F74009B29B2 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		B3D5C5B5249040D7009B29B2 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		B3D5C5B6249040D7009B29B2 /* CustomActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		B3D5C5BF24905A82009B29B2 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		B3D5C5C124905AA0009B29B2 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		B3D5C5C324905C2B009B29B2 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
-		B3D5C5C524906066009B29B2 /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
+		B3D5C5C524906066009B29B2 /* ImageDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDescriptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +168,8 @@
 				B3D5C5BF24905A82009B29B2 /* ImageTableViewCell.swift */,
 				B3D5C5C124905AA0009B29B2 /* TextFieldTableViewCell.swift */,
 				B3D5C5C324905C2B009B29B2 /* ButtonTableViewCell.swift */,
-				B3D5C5C524906066009B29B2 /* DoctorTableViewCell.swift */,
+				B3D5C5C524906066009B29B2 /* ImageDescriptionCell.swift */,
+				B3C9814224913CB000B38A12 /* DoctorProfileTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				B3D5C5BA249040E7009B29B2 /* OptionsViewController.swift in Sources */,
 				B37A46C624900CDA009DB643 /* Util.swift in Sources */,
 				B3D5C5C024905A82009B29B2 /* ImageTableViewCell.swift in Sources */,
+				B3C9814324913CB000B38A12 /* DoctorProfileTableViewCell.swift in Sources */,
 				B3D5C5B7249040D7009B29B2 /* MenuTableViewCell.swift in Sources */,
 				B3AF5277249002E2002EFD08 /* HealthApp.xcdatamodeld in Sources */,
 				B37A46D424902025009DB643 /* DoctorsTableViewController.swift in Sources */,
@@ -253,7 +257,7 @@
 				B37A46CB24901137009DB643 /* ProfileCollectionViewCell.swift in Sources */,
 				B37A46D624902042009DB643 /* DoctorProfileViewController.swift in Sources */,
 				B37A46CD24901195009DB643 /* QuickInfoCollectionViewCell.swift in Sources */,
-				B3D5C5C624906066009B29B2 /* DoctorTableViewCell.swift in Sources */,
+				B3D5C5C624906066009B29B2 /* ImageDescriptionCell.swift in Sources */,
 				B3AF526D249002E2002EFD08 /* AppDelegate.swift in Sources */,
 				B3D5C5BD249058BC009B29B2 /* EditProfileViewController.swift in Sources */,
 				B3AF526F249002E2002EFD08 /* SceneDelegate.swift in Sources */,

@@ -1,19 +1,18 @@
 //
-//  DoctorTableViewCell.swift
+//  DoctorProfileTableViewCell.swift
 //  HealthApp
 //
-//  Created by Moisés Córdova on 09/06/20.
+//  Created by Moisés Córdova on 10/06/20.
 //  Copyright © 2020 Moisés Córdova. All rights reserved.
 //
 
 import UIKit
 
-class DoctorTableViewCell: UITableViewCell {
+class DoctorProfileTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profilePicture: CardImage!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ocupationLabel: UILabel!
-    
+    @IBOutlet weak var profileImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

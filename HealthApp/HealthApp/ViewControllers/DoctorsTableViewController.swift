@@ -14,12 +14,11 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        super.viewWillAppear(animated)
     }
     
     @IBAction func addDoctorButtonPressed(_ sender: UIBarButtonItem) {
@@ -37,7 +36,7 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
         self.present(activityViewController, animated: true, completion: nil)
     }
     
-    @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func filterButonPressed(_ sender: UIBarButtonItem) {
         guard let (controller, activityViewController) = storyboard?.createMenu(options: ["Cardiologo", "Otorrinoralinogo", "Otros"], images: nil, title: "Filtrar por", image: nil) else { return }
         controller.callback = { selected in
             print("Selected option index: \(selected)")
@@ -63,7 +62,7 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorCell", for: indexPath) as! DoctorTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorCell", for: indexPath) as! ImageDescriptionCell
 
         return cell
     }
@@ -71,10 +70,13 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.number = "\(indexPath.row)"
+        self.performSegue(withIdentifier: "showDetailVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.title = self.number
+        if segue.identifier == "showDetailVC" {
+            segue.destination.title = self.number
+        }
     }
 
 }

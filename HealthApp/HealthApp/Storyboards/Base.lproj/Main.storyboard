@@ -538,14 +538,131 @@
                     <view key="view" contentMode="scaleToFill" id="wc2-Hu-11y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="Background"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2n3-vy-uF4">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="6mi-aS-4td" customClass="DoctorProfileTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="181.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mi-aS-4td" id="srB-nj-36Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="181.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oNf-in-Zzi">
+                                                    <rect key="frame" x="20" y="11" width="334" height="159.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tZG-Ca-F2w">
+                                                            <rect key="frame" x="122" y="0.0" width="90" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="lpS-pY-ZKz"/>
+                                                                <constraint firstAttribute="width" secondItem="tZG-Ca-F2w" secondAttribute="height" multiplier="1:1" id="wIk-n3-pQN"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjt-pq-4ek">
+                                                            <rect key="frame" x="135.5" y="100.5" width="63.5" height="30"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-Zt-Q4W">
+                                                            <rect key="frame" x="147.5" y="140.5" width="39.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="oNf-in-Zzi" secondAttribute="bottom" id="LZX-DV-YsP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oNf-in-Zzi" secondAttribute="trailing" id="Qxp-R9-FcR"/>
+                                                <constraint firstItem="oNf-in-Zzi" firstAttribute="top" secondItem="srB-nj-36Z" secondAttribute="topMargin" id="XF2-pp-awb"/>
+                                                <constraint firstItem="oNf-in-Zzi" firstAttribute="leading" secondItem="srB-nj-36Z" secondAttribute="leadingMargin" id="oqO-kD-ZNy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="tjt-pq-4ek" id="9fG-Ch-5EK"/>
+                                            <outlet property="ocupationLabel" destination="Kvl-Zt-Q4W" id="1SA-Pf-kq6"/>
+                                            <outlet property="profileImageView" destination="tZG-Ca-F2w" id="KDc-91-pmp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageCell" id="ijg-tU-YV4" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="237" width="374" height="108.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ijg-tU-YV4" id="bwz-ik-DcP">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="108.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mXW-2T-Sua">
+                                                    <rect key="frame" x="20" y="19" width="334" height="70.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="85v-cu-9Jd" customClass="CardImage" customModule="HealthApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.5" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="b4B-3a-dKU"/>
+                                                                <constraint firstAttribute="width" secondItem="85v-cu-9Jd" secondAttribute="height" multiplier="1:1" id="uBb-cj-ct5"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PvQ-jt-1ns">
+                                                            <rect key="frame" x="80" y="14" width="254" height="43"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulv-iK-k3E">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="254" height="24"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDv-xC-VtC">
+                                                                    <rect key="frame" x="0.0" y="24" width="254" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mXW-2T-Sua" firstAttribute="leading" secondItem="bwz-ik-DcP" secondAttribute="leadingMargin" id="7Wm-oS-yfG"/>
+                                                <constraint firstItem="mXW-2T-Sua" firstAttribute="top" secondItem="bwz-ik-DcP" secondAttribute="topMargin" constant="8" id="JMg-gL-3g0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mXW-2T-Sua" secondAttribute="trailing" id="QsU-VJ-uXn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mXW-2T-Sua" secondAttribute="bottom" constant="8" id="kjf-sa-rvn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <connections>
+                                            <outlet property="CardImage" destination="85v-cu-9Jd" id="B85-kz-EEL"/>
+                                            <outlet property="descriptionLabel" destination="qDv-xC-VtC" id="lMj-bg-dIw"/>
+                                            <outlet property="titleLabel" destination="Ulv-iK-k3E" id="Dah-QF-UHd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lOt-CL-zNz" id="XD1-ab-vfa"/>
+                                    <outlet property="delegate" destination="lOt-CL-zNz" id="f2f-ot-6RE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2n3-vy-uF4" firstAttribute="trailing" secondItem="rVi-cH-m1M" secondAttribute="trailing" id="Dgm-Dt-aOs"/>
+                            <constraint firstItem="2n3-vy-uF4" firstAttribute="top" secondItem="rVi-cH-m1M" secondAttribute="top" id="eRd-l4-aA3"/>
+                            <constraint firstItem="2n3-vy-uF4" firstAttribute="leading" secondItem="rVi-cH-m1M" secondAttribute="leading" id="mmE-I6-WjT"/>
+                            <constraint firstItem="rVi-cH-m1M" firstAttribute="bottom" secondItem="2n3-vy-uF4" secondAttribute="bottom" id="qYr-Fv-bU7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rVi-cH-m1M"/>
                     </view>
                     <navigationItem key="navigationItem" id="yFe-yl-EQw"/>
+                    <connections>
+                        <outlet property="tableView" destination="2n3-vy-uF4" id="gpl-L0-hSW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ox-ID-cEh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3991" y="114"/>
+            <point key="canvasLocation" x="3989.8550724637685" y="113.83928571428571"/>
         </scene>
         <!--My Doctors-->
         <scene sceneID="v12-r2-kde">
@@ -556,7 +673,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DoctorCell" id="aWA-hI-meo" customClass="DoctorTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DoctorCell" id="aWA-hI-meo" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="55.5" width="374" height="97.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aWA-hI-meo" id="3HH-4e-vJi">
@@ -604,9 +721,10 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" name="Background"/>
                                 <connections>
-                                    <outlet property="nameLabel" destination="uHG-I6-kME" id="Rsb-dk-V65"/>
-                                    <outlet property="ocupationLabel" destination="tIH-4t-HVL" id="kv5-2g-dx6"/>
-                                    <outlet property="profilePicture" destination="IjB-om-c6Z" id="Zuf-Xp-jQe"/>
+                                    <outlet property="CardImage" destination="IjB-om-c6Z" id="Zuf-Xp-jQe"/>
+                                    <outlet property="descriptionLabel" destination="tIH-4t-HVL" id="kv5-2g-dx6"/>
+                                    <outlet property="titleLabel" destination="uHG-I6-kME" id="Rsb-dk-V65"/>
+                                    <segue destination="lOt-CL-zNz" kind="showDetail" identifier="showDetailVC" id="sjT-X0-Tnd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -806,6 +924,9 @@
             <point key="canvasLocation" x="138" y="-589"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sjT-X0-Tnd"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="close-icon" width="36" height="36"/>
