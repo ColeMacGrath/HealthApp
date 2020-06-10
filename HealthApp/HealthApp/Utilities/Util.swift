@@ -128,3 +128,12 @@ extension UIView {
         }
     }
 }
+
+extension UINavigationController {
+    func setTransparent() {
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+}

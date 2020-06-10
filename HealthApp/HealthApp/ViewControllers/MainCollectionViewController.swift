@@ -18,25 +18,52 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.setTransparent()
     }
     
     @IBAction func qrButtonPressed(_ sender: UIBarButtonItem) {
-        guard let (controller, activityViewController) = storyboard?.createMenu(options: ["Escanear QR", "Mostrar mi QR"], images: [#imageLiteral(resourceName: "qr-icon-scan"), #imageLiteral(resourceName: "qr-icon")], title: "Opciones de QR", image: #imageLiteral(resourceName: "qr-icon")) else { return }
-        controller.callback = { selected in
-            print("Selected option index: \(selected)")
-        }
         
-        if let popoverController = activityViewController.popoverPresentationController {
+        #if targetEnvironment(macCatalyst)
+        self.createOldMenu(sender: sender)
+        #else
+        if #available(iOS 13, *) {
+            guard let (controller, activityViewController) = storyboard?.createMenu(options: ["Escanear QR", "Mostrar mi QR"], images: [#imageLiteral(resourceName: "qr-icon-scan"), #imageLiteral(resourceName: "qr-icon")], title: "Opciones de QR", image: #imageLiteral(resourceName: "qr-icon")) else { return }
+            controller.callback = { selected in
+                print("Selected option index: \(selected)")
+            }
+            
+            if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.permittedArrowDirections = .any
+                popoverController.delegate = self
+                popoverController.barButtonItem = sender
+            }
+            
+            self.present(activityViewController, animated: true, completion: nil)
+        } else {
+            self.createOldMenu(sender: sender)
+        }
+        #endif
+    }
+    
+    private func createOldMenu(sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Opciones de QR", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Escaner QR", style: .default, handler: { (_) in
+            //
+        }))
+        alertController.addAction(UIAlertAction(title: "Mostrar mi QR", style: .default, handler: { (_) in
+            //
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancekar", style: .cancel, handler: { (_) in
+            //
+        }))
+        
+        
+        if let popoverController = alertController.popoverPresentationController {
             popoverController.permittedArrowDirections = .any
             popoverController.delegate = self
             popoverController.barButtonItem = sender
         }
-        
-        self.present(activityViewController, animated: true, completion: nil)
+        self.present(alertController, animated: true)
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {

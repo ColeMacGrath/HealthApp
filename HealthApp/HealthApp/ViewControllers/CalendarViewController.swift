@@ -28,6 +28,16 @@ class CalendarViewController: UIViewController {
         self.calendarView.minimumInteritemSpacing = 0
     }
 
+    @IBAction func bookAppointmnetButtonPressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "ShowBookAppointmentVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowBookAppointmentVC" {
+            //TODO
+        }
+    }
+    
 }
 
 extension CalendarViewController: JTACMonthViewDataSource {

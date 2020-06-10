@@ -656,12 +656,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="scf-ZS-axI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scf-ZS-axI">
                                 <rect key="frame" x="0.0" y="238" width="414" height="575"/>
-                                <color key="backgroundColor" name="Background"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AppointmentCell" rowHeight="130" id="THf-nY-BDv" customClass="AppointmentTableViewCell" customModule="HealthApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="130"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="THf-nY-BDv" id="Pre-rq-nOy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
@@ -730,6 +729,7 @@
                                             <outlet property="appointmentTitleLabel" destination="Q6F-xH-mSt" id="lBu-Nf-scX"/>
                                             <outlet property="doctorNameLabel" destination="XJN-Jm-GLy" id="PGC-ah-6rq"/>
                                             <outlet property="hourLabel" destination="F9d-St-ciu" id="Ou2-XU-pOy"/>
+                                            <segue destination="zFo-bH-CHp" kind="show" identifier="ShowAppointmentVC" id="oz9-Pv-V5l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -751,15 +751,155 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ekJ-9h-hLa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0nv-be-mju"/>
+                    <navigationItem key="navigationItem" id="0nv-be-mju">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y3w-uT-Ekb">
+                            <connections>
+                                <action selector="bookAppointmnetButtonPressed:" destination="1js-2m-tyR" id="7Pb-6n-yDh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="mV0-cb-eHV" id="gNc-nJ-KCc"/>
                         <outlet property="tableView" destination="scf-ZS-axI" id="pIV-L3-hWe"/>
+                        <segue destination="HR1-xW-Wte" kind="show" identifier="ShowBookAppointmentVC" id="fqa-Xs-lUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFY-9J-CW5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1689.8550724637682" y="829.6875"/>
+        </scene>
+        <!--Appointment View Controller-->
+        <scene sceneID="4Ct-Hj-Koh">
+            <objects>
+                <viewController id="zFo-bH-CHp" customClass="AppointmentViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N3k-BR-3NF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-64-0cd">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageCell" id="r6b-WU-uhI" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="108.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r6b-WU-uhI" id="F7C-5l-epT">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="108.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LjV-Ii-bvU">
+                                                    <rect key="frame" x="20" y="19" width="334" height="70.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-Ay-oex" customClass="CardImage" customModule="HealthApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.5" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="r1h-Ay-oex" secondAttribute="height" multiplier="1:1" id="5vP-0C-t8v"/>
+                                                                <constraint firstAttribute="width" constant="70" id="rsH-aD-mYI"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="a9S-lz-bu7">
+                                                            <rect key="frame" x="80" y="8" width="254" height="55"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFd-cO-JAO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="254" height="36"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9O-xd-tia">
+                                                                    <rect key="frame" x="0.0" y="36" width="254" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LjV-Ii-bvU" firstAttribute="top" secondItem="F7C-5l-epT" secondAttribute="topMargin" constant="8" id="FHj-3B-KZN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LjV-Ii-bvU" secondAttribute="trailing" id="ZWQ-ki-zyS"/>
+                                                <constraint firstItem="LjV-Ii-bvU" firstAttribute="leading" secondItem="F7C-5l-epT" secondAttribute="leadingMargin" id="dNi-VA-Yji"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LjV-Ii-bvU" secondAttribute="bottom" constant="8" id="sn6-0p-aZg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="cardImage" destination="r1h-Ay-oex" id="c3u-17-qVk"/>
+                                            <outlet property="descriptionLabel" destination="o9O-xd-tia" id="60B-vP-e9V"/>
+                                            <outlet property="titleLabel" destination="OFd-cO-JAO" id="C5p-jz-H3q"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" textLabel="11r-LZ-ypr" style="IBUITableViewCellStyleDefault" id="ahd-Az-f0R" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="164" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahd-Az-f0R" id="VJ8-sD-cKh">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11r-LZ-ypr">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" id="ZLR-hC-eeE" customClass="ButtonTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="207.5" width="374" height="52.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZLR-hC-eeE" id="tPb-Uy-gbk">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="52.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x42-dU-NSj">
+                                                    <rect key="frame" x="0.0" y="8" width="374" height="36.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <state key="normal" title="Cancel Appointment">
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="x42-dU-NSj" secondAttribute="bottom" constant="8" id="4CI-if-dCb"/>
+                                                <constraint firstItem="x42-dU-NSj" firstAttribute="top" secondItem="tPb-Uy-gbk" secondAttribute="top" constant="8" id="OEd-cj-8gu"/>
+                                                <constraint firstItem="x42-dU-NSj" firstAttribute="leading" secondItem="tPb-Uy-gbk" secondAttribute="leading" id="ekj-zQ-qMy"/>
+                                                <constraint firstAttribute="trailing" secondItem="x42-dU-NSj" secondAttribute="trailing" id="v1C-DI-692"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="button" destination="x42-dU-NSj" id="CNQ-GV-7It"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zFo-bH-CHp" id="He5-Ur-nSb"/>
+                                    <outlet property="delegate" destination="zFo-bH-CHp" id="wlv-TY-MuS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cq7-64-0cd" firstAttribute="trailing" secondItem="mR5-KE-64P" secondAttribute="trailing" id="XTL-Or-GFm"/>
+                            <constraint firstItem="cq7-64-0cd" firstAttribute="leading" secondItem="mR5-KE-64P" secondAttribute="leading" id="eUk-Lp-RZY"/>
+                            <constraint firstItem="mR5-KE-64P" firstAttribute="bottom" secondItem="cq7-64-0cd" secondAttribute="bottom" id="h75-bS-ZBn"/>
+                            <constraint firstItem="cq7-64-0cd" firstAttribute="top" secondItem="mR5-KE-64P" secondAttribute="top" id="w5n-lw-YeM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mR5-KE-64P"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="pP2-h5-nVS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NH8-AP-VE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2457.971014492754" y="829.6875"/>
         </scene>
         <!--Doctor Profile View Controller-->
         <scene sceneID="PBD-IT-Ywn">
@@ -770,7 +910,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2n3-vy-uF4">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="6mi-aS-4td" customClass="DoctorProfileTableViewCell" customModule="HealthApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="181.5"/>
@@ -902,7 +1042,7 @@
         <!--My Doctors-->
         <scene sceneID="v12-r2-kde">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="2sz-jz-JLD" customClass="DoctorsTableViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="doctorListVC" clearsSelectionOnViewWillAppear="NO" id="2sz-jz-JLD" customClass="DoctorsTableViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="QHH-qJ-ZPj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1175,15 +1315,386 @@
             </objects>
             <point key="canvasLocation" x="921.73913043478262" y="829.6875"/>
         </scene>
+        <!--Book Appointment View Controller-->
+        <scene sceneID="gRG-YR-evm">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="HR1-xW-Wte" customClass="BookAppointmentViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CCD-Cz-sWQ"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMc-As-WqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="1614"/>
+        </scene>
+        <!--firstStepVC-->
+        <scene sceneID="XxU-6f-qXk">
+            <objects>
+                <viewController storyboardIdentifier="firstStepVC" title="firstStepVC" id="BFA-Jb-7Ss" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3zZ-vb-rvR" customClass="GradientView" customModule="HealthApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hearth-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Kw1-hH-dFM">
+                                <rect key="frame" x="107" y="258.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="NeY-dL-c3X"/>
+                                    <constraint firstAttribute="width" constant="200" id="iqH-cT-FGD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's create your new Appointment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPQ-Hk-edW">
+                                <rect key="frame" x="40" y="478.5" width="334" height="58.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kw1-hH-dFM" firstAttribute="centerY" secondItem="3zZ-vb-rvR" secondAttribute="centerY" multiplier="0.8" id="5VM-Iu-cGm"/>
+                            <constraint firstItem="waG-XE-OEl" firstAttribute="trailing" secondItem="TPQ-Hk-edW" secondAttribute="trailing" constant="40" id="cPu-c0-MZn"/>
+                            <constraint firstItem="TPQ-Hk-edW" firstAttribute="top" secondItem="Kw1-hH-dFM" secondAttribute="bottom" constant="20" id="mWN-it-E4Q"/>
+                            <constraint firstItem="Kw1-hH-dFM" firstAttribute="centerX" secondItem="3zZ-vb-rvR" secondAttribute="centerX" id="o5L-tp-VM1"/>
+                            <constraint firstItem="TPQ-Hk-edW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="waG-XE-OEl" secondAttribute="leading" id="pxP-d5-z43"/>
+                            <constraint firstItem="TPQ-Hk-edW" firstAttribute="centerX" secondItem="3zZ-vb-rvR" secondAttribute="centerX" id="q71-Tl-pRe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="waG-XE-OEl"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.92287564280000001" green="0.54101616139999997" blue="0.56862026450000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.95753294229999997" green="0.331335932" blue="0.47058415409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u04-sb-UNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2458" y="1614"/>
+        </scene>
+        <!--secondStepVC-->
+        <scene sceneID="WrU-3M-RgY">
+            <objects>
+                <viewController storyboardIdentifier="secondStepVC" title="secondStepVC" id="r5M-ms-PA0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yy2-T8-R6b" customClass="GradientView" customModule="HealthApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor-icon" translatesAutoresizingMaskIntoConstraints="NO" id="XcO-4M-ah3">
+                                <rect key="frame" x="107" y="258.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="8L6-4j-1rp"/>
+                                    <constraint firstAttribute="width" constant="200" id="or2-bQ-Vux"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now select your doctor for appointment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prK-vw-FKg">
+                                <rect key="frame" x="40" y="478.5" width="334" height="58.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="prK-vw-FKg" firstAttribute="centerX" secondItem="yy2-T8-R6b" secondAttribute="centerX" id="67z-Xk-4hW"/>
+                            <constraint firstItem="XcO-4M-ah3" firstAttribute="centerX" secondItem="yy2-T8-R6b" secondAttribute="centerX" id="7RZ-Q8-2oq"/>
+                            <constraint firstItem="XcO-4M-ah3" firstAttribute="centerY" secondItem="yy2-T8-R6b" secondAttribute="centerY" multiplier="0.8" id="XAV-rx-u0U"/>
+                            <constraint firstItem="prK-vw-FKg" firstAttribute="leading" secondItem="pI3-5r-gWM" secondAttribute="leading" constant="40" id="ghd-i1-Ysl"/>
+                            <constraint firstItem="prK-vw-FKg" firstAttribute="top" secondItem="XcO-4M-ah3" secondAttribute="bottom" constant="20" id="iUg-jO-4xK"/>
+                            <constraint firstItem="pI3-5r-gWM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="prK-vw-FKg" secondAttribute="trailing" id="z1W-AT-3YP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pI3-5r-gWM"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.53592139480000001" green="0.84841740129999998" blue="0.74508899449999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.39175465700000001" green="0.77423614259999995" blue="0.64312428239999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VCU-Od-Jy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3241" y="1614"/>
+        </scene>
+        <!--ThirdStepVc-->
+        <scene sceneID="gkG-gy-awQ">
+            <objects>
+                <viewController storyboardIdentifier="thirdStepVC" title="ThirdStepVc" id="Q33-pG-fdQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z9M-7c-63Z" customClass="GradientView" customModule="HealthApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notes-icon" translatesAutoresizingMaskIntoConstraints="NO" id="GOo-WV-lmU">
+                                <rect key="frame" x="107" y="258.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4Y0-IH-SOk"/>
+                                    <constraint firstAttribute="height" constant="200" id="q1D-Sf-yWD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's time for some notes, share with your doctor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQt-zx-C8m">
+                                <rect key="frame" x="40" y="478.5" width="334" height="58.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GOo-WV-lmU" firstAttribute="centerY" secondItem="Z9M-7c-63Z" secondAttribute="centerY" multiplier="0.8" id="9T9-Wy-LX5"/>
+                            <constraint firstItem="5nG-2b-qCQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XQt-zx-C8m" secondAttribute="trailing" id="VML-Fp-TIZ"/>
+                            <constraint firstItem="XQt-zx-C8m" firstAttribute="leading" secondItem="5nG-2b-qCQ" secondAttribute="leading" constant="40" id="jFx-ge-wUU"/>
+                            <constraint firstItem="XQt-zx-C8m" firstAttribute="top" secondItem="GOo-WV-lmU" secondAttribute="bottom" constant="20" id="lva-yf-Rfd"/>
+                            <constraint firstItem="GOo-WV-lmU" firstAttribute="centerX" secondItem="Z9M-7c-63Z" secondAttribute="centerX" id="vGK-t5-6zi"/>
+                            <constraint firstItem="XQt-zx-C8m" firstAttribute="centerX" secondItem="Z9M-7c-63Z" secondAttribute="centerX" id="vRq-F3-MTI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5nG-2b-qCQ"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.59496670959999998" green="0.691742301" blue="0.82354801889999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.34226578470000002" green="0.47074764969999999" blue="0.65884709360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNO-Ej-6IR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3980" y="1614"/>
+        </scene>
+        <!--Save Appointment View Controller-->
+        <scene sceneID="trt-am-rpk">
+            <objects>
+                <viewController storyboardIdentifier="notesVC" id="Rcc-A3-LSI" customClass="SaveAppointmentViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iC4-qe-Z0E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="D4c-MI-GDf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="4tr-Xg-zhj" customClass="DoctorProfileTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="191"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4tr-Xg-zhj" id="0oN-Dc-a4B">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="191"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IKG-lo-o5S">
+                                                    <rect key="frame" x="20" y="11" width="334" height="169"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="yoA-MU-Jsx" customClass="CardImage" customModule="HealthApp" customModuleProvider="target">
+                                                            <rect key="frame" x="117" y="0.0" width="100" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="JVe-CU-agk">
+                                                                    <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                </constraint>
+                                                                <constraint firstAttribute="width" secondItem="yoA-MU-Jsx" secondAttribute="height" multiplier="1:1" id="Sje-cb-NSL"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGQ-hu-L2f">
+                                                            <rect key="frame" x="135.5" y="110" width="63.5" height="30"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnq-2j-QWE">
+                                                            <rect key="frame" x="147.5" y="150" width="39.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IKG-lo-o5S" firstAttribute="top" secondItem="0oN-Dc-a4B" secondAttribute="topMargin" id="My9-x2-Z9M"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IKG-lo-o5S" secondAttribute="trailing" id="V7z-tO-mrg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IKG-lo-o5S" secondAttribute="bottom" id="ZxY-sb-nwC"/>
+                                                <constraint firstItem="IKG-lo-o5S" firstAttribute="leading" secondItem="0oN-Dc-a4B" secondAttribute="leadingMargin" id="qhD-c9-ENP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="RGQ-hu-L2f" id="ddf-YS-q5L"/>
+                                            <outlet property="ocupationLabel" destination="Qnq-2j-QWE" id="223-Xp-auP"/>
+                                            <outlet property="profileImageView" destination="yoA-MU-Jsx" id="gEm-U7-WYd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" id="0aC-Ne-T1w" customClass="NoteTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="246.5" width="374" height="38"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0aC-Ne-T1w" id="sva-JG-p8k">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="38"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add Your Notes" translatesAutoresizingMaskIntoConstraints="NO" id="zPg-Yj-Omj">
+                                                    <rect key="frame" x="30" y="0.0" width="314" height="38"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="zPg-Yj-Omj" secondAttribute="trailing" constant="30" id="7l7-za-1sk"/>
+                                                <constraint firstAttribute="bottom" secondItem="zPg-Yj-Omj" secondAttribute="bottom" id="EIS-JK-iAe"/>
+                                                <constraint firstItem="zPg-Yj-Omj" firstAttribute="leading" secondItem="sva-JG-p8k" secondAttribute="leading" constant="30" id="Kgr-jj-viY"/>
+                                                <constraint firstItem="zPg-Yj-Omj" firstAttribute="top" secondItem="sva-JG-p8k" secondAttribute="top" id="x9p-Vh-cUW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="noteTextView" destination="zPg-Yj-Omj" id="YfF-3O-32e"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickerCell" rowHeight="200" id="YS1-BO-2ZY" customClass="PickerTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="284.5" width="374" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YS1-BO-2ZY" id="rSQ-60-nqj">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="wbS-cN-Ao2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wbS-cN-Ao2" firstAttribute="leading" secondItem="rSQ-60-nqj" secondAttribute="leading" id="6gN-Pm-VFQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="wbS-cN-Ao2" secondAttribute="trailing" id="OKj-71-4SY"/>
+                                                <constraint firstAttribute="bottom" secondItem="wbS-cN-Ao2" secondAttribute="bottom" id="azj-Gs-YlP"/>
+                                                <constraint firstItem="wbS-cN-Ao2" firstAttribute="top" secondItem="rSQ-60-nqj" secondAttribute="top" id="lCW-Pq-kAs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePicker" destination="wbS-cN-Ao2" id="8UW-E2-eRQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" id="3hW-Ma-wna" customClass="ButtonTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="484.5" width="374" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3hW-Ma-wna" id="ddE-Ai-Rqw">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJp-bB-o4z">
+                                                    <rect key="frame" x="0.0" y="8" width="374" height="36"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <state key="normal" title="Book Appointment">
+                                                        <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NJp-bB-o4z" firstAttribute="leading" secondItem="ddE-Ai-Rqw" secondAttribute="leading" id="Mym-bf-KSE"/>
+                                                <constraint firstAttribute="trailing" secondItem="NJp-bB-o4z" secondAttribute="trailing" id="cy2-CZ-qsb"/>
+                                                <constraint firstItem="NJp-bB-o4z" firstAttribute="top" secondItem="ddE-Ai-Rqw" secondAttribute="top" constant="8" id="y2p-X1-Lvv"/>
+                                                <constraint firstAttribute="bottom" secondItem="NJp-bB-o4z" secondAttribute="bottom" constant="8" id="yfl-lu-bod"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="button" destination="NJp-bB-o4z" id="5It-tJ-RjC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Rcc-A3-LSI" id="n0K-Qh-UVI"/>
+                                    <outlet property="delegate" destination="Rcc-A3-LSI" id="ox7-e0-OPT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D4c-MI-GDf" firstAttribute="top" secondItem="iC4-qe-Z0E" secondAttribute="top" id="Qr5-kP-hOe"/>
+                            <constraint firstItem="D4c-MI-GDf" firstAttribute="leading" secondItem="Lxi-rE-WRN" secondAttribute="leading" id="Wbo-Bq-oA3"/>
+                            <constraint firstItem="D4c-MI-GDf" firstAttribute="trailing" secondItem="Lxi-rE-WRN" secondAttribute="trailing" id="jEU-WG-Xsf"/>
+                            <constraint firstAttribute="bottom" secondItem="D4c-MI-GDf" secondAttribute="bottom" id="kVG-Md-ktD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lxi-rE-WRN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BSq-CH-vRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5549" y="1614"/>
+        </scene>
+        <!--fourthStepVC-->
+        <scene sceneID="X5E-0D-iSM">
+            <objects>
+                <viewController storyboardIdentifier="fourthStepVC" title="fourthStepVC" id="Nlu-Mi-82j" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WdL-Jh-vsw" customClass="GradientView" customModule="HealthApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-di-sRK">
+                                <rect key="frame" x="107" y="258.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="LFw-Tm-oNS"/>
+                                    <constraint firstAttribute="height" constant="200" id="rha-UY-vQ6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finally let's see your new appointment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKo-If-g07">
+                                <rect key="frame" x="40" y="478.5" width="334" height="58.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PKo-If-g07" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x1A-ke-mMr" secondAttribute="leading" id="3Lc-ys-a69"/>
+                            <constraint firstItem="8cA-di-sRK" firstAttribute="centerX" secondItem="WdL-Jh-vsw" secondAttribute="centerX" id="BO7-oO-O4A"/>
+                            <constraint firstItem="PKo-If-g07" firstAttribute="top" secondItem="8cA-di-sRK" secondAttribute="bottom" constant="20" id="Jig-aZ-Ai7"/>
+                            <constraint firstItem="8cA-di-sRK" firstAttribute="centerY" secondItem="WdL-Jh-vsw" secondAttribute="centerY" multiplier="0.8" id="Veu-vw-4ij"/>
+                            <constraint firstItem="x1A-ke-mMr" firstAttribute="trailing" secondItem="PKo-If-g07" secondAttribute="trailing" constant="40" id="hSL-SU-i31"/>
+                            <constraint firstItem="PKo-If-g07" firstAttribute="centerX" secondItem="WdL-Jh-vsw" secondAttribute="centerX" id="xnJ-Sr-V5K"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x1A-ke-mMr"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.99316018819999996" green="0.9771340489" blue="0.58815610409999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="0.98072403669999997" green="0.83609968420000003" blue="0.40380850429999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRl-Ug-lQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4758" y="1614"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="l6t-jo-33H"/>
+        <segue reference="sjT-X0-Tnd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="calendar-icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="close-icon" width="36" height="36"/>
+        <image name="doctor-icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="hearth-icon" width="186.66667175292969" height="164"/>
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
+        <image name="notes-icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="profile-picture" width="200" height="124"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
