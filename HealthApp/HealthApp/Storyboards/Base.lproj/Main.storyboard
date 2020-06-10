@@ -105,9 +105,7 @@
                                                         <constraint firstAttribute="width" secondItem="E0e-79-VMV" secondAttribute="height" multiplier="1:1" id="9tc-cf-pef"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="40"/>
-                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLD-Vd-MIw">
@@ -352,7 +350,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <items>
-                                    <navigationItem title="Editar Perfil" id="9ml-mH-hLx">
+                                    <navigationItem title="Edit Profile" id="9ml-mH-hLx">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="wq9-rc-7Ev">
                                             <connections>
                                                 <action selector="cancelButtonPressed:" destination="yve-Lq-U3f" id="BJ3-iK-23v"/>
@@ -383,9 +381,7 @@
                                                         <constraint firstAttribute="width" secondItem="JIs-uP-YRt" secondAttribute="height" multiplier="1:1" id="tnH-qS-YjW"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="50"/>
-                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
@@ -452,7 +448,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oI4-Ti-Jq5">
                                                     <rect key="frame" x="0.0" y="8" width="374" height="36"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                    <state key="normal" title="Cerrar Sesión">
+                                                    <state key="normal" title="Logout">
                                                         <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
@@ -540,7 +536,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2n3-vy-uF4">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="6mi-aS-4td" customClass="DoctorProfileTableViewCell" customModule="HealthApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="181.5"/>
@@ -552,12 +548,17 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oNf-in-Zzi">
                                                     <rect key="frame" x="20" y="11" width="334" height="159.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tZG-Ca-F2w">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="tZG-Ca-F2w" customClass="CardImage" customModule="HealthApp" customModuleProvider="target">
                                                             <rect key="frame" x="122" y="0.0" width="90" height="90"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="lpS-pY-ZKz"/>
+                                                                <constraint firstAttribute="width" constant="90" id="lpS-pY-ZKz">
+                                                                    <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                </constraint>
                                                                 <constraint firstAttribute="width" secondItem="tZG-Ca-F2w" secondAttribute="height" multiplier="1:1" id="wIk-n3-pQN"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjt-pq-4ek">
                                                             <rect key="frame" x="135.5" y="100.5" width="63.5" height="30"/>
@@ -634,7 +635,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <connections>
-                                            <outlet property="CardImage" destination="85v-cu-9Jd" id="B85-kz-EEL"/>
+                                            <outlet property="cardImage" destination="85v-cu-9Jd" id="B85-kz-EEL"/>
                                             <outlet property="descriptionLabel" destination="qDv-xC-VtC" id="lMj-bg-dIw"/>
                                             <outlet property="titleLabel" destination="Ulv-iK-k3E" id="Dah-QF-UHd"/>
                                         </connections>
@@ -687,9 +688,7 @@
                                                 <constraint firstAttribute="width" constant="80" id="EVI-tQ-WFA"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="40"/>
-                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-y4-2TW">
@@ -721,7 +720,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" name="Background"/>
                                 <connections>
-                                    <outlet property="CardImage" destination="IjB-om-c6Z" id="Zuf-Xp-jQe"/>
+                                    <outlet property="cardImage" destination="IjB-om-c6Z" id="Zuf-Xp-jQe"/>
                                     <outlet property="descriptionLabel" destination="tIH-4t-HVL" id="kv5-2g-dx6"/>
                                     <outlet property="titleLabel" destination="uHG-I6-kME" id="Rsb-dk-V65"/>
                                     <segue destination="lOt-CL-zNz" kind="showDetail" identifier="showDetailVC" id="sjT-X0-Tnd"/>
@@ -736,7 +735,7 @@
                     <navigationItem key="navigationItem" title="My Doctors" largeTitleDisplayMode="always" id="ljU-cm-cer">
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3.decrease.circle" catalog="system" id="79J-Rp-aoc">
                             <connections>
-                                <action selector="filterButtonPressed:" destination="2sz-jz-JLD" id="xwh-Dd-bLT"/>
+                                <action selector="filterButonPressed:" destination="2sz-jz-JLD" id="Mhl-ZI-Ngv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kvs-fw-sFM">
@@ -925,7 +924,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sjT-X0-Tnd"/>
+        <segue reference="l6t-jo-33H"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>

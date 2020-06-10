@@ -37,7 +37,7 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
     }
     
     @IBAction func filterButonPressed(_ sender: UIBarButtonItem) {
-        guard let (controller, activityViewController) = storyboard?.createMenu(options: ["Cardiologo", "Otorrinoralinogo", "Otros"], images: nil, title: "Filtrar por", image: nil) else { return }
+        guard let (controller, activityViewController) = storyboard?.createMenu(options: ["Cardiologo", "Otorrinolaringólogo", "Otros"], images: nil, title: "Filtrar por", image: nil) else { return }
         controller.callback = { selected in
             print("Selected option index: \(selected)")
         }

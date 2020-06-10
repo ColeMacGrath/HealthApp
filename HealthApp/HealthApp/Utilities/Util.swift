@@ -77,9 +77,14 @@ class CardImage: UIImageView {
     @IBInspectable var shadowColor: UIColor? = UIColor.black
     @IBInspectable var shadowOpacity: Float = 0.5
     
+    @IBInspectable var rounded: Bool = false
+    
     override func layoutSubviews() {
-        self.layer.cornerRadius = cornerRadius
-        
+        if self.rounded {
+            self.layer.cornerRadius = self.frame.height / 2
+        } else {
+            self.layer.cornerRadius = cornerRadius
+        }
     }
 }
 

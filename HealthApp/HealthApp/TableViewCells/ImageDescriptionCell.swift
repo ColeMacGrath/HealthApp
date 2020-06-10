@@ -10,7 +10,7 @@ import UIKit
 
 class ImageDescriptionCell: UITableViewCell {
 
-    @IBOutlet weak var CardImage: CardImage!
+    @IBOutlet weak var cardImage: CardImage!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     

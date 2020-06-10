@@ -107,7 +107,7 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         
         if device.userInterfaceIdiom == .pad {
             if indexPath.section == 0 {
-                return CGSize(width: width, height: height * 0.2)
+                return CGSize(width: width, height: height * 0.25)
             } else if indexPath.section == 1 {
                 return CGSize(width: width * 0.06, height: width * 0.06)
             } else {

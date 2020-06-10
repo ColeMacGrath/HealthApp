@@ -11,6 +11,9 @@ import UIKit
 class DoctorProfileViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    let titles = ["Make an Appointment", "Show in Maps", "Contact"]
+    
+    let images: [UIImage] = [#imageLiteral(resourceName: "appointmnet-icon"), #imageLiteral(resourceName: "map-icon"), #imageLiteral(resourceName: "phone-icon")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,7 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var sections = 1
         if section == 1 {
-            sections = 4
+            sections = self.titles.count
         }
         
         return sections
@@ -45,6 +48,13 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageDescriptionCell
+        cell.titleLabel.text = self.titles[indexPath.row]
+        cell.descriptionLabel.text = "TO DO"
+        cell.cardImage.image = self.images[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
