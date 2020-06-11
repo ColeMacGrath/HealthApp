@@ -7,4 +7,5 @@ target 'HealthApp' do
 
   # Pods for HealthApp
   pod 'JTAppleCalendar'
+  pod 'Charts'
 end

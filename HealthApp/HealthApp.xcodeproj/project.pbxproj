@@ -27,6 +27,9 @@
 		B3AF5279249002E4002EFD08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AF5278249002E4002EFD08 /* Assets.xcassets */; };
 		B3AF527C249002E4002EFD08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AF527A249002E4002EFD08 /* LaunchScreen.storyboard */; };
 		B3AF528824900393002EFD08 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF528724900393002EFD08 /* InitialViewController.swift */; };
+		B3B5BE052492AC02009A1CDD /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5BE042492AC02009A1CDD /* RecordViewController.swift */; };
+		B3B5BE072492AE1C009A1CDD /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5BE062492AE1C009A1CDD /* ChartCollectionViewCell.swift */; };
+		B3B5BE092492AE7C009A1CDD /* DescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5BE082492AE7C009A1CDD /* DescriptionCollectionViewCell.swift */; };
 		B3BDE08C249181D7002507FD /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDE08A249181D7002507FD /* PickerTableViewCell.swift */; };
 		B3BDE08D249181D7002507FD /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDE08B249181D7002507FD /* NoteTableViewCell.swift */; };
 		B3BDE08F249181EF002507FD /* SaveAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDE08E249181EF002507FD /* SaveAppointmentViewController.swift */; };
@@ -69,6 +72,9 @@
 		B3AF527B249002E4002EFD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3AF527D249002E4002EFD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3AF528724900393002EFD08 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		B3B5BE042492AC02009A1CDD /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		B3B5BE062492AE1C009A1CDD /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3B5BE082492AE7C009A1CDD /* DescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		B3BDE08A249181D7002507FD /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
 		B3BDE08B249181D7002507FD /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		B3BDE08E249181EF002507FD /* SaveAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAppointmentViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 				B37A46CA24901137009DB643 /* ProfileCollectionViewCell.swift */,
 				B37A46CC24901195009DB643 /* QuickInfoCollectionViewCell.swift */,
 				B37A46CE249011BF009DB643 /* CardCollectionViewCell.swift */,
+				B3B5BE062492AE1C009A1CDD /* ChartCollectionViewCell.swift */,
+				B3B5BE082492AE7C009A1CDD /* DescriptionCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 				B3261C972491707200279608 /* AppointmentViewController.swift */,
 				B3BDE08E249181EF002507FD /* SaveAppointmentViewController.swift */,
 				B3BDE09024918374002507FD /* BookAppointmentViewController.swift */,
+				B3B5BE042492AC02009A1CDD /* RecordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +356,7 @@
 				B3261C982491707200279608 /* AppointmentViewController.swift in Sources */,
 				B3D5C5B7249040D7009B29B2 /* MenuTableViewCell.swift in Sources */,
 				B3AF5277249002E2002EFD08 /* HealthApp.xcdatamodeld in Sources */,
+				B3B5BE092492AE7C009A1CDD /* DescriptionCollectionViewCell.swift in Sources */,
 				B37A46D424902025009DB643 /* DoctorsTableViewController.swift in Sources */,
 				B3D5C5C424905C2B009B29B2 /* ButtonTableViewCell.swift in Sources */,
 				B37A46CB24901137009DB643 /* ProfileCollectionViewCell.swift in Sources */,
@@ -354,8 +364,10 @@
 				B3BDE08C249181D7002507FD /* PickerTableViewCell.swift in Sources */,
 				B37A46D624902042009DB643 /* DoctorProfileViewController.swift in Sources */,
 				B37A46CD24901195009DB643 /* QuickInfoCollectionViewCell.swift in Sources */,
+				B3B5BE072492AE1C009A1CDD /* ChartCollectionViewCell.swift in Sources */,
 				B3BDE09124918374002507FD /* BookAppointmentViewController.swift in Sources */,
 				B339170524914A7C0056ECCA /* CalendarDayCell.swift in Sources */,
+				B3B5BE052492AC02009A1CDD /* RecordViewController.swift in Sources */,
 				B3D5C5C624906066009B29B2 /* ImageDescriptionCell.swift in Sources */,
 				B3AF526D249002E2002EFD08 /* AppDelegate.swift in Sources */,
 				B3BDE08D249181D7002507FD /* NoteTableViewCell.swift in Sources */,

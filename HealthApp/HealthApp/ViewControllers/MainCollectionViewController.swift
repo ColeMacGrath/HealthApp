@@ -76,6 +76,12 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         flowLayout.invalidateLayout()
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            performSegue(withIdentifier: "ShowRecordsVC", sender: nil)
+        }
+    }
+    
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
