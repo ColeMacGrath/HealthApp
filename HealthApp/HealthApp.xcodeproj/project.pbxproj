@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77B0F30E5574787FF8623A39 /* Pods_HealthApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FC94FBB0B5B737D4C63850 /* Pods_HealthApp.framework */; };
+		B321ECAB2493DC9B003BE654 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B321ECAA2493DC9B003BE654 /* LoginViewController.swift */; };
 		B3261C982491707200279608 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3261C972491707200279608 /* AppointmentViewController.swift */; };
 		B3391701249147F50056ECCA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3391700249147F50056ECCA /* CalendarViewController.swift */; };
 		B3391703249149100056ECCA /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3391702249149100056ECCA /* AppointmentTableViewCell.swift */; };
@@ -50,6 +51,7 @@
 		45D526BA78C7395787599750 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
 		53FC94FBB0B5B737D4C63850 /* Pods_HealthApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C3B0F355A329419FB6A81C /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B321ECAA2493DC9B003BE654 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3261C972491707200279608 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
 		B3391700249147F50056ECCA /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B3391702249149100056ECCA /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				B3BDE08E249181EF002507FD /* SaveAppointmentViewController.swift */,
 				B3BDE09024918374002507FD /* BookAppointmentViewController.swift */,
 				B3B5BE042492AC02009A1CDD /* RecordViewController.swift */,
+				B321ECAA2493DC9B003BE654 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				B37A46CF249011BF009DB643 /* CardCollectionViewCell.swift in Sources */,
 				B3D5C5B8249040D7009B29B2 /* CustomActivityViewController.swift in Sources */,
 				B3D5C5B424903F74009B29B2 /* QRViewController.swift in Sources */,
+				B321ECAB2493DC9B003BE654 /* LoginViewController.swift in Sources */,
 				B37A46C824901076009DB643 /* MainCollectionViewController.swift in Sources */,
 				B37A46D224901FFD009DB643 /* DoctorsViewController.swift in Sources */,
 				B3D5C5C224905AA0009B29B2 /* TextFieldTableViewCell.swift in Sources */,

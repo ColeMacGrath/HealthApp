@@ -107,12 +107,16 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.number = "\(indexPath.row)"
-        self.performSegue(withIdentifier: "showDetailVC", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+        //self.performSegue(withIdentifier: "showDetailVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetailVC" {
-            segue.destination.title = self.number
+            guard let controller = segue.destination as? DoctorProfileViewController else { return }
+            controller.title = self.number
+            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
         }
     }
     
