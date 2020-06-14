@@ -1,5 +1,3 @@
-# Updating do not clone or fork for now
-
 ![alt text](https://user-images.githubusercontent.com/42153044/61584923-01d6df00-ab16-11e9-9811-9b2ece37889a.png)
 
 HealthApp provides a series of tools to provide a better interaction between patients and doctors.
