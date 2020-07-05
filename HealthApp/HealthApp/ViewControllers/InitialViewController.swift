@@ -10,7 +10,7 @@ import UIKit
 
 class InitialViewController: UIViewController {
 
-    var sessionActive = true
+    var sessionActive = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -67,4 +67,25 @@ class HealthKitService {
         }
     }
     
+    func getBirthdayDate(handler: @escaping (_ birthDate: Date?, _ error: Error?) -> Void) {
+        do {
+            let birthdayComponents =  try self.healthKitStore.dateOfBirthComponents()
+            let birthDayDate = Calendar.current.date(from: birthdayComponents)
+            handler(birthDayDate, nil)
+            return
+        } catch {
+            handler(nil, error)
+        }
+    }
+    
+    func getBloodType(handler: @escaping (_ bloodType: HKBloodTypeObject?, _ error: Error?) -> Void) {
+        do {
+            let bloodType = try self.healthKitStore.bloodType()
+            handler(bloodType, nil)
+            return
+        } catch {
+            handler(nil, error)
+        }
+    }
+    
 }

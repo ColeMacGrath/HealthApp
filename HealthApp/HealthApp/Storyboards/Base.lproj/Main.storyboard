@@ -293,7 +293,7 @@
             <objects>
                 <viewController id="Cng-V5-tDd" customClass="QRViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iAs-oN-LfZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXN-E9-N2Q">
@@ -478,7 +478,7 @@
                                             <rect key="frame" x="2" y="2" width="365" height="191"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0j3-gs-8go">
-                                                    <rect key="frame" x="10" y="20" width="146" height="50"/>
+                                                    <rect key="frame" x="10" y="10" width="146" height="50"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uOi-B4-h5g">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -503,7 +503,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OJu-dC-za0">
-                                                    <rect key="frame" x="20" y="90" width="201" height="21"/>
+                                                    <rect key="frame" x="15" y="70" width="219" height="76.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -511,16 +511,15 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstItem="OJu-dC-za0" firstAttribute="leading" secondItem="eJC-EW-cHp" secondAttribute="leading" constant="20" id="20a-Gn-eFi"/>
-                                                <constraint firstItem="OJu-dC-za0" firstAttribute="top" secondItem="0j3-gs-8go" secondAttribute="bottom" constant="20" id="5Ex-ns-38C"/>
-                                                <constraint firstItem="0j3-gs-8go" firstAttribute="top" secondItem="eJC-EW-cHp" secondAttribute="top" constant="20" id="F40-gu-VlO"/>
+                                                <constraint firstItem="OJu-dC-za0" firstAttribute="leading" secondItem="eJC-EW-cHp" secondAttribute="leading" constant="15" id="20a-Gn-eFi"/>
+                                                <constraint firstItem="OJu-dC-za0" firstAttribute="top" secondItem="0j3-gs-8go" secondAttribute="bottom" constant="10" id="5Ex-ns-38C"/>
+                                                <constraint firstItem="0j3-gs-8go" firstAttribute="top" secondItem="eJC-EW-cHp" secondAttribute="top" constant="10" id="F40-gu-VlO"/>
                                                 <constraint firstAttribute="trailing" secondItem="Tms-BR-QSj" secondAttribute="trailing" constant="10" id="Fse-Pz-Gdq"/>
-                                                <constraint firstItem="OJu-dC-za0" firstAttribute="width" secondItem="eJC-EW-cHp" secondAttribute="width" multiplier="0.55" id="JpC-Tx-qPE"/>
+                                                <constraint firstItem="OJu-dC-za0" firstAttribute="width" secondItem="eJC-EW-cHp" secondAttribute="width" multiplier="0.6" id="JpC-Tx-qPE"/>
                                                 <constraint firstItem="Tms-BR-QSj" firstAttribute="width" secondItem="eJC-EW-cHp" secondAttribute="width" multiplier="0.2" id="Q7e-SW-DEv"/>
-                                                <constraint firstAttribute="bottom" secondItem="OJu-dC-za0" secondAttribute="bottom" priority="1" constant="8" id="VGs-Hw-9ND"/>
+                                                <constraint firstItem="OJu-dC-za0" firstAttribute="height" secondItem="eJC-EW-cHp" secondAttribute="height" multiplier="0.4" id="Xwi-dv-DrE"/>
                                                 <constraint firstItem="0j3-gs-8go" firstAttribute="width" secondItem="eJC-EW-cHp" secondAttribute="width" multiplier="0.4" id="ace-kD-rzJ"/>
                                                 <constraint firstItem="Tms-BR-QSj" firstAttribute="centerY" secondItem="eJC-EW-cHp" secondAttribute="centerY" id="b5Y-qc-kUj"/>
-                                                <constraint firstItem="Tms-BR-QSj" firstAttribute="leading" secondItem="OJu-dC-za0" secondAttribute="trailing" constant="10" id="nxL-C7-sFn"/>
                                                 <constraint firstItem="0j3-gs-8go" firstAttribute="leading" secondItem="eJC-EW-cHp" secondAttribute="leading" constant="10" id="uc9-iq-o3n"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -562,12 +561,12 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="MaK-A5-EQY">
-                        <barButtonItem key="leftBarButtonItem" title="QR" image="qrcode.viewfinder" catalog="system" id="wZw-dj-9of">
+                        <barButtonItem key="leftBarButtonItem" image="qr-tab-icon" id="wZw-dj-9of">
                             <connections>
                                 <action selector="qrButtonPressed:" destination="csg-S8-y7S" id="15k-WB-kSD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="settings-icon" id="Ego-yS-j6s">
+                        <barButtonItem key="rightBarButtonItem" image="settings-tab-icon" id="Ego-yS-j6s">
                             <connections>
                                 <action selector="settingsButtonPressed:" destination="csg-S8-y7S" id="1VR-T4-tjJ"/>
                             </connections>
@@ -581,7 +580,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDI-5V-96a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2458" y="-603"/>
+            <point key="canvasLocation" x="2457.971014492754" y="-603.34821428571422"/>
         </scene>
         <!--My Records-->
         <scene sceneID="3D5-5Z-PqJ">
@@ -744,7 +743,7 @@
             <objects>
                 <viewController id="yve-Lq-U3f" customClass="EditProfileViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yw-bU-IZh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPb-n5-RJu">
@@ -906,7 +905,7 @@
         <scene sceneID="z57-8x-esL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v5x-xG-dUF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Me" image="heart.fill" catalog="system" id="Xfm-Xw-WPM"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="Hearth-tab-icon" id="Xfm-Xw-WPM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="xxL-c7-lfA">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -1188,7 +1187,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-64-0cd">
-                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageCell" id="r6b-WU-uhI" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
@@ -1322,7 +1321,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2n3-vy-uF4">
-                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="6mi-aS-4td" customClass="DoctorProfileTableViewCell" customModule="HealthApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="181.5"/>
@@ -1519,7 +1518,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Doctors" largeTitleDisplayMode="always" id="ljU-cm-cer">
-                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3.decrease.circle" catalog="system" id="79J-Rp-aoc">
+                        <barButtonItem key="leftBarButtonItem" image="menu-tab-icon" id="79J-Rp-aoc">
                             <connections>
                                 <action selector="filterButonPressed:" destination="2sz-jz-JLD" id="Mhl-ZI-Ngv"/>
                             </connections>
@@ -1555,7 +1554,7 @@
         <scene sceneID="5nQ-zV-D76">
             <objects>
                 <splitViewController id="Pb4-3w-eEF" customClass="DoctorsViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Doctors" image="person.2.fill" catalog="system" id="HXC-Cj-Vfm"/>
+                    <tabBarItem key="tabBarItem" title="My Doctors" image="people-tab-icon" id="HXC-Cj-Vfm"/>
                     <connections>
                         <segue destination="2LC-h3-7PO" kind="relationship" relationship="masterViewController" id="ojD-Hd-dAC"/>
                         <segue destination="lOt-CL-zNz" kind="relationship" relationship="detailViewController" id="l6t-jo-33H"/>
@@ -1714,7 +1713,7 @@
         <scene sceneID="OGh-Vh-9xB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JyM-jI-WiY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="Pmh-l8-ax6"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar-tab-icon" id="Pmh-l8-ax6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0r2-TG-NgF">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -2259,23 +2258,23 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8h0-dy-xny"/>
-        <segue reference="l6t-jo-33H"/>
+        <segue reference="sjT-X0-Tnd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Hearth-tab-icon" width="23" height="20.333333969116211"/>
         <image name="burn-icon" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="calendar-icon" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="calendar-tab-icon" width="23" height="23"/>
         <image name="close-icon" width="36" height="36"/>
         <image name="doctor-icon" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="hearth-icon" width="186.66667175292969" height="164"/>
-        <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
+        <image name="menu-tab-icon" width="23" height="23"/>
         <image name="next-arrow-icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="notes-icon" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="people-tab-icon" width="23" height="23"/>
         <image name="profile-picture" width="200" height="124"/>
-        <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
-        <image name="settings-icon" width="22.666666030883789" height="22.666666030883789"/>
+        <image name="qr-tab-icon" width="23" height="23"/>
+        <image name="settings-tab-icon" width="22.666666030883789" height="22.666666030883789"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -30,22 +30,7 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
                 print(error)
                 //Request to download
             } else {
-                HealthKitService.shared.getBiologicalSex { (biologicalSex, _) in
-                    guard let biologicalSex = biologicalSex else { return }
-                    var sex = ""
-                    switch biologicalSex.biologicalSex {
-                    case .notSet:
-                        sex = "NonSet"
-                    case .female:
-                        sex = "Female"
-                    case .male:
-                        sex = "Male"
-                    case .other:
-                        sex = "Other"
-                    @unknown default:
-                        sex = ""
-                    }
-                }
+                self.getBasicHealthKitData()
             }
         }
     }
@@ -74,6 +59,87 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         #endif
     }
     
+    private func getBasicHealthKitData() {
+        self.getBiologicalSexFormatted { (biologicalSexString) in
+            if let biologicalSex = biologicalSexString {
+                self.user.biologicalSex = biologicalSex
+            }
+            self.getBloodTypeFormatted { (bloodTypeString) in
+                if let bloodType = bloodTypeString {
+                    self.user.bloodType = bloodType
+                }
+                
+                HealthKitService.shared.getBirthdayDate { (date, _) in
+                    if let date = date {
+                        self.user.birthday = date
+                    }
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getBiologicalSexFormatted(handler: @escaping (_ birthDate: String?) -> Void) {
+        HealthKitService.shared.getBiologicalSex { (biologicalSex, _) in
+            var biologicalSexString = ""
+            if let biologicalSex = biologicalSex {
+                switch biologicalSex.biologicalSex {
+                case .notSet:
+                    biologicalSexString = "Not Set"
+                case .female:
+                    biologicalSexString = "Female"
+                case .male:
+                    biologicalSexString = "Male"
+                case .other:
+                    biologicalSexString = "Other"
+                @unknown default:
+                    biologicalSexString = "Unknown"
+                }
+                handler(biologicalSexString)
+                return
+            }
+            handler(nil)
+        }
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "ShowEditProfileVC", sender: nil)
+    }
+    
+    private func getBloodTypeFormatted(handler: @escaping (_ bloodType: String?) -> Void) {
+        HealthKitService.shared.getBloodType { (bloodType, _) in
+            if let bloodType = bloodType {
+                var bloodTypeString = ""
+                switch bloodType.bloodType {
+                case .notSet:
+                    bloodTypeString = "Not Set"
+                case .aPositive:
+                    bloodTypeString = "A+"
+                case .aNegative:
+                    bloodTypeString = "A-"
+                case .bPositive:
+                    bloodTypeString = "B+"
+                case .bNegative:
+                    bloodTypeString = "B-"
+                case .abPositive:
+                    bloodTypeString = "AB+"
+                case .abNegative:
+                    bloodTypeString = "AB-"
+                case .oPositive:
+                    bloodTypeString = "O+"
+                case .oNegative:
+                    bloodTypeString = "O-"
+                @unknown default:
+                    bloodTypeString = "Unknown"
+                }
+                handler(bloodTypeString)
+            }
+            handler(nil)
+        }
+    }
+    
     private func createOldMenu(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Opciones de QR", message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Escaner QR", style: .default, handler: { (_) in
@@ -93,10 +159,6 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
             popoverController.barButtonItem = sender
         }
         self.present(alertController, animated: true)
-    }
-    
-    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "ShowEditProfileVC", sender: nil)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -133,6 +195,9 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCollectionViewCell
+            cell.genderLabel.text = self.user.biologicalSex ?? "Not Set"
+            cell.nameLabel.text = self.user.fullName
+            
             return cell
         } else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuickInfoCell", for: indexPath) as! QuickInfoCollectionViewCell
@@ -178,7 +243,7 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         }
         
         if indexPath.section == 0 {
-            return CGSize(width: width, height: 150)
+            return CGSize(width: width, height: 155)
         } else if indexPath.section == 1 {
             if device.orientation.isLandscape {
                 return CGSize(width: width * 0.1, height: width * 0.1)

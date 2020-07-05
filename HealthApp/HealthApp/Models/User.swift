@@ -9,15 +9,42 @@
 import Foundation
 
 class User {
-    var _firstName: String
-    var _lastName: String
-    var _age: Int?
-    var _bloodType: String?
-    var _birthDay: Date?
-    var _biologicalSex: String?
+    private var _firstName: String
+    private var _lastName: String
+    private var _age: Int?
+    private var _bloodType: String?
+    private var _birthDay: Date?
+    private var _biologicalSex: String?
     
     init() {
         self._firstName = "First"
         self._lastName = "Last"
+    }
+    
+    var firstName: String {
+        set { self._firstName = newValue    }
+        get { return self._firstName        }
+    }
+    
+    var lastName: String {
+        set { self._lastName = newValue     }
+        get { return self._lastName         }
+    }
+    
+    var fullName: String { return "\(self._firstName) \(self._lastName)"}
+    
+    var biologicalSex: String? {
+        set { self._biologicalSex = newValue    }
+        get { return self._biologicalSex        }
+    }
+    
+    var birthday: Date? {
+        set { self._birthDay = newValue }
+        get { return self._birthDay     }
+    }
+    
+    var bloodType: String? {
+        set { self._bloodType = newValue    }
+        get { return self._bloodType        }
     }
 }
