@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wCK-F9-h5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,101 +10,265 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
-        <scene sceneID="rvS-SN-3o3">
+        <!--Forgot Password View Controller-->
+        <scene sceneID="cTA-b6-aaW">
             <objects>
-                <viewController id="X87-47-BSg" customClass="LoginViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5eU-BD-Ea2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="X2K-cx-DoF" customClass="ForgotPasswordViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FsW-fE-jGL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Rv-xi-ydC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="f3J-YQ-neZ" style="IBUITableViewCellStyleDefault" id="eW9-62-vda">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eW9-62-vda" id="izf-I4-aTY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f3J-YQ-neZ">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldCell" id="Vqn-cD-tqe" customClass="TextFieldTableViewCell" customModule="HealthApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="79"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vqn-cD-tqe" id="nFQ-LY-da3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qbQ-zR-dCw">
-                                                    <rect key="frame" x="28" y="11" width="358" height="57"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKv-OS-LBz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="51" height="24"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-oH-Rb2">
-                                                            <rect key="frame" x="0.0" y="34" width="358" height="23"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="gMZ-oH-Rb2" secondAttribute="trailing" id="a1E-1r-zyK"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qbQ-zR-dCw" secondAttribute="bottom" id="3zy-IB-z7I"/>
-                                                <constraint firstItem="qbQ-zR-dCw" firstAttribute="leading" secondItem="nFQ-LY-da3" secondAttribute="leadingMargin" constant="8" id="8sg-Rc-L6n"/>
-                                                <constraint firstItem="qbQ-zR-dCw" firstAttribute="top" secondItem="nFQ-LY-da3" secondAttribute="topMargin" id="WfK-FU-CY4"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qbQ-zR-dCw" secondAttribute="trailing" constant="8" id="keb-ce-cuI"/>
-                                                <constraint firstItem="qbQ-zR-dCw" firstAttribute="centerY" secondItem="nFQ-LY-da3" secondAttribute="centerY" id="lby-RQ-p7I"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6C3-f6-Iqi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                                <items>
+                                    <navigationItem title="Forgot Password" largeTitleDisplayMode="always" id="k04-PG-qD4">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="g4C-xu-sTS">
+                                            <connections>
+                                                <action selector="canceLButtonPressed:" destination="X2K-cx-DoF" id="hcv-jJ-pLL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your mail" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="rH3-ob-B36">
+                                <rect key="frame" x="20" y="407.5" width="374" height="27.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sc8-tx-S2R" customClass="CardView" customModule="HealthApp" customModuleProvider="target">
+                                <rect key="frame" x="344" y="738" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe8-Ud-I7W">
+                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                        <state key="normal" image="next-arrow-icon"/>
                                         <connections>
-                                            <outlet property="textField" destination="gMZ-oH-Rb2" id="haf-71-l8a"/>
-                                            <outlet property="titleLabel" destination="HKv-OS-LBz" id="Sxi-WY-TeX"/>
+                                            <action selector="nextButtonPressed:" destination="X2K-cx-DoF" eventType="touchUpInside" id="Kyx-DW-oh8"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zq9-7s-FSc">
-                                <rect key="frame" x="348" y="830" width="46" height="46"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92654424909999999" green="0.40221518280000002" blue="0.52156776189999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Zq9-7s-FSc" secondAttribute="height" multiplier="1:1" id="ISn-sg-mHm"/>
+                                    <constraint firstAttribute="width" constant="50" id="6J1-uR-3t2"/>
+                                    <constraint firstItem="Pe8-Ud-I7W" firstAttribute="top" secondItem="Sc8-tx-S2R" secondAttribute="top" constant="5" id="7oP-Om-BHw"/>
+                                    <constraint firstAttribute="width" secondItem="Sc8-tx-S2R" secondAttribute="height" multiplier="1:1" id="B3L-Ha-uxb"/>
+                                    <constraint firstItem="Pe8-Ud-I7W" firstAttribute="leading" secondItem="Sc8-tx-S2R" secondAttribute="leading" constant="5" id="lsq-Zx-Xcl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pe8-Ud-I7W" secondAttribute="trailing" constant="5" id="s43-ui-njT"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pe8-Ud-I7W" secondAttribute="bottom" constant="5" id="wL0-GU-PS9"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="HealthAppColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="3qb-Cm-8Ky" firstAttribute="bottom" secondItem="8Rv-xi-ydC" secondAttribute="bottom" id="7Od-Tm-TD5"/>
-                            <constraint firstAttribute="trailing" secondItem="Zq9-7s-FSc" secondAttribute="trailing" constant="20" id="C6z-FH-niE"/>
-                            <constraint firstItem="3qb-Cm-8Ky" firstAttribute="trailing" secondItem="8Rv-xi-ydC" secondAttribute="trailing" id="Mpc-23-p6v"/>
-                            <constraint firstItem="8Rv-xi-ydC" firstAttribute="leading" secondItem="3qb-Cm-8Ky" secondAttribute="leading" id="R76-Ub-sBo"/>
-                            <constraint firstAttribute="bottom" secondItem="Zq9-7s-FSc" secondAttribute="bottom" constant="20" id="gBS-TM-sW9"/>
-                            <constraint firstItem="8Rv-xi-ydC" firstAttribute="top" secondItem="3qb-Cm-8Ky" secondAttribute="top" id="mGc-PD-RFk"/>
+                            <constraint firstItem="eNs-uF-9A9" firstAttribute="trailing" secondItem="Sc8-tx-S2R" secondAttribute="trailing" constant="20" id="Jk9-gq-Flq"/>
+                            <constraint firstItem="eNs-uF-9A9" firstAttribute="bottom" secondItem="Sc8-tx-S2R" secondAttribute="bottom" constant="20" id="Yvz-Zk-y42"/>
+                            <constraint firstItem="eNs-uF-9A9" firstAttribute="trailing" secondItem="6C3-f6-Iqi" secondAttribute="trailing" id="ZDz-13-n8m"/>
+                            <constraint firstItem="rH3-ob-B36" firstAttribute="centerY" secondItem="FsW-fE-jGL" secondAttribute="centerY" id="eps-Ap-C17"/>
+                            <constraint firstItem="rH3-ob-B36" firstAttribute="leading" secondItem="eNs-uF-9A9" secondAttribute="leading" constant="20" id="fMQ-c5-tPL"/>
+                            <constraint firstItem="eNs-uF-9A9" firstAttribute="trailing" secondItem="rH3-ob-B36" secondAttribute="trailing" constant="20" id="h0Z-uH-Sae"/>
+                            <constraint firstItem="6C3-f6-Iqi" firstAttribute="leading" secondItem="FsW-fE-jGL" secondAttribute="leading" id="rjX-ff-IpK"/>
+                            <constraint firstItem="6C3-f6-Iqi" firstAttribute="top" secondItem="eNs-uF-9A9" secondAttribute="top" id="v3c-FU-CNV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="3qb-Cm-8Ky"/>
+                        <viewLayoutGuide key="safeArea" id="eNs-uF-9A9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tWp-fo-wQ2"/>
+                    <connections>
+                        <outlet property="mailTextField" destination="rH3-ob-B36" id="Yzf-Tt-Y3L"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fAX-sa-hX2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWM-zE-qtn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1088.4057971014493" y="125.89285714285714"/>
+            <point key="canvasLocation" x="-2062" y="-560"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="pvo-iS-9D1">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="S3l-g1-YPH" customClass="LoginViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bXz-l2-oAg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hearth-icon" translatesAutoresizingMaskIntoConstraints="NO" id="kjK-D9-6Lh">
+                                <rect key="frame" x="20" y="64" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="J88-Xd-Ta4">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" secondItem="kjK-D9-6Lh" secondAttribute="height" multiplier="1:1" id="TzT-Xt-sLQ"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Acr-Sb-6Mw">
+                                <rect key="frame" x="20" y="134" width="374" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HealthApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rs2-xR-jxm">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="46"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sigin to continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BK-jZ-xNf">
+                                        <rect key="frame" x="0.0" y="44" width="374" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iqj-vc-4th">
+                                <rect key="frame" x="20" y="403" width="374" height="90.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bAR-Vb-ym6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        </variation>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sgb-j7-Uni">
+                                        <rect key="frame" x="0.0" y="30.5" width="374" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        </variation>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSe-WQ-meY">
+                                        <rect key="frame" x="0.0" y="59.5" width="374" height="31"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="Forgot Password">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="forgotPasswordButtonPressed:" destination="S3l-g1-YPH" eventType="touchUpInside" id="fU1-QE-QDe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="heightClass=regular-widthClass=regular" spacing="16"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HPk-go-PzP">
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBy-Pn-Tlk" customClass="CardView" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu9-90-DHH">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Login">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="loginButtonPressed:" destination="S3l-g1-YPH" eventType="touchUpInside" id="MnE-hw-GhC"/>
+                                                    <segue destination="wCK-F9-h5E" kind="presentation" modalPresentationStyle="fullScreen" id="d02-iT-eCD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="HealthAppColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Mu9-90-DHH" firstAttribute="leading" secondItem="yBy-Pn-Tlk" secondAttribute="leading" id="5jm-Xb-ddD"/>
+                                            <constraint firstItem="Mu9-90-DHH" firstAttribute="top" secondItem="yBy-Pn-Tlk" secondAttribute="top" id="9Qj-Zm-fKe"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mu9-90-DHH" secondAttribute="trailing" id="ZK8-ve-U8y"/>
+                                            <constraint firstAttribute="height" constant="50" id="ZTp-We-fK3">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                            </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="Mu9-90-DHH" secondAttribute="bottom" id="a3d-Sv-KIv"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" name="HealthAppColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-ga-6Ad" customClass="CardView" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="0.0" width="182" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvS-as-8b3">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Signup">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="signupButtonPressed:" destination="S3l-g1-YPH" eventType="touchUpInside" id="kTS-jl-80w"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="HealthAppColor"/>
+                                        <constraints>
+                                            <constraint firstItem="pvS-as-8b3" firstAttribute="top" secondItem="WoQ-ga-6Ad" secondAttribute="top" id="8Yq-7g-q9G"/>
+                                            <constraint firstItem="pvS-as-8b3" firstAttribute="leading" secondItem="WoQ-ga-6Ad" secondAttribute="leading" id="9UB-Q1-HTj"/>
+                                            <constraint firstAttribute="height" constant="50" id="Bkz-hM-M2x">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="pvS-as-8b3" secondAttribute="trailing" id="pSd-Fd-wG3"/>
+                                            <constraint firstAttribute="bottom" secondItem="pvS-as-8b3" secondAttribute="bottom" id="rYH-Wc-dNa"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" name="HealthAppColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lOO-DA-lLw" firstAttribute="trailing" secondItem="Iqj-vc-4th" secondAttribute="trailing" constant="20" id="2kE-8U-X0A"/>
+                            <constraint firstItem="Iqj-vc-4th" firstAttribute="centerX" secondItem="bXz-l2-oAg" secondAttribute="centerX" id="4CJ-ya-ntA"/>
+                            <constraint firstItem="Acr-Sb-6Mw" firstAttribute="leading" secondItem="lOO-DA-lLw" secondAttribute="leading" constant="20" id="4gz-s6-NhU"/>
+                            <constraint firstItem="Iqj-vc-4th" firstAttribute="centerY" secondItem="bXz-l2-oAg" secondAttribute="centerY" id="FwF-Gs-PBh"/>
+                            <constraint firstItem="kjK-D9-6Lh" firstAttribute="leading" secondItem="lOO-DA-lLw" secondAttribute="leading" constant="20" id="HSQ-jv-ql1"/>
+                            <constraint firstItem="lOO-DA-lLw" firstAttribute="trailing" secondItem="Acr-Sb-6Mw" secondAttribute="trailing" constant="20" id="MMo-7e-GvO"/>
+                            <constraint firstItem="Iqj-vc-4th" firstAttribute="leading" secondItem="lOO-DA-lLw" secondAttribute="leading" constant="20" id="SpT-vi-EMe"/>
+                            <constraint firstItem="kjK-D9-6Lh" firstAttribute="top" secondItem="lOO-DA-lLw" secondAttribute="top" constant="20" id="YC5-uB-0ff"/>
+                            <constraint firstItem="lOO-DA-lLw" firstAttribute="trailing" secondItem="HPk-go-PzP" secondAttribute="trailing" constant="20" id="esx-Xw-pmn"/>
+                            <constraint firstItem="lOO-DA-lLw" firstAttribute="bottom" secondItem="HPk-go-PzP" secondAttribute="bottom" constant="20" id="fWv-Sw-f9c"/>
+                            <constraint firstItem="Acr-Sb-6Mw" firstAttribute="top" secondItem="kjK-D9-6Lh" secondAttribute="bottom" constant="10" id="pCS-BZ-oLN"/>
+                            <constraint firstItem="HPk-go-PzP" firstAttribute="leading" secondItem="lOO-DA-lLw" secondAttribute="leading" constant="20" id="zEQ-jI-orE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lOO-DA-lLw"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="bAR-Vb-ym6" id="V4q-mu-xxt"/>
+                        <outlet property="passwordTextField" destination="sgb-j7-Uni" id="35b-a1-ZyH"/>
+                        <outlet property="signInLabel" destination="1BK-jZ-xNf" id="Zlk-0I-w0T"/>
+                        <segue destination="qDd-OY-c5b" kind="show" identifier="ShowRegisterVC" id="7jr-81-HYA"/>
+                        <segue destination="X2K-cx-DoF" kind="show" identifier="ShowForgotPasswordVC" id="qVt-pl-XX5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YbH-AT-psL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2061" y="155"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -129,7 +293,7 @@
             <objects>
                 <viewController id="Cng-V5-tDd" customClass="QRViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iAs-oN-LfZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXN-E9-N2Q">
@@ -187,17 +351,17 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="62a-Ux-Qmf" customClass="ProfileCollectionViewCell" customModule="HealthApp" customModuleProvider="target">
-                                <rect key="frame" x="22.5" y="10" width="369" height="160"/>
+                                <rect key="frame" x="22.5" y="10" width="369" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TRp-HJ-r7J">
-                                    <rect key="frame" x="0.0" y="0.0" width="369" height="160"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f21-ff-LKE">
-                                            <rect key="frame" x="8" y="8" width="353" height="144"/>
+                                            <rect key="frame" x="8" y="8" width="353" height="154"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="E0e-79-VMV" customClass="CardImage" customModule="HealthApp" customModuleProvider="target">
-                                                    <rect key="frame" x="129" y="0.0" width="95" height="95"/>
+                                                    <rect key="frame" x="125.5" y="0.0" width="102" height="102"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="E0e-79-VMV" secondAttribute="height" multiplier="1:1" id="9tc-cf-pef"/>
                                                     </constraints>
@@ -206,13 +370,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLD-Vd-MIw">
-                                                    <rect key="frame" x="145" y="100" width="63.5" height="23.5"/>
+                                                    <rect key="frame" x="145" y="107" width="63.5" height="24.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8J-Hb-wiw">
-                                                    <rect key="frame" x="152" y="128.5" width="49" height="15.5"/>
+                                                    <rect key="frame" x="152" y="136.5" width="49" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -227,7 +391,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="f21-ff-LKE" secondAttribute="trailing" id="yze-a3-viP"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="369" height="160"/>
+                                <size key="customSize" width="369" height="170"/>
                                 <connections>
                                     <outlet property="genderLabel" destination="p8J-Hb-wiw" id="sS3-cb-b5b"/>
                                     <outlet property="nameLabel" destination="hLD-Vd-MIw" id="rSH-Be-vtF"/>
@@ -235,7 +399,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="QuickInfoCell" id="AhP-hS-1aC" customClass="QuickInfoCollectionViewCell" customModule="HealthApp" customModuleProvider="target">
-                                <rect key="frame" x="22.5" y="180" width="369" height="155"/>
+                                <rect key="frame" x="22.5" y="190" width="369" height="155"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1aJ-7h-9D5">
                                     <rect key="frame" x="0.0" y="0.0" width="369" height="155"/>
@@ -304,7 +468,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CardCell" id="QKA-su-Yjp" customClass="CardCollectionViewCell" customModule="HealthApp" customModuleProvider="target">
-                                <rect key="frame" x="22.5" y="345" width="369" height="195"/>
+                                <rect key="frame" x="22.5" y="355" width="369" height="195"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CSR-61-93w">
                                     <rect key="frame" x="0.0" y="0.0" width="369" height="195"/>
@@ -580,7 +744,7 @@
             <objects>
                 <viewController id="yve-Lq-U3f" customClass="EditProfileViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Yw-bU-IZh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPb-n5-RJu">
@@ -588,12 +752,12 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <items>
                                     <navigationItem title="Edit Profile" id="9ml-mH-hLx">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="wq9-rc-7Ev">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wq9-rc-7Ev">
                                             <connections>
                                                 <action selector="cancelButtonPressed:" destination="yve-Lq-U3f" id="BJ3-iK-23v"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="kCo-Bo-oxo">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kCo-Bo-oxo">
                                             <connections>
                                                 <action selector="saveButtonPressed:" destination="yve-Lq-U3f" id="Ccp-9x-aJI"/>
                                             </connections>
@@ -614,7 +778,9 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="JIs-uP-YRt" customClass="CardImage" customModule="HealthApp" customModuleProvider="target">
                                                     <rect key="frame" x="137" y="19" width="100" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="Wa8-Nk-hCG"/>
+                                                        <constraint firstAttribute="width" constant="100" id="Wa8-Nk-hCG">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="140"/>
+                                                        </constraint>
                                                         <constraint firstAttribute="width" secondItem="JIs-uP-YRt" secondAttribute="height" multiplier="1:1" id="tnH-qS-YjW"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -629,31 +795,37 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="JIs-uP-YRt" secondAttribute="bottom" constant="8" id="wOm-7p-ObE"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
                                             <outlet property="profilePicture" destination="JIs-uP-YRt" id="kcS-Yj-pWE"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldCell" id="xrE-h2-mp1" customClass="TextFieldTableViewCell" customModule="HealthApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="193.5" width="374" height="78.5"/>
+                                        <rect key="frame" x="20" y="193.5" width="374" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xrE-h2-mp1" id="0gf-V8-oOq">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="78.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gNp-Ok-iNy">
-                                                    <rect key="frame" x="28" y="11" width="318" height="56.5"/>
+                                                    <rect key="frame" x="28" y="11" width="318" height="59"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ5-11-Swv">
                                                             <rect key="frame" x="0.0" y="0.0" width="51" height="24"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="heightClass=regular-widthClass=regular">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                            </variation>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z89-Lt-hBi">
-                                                            <rect key="frame" x="0.0" y="34" width="318" height="22.5"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <rect key="frame" x="0.0" y="34" width="318" height="25"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <variation key="heightClass=regular-widthClass=regular">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                                            </variation>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -669,14 +841,14 @@
                                                 <constraint firstItem="gNp-Ok-iNy" firstAttribute="leading" secondItem="0gf-V8-oOq" secondAttribute="leadingMargin" constant="8" id="Y8k-S2-5ul"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
                                             <outlet property="textField" destination="Z89-Lt-hBi" id="mmN-VU-tMU"/>
                                             <outlet property="titleLabel" destination="XQ5-11-Swv" id="dgg-ER-cx1"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" id="2nJ-JJ-CbP" customClass="ButtonTableViewCell" customModule="HealthApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="272" width="374" height="52"/>
+                                        <rect key="frame" x="20" y="274.5" width="374" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2nJ-JJ-CbP" id="ghV-u7-jCv">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="52"/>
@@ -686,10 +858,11 @@
                                                     <rect key="frame" x="0.0" y="8" width="374" height="36"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <state key="normal" title="Logout">
-                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" name="HealthAppColor"/>
                                             <constraints>
                                                 <constraint firstItem="oI4-Ti-Jq5" firstAttribute="leading" secondItem="ghV-u7-jCv" secondAttribute="leading" id="aY7-id-eeg"/>
                                                 <constraint firstAttribute="bottom" secondItem="oI4-Ti-Jq5" secondAttribute="bottom" constant="8" id="cAk-pi-Ia4"/>
@@ -697,7 +870,7 @@
                                                 <constraint firstItem="oI4-Ti-Jq5" firstAttribute="top" secondItem="ghV-u7-jCv" secondAttribute="top" constant="8" id="gYo-To-cyq"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
                                             <outlet property="button" destination="oI4-Ti-Jq5" id="88K-h7-Moh"/>
                                         </connections>
@@ -895,6 +1068,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scf-ZS-axI">
                                 <rect key="frame" x="0.0" y="238" width="414" height="575"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AppointmentCell" rowHeight="130" id="THf-nY-BDv" customClass="AppointmentTableViewCell" customModule="HealthApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="130"/>
@@ -1014,8 +1188,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-64-0cd">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageCell" id="r6b-WU-uhI" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="108.5"/>
@@ -1071,15 +1245,15 @@
                                             <outlet property="titleLabel" destination="OFd-cO-JAO" id="C5p-jz-H3q"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" textLabel="11r-LZ-ypr" style="IBUITableViewCellStyleDefault" id="ahd-Az-f0R" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="164" width="374" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" textLabel="11r-LZ-ypr" rowHeight="174" style="IBUITableViewCellStyleDefault" id="ahd-Az-f0R" customClass="ImageDescriptionCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="164" width="374" height="174"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahd-Az-f0R" id="VJ8-sD-cKh">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="174"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11r-LZ-ypr">
-                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="174"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1090,7 +1264,7 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" id="ZLR-hC-eeE" customClass="ButtonTableViewCell" customModule="HealthApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="207.5" width="374" height="52.5"/>
+                                        <rect key="frame" x="20" y="338" width="374" height="52.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZLR-hC-eeE" id="tPb-Uy-gbk">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="52.5"/>
@@ -1100,10 +1274,11 @@
                                                     <rect key="frame" x="0.0" y="8" width="374" height="36.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <state key="normal" title="Cancel Appointment">
-                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" name="HealthAppColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="x42-dU-NSj" secondAttribute="bottom" constant="8" id="4CI-if-dCb"/>
                                                 <constraint firstItem="x42-dU-NSj" firstAttribute="top" secondItem="tPb-Uy-gbk" secondAttribute="top" constant="8" id="OEd-cj-8gu"/>
@@ -1123,7 +1298,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cq7-64-0cd" firstAttribute="trailing" secondItem="mR5-KE-64P" secondAttribute="trailing" id="XTL-Or-GFm"/>
                             <constraint firstItem="cq7-64-0cd" firstAttribute="leading" secondItem="mR5-KE-64P" secondAttribute="leading" id="eUk-Lp-RZY"/>
@@ -1147,7 +1322,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2n3-vy-uF4">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="6mi-aS-4td" customClass="DoctorProfileTableViewCell" customModule="HealthApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="181.5"/>
@@ -1400,6 +1575,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="HealthAppColor"/>
+                        <color key="selectedImageTintColor" name="HealthAppColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="v5x-xG-dUF" kind="relationship" relationship="viewControllers" id="UqR-24-SZ5"/>
@@ -1919,9 +2096,170 @@
             </objects>
             <point key="canvasLocation" x="4758" y="1614"/>
         </scene>
+        <!--Register View Controller-->
+        <scene sceneID="LKl-CK-guW">
+            <objects>
+                <viewController id="qDd-OY-c5b" customClass="RegisterViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ud-6s-9oH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKz-97-yiJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem id="mnX-gf-6CT">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="caq-iz-27x">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="qDd-OY-c5b" id="wEk-2K-HLf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Cv9-Lq-lAy">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PictureCell" id="Bpf-ei-vA1" customClass="PictureTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bpf-ei-vA1" id="g9b-ZO-xmx">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-picture" translatesAutoresizingMaskIntoConstraints="NO" id="09J-07-BLZ" customClass="CardImage" customModule="HealthApp" customModuleProvider="target">
+                                                    <rect key="frame" x="137" y="5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="8y0-kQ-Vi0">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                        </constraint>
+                                                        <constraint firstAttribute="width" secondItem="09J-07-BLZ" secondAttribute="height" multiplier="1:1" id="JYO-OD-hNF"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="09J-07-BLZ" firstAttribute="top" secondItem="g9b-ZO-xmx" secondAttribute="top" constant="5" id="Fet-2g-da1"/>
+                                                <constraint firstItem="09J-07-BLZ" firstAttribute="centerX" secondItem="g9b-ZO-xmx" secondAttribute="centerX" id="h1C-MX-E58"/>
+                                                <constraint firstAttribute="bottom" secondItem="09J-07-BLZ" secondAttribute="bottom" constant="5" id="vTJ-pX-7Yc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                        <connections>
+                                            <outlet property="cardIImage" destination="09J-07-BLZ" id="UgH-58-d6e"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldCell" id="zcl-U7-1Oz" customClass="TextFieldTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="165.5" width="374" height="78.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zcl-U7-1Oz" id="CFK-Bq-DCz">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="78.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gr2-C7-OtT">
+                                                    <rect key="frame" x="28" y="11" width="318" height="56.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QED-aF-Yfk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="51" height="24"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="heightClass=regular-widthClass=regular">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                                            </variation>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9c5-Mj-zHt">
+                                                            <rect key="frame" x="0.0" y="34" width="318" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <variation key="heightClass=regular-widthClass=regular">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                            </variation>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="9c5-Mj-zHt" secondAttribute="trailing" id="KPy-Gg-lOO"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gr2-C7-OtT" firstAttribute="leading" secondItem="CFK-Bq-DCz" secondAttribute="leadingMargin" constant="8" id="Pef-9T-5WT"/>
+                                                <constraint firstItem="Gr2-C7-OtT" firstAttribute="top" secondItem="CFK-Bq-DCz" secondAttribute="topMargin" id="Y0x-30-6ql"/>
+                                                <constraint firstItem="Gr2-C7-OtT" firstAttribute="centerY" secondItem="CFK-Bq-DCz" secondAttribute="centerY" id="d1g-Ov-sQw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gr2-C7-OtT" secondAttribute="trailing" constant="8" id="mIY-M1-EYV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Gr2-C7-OtT" secondAttribute="bottom" id="zGU-gT-A9s"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                        <connections>
+                                            <outlet property="textField" destination="9c5-Mj-zHt" id="IFJ-OG-L7R"/>
+                                            <outlet property="titleLabel" destination="QED-aF-Yfk" id="pOU-rJ-5FK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" id="R3T-U6-LNm" customClass="ButtonTableViewCell" customModule="HealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="244" width="374" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R3T-U6-LNm" id="dcx-hD-hVT">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFT-Fm-KZE">
+                                                    <rect key="frame" x="0.0" y="8" width="374" height="36"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <state key="normal" title="Singup">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                    </variation>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" name="HealthAppColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="hFT-Fm-KZE" secondAttribute="bottom" constant="8" id="2Ba-Lq-Ut5"/>
+                                                <constraint firstItem="hFT-Fm-KZE" firstAttribute="top" secondItem="dcx-hD-hVT" secondAttribute="top" constant="8" id="2Y2-BR-LbW"/>
+                                                <constraint firstItem="hFT-Fm-KZE" firstAttribute="leading" secondItem="dcx-hD-hVT" secondAttribute="leading" id="Tca-pS-eWi"/>
+                                                <constraint firstAttribute="trailing" secondItem="hFT-Fm-KZE" secondAttribute="trailing" id="wEf-lY-4Io"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                        <connections>
+                                            <outlet property="button" destination="hFT-Fm-KZE" id="Mgb-ts-6gv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qDd-OY-c5b" id="sMA-9H-FlP"/>
+                                    <outlet property="delegate" destination="qDd-OY-c5b" id="0wC-x9-KfZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="O5V-VN-p0i" firstAttribute="bottom" secondItem="Cv9-Lq-lAy" secondAttribute="bottom" id="10I-ib-T3h"/>
+                            <constraint firstItem="VKz-97-yiJ" firstAttribute="top" secondItem="O5V-VN-p0i" secondAttribute="top" id="3GP-Op-eh4"/>
+                            <constraint firstItem="Cv9-Lq-lAy" firstAttribute="top" secondItem="VKz-97-yiJ" secondAttribute="bottom" id="Et5-JC-6u1"/>
+                            <constraint firstItem="VKz-97-yiJ" firstAttribute="leading" secondItem="O5V-VN-p0i" secondAttribute="leading" id="LRO-NK-Slb"/>
+                            <constraint firstItem="O5V-VN-p0i" firstAttribute="trailing" secondItem="Cv9-Lq-lAy" secondAttribute="trailing" id="gfq-Qh-MtI"/>
+                            <constraint firstItem="Cv9-Lq-lAy" firstAttribute="leading" secondItem="O5V-VN-p0i" secondAttribute="leading" id="qhh-qZ-fhI"/>
+                            <constraint firstItem="VKz-97-yiJ" firstAttribute="trailing" secondItem="O5V-VN-p0i" secondAttribute="trailing" id="vO2-T8-dsH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O5V-VN-p0i"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nbH-0m-Iae"/>
+                    <connections>
+                        <outlet property="tableView" destination="Cv9-Lq-lAy" id="DzK-3w-aPb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yfv-pT-DbY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1181.1594202898552" y="154.6875"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sjT-X0-Tnd"/>
+        <segue reference="8h0-dy-xny"/>
+        <segue reference="l6t-jo-33H"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="burn-icon" width="170.66667175292969" height="170.66667175292969"/>
@@ -1932,6 +2270,7 @@
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="hearth-icon" width="186.66667175292969" height="164"/>
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
+        <image name="next-arrow-icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="notes-icon" width="170.66667175292969" height="170.66667175292969"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="profile-picture" width="200" height="124"/>
@@ -1939,6 +2278,9 @@
         <image name="settings-icon" width="22.666666030883789" height="22.666666030883789"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HealthAppColor">
+            <color red="0.99699997901916504" green="0.35400000214576721" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Title">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>

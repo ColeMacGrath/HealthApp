@@ -46,7 +46,7 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
         self.createOldMenu(sender: sender)
         #else
         if #available(iOS 13, *) {
-            guard let (controller, activityViewController) = storyboard?.createMenu(options: ["Cardiologo", "Otorrinolaringólogo", "Otros"], images: nil, title: "Filtrar por", image: nil) else { return }
+            guard let (controller, activityViewController) = storyboard?.createMenu(options: ["Cardiologist", "Otolaryngologist", "Other"], images: nil, title: "Filtrar por", image: nil) else { return }
             controller.callback = { selected in
                 print("Selected option index: \(selected)")
             }
@@ -65,17 +65,17 @@ class DoctorsTableViewController: UITableViewController, UIPopoverPresentationCo
     }
     
     private func createOldMenu(sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Filtrar por", message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Cardiologo", style: .default, handler: { (_) in
+        let alertController = UIAlertController(title: "Filter by", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Cardiologist", style: .default, handler: { (_) in
             //
         }))
-        alertController.addAction(UIAlertAction(title: "Otorrinolaringólogo", style: .default, handler: { (_) in
+        alertController.addAction(UIAlertAction(title: "Otolaryngologist", style: .default, handler: { (_) in
             //
         }))
-        alertController.addAction(UIAlertAction(title: "Otros", style: .default, handler: { (_) in
+        alertController.addAction(UIAlertAction(title: "Other", style: .default, handler: { (_) in
             //
         }))
-        alertController.addAction(UIAlertAction(title: "Cancekar", style: .cancel, handler: { (_) in
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             //
         }))
         

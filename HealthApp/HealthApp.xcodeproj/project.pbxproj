@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		77B0F30E5574787FF8623A39 /* Pods_HealthApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FC94FBB0B5B737D4C63850 /* Pods_HealthApp.framework */; };
+		804AE0B524B149B800FE43CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804AE0B424B149B800FE43CB /* RegisterViewController.swift */; };
+		804AE0B724B14A8300FE43CB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804AE0B624B14A8300FE43CB /* ForgotPasswordViewController.swift */; };
+		804AE0B924B14E3B00FE43CB /* PictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804AE0B824B14E3B00FE43CB /* PictureTableViewCell.swift */; };
+		804AE0BB24B15BBD00FE43CB /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804AE0BA24B15BBD00FE43CB /* HealthKit.framework */; };
+		804AE0BE24B15C1000FE43CB /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804AE0BD24B15C1000FE43CB /* HealthKitService.swift */; };
+		804AE0C024B16A3800FE43CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804AE0BF24B16A3800FE43CB /* User.swift */; };
 		B321ECAB2493DC9B003BE654 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B321ECAA2493DC9B003BE654 /* LoginViewController.swift */; };
 		B3261C982491707200279608 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3261C972491707200279608 /* AppointmentViewController.swift */; };
 		B3391701249147F50056ECCA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3391700249147F50056ECCA /* CalendarViewController.swift */; };
@@ -50,6 +56,12 @@
 /* Begin PBXFileReference section */
 		45D526BA78C7395787599750 /* Pods-HealthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.release.xcconfig"; path = "Target Support Files/Pods-HealthApp/Pods-HealthApp.release.xcconfig"; sourceTree = "<group>"; };
 		53FC94FBB0B5B737D4C63850 /* Pods_HealthApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		804AE0B424B149B800FE43CB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		804AE0B624B14A8300FE43CB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		804AE0B824B14E3B00FE43CB /* PictureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTableViewCell.swift; sourceTree = "<group>"; };
+		804AE0BA24B15BBD00FE43CB /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		804AE0BD24B15C1000FE43CB /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
+		804AE0BF24B16A3800FE43CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		88C3B0F355A329419FB6A81C /* Pods-HealthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthApp.debug.xcconfig"; path = "Target Support Files/Pods-HealthApp/Pods-HealthApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B321ECAA2493DC9B003BE654 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3261C972491707200279608 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77B0F30E5574787FF8623A39 /* Pods_HealthApp.framework in Frameworks */,
+				804AE0BB24B15BBD00FE43CB /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +121,7 @@
 		1C2186DC89375F11E68D26BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				804AE0BA24B15BBD00FE43CB /* HealthKit.framework */,
 				53FC94FBB0B5B737D4C63850 /* Pods_HealthApp.framework */,
 			);
 			name = Frameworks;
@@ -120,6 +134,15 @@
 				45D526BA78C7395787599750 /* Pods-HealthApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		804AE0BC24B15BFE00FE43CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				804AE0BD24B15C1000FE43CB /* HealthKitService.swift */,
+				804AE0BF24B16A3800FE43CB /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B37A46C92490111E009DB643 /* CollectionViewCells */ = {
@@ -157,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				B37A46D024901520009DB643 /* HealthApp.entitlements */,
+				804AE0BC24B15BFE00FE43CB /* Models */,
 				B3AF5283249002FF002EFD08 /* Delegates */,
 				B3AF528424900308002EFD08 /* ViewControllers */,
 				B3AF528524900314002EFD08 /* Storyboards */,
@@ -195,6 +219,8 @@
 				B3BDE09024918374002507FD /* BookAppointmentViewController.swift */,
 				B3B5BE042492AC02009A1CDD /* RecordViewController.swift */,
 				B321ECAA2493DC9B003BE654 /* LoginViewController.swift */,
+				804AE0B424B149B800FE43CB /* RegisterViewController.swift */,
+				804AE0B624B14A8300FE43CB /* ForgotPasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -230,6 +256,7 @@
 				B3D5C5C324905C2B009B29B2 /* ButtonTableViewCell.swift */,
 				B3D5C5C524906066009B29B2 /* ImageDescriptionCell.swift */,
 				B3C9814224913CB000B38A12 /* DoctorProfileTableViewCell.swift */,
+				804AE0B824B14E3B00FE43CB /* PictureTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -353,11 +380,13 @@
 				B3D5C5BA249040E7009B29B2 /* OptionsViewController.swift in Sources */,
 				B3BDE08F249181EF002507FD /* SaveAppointmentViewController.swift in Sources */,
 				B37A46C624900CDA009DB643 /* Util.swift in Sources */,
+				804AE0B924B14E3B00FE43CB /* PictureTableViewCell.swift in Sources */,
 				B3D5C5C024905A82009B29B2 /* ImageTableViewCell.swift in Sources */,
 				B3391701249147F50056ECCA /* CalendarViewController.swift in Sources */,
 				B3C9814324913CB000B38A12 /* DoctorProfileTableViewCell.swift in Sources */,
 				B3261C982491707200279608 /* AppointmentViewController.swift in Sources */,
 				B3D5C5B7249040D7009B29B2 /* MenuTableViewCell.swift in Sources */,
+				804AE0BE24B15C1000FE43CB /* HealthKitService.swift in Sources */,
 				B3AF5277249002E2002EFD08 /* HealthApp.xcdatamodeld in Sources */,
 				B3B5BE092492AE7C009A1CDD /* DescriptionCollectionViewCell.swift in Sources */,
 				B37A46D424902025009DB643 /* DoctorsTableViewController.swift in Sources */,
@@ -365,6 +394,7 @@
 				B37A46CB24901137009DB643 /* ProfileCollectionViewCell.swift in Sources */,
 				B3391703249149100056ECCA /* AppointmentTableViewCell.swift in Sources */,
 				B3BDE08C249181D7002507FD /* PickerTableViewCell.swift in Sources */,
+				804AE0B524B149B800FE43CB /* RegisterViewController.swift in Sources */,
 				B37A46D624902042009DB643 /* DoctorProfileViewController.swift in Sources */,
 				B37A46CD24901195009DB643 /* QuickInfoCollectionViewCell.swift in Sources */,
 				B3B5BE072492AE1C009A1CDD /* ChartCollectionViewCell.swift in Sources */,
@@ -372,6 +402,7 @@
 				B339170524914A7C0056ECCA /* CalendarDayCell.swift in Sources */,
 				B3B5BE052492AC02009A1CDD /* RecordViewController.swift in Sources */,
 				B3D5C5C624906066009B29B2 /* ImageDescriptionCell.swift in Sources */,
+				804AE0C024B16A3800FE43CB /* User.swift in Sources */,
 				B3AF526D249002E2002EFD08 /* AppDelegate.swift in Sources */,
 				B3BDE08D249181D7002507FD /* NoteTableViewCell.swift in Sources */,
 				B3D5C5BD249058BC009B29B2 /* EditProfileViewController.swift in Sources */,
@@ -380,6 +411,7 @@
 				B3D5C5B8249040D7009B29B2 /* CustomActivityViewController.swift in Sources */,
 				B3D5C5B424903F74009B29B2 /* QRViewController.swift in Sources */,
 				B321ECAB2493DC9B003BE654 /* LoginViewController.swift in Sources */,
+				804AE0B724B14A8300FE43CB /* ForgotPasswordViewController.swift in Sources */,
 				B37A46C824901076009DB643 /* MainCollectionViewController.swift in Sources */,
 				B37A46D224901FFD009DB643 /* DoctorsViewController.swift in Sources */,
 				B3D5C5C224905AA0009B29B2 /* TextFieldTableViewCell.swift in Sources */,
@@ -536,7 +568,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -558,7 +590,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moisesCordova.HealthApp01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;

@@ -15,10 +15,39 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
     let descriptions = ["This is the count of calories burned with your activity throughout the day", "It takes the count of the hours in bed of the last night", "My Last weight measurament on kilograms", "A record of beats per minute is recorded in different activities", "My last food ingested -", "Detection by artificial intelligence of a nevus' pathology"]
     let images: [UIImage] = [#imageLiteral(resourceName: "burn-icon"), #imageLiteral(resourceName: "moon-icon"), #imageLiteral(resourceName: "weight-icon"), #imageLiteral(resourceName: "hearth-icon"), #imageLiteral(resourceName: "food-icon"), #imageLiteral(resourceName: "bodyScan-icon")]
     let quickTitles = ["Steps", "Calories", "Height", "Weight"]
+    var healthKitAvailable = false
+    let user = User()
+    
+    var nameLabel: UILabel!
+    var genderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setTransparent()
+        
+        HealthKitService.shared.requestDataTypes { (error) in
+            if let error = error {
+                print(error)
+                //Request to download
+            } else {
+                HealthKitService.shared.getBiologicalSex { (biologicalSex, _) in
+                    guard let biologicalSex = biologicalSex else { return }
+                    var sex = ""
+                    switch biologicalSex.biologicalSex {
+                    case .notSet:
+                        sex = "NonSet"
+                    case .female:
+                        sex = "Female"
+                    case .male:
+                        sex = "Male"
+                    case .other:
+                        sex = "Other"
+                    @unknown default:
+                        sex = ""
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func qrButtonPressed(_ sender: UIBarButtonItem) {

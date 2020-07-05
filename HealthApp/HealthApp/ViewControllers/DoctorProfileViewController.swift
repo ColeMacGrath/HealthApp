@@ -39,7 +39,7 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! DoctorProfileTableViewCell
             if self.title == nil {
-                cell.nameLabel.text = "Seleccione un médico"
+                cell.nameLabel.text = "Select a doctor"
             } else {
                 cell.nameLabel.text = self.title
             }
