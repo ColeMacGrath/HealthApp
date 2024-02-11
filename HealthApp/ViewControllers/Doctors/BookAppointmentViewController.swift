@@ -1,0 +1,92 @@
+//
+//  BookAppointmentViewController.swift
+//  HealthApp
+//
+//  Created by Cordova Garcia Moises Emmanuel on 29/12/23.
+//
+
+import UIKit
+
+class BookAppointmentViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.setMinimalBackButton()
+    }
+
+}
+
+extension BookAppointmentViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        section == 0 ? 2 : 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
+                cell.separatorInset.removeSeparator()
+                cell.custommizeCell(image: UIImage(named: "doctor2") ?? UIImage())
+                return cell
+            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
+            cell.backgroundColor = .systemGroupedBackground
+            cell.selectionStyle = .none
+            cell.separatorInset.removeSeparator()
+            var content = UIListContentConfiguration.cell()
+            content.textProperties.alignment = .center
+            content.secondaryTextProperties.alignment = .center
+            content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 18.0) ?? UIFont()
+            content.text = "Juan Gabriel Gomila Salas"
+            content.secondaryTextProperties.font = UIFont(name: "HelveticaNeue", size: 18.0) ?? UIFont()
+            content.secondaryTextProperties.color = .secondaryLabel
+            content.secondaryText = "Cardilogyst"
+            
+            cell.contentConfiguration = content
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.inlineDatePicker, for: indexPath) as! InlineDatePickerTableViewCell
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.textViewCell, for: indexPath) as! TextViewTableViewCell
+            cell.backgroundColor = .secondarySystemGroupedBackground
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
+            cell.backgroundColor = .systemRed
+            cell.selectionStyle = .default
+            var content = UIListContentConfiguration.cell()
+            content.textProperties.alignment = .center
+            content.textProperties.color = .white
+            content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 18.0) ?? UIFont()
+            content.text = "Book Appointment"
+            cell.contentConfiguration = content
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.showFloatingAlert(text: "Appointment Booked", alertType: .success)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self.navigationController?.popViewController(animated: true)
+        })
+        
+        tableView.deselectRow(at: indexPath, animated: true )
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return "Date and Time"
+        case 2:
+            return "Notes"
+        default:
+            return nil
+        }
+    }
+}
