@@ -51,7 +51,6 @@
 		4FC7D55A2B3F5D3600FFF1F6 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7D5592B3F5D3600FFF1F6 /* DatePickerTableViewCell.swift */; };
 		4FCDDD692B464BAA00F2CC69 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD682B464BAA00F2CC69 /* RequestManager.swift */; };
 		4FCDDD6B2B464C3800F2CC69 /* RecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD6A2B464C3800F2CC69 /* RecommendationViewController.swift */; };
-		4FCDDD6D2B464CCE00F2CC69 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FCDDD6C2B464CCE00F2CC69 /* keys.plist */; };
 		4FCDDD6F2B464D1D00F2CC69 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCDDD6E2B464D1D00F2CC69 /* Config.swift */; };
 		4FE81A3B2B45E90500246F73 /* CaloriesSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE81A3A2B45E90500246F73 /* CaloriesSummaryViewController.swift */; };
 		4FF7618F2B3F98A8002EE5DC /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF7618E2B3F98A8002EE5DC /* AppointmentViewController.swift */; };
@@ -63,6 +62,7 @@
 		4FF7619B2B3FAB01002EE5DC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF7619A2B3FAB01002EE5DC /* HistoryViewController.swift */; };
 		4FF7619D2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF7619C2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift */; };
 		B31B8A652B788EDD004285BB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B8A642B788EDD004285BB /* Doctor.swift */; };
+		B32459FE2B79470B00377F5E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = B32459FD2B79470B00377F5E /* keys.plist */; };
 		B3271BEF2B786B8E00F8634B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BEE2B786B8E00F8634B /* LoginViewController.swift */; };
 		B3271BF12B787E8700F8634B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BF02B787E8700F8634B /* KeychainManager.swift */; };
 		B32D7E9F2B636FA30078A08C /* AddDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */; };
@@ -124,7 +124,6 @@
 		4FC7D5592B3F5D3600FFF1F6 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		4FCDDD682B464BAA00F2CC69 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		4FCDDD6A2B464C3800F2CC69 /* RecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationViewController.swift; sourceTree = "<group>"; };
-		4FCDDD6C2B464CCE00F2CC69 /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		4FCDDD6E2B464D1D00F2CC69 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4FE81A3A2B45E90500246F73 /* CaloriesSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesSummaryViewController.swift; sourceTree = "<group>"; };
 		4FF7618E2B3F98A8002EE5DC /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		4FF7619A2B3FAB01002EE5DC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		4FF7619C2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordsTableViewCell.swift; sourceTree = "<group>"; };
 		B31B8A642B788EDD004285BB /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		B32459FD2B79470B00377F5E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		B3271BEE2B786B8E00F8634B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3271BF02B787E8700F8634B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoctorViewController.swift; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 				4FC0B9E42B3DDE8600F49ECD /* Assets.xcassets */,
 				B33DD0912B54BA0D000A4C1B /* FitzpatrickScale.mlmodel */,
 				4FC0B9E92B3DDE8600F49ECD /* Info.plist */,
-				4FCDDD6C2B464CCE00F2CC69 /* keys.plist */,
+				B32459FD2B79470B00377F5E /* keys.plist */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -454,8 +454,8 @@
 				4FC0B9E82B3DDE8600F49ECD /* LaunchScreen.storyboard in Resources */,
 				B33DD09B2B54BBAE000A4C1B /* Profile.storyboard in Resources */,
 				4FC0B9E52B3DDE8600F49ECD /* Assets.xcassets in Resources */,
+				B32459FE2B79470B00377F5E /* keys.plist in Resources */,
 				B33DD0982B54BB68000A4C1B /* Recommendation.storyboard in Resources */,
-				4FCDDD6D2B464CCE00F2CC69 /* keys.plist in Resources */,
 				4F89FC712B3E01CE00B932B6 /* TabBar.storyboard in Resources */,
 				4FC0B9E32B3DDE8500F49ECD /* Main.storyboard in Resources */,
 			);
