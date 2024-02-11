@@ -65,7 +65,7 @@ extension SleepHistoryViewController: UITableViewDataSource, UITableViewDelegate
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
-            cell.custommizeCell(image: UIImage.sfSymbol("moon.fill", color: .yellow))
+            cell.customizeCell(image: UIImage.sfSymbol("moon.fill", color: .yellow))
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.historyRecordCell, for: indexPath) as! HistoryRecordsTableViewCell

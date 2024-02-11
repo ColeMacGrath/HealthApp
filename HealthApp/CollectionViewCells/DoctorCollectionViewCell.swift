@@ -8,7 +8,7 @@
 import UIKit
 
 class DoctorCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: CacheImageView!
     @IBOutlet weak var specializationLabel: UILabel!
     @IBOutlet weak var clockIcon: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -22,7 +22,7 @@ class DoctorCollectionViewCell: UICollectionViewCell {
     }
     
     func cutomizeCell(doctor: Doctor) {
-        self.profileImageView.downloadImage(from: doctor.profilePicture)
+        self.profileImageView.loadImageFrom(url: doctor.profilePicture)
         self.specializationLabel.text = doctor.specialization
         self.nameLabel.text = doctor.firstName
     }

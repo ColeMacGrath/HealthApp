@@ -63,6 +63,8 @@
 		4FF7619D2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF7619C2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift */; };
 		B31B8A652B788EDD004285BB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B8A642B788EDD004285BB /* Doctor.swift */; };
 		B32459FE2B79470B00377F5E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = B32459FD2B79470B00377F5E /* keys.plist */; };
+		B3245A002B794BBF00377F5E /* CacheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32459FF2B794BBF00377F5E /* CacheImageView.swift */; };
+		B3245A022B79542C00377F5E /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3245A012B79542C00377F5E /* Appointment.swift */; };
 		B3271BEF2B786B8E00F8634B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BEE2B786B8E00F8634B /* LoginViewController.swift */; };
 		B3271BF12B787E8700F8634B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BF02B787E8700F8634B /* KeychainManager.swift */; };
 		B32D7E9F2B636FA30078A08C /* AddDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */; };
@@ -136,6 +138,8 @@
 		4FF7619C2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordsTableViewCell.swift; sourceTree = "<group>"; };
 		B31B8A642B788EDD004285BB /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		B32459FD2B79470B00377F5E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		B32459FF2B794BBF00377F5E /* CacheImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageView.swift; sourceTree = "<group>"; };
+		B3245A012B79542C00377F5E /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		B3271BEE2B786B8E00F8634B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3271BF02B787E8700F8634B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoctorViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				4FCDDD6E2B464D1D00F2CC69 /* Config.swift */,
 				B3271BF02B787E8700F8634B /* KeychainManager.swift */,
 				B31B8A642B788EDD004285BB /* Doctor.swift */,
+				B3245A012B79542C00377F5E /* Appointment.swift */,
+				B32459FF2B794BBF00377F5E /* CacheImageView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				4FBF87232B41E18F00DF4E3E /* FloatingAlertView.swift in Sources */,
 				4F89FC6E2B3DFAC600B932B6 /* Util.swift in Sources */,
 				4F89FC732B3E02A400B932B6 /* TabBarViewController.swift in Sources */,
+				B3245A002B794BBF00377F5E /* CacheImageView.swift in Sources */,
 				B33DD0A02B54DD67000A4C1B /* FitzpatrickExplanationViewController.swift in Sources */,
 				4F2FE1932B3E7893002DBBD2 /* ImageTableViewCell.swift in Sources */,
 				B3271BEF2B786B8E00F8634B /* LoginViewController.swift in Sources */,
@@ -515,6 +522,7 @@
 				4F89FC752B3E052300B932B6 /* DashboardViewController.swift in Sources */,
 				4F2FE1992B3E79ED002DBBD2 /* AppointmentTableViewCell.swift in Sources */,
 				4F13FBCB2B3E208D002120D9 /* ProfileViewController.swift in Sources */,
+				B3245A022B79542C00377F5E /* Appointment.swift in Sources */,
 				4FBAE9362B40DBD2006AE980 /* FilterViewController.swift in Sources */,
 				4F537FFD2B40B50500710E4D /* ColorTableViewCell.swift in Sources */,
 				B32D7E9F2B636FA30078A08C /* AddDoctorViewController.swift in Sources */,

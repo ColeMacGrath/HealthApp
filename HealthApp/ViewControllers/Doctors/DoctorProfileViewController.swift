@@ -9,6 +9,8 @@ import UIKit
 
 class DoctorProfileViewController: UIViewController {
     
+    var doctor: Doctor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setMinimalBackButton()
@@ -25,6 +27,11 @@ class DoctorProfileViewController: UIViewController {
         self.navigationController?.defaultNavigation()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == Constants.Segues.showBookAppointmentVC,
+           let destination = segue.destination as? BookAppointmentViewController else { return }
+        destination.doctor = self.doctor
+    }
 }
 
 extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegate {
@@ -39,7 +46,7 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.profileImageCell, for: indexPath) as! ProfileImageTableViewCell
-            cell.customImageView.image = UIImage(named: "doctor2")
+            cell.customImageView.loadImageFrom(url: self.doctor.backgroundImage)
             return cell
         } else if indexPath.row < 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
@@ -48,15 +55,15 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
                 var content = UIListContentConfiguration.cell()
                 content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 20.0) ?? UIFont()
                 content.textProperties.alignment = .natural
-                content.text = "Juan Gabriel Gomila Salas"
+                content.text = self.doctor.fullName
                 content.secondaryTextProperties.font = UIFont(name: "HelveticaNeue", size: 18.0) ?? UIFont()
                 content.secondaryTextProperties.color = .secondaryLabel
-                content.secondaryText = "Cardiologust"
+                content.secondaryText = self.doctor.specialization
                 cell.contentConfiguration = content
                 return cell
             } else {
                 var content = UIListContentConfiguration.cell()
-                let baseString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolorem... Read more"
+                let baseString = self.doctor.description ?? .empty
                 let fullRange = NSRange(location: 0, length: baseString.count)
                 let attributedString = NSMutableAttributedString(string: baseString)
                 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: fullRange)

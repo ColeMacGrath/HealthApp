@@ -1,5 +1,3 @@
-Pods
-Podfile.lock
 HealthApp/HealthApp.entitlements
-HealthApp/GoogleService-Info.plist
 HealthApp/Utilities/keys.plist
+HealthApp.xcodeproj/project.xcworkspace/xcuserdata/moisescordova.xcuserdatad/UserInterfaceState.xcuserstate

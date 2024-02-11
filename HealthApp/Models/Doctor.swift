@@ -8,6 +8,9 @@
 import Foundation
 
 struct Doctor: Codable {
+    enum CodingKeys: String, CodingKey {
+        case id, firstName, lastName, profilePicture, backgroundImage, description, specialization, schedules
+    }
     let id: Int
     let firstName: String
     let lastName: String
@@ -15,10 +18,10 @@ struct Doctor: Codable {
     let backgroundImage: URL?
     let description: String?
     let specialization: String
-    let schedules: [Schedule]
+    let schedules: [Schedule]?
     
-    enum CodingKeys: String, CodingKey {
-        case id, firstName, lastName, profilePicture, backgroundImage, description, specialization, schedules
+    var fullName: String {
+        "\(self.firstName) \(self.lastName)"
     }
 }
 

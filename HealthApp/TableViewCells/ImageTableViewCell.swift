@@ -9,7 +9,7 @@ import UIKit
 
 class ImageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var customImageView: UIImageView!
+    @IBOutlet weak var customImageView: CacheImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,9 +21,14 @@ class ImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func custommizeCell(image: UIImage, showLines: Bool = false, circular: Bool = true) {
+    func customizeCell(image: UIImage? = nil, url: URL? = nil, showLines: Bool = false, circular: Bool = true) {
         if circular { self.customImageView.setCircularImage() }
-        self.customImageView.image = image
+        if let image {
+            self.customImageView.image = image
+        } else if let url {
+            self.customImageView.loadImageFrom(url: url)
+        }
+        
         self.separatorInset.removeSeparator()
     }
 

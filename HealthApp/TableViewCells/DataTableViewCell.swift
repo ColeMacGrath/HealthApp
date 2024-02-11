@@ -10,7 +10,7 @@ import UIKit
 class DataTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var customImageView: UIImageView!
+    @IBOutlet weak var customImageView: CacheImageView!
     @IBOutlet weak var valueLabel: UILabel!
     
     override func awakeFromNib() {

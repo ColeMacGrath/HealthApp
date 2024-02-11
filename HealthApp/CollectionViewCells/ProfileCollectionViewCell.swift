@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: CacheImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     

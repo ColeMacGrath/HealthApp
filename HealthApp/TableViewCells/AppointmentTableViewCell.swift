@@ -11,7 +11,7 @@ class AppointmentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var customImageView: UIImageView!
+    @IBOutlet weak var customImageView: CacheImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         guard let customImageView else { return }
@@ -24,10 +24,10 @@ class AppointmentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func customizeCell(name: String, date: String, image: UIImage?) {
-        self.customImageView.image = image != nil ? image : UIImage.sfSymbol("person.circle.fill", color: .systemRed)
-        self.nameLabel.text = name
-        self.dateLabel.text = date
+    func customizeCell(appointment: Appointment) {
+        self.customImageView.loadImageFrom(url: appointment.doctor.profilePicture)
+        self.nameLabel.text = appointment.doctor.fullName
+        self.dateLabel.text = appointment.date.longDate
     }
 
 }

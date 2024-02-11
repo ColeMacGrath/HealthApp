@@ -118,7 +118,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-kj-LsJ">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-kj-LsJ" customClass="CacheImageView" customModule="HealthApp" customModuleProvider="target">
                                                     <rect key="frame" x="116.66666666666669" y="11" width="120" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="DAT-Xz-oZa"/>

@@ -12,6 +12,7 @@ class DoctorsViewController: UIViewController {
     
     @IBOutlet weak var doctorsCollectionView: UICollectionView!
     var doctors: [Doctor] = []
+    var selectedDoctor: Doctor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,14 @@ class DoctorsViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == Constants.Segues.showDoctorProfileVC,
+        let destination = segue.destination as? DoctorProfileViewController,
+        let selectedDoctor else { return }
+        
+        destination.doctor = selectedDoctor
+    }
+    
     @IBAction func addDoctorButtonPressed(_ sender: UIBarButtonItem) {
         let hostingController = UIHostingController(rootView: QRView())
         self.navigationController?.pushViewController(hostingController, animated: true)
@@ -67,6 +76,7 @@ extension DoctorsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedDoctor = self.doctors[indexPath.row]
         self.performSegue(withIdentifier: Constants.Segues.showDoctorProfileVC, sender: nil)
     }
     

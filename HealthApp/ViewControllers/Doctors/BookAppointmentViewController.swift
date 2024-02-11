@@ -8,10 +8,39 @@
 import UIKit
 
 class BookAppointmentViewController: UIViewController {
-
+    
+    var doctor: Doctor!
+    var datePicker: UIDatePicker?
+    var notesTextView: UITextView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setMinimalBackButton()
+    }
+    
+    private func bookAppointment() async {
+        guard let date = datePicker?.date else { return }
+        var body: Dictionary<String, Any> = [
+            "doctorId": self.doctor.id,
+            "date": date.ISO8601WithwithFractionalSeconds
+        ]
+        if let notes = notesTextView?.text {
+            body["notes"] = notes
+        }
+        
+        let response = await RequestManager.shared.request(endPoint: .bookApointment, method: .post, body: body)
+        guard response.httpStatusCode == .created else {
+            if response.httpStatusCode == .conflict {
+                self.showFloatingAlert(text: "Unavailable schedule", alertType: .warning)
+            } else {
+                self.showFloatingAlert(text: "Couldn't create appointment", alertType: .error)
+            }
+            return
+        }
+        
+        self.showFloatingAlert(text: "Appointment created", alertType: .success)
+        self.navigationController?.popToRootViewController(animated: true)
+        
     }
 
 }
@@ -31,7 +60,7 @@ extension BookAppointmentViewController: UITableViewDataSource, UITableViewDeleg
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
                 cell.separatorInset.removeSeparator()
-                cell.custommizeCell(image: UIImage(named: "doctor2") ?? UIImage())
+                cell.customizeCell(url: self.doctor.profilePicture)
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
@@ -41,19 +70,29 @@ extension BookAppointmentViewController: UITableViewDataSource, UITableViewDeleg
             var content = UIListContentConfiguration.cell()
             content.textProperties.alignment = .center
             content.secondaryTextProperties.alignment = .center
-            content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 18.0) ?? UIFont()
-            content.text = "Juan Gabriel Gomila Salas"
+            content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 22.0) ?? UIFont()
+            content.text = self.doctor.fullName
             content.secondaryTextProperties.font = UIFont(name: "HelveticaNeue", size: 18.0) ?? UIFont()
             content.secondaryTextProperties.color = .secondaryLabel
-            content.secondaryText = "Cardilogyst"
+            content.secondaryText = self.doctor.specialization
             
             cell.contentConfiguration = content
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.inlineDatePicker, for: indexPath) as! InlineDatePickerTableViewCell
+            if self.datePicker == nil {
+                self.datePicker = cell.datePicker
+            } else {
+                cell.datePicker = self.datePicker
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.textViewCell, for: indexPath) as! TextViewTableViewCell
+            if self.notesTextView == nil {
+                self.notesTextView = cell.textView
+            } else {
+                cell.textView = self.notesTextView
+            }
             cell.backgroundColor = .secondarySystemGroupedBackground
             return cell
         default:
@@ -71,10 +110,16 @@ extension BookAppointmentViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.showFloatingAlert(text: "Appointment Booked", alertType: .success)
+      
+        Task {
+            await self.bookAppointment()
+        }
+        
+        
+        /*self.showFloatingAlert(text: "Appointment Booked", alertType: .success)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.navigationController?.popViewController(animated: true)
-        })
+        })*/
         
         tableView.deselectRow(at: indexPath, animated: true )
     }

@@ -9,12 +9,35 @@ import UIKit
 
 class AppointmentViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var appointment: Appointment!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.alwaysBounceVertical = false
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    @IBAction func deleteAppointmentButtonPressed(_ sender: UIButton) {
+        guard let url = URL(string: RequestManager.shared.baseURL + "\(self.appointment.id)/" + "appointment") else {
+            self.showFloatingAlert(text: "Error deleting appointment", alertType: .error)
+            return
+        }
+        Task {
+            guard await RequestManager.shared.request(url: url, method: .delete).httpStatusCode == .empty else {
+                self.showFloatingAlert(text: "Error deleting appointment", alertType: .error)
+                return
+            }
+            
+            self.showFloatingAlert(text: "Appointment Deleted", alertType: .success)
+            self.navigationController?.popViewController(animated: true)
+            
+        }
+    }
+    
+    
 }
 
 
@@ -30,10 +53,11 @@ extension AppointmentViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
+            let doctor = self.appointment.doctor
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
                 cell.separatorInset.removeSeparator()
-                cell.custommizeCell(image: UIImage(named: "doctor2") ?? UIImage())
+                cell.customizeCell(url: doctor.profilePicture)
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
@@ -43,24 +67,24 @@ extension AppointmentViewController: UITableViewDataSource, UITableViewDelegate 
             var content = UIListContentConfiguration.cell()
             content.textProperties.alignment = .center
             content.secondaryTextProperties.alignment = .center
-            content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 18.0) ?? UIFont()
-            content.text = "Juan Gabriel Gomila Salas"
+            content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 22.0) ?? UIFont()
+            content.text = doctor.fullName
             content.secondaryTextProperties.font = UIFont(name: "HelveticaNeue", size: 18.0) ?? UIFont()
             content.secondaryTextProperties.color = .secondaryLabel
-            content.secondaryText = "Cardilogyst"
+            content.secondaryText = doctor.specialization
             
             cell.contentConfiguration = content
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.dateTimeCell, for: indexPath) as! DateTimeTableViewCell
-            cell.dateLabel.text = "September 23, 2024"
-            cell.timeLabel.text = "04:00 PM"
+            cell.dateLabel.text = self.appointment.date.shortDateWithYear
+            cell.timeLabel.text = self.appointment.date.twelveHoursFormmatedHour
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
             cell.contentView.backgroundColor = .secondarySystemGroupedBackground
             var content = UIListContentConfiguration.cell()
-            content.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            content.text = self.appointment.notes
             content.textProperties.color = .secondaryLabel
             cell.contentConfiguration = content
             return cell

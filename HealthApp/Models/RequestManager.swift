@@ -10,11 +10,15 @@ import Foundation
 enum EndPoint: String {
     case login = "login"
     case doctors = "doctors"
+    case bookApointment = "bookAppointment"
 }
 
 enum HTTPStatusCode: Int {
     case success = 200
+    case created = 201
+    case empty = 204
     case unauthorized = 401
+    case conflict = 409
     case localError = 900
 }
 
@@ -25,7 +29,7 @@ class RequestManager {
     enum HTTPMethod: String {
         case get = "GET"
         case post = "POST"
-        // Add other methods as needed
+        case delete = "DELETE"
     }
     
     private init() {

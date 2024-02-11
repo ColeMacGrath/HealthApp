@@ -209,7 +209,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
                 
-                cell.custommizeCell(image: UIImage(named: "profile") ?? UIImage())
+                cell.customizeCell(image: UIImage(named: "profile") ?? UIImage())
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)

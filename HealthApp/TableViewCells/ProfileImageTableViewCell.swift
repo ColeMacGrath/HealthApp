@@ -10,7 +10,7 @@ import CoreImage
 
 class ProfileImageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var customImageView: UIImageView!
+    @IBOutlet weak var customImageView: CacheImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

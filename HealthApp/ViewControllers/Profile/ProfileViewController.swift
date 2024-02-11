@@ -45,7 +45,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
-                cell.custommizeCell(image:  UIImage(named: "profile") ?? UIImage())
+                cell.customizeCell(image: UIImage(named: "profile") ?? UIImage())
                 cell.separatorInset.removeSeparator()
                 return cell
             }

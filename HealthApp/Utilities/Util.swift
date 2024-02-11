@@ -48,31 +48,6 @@ extension UIImageView {
         self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true
     }
-    
-    func downloadImage(from url: URL?) {
-        guard let url else { return }
-        if let cachedImage = URLCache.shared.cachedResponse(for: URLRequest(url: url))?.data,
-            let image = UIImage(data: cachedImage) {
-                DispatchQueue.main.async {
-                    self.image = image
-                }
-                return
-            }
-            
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == HTTPStatusCode.success.rawValue,
-                      let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                      let data = data, error == nil,
-                      let image = UIImage(data: data) else { return }
-                
-                let cachedData = CachedURLResponse(response: httpURLResponse, data: data)
-                URLCache.shared.storeCachedResponse(cachedData, for: URLRequest(url: url))
-                
-                DispatchQueue.main.async {
-                    self.image = image
-                }
-            }.resume()
-        }
 }
 
 extension UINavigationController {
@@ -129,6 +104,17 @@ extension Date {
         return (hours, minutes)
     }
     
+    func isOnSameDayThan(date: Date) -> Bool {
+        let calendar = Calendar.current
+
+        let components1 = calendar.dateComponents([.year, .month, .day], from: self)
+        let components2 = calendar.dateComponents([.year, .month, .day], from: date)
+
+        return components1.year == components2.year &&
+               components1.month == components2.month &&
+               components1.day == components2.day
+    }
+    
     func onPast(days: Int) -> Date? {
         return Calendar.current.date(byAdding: .day, value: -days, to: self)
     }
@@ -162,6 +148,19 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: self)
+    }
+    var shortDateWithYear: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM dd, yyyy"
+        formatter.locale = Locale(identifier: "en_US")
+        return formatter.string(from: self)
+    }
+    
+    var ISO8601WithwithFractionalSeconds: String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        isoFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return isoFormatter.string(from: self)
     }
 }
 
@@ -290,5 +289,26 @@ extension UIButton {
     func hideLoading(title: String) {
         activityIndicator?.stopAnimating()
         self.setTitle(title, for: .normal)
+    }
+}
+
+extension DateFormatter {
+    static let appointmentDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter
+    }()
+}
+
+extension JSONDecoder.DateDecodingStrategy {
+    static let customISO8601 = custom {
+        let container = try $0.singleValueContainer()
+        let dateString = try container.decode(String.self)
+        if let date = DateFormatter.appointmentDateFormatter.date(from: dateString) {
+            return date
+        } else {
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot decode date string \(dateString)")
+        }
     }
 }

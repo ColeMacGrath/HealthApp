@@ -42,7 +42,7 @@ extension AddDoctorViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 0,
            indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
-            cell.custommizeCell(image: .doctor, showLines: false, circular: true)
+            cell.customizeCell(image: .doctor, showLines: false, circular: true)
             return cell
         }
         
