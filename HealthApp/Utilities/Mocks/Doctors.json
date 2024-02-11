@@ -5,8 +5,8 @@
         "firstName": "Juan Gabriel",
         "lastName": "Gomila Salas",
         "specialization": "Cardiologist",
-        "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/60/04/09/1000_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
-        "bkacgroundImage": "https://as2.ftcdn.net/v2/jpg/02/60/04/09/1000_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-square.png?raw=true",
+        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-vertical.png?raw=true",
         "schedules": [
           {
             "times": [
@@ -32,7 +32,8 @@
         "firstName": "Allison",
         "lastName": "Doe",
         "specialization": "Dermatologist",
-        "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/60/04/09/1000_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-square.png?raw=true",
+        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-vertical.png?raw=true",
         "schedules": [
           {
             "times": [
@@ -58,7 +59,8 @@
         "firstName": "Carlos",
         "lastName": "Rivera",
         "specialization": "Traumatologist",
-        "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/60/04/09/1000_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Carlos/Carlos-square.png?raw=true",
+        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Carlos/Carlos-vertical.png?raw=true",
         "schedules": [
           {
             "times": [
@@ -84,7 +86,8 @@
         "firstName": "Sophia",
         "lastName": "Chen",
         "specialization": "Gastroenterologist",
-        "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/60/04/09/1000_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Sophia/Sophia-square.png?raw=true",
+        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Sophia/Sophia-vertical.png?raw=true",
         "schedules": [
           {
             "times": [
@@ -110,7 +113,8 @@
         "firstName": "Alexander",
         "lastName": "Kim",
         "specialization": "Hematologist",
-        "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/60/04/09/1000_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Alexander/Alerxander-sqaure.png?raw=true",
+        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Alexander/Alexander-vertical.png?raw=true",
         "schedules": [
           {
             "times": [
@@ -136,7 +140,8 @@
         "firstName": "Emily",
         "lastName": "Patel",
         "specialization": "Neurologist",
-        "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/60/04/09/1000_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Emily/Emily-square.png?raw=true",
+        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Emily/Emily-vertical.png?raw=true",
         "schedules": [
           {
             "times": [
