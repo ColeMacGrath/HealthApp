@@ -12,13 +12,13 @@ struct Doctor: Codable {
     let firstName: String
     let lastName: String
     let profilePicture: URL?
-    let bkacgroundImage: URL?
+    let backgroundImage: URL?
     let description: String?
     let specialization: String
     let schedules: [Schedule]
     
     enum CodingKeys: String, CodingKey {
-        case id, firstName, lastName, profilePicture, bkacgroundImage, description, specialization, schedules
+        case id, firstName, lastName, profilePicture, backgroundImage, description, specialization, schedules
     }
 }
 
