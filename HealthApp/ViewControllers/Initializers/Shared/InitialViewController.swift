@@ -22,11 +22,20 @@ class InitialViewController: UIViewController {
             return
         }
         
-        let presetingViewController = UIDevice.current.userInterfaceIdiom == .phone ? UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController) : self.getSplitViewController() 
+        /*guard let autenticationViewController = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.authenticationVC) as? AutenticationViewController else { return }
+        autenticationViewController.modalPresentationStyle = .fullScreen
+        self.present(autenticationViewController, animated: false)*/
+        
+        /*let presetingViewController = UIDevice.current.userInterfaceIdiom == .phone ? UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController) : self.getSplitViewController()
         presetingViewController.modalPresentationStyle = .fullScreen
-        self.present(presetingViewController, animated: false)
+        self.present(presetingViewController, animated: false)*/
+        
+        
+        let doctorDashboard = UIStoryboard(name: Constants.Storyboard.doctorDashboard, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorDashboardNC)
+        doctorDashboard.modalPresentationStyle = .fullScreen
+        self.present(doctorDashboard, animated: false)
+        
     }
-
     
     private func getSplitViewController() -> UISplitViewController {
         let splitViewController = UISplitViewController(style: .tripleColumn)
@@ -44,7 +53,6 @@ class InitialViewController: UIViewController {
         
         return splitViewController
     }
-    
 }
 
 

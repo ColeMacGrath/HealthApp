@@ -22,7 +22,8 @@ class BookAppointmentViewController: UIViewController {
         guard let date = datePicker?.date else { return }
         var body: Dictionary<String, Any> = [
             "doctorId": self.doctor.id,
-            "date": date.ISO8601WithwithFractionalSeconds
+            "date": date.ISO8601WithwithFractionalSeconds,
+            "userId": 0
         ]
         if let notes = notesTextView?.text {
             body["notes"] = notes

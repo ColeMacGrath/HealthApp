@@ -46,6 +46,8 @@ struct Constants {
         static let dashboardDataCell = "DashboarDataCell"
         static let doctorCell = "DoctorCell"
         static let dataCell = "DataCell"
+        static let pictureNameCell = "PictureNameCell"
+        static let detailCell = "DetailCell"
     }
     
     struct SFSymbols {
@@ -62,6 +64,7 @@ struct Constants {
         static let dashboard = "Dashboard"
         static let doctors = "Doctors"
         static let appointments = "Appointments"
+        static let doctorDashboard = "DoctorDashboard"
     }
     
     struct ViewIdentifiers {
@@ -71,5 +74,7 @@ struct Constants {
         static let doctorsNC = "DoctorsNC"
         static let appointmentsNC = "AppointmentsNC"
         static let addDoctorVC = "AddDoctorVC"
+        static let authenticationVC = "AuthenticationVC"
+        static let doctorDashboardNC = "DoctorDashboardNC"
     }
 }

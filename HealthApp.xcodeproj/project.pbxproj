@@ -61,6 +61,8 @@
 		4FF761992B3FA869002EE5DC /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF761982B3FA869002EE5DC /* LineChart.swift */; };
 		4FF7619B2B3FAB01002EE5DC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF7619A2B3FAB01002EE5DC /* HistoryViewController.swift */; };
 		4FF7619D2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF7619C2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift */; };
+		B31308EE2B79BC7F007BB47C /* AutenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31308ED2B79BC7F007BB47C /* AutenticationViewController.swift */; };
+		B31308FB2B79C213007BB47C /* DoctorDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31308FA2B79C213007BB47C /* DoctorDashboard.storyboard */; };
 		B31B8A652B788EDD004285BB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B8A642B788EDD004285BB /* Doctor.swift */; };
 		B32459FE2B79470B00377F5E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = B32459FD2B79470B00377F5E /* keys.plist */; };
 		B3245A002B794BBF00377F5E /* CacheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32459FF2B794BBF00377F5E /* CacheImageView.swift */; };
@@ -74,6 +76,9 @@
 		B33DD09B2B54BBAE000A4C1B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33DD0992B54BBAE000A4C1B /* Profile.storyboard */; };
 		B33DD09E2B54BEEC000A4C1B /* FitzpatrickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DD09D2B54BEEC000A4C1B /* FitzpatrickViewController.swift */; };
 		B33DD0A02B54DD67000A4C1B /* FitzpatrickExplanationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DD09F2B54DD67000A4C1B /* FitzpatrickExplanationViewController.swift */; };
+		B39E349F2B7A749A001E4485 /* DoctorDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */; };
+		B39E34A12B7A7583001E4485 /* PictureNameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */; };
+		B39E34A52B7A76A0001E4485 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */; };
 		B3DEE4AF2B64B75300A77D2A /* SleepHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEE4AE2B64B75300A77D2A /* SleepHistoryViewController.swift */; };
 		B3EC14712B564374005F6014 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC14702B564374005F6014 /* PermissionsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -136,6 +141,8 @@
 		4FF761982B3FA869002EE5DC /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		4FF7619A2B3FAB01002EE5DC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		4FF7619C2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordsTableViewCell.swift; sourceTree = "<group>"; };
+		B31308ED2B79BC7F007BB47C /* AutenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticationViewController.swift; sourceTree = "<group>"; };
+		B31308FA2B79C213007BB47C /* DoctorDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorDashboard.storyboard; sourceTree = "<group>"; };
 		B31B8A642B788EDD004285BB /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		B32459FD2B79470B00377F5E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		B32459FF2B794BBF00377F5E /* CacheImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageView.swift; sourceTree = "<group>"; };
@@ -149,6 +156,9 @@
 		B33DD09A2B54BBAE000A4C1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HealthApp/Storyboards/HealthApp/Storyboards/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		B33DD09D2B54BEEC000A4C1B /* FitzpatrickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzpatrickViewController.swift; sourceTree = "<group>"; };
 		B33DD09F2B54DD67000A4C1B /* FitzpatrickExplanationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzpatrickExplanationViewController.swift; sourceTree = "<group>"; };
+		B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDashboardViewController.swift; sourceTree = "<group>"; };
+		B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureNameCollectionViewCell.swift; sourceTree = "<group>"; };
+		B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		B3DEE4AE2B64B75300A77D2A /* SleepHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryViewController.swift; sourceTree = "<group>"; };
 		B3EC14702B564374005F6014 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +181,8 @@
 				4F13FBC82B3E1016002120D9 /* DataCollectionViewCell.swift */,
 				4F2FE19C2B3E9164002DBBD2 /* DoctorCollectionViewCell.swift */,
 				4FC7D5492B3F3B4B00FFF1F6 /* DataCellCollectionViewCell.swift */,
+				B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */,
+				B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -178,14 +190,9 @@
 		4F537FF62B408DF300710E4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4F537FF72B408E0400710E4D /* HealthKitManager.swift */,
-				4F537FFA2B40AF7700710E4D /* Person.swift */,
-				4FCDDD682B464BAA00F2CC69 /* RequestManager.swift */,
-				4FCDDD6E2B464D1D00F2CC69 /* Config.swift */,
-				B3271BF02B787E8700F8634B /* KeychainManager.swift */,
-				B31B8A642B788EDD004285BB /* Doctor.swift */,
-				B3245A012B79542C00377F5E /* Appointment.swift */,
-				B32459FF2B794BBF00377F5E /* CacheImageView.swift */,
+				B31308F62B79C160007BB47C /* Shared */,
+				B31308F52B79C15B007BB47C /* Doctor */,
+				B31308F42B79C153007BB47C /* Patient */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,12 +234,8 @@
 		4FBF871C2B41DF6B00DF4E3E /* Initializers */ = {
 			isa = PBXGroup;
 			children = (
-				4FC0B9DF2B3DDE8500F49ECD /* InitialViewController.swift */,
-				4F89FC602B3DE26900B932B6 /* SplitViewController.swift */,
-				4F89FC722B3E02A400B932B6 /* TabBarViewController.swift */,
-				4F89FC682B3DF66500B932B6 /* PrimaryTableViewController.swift */,
-				B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */,
-				B3271BEE2B786B8E00F8634B /* LoginViewController.swift */,
+				B31308F32B79C143007BB47C /* Shared */,
+				B31308F22B79C135007BB47C /* Patient */,
 			);
 			path = Initializers;
 			sourceTree = "<group>";
@@ -324,14 +327,9 @@
 			isa = PBXGroup;
 			children = (
 				4FBF871C2B41DF6B00DF4E3E /* Initializers */,
-				4FBF871B2B41DF4100DF4E3E /* Dashboard */,
-				B33DD09C2B54BEAA000A4C1B /* Profile */,
-				4FBF871D2B41DF9400DF4E3E /* Appointments */,
-				4FBF871E2B41DFAE00DF4E3E /* Doctors */,
-				4FBF87202B41DFC600DF4E3E /* SwiftUI */,
-				4FBF871F2B41DFBC00DF4E3E /* Camera Scanning */,
-				4FBF87242B41EB8700DF4E3E /* Utilities */,
-				B3EC14722B564A6A005F6014 /* Ingested Food */,
+				B31308F92B79C195007BB47C /* Shared */,
+				B31308F82B79C18F007BB47C /* Doctor */,
+				B31308F72B79C181007BB47C /* Patient */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -339,16 +337,9 @@
 		4FC0B9F12B3DDEB700F49ECD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				4FC0B9E12B3DDE8500F49ECD /* Main.storyboard */,
-				4F89FC622B3DE3D300B932B6 /* Login.storyboard */,
-				4F89FC642B3DE3FA00B932B6 /* Dashboard.storyboard */,
-				4F89FC6F2B3E01CE00B932B6 /* TabBar.storyboard */,
-				4FC0B9E62B3DDE8600F49ECD /* LaunchScreen.storyboard */,
-				4F2FE19A2B3E908A002DBBD2 /* Doctors.storyboard */,
-				4FC7D5532B3F579400FFF1F6 /* Appointments.storyboard */,
-				B33DD0992B54BBAE000A4C1B /* Profile.storyboard */,
-				B33DD0962B54BB68000A4C1B /* Recommendation.storyboard */,
-				B33DD0932B54BB54000A4C1B /* History.storyboard */,
+				B31308F02B79C10E007BB47C /* Shared */,
+				B31308EF2B79C0F5007BB47C /* Patient */,
+				B31308F12B79C119007BB47C /* Doctor */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -366,6 +357,118 @@
 				B32459FD2B79470B00377F5E /* keys.plist */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B31308EF2B79C0F5007BB47C /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				4F89FC642B3DE3FA00B932B6 /* Dashboard.storyboard */,
+				4F89FC6F2B3E01CE00B932B6 /* TabBar.storyboard */,
+				4FC0B9E62B3DDE8600F49ECD /* LaunchScreen.storyboard */,
+				4F2FE19A2B3E908A002DBBD2 /* Doctors.storyboard */,
+				4FC7D5532B3F579400FFF1F6 /* Appointments.storyboard */,
+				B33DD0992B54BBAE000A4C1B /* Profile.storyboard */,
+				B33DD0962B54BB68000A4C1B /* Recommendation.storyboard */,
+				B33DD0932B54BB54000A4C1B /* History.storyboard */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		B31308F02B79C10E007BB47C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4FC0B9E12B3DDE8500F49ECD /* Main.storyboard */,
+				4F89FC622B3DE3D300B932B6 /* Login.storyboard */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B31308F12B79C119007BB47C /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				B31308FA2B79C213007BB47C /* DoctorDashboard.storyboard */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		B31308F22B79C135007BB47C /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				4F89FC602B3DE26900B932B6 /* SplitViewController.swift */,
+				4F89FC722B3E02A400B932B6 /* TabBarViewController.swift */,
+				4F89FC682B3DF66500B932B6 /* PrimaryTableViewController.swift */,
+				B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		B31308F32B79C143007BB47C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4FC0B9DF2B3DDE8500F49ECD /* InitialViewController.swift */,
+				B3271BEE2B786B8E00F8634B /* LoginViewController.swift */,
+				B31308ED2B79BC7F007BB47C /* AutenticationViewController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B31308F42B79C153007BB47C /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				4F537FF72B408E0400710E4D /* HealthKitManager.swift */,
+				4F537FFA2B40AF7700710E4D /* Person.swift */,
+				4FCDDD682B464BAA00F2CC69 /* RequestManager.swift */,
+				4FCDDD6E2B464D1D00F2CC69 /* Config.swift */,
+				B3271BF02B787E8700F8634B /* KeychainManager.swift */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		B31308F52B79C15B007BB47C /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		B31308F62B79C160007BB47C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B31B8A642B788EDD004285BB /* Doctor.swift */,
+				B3245A012B79542C00377F5E /* Appointment.swift */,
+				B32459FF2B794BBF00377F5E /* CacheImageView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B31308F72B79C181007BB47C /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				B33DD09C2B54BEAA000A4C1B /* Profile */,
+				4FBF871B2B41DF4100DF4E3E /* Dashboard */,
+				B3EC14722B564A6A005F6014 /* Ingested Food */,
+				4FBF871E2B41DFAE00DF4E3E /* Doctors */,
+				4FBF871D2B41DF9400DF4E3E /* Appointments */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		B31308F82B79C18F007BB47C /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		B31308F92B79C195007BB47C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4FBF87242B41EB8700DF4E3E /* Utilities */,
+				4FBF87202B41DFC600DF4E3E /* SwiftUI */,
+				4FBF871F2B41DFBC00DF4E3E /* Camera Scanning */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		B33DD09C2B54BEAA000A4C1B /* Profile */ = {
@@ -456,6 +559,7 @@
 				4F2FE19B2B3E908A002DBBD2 /* Doctors.storyboard in Resources */,
 				4F89FC632B3DE3D300B932B6 /* Login.storyboard in Resources */,
 				B33DD0952B54BB54000A4C1B /* History.storyboard in Resources */,
+				B31308FB2B79C213007BB47C /* DoctorDashboard.storyboard in Resources */,
 				4F89FC662B3DE3FA00B932B6 /* Dashboard.storyboard in Resources */,
 				4FC0B9E82B3DDE8600F49ECD /* LaunchScreen.storyboard in Resources */,
 				B33DD09B2B54BBAE000A4C1B /* Profile.storyboard in Resources */,
@@ -484,6 +588,7 @@
 				4FC7D54E2B3F4B7D00FFF1F6 /* DoctorProfileViewController.swift in Sources */,
 				4FCDDD692B464BAA00F2CC69 /* RequestManager.swift in Sources */,
 				4FC0B9E02B3DDE8500F49ECD /* InitialViewController.swift in Sources */,
+				B39E34A12B7A7583001E4485 /* PictureNameCollectionViewCell.swift in Sources */,
 				4F89FC6B2B3DF6E300B932B6 /* IconLabelTableViewCell.swift in Sources */,
 				B31B8A652B788EDD004285BB /* Doctor.swift in Sources */,
 				4F13FBC72B3E0F23002120D9 /* ProfileCollectionViewCell.swift in Sources */,
@@ -507,10 +612,12 @@
 				4FC7D54A2B3F3B4B00FFF1F6 /* DataCellCollectionViewCell.swift in Sources */,
 				4FC7D5482B3F3B2B00FFF1F6 /* CollectionViewTableViewCell.swift in Sources */,
 				4FF761932B3FA072002EE5DC /* BookAppointmentViewController.swift in Sources */,
+				B39E349F2B7A749A001E4485 /* DoctorDashboardViewController.swift in Sources */,
 				4FF761952B3FA095002EE5DC /* InlineDatePickerTableViewCell.swift in Sources */,
 				4FC7D5522B3F542E00FFF1F6 /* ButtonCellTableViewCell.swift in Sources */,
 				4F3DE7AF2B411AD8007B81DC /* ScannerView.swift in Sources */,
 				4F2FE1972B3E7961002DBBD2 /* LabelButtonTableViewCell.swift in Sources */,
+				B39E34A52B7A76A0001E4485 /* DetailCollectionViewCell.swift in Sources */,
 				4F89FC692B3DF66500B932B6 /* PrimaryTableViewController.swift in Sources */,
 				4F2FE1952B3E7911002DBBD2 /* TextFieldTableViewCell.swift in Sources */,
 				4FC0B9DC2B3DDE8500F49ECD /* AppDelegate.swift in Sources */,
@@ -523,6 +630,7 @@
 				4F2FE1992B3E79ED002DBBD2 /* AppointmentTableViewCell.swift in Sources */,
 				4F13FBCB2B3E208D002120D9 /* ProfileViewController.swift in Sources */,
 				B3245A022B79542C00377F5E /* Appointment.swift in Sources */,
+				B31308EE2B79BC7F007BB47C /* AutenticationViewController.swift in Sources */,
 				4FBAE9362B40DBD2006AE980 /* FilterViewController.swift in Sources */,
 				4F537FFD2B40B50500710E4D /* ColorTableViewCell.swift in Sources */,
 				B32D7E9F2B636FA30078A08C /* AddDoctorViewController.swift in Sources */,
