@@ -67,6 +67,13 @@
 		B32459FE2B79470B00377F5E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = B32459FD2B79470B00377F5E /* keys.plist */; };
 		B3245A002B794BBF00377F5E /* CacheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32459FF2B794BBF00377F5E /* CacheImageView.swift */; };
 		B3245A022B79542C00377F5E /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3245A012B79542C00377F5E /* Appointment.swift */; };
+		B324F0D32B7DB1970005C394 /* DoctorSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B324F0D22B7DB1970005C394 /* DoctorSettings.storyboard */; };
+		B324F0D52B7DB1A40005C394 /* DoctorSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324F0D42B7DB1A40005C394 /* DoctorSettingsViewController.swift */; };
+		B324F0D72B7DBA630005C394 /* ProfileHorizontalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324F0D62B7DBA630005C394 /* ProfileHorizontalTableViewCell.swift */; };
+		B324F0D92B7DBAB90005C394 /* DualSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324F0D82B7DBAB90005C394 /* DualSelectionTableViewCell.swift */; };
+		B324F0DB2B7DBB080005C394 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324F0DA2B7DBB080005C394 /* ScheduleTableViewCell.swift */; };
+		B324F0DD2B7DC1300005C394 /* SchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324F0DC2B7DC1300005C394 /* SchedulesViewController.swift */; };
+		B324F0DF2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324F0DE2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift */; };
 		B3271BEF2B786B8E00F8634B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BEE2B786B8E00F8634B /* LoginViewController.swift */; };
 		B3271BF12B787E8700F8634B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BF02B787E8700F8634B /* KeychainManager.swift */; };
 		B32D7E9F2B636FA30078A08C /* AddDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */; };
@@ -79,8 +86,12 @@
 		B39E349F2B7A749A001E4485 /* DoctorDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */; };
 		B39E34A12B7A7583001E4485 /* PictureNameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */; };
 		B39E34A52B7A76A0001E4485 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */; };
+		B3CB9FF92B7B2FBA00C92742 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CB9FF82B7B2FBA00C92742 /* Patients.storyboard */; };
+		B3CB9FFB2B7B2FC500C92742 /* PatientProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CB9FFA2B7B2FC500C92742 /* PatientProfile.storyboard */; };
+		B3CB9FFD2B7B309A00C92742 /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB9FFC2B7B309A00C92742 /* PatientProfileViewController.swift */; };
 		B3DEE4AF2B64B75300A77D2A /* SleepHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEE4AE2B64B75300A77D2A /* SleepHistoryViewController.swift */; };
 		B3EC14712B564374005F6014 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC14702B564374005F6014 /* PermissionsViewController.swift */; };
+		B3FDD85F2B7C0E3F00A2B8BD /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FDD85E2B7C0E3F00A2B8BD /* PatientsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +158,13 @@
 		B32459FD2B79470B00377F5E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		B32459FF2B794BBF00377F5E /* CacheImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageView.swift; sourceTree = "<group>"; };
 		B3245A012B79542C00377F5E /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		B324F0D22B7DB1970005C394 /* DoctorSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorSettings.storyboard; sourceTree = "<group>"; };
+		B324F0D42B7DB1A40005C394 /* DoctorSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSettingsViewController.swift; sourceTree = "<group>"; };
+		B324F0D62B7DBA630005C394 /* ProfileHorizontalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHorizontalTableViewCell.swift; sourceTree = "<group>"; };
+		B324F0D82B7DBAB90005C394 /* DualSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		B324F0DA2B7DBB080005C394 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		B324F0DC2B7DC1300005C394 /* SchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewController.swift; sourceTree = "<group>"; };
+		B324F0DE2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B3271BEE2B786B8E00F8634B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3271BF02B787E8700F8634B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoctorViewController.swift; sourceTree = "<group>"; };
@@ -159,8 +177,12 @@
 		B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDashboardViewController.swift; sourceTree = "<group>"; };
 		B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureNameCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3CB9FF82B7B2FBA00C92742 /* Patients.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Patients.storyboard; sourceTree = "<group>"; };
+		B3CB9FFA2B7B2FC500C92742 /* PatientProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PatientProfile.storyboard; sourceTree = "<group>"; };
+		B3CB9FFC2B7B309A00C92742 /* PatientProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
 		B3DEE4AE2B64B75300A77D2A /* SleepHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryViewController.swift; sourceTree = "<group>"; };
 		B3EC14702B564374005F6014 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		B3FDD85E2B7C0E3F00A2B8BD /* PatientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +205,7 @@
 				4FC7D5492B3F3B4B00FFF1F6 /* DataCellCollectionViewCell.swift */,
 				B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */,
 				B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */,
+				B324F0DE2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -215,6 +238,9 @@
 				4FF761962B3FA214002EE5DC /* TextViewTableViewCell.swift */,
 				4FF7619C2B3FB0FB002EE5DC /* HistoryRecordsTableViewCell.swift */,
 				4F537FFC2B40B50500710E4D /* ColorTableViewCell.swift */,
+				B324F0D62B7DBA630005C394 /* ProfileHorizontalTableViewCell.swift */,
+				B324F0D82B7DBAB90005C394 /* DualSelectionTableViewCell.swift */,
+				B324F0DA2B7DBB080005C394 /* ScheduleTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -387,6 +413,9 @@
 			isa = PBXGroup;
 			children = (
 				B31308FA2B79C213007BB47C /* DoctorDashboard.storyboard */,
+				B3CB9FFA2B7B2FC500C92742 /* PatientProfile.storyboard */,
+				B3CB9FF82B7B2FBA00C92742 /* Patients.storyboard */,
+				B324F0D22B7DB1970005C394 /* DoctorSettings.storyboard */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -457,6 +486,10 @@
 			isa = PBXGroup;
 			children = (
 				B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */,
+				B3CB9FFC2B7B309A00C92742 /* PatientProfileViewController.swift */,
+				B3FDD85E2B7C0E3F00A2B8BD /* PatientsViewController.swift */,
+				B324F0D42B7DB1A40005C394 /* DoctorSettingsViewController.swift */,
+				B324F0DC2B7DC1300005C394 /* SchedulesViewController.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -559,12 +592,15 @@
 				4F2FE19B2B3E908A002DBBD2 /* Doctors.storyboard in Resources */,
 				4F89FC632B3DE3D300B932B6 /* Login.storyboard in Resources */,
 				B33DD0952B54BB54000A4C1B /* History.storyboard in Resources */,
+				B3CB9FF92B7B2FBA00C92742 /* Patients.storyboard in Resources */,
+				B3CB9FFB2B7B2FC500C92742 /* PatientProfile.storyboard in Resources */,
 				B31308FB2B79C213007BB47C /* DoctorDashboard.storyboard in Resources */,
 				4F89FC662B3DE3FA00B932B6 /* Dashboard.storyboard in Resources */,
 				4FC0B9E82B3DDE8600F49ECD /* LaunchScreen.storyboard in Resources */,
 				B33DD09B2B54BBAE000A4C1B /* Profile.storyboard in Resources */,
 				4FC0B9E52B3DDE8600F49ECD /* Assets.xcassets in Resources */,
 				B32459FE2B79470B00377F5E /* keys.plist in Resources */,
+				B324F0D32B7DB1970005C394 /* DoctorSettings.storyboard in Resources */,
 				B33DD0982B54BB68000A4C1B /* Recommendation.storyboard in Resources */,
 				4F89FC712B3E01CE00B932B6 /* TabBar.storyboard in Resources */,
 				4FC0B9E32B3DDE8500F49ECD /* Main.storyboard in Resources */,
@@ -587,12 +623,15 @@
 				4F89FC612B3DE26900B932B6 /* SplitViewController.swift in Sources */,
 				4FC7D54E2B3F4B7D00FFF1F6 /* DoctorProfileViewController.swift in Sources */,
 				4FCDDD692B464BAA00F2CC69 /* RequestManager.swift in Sources */,
+				B3FDD85F2B7C0E3F00A2B8BD /* PatientsViewController.swift in Sources */,
 				4FC0B9E02B3DDE8500F49ECD /* InitialViewController.swift in Sources */,
 				B39E34A12B7A7583001E4485 /* PictureNameCollectionViewCell.swift in Sources */,
 				4F89FC6B2B3DF6E300B932B6 /* IconLabelTableViewCell.swift in Sources */,
+				B3CB9FFD2B7B309A00C92742 /* PatientProfileViewController.swift in Sources */,
 				B31B8A652B788EDD004285BB /* Doctor.swift in Sources */,
 				4F13FBC72B3E0F23002120D9 /* ProfileCollectionViewCell.swift in Sources */,
 				4F537FFB2B40AF7700710E4D /* Person.swift in Sources */,
+				B324F0D72B7DBA630005C394 /* ProfileHorizontalTableViewCell.swift in Sources */,
 				B3271BF12B787E8700F8634B /* KeychainManager.swift in Sources */,
 				4FCDDD6B2B464C3800F2CC69 /* RecommendationViewController.swift in Sources */,
 				4FC7D5562B3F57FE00FFF1F6 /* AppointmentsViewController.swift in Sources */,
@@ -600,8 +639,11 @@
 				B3EC14712B564374005F6014 /* PermissionsViewController.swift in Sources */,
 				4FC7D55A2B3F5D3600FFF1F6 /* DatePickerTableViewCell.swift in Sources */,
 				4F5B7F7A2B4111F40060467B /* QRView.swift in Sources */,
+				B324F0DF2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift in Sources */,
+				B324F0D52B7DB1A40005C394 /* DoctorSettingsViewController.swift in Sources */,
 				4F2FE19D2B3E9164002DBBD2 /* DoctorCollectionViewCell.swift in Sources */,
 				4FBF87232B41E18F00DF4E3E /* FloatingAlertView.swift in Sources */,
+				B324F0D92B7DBAB90005C394 /* DualSelectionTableViewCell.swift in Sources */,
 				4F89FC6E2B3DFAC600B932B6 /* Util.swift in Sources */,
 				4F89FC732B3E02A400B932B6 /* TabBarViewController.swift in Sources */,
 				B3245A002B794BBF00377F5E /* CacheImageView.swift in Sources */,
@@ -611,6 +653,7 @@
 				4FF7619B2B3FAB01002EE5DC /* HistoryViewController.swift in Sources */,
 				4FC7D54A2B3F3B4B00FFF1F6 /* DataCellCollectionViewCell.swift in Sources */,
 				4FC7D5482B3F3B2B00FFF1F6 /* CollectionViewTableViewCell.swift in Sources */,
+				B324F0DB2B7DBB080005C394 /* ScheduleTableViewCell.swift in Sources */,
 				4FF761932B3FA072002EE5DC /* BookAppointmentViewController.swift in Sources */,
 				B39E349F2B7A749A001E4485 /* DoctorDashboardViewController.swift in Sources */,
 				4FF761952B3FA095002EE5DC /* InlineDatePickerTableViewCell.swift in Sources */,
@@ -627,6 +670,7 @@
 				B33DD09E2B54BEEC000A4C1B /* FitzpatrickViewController.swift in Sources */,
 				4FF761972B3FA214002EE5DC /* TextViewTableViewCell.swift in Sources */,
 				4F89FC752B3E052300B932B6 /* DashboardViewController.swift in Sources */,
+				B324F0DD2B7DC1300005C394 /* SchedulesViewController.swift in Sources */,
 				4F2FE1992B3E79ED002DBBD2 /* AppointmentTableViewCell.swift in Sources */,
 				4F13FBCB2B3E208D002120D9 /* ProfileViewController.swift in Sources */,
 				B3245A022B79542C00377F5E /* Appointment.swift in Sources */,
@@ -839,6 +883,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -869,6 +914,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

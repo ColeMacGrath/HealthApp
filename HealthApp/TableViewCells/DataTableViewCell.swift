@@ -24,10 +24,18 @@ class DataTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func customizeCell(title: String, value: String, image: UIImage) {
+    func customizeCell(dataOption: DataOption, roundedImage: Bool = false) {
+        self.titleLabel.text = dataOption.title
+        self.valueLabel.text = dataOption.value
+        self.customImageView.image = dataOption.image
+        if roundedImage { self.customImageView.setCircularImage() }
+    }
+    
+    func customizeCell(title: String, value: String, image: UIImage, roundedImage: Bool = false) {
         self.titleLabel.text = title
         self.valueLabel.text = value
         self.customImageView.image = image
+        if roundedImage { self.customImageView.setCircularImage() }
     }
 
 }

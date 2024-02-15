@@ -22,6 +22,10 @@ struct Constants {
         static let showFitzpatrickView = "ShowFitzpatrickView"
         static let showPermissionsViewController = "ShowPermissionsVC"
         static let showSleepHistoryVC = "ShowSleepHistoryVC"
+        static let showPatientProfileVC = "ShowPatientProfileVC"
+        static let showPatientsVC = "ShowPatientsVC"
+        static let showSchedulesVC = "ShowSchedulesVC"
+        static let showEditProfileVC = "ShowEditProfileVC"
     }
     
     struct Cells {
@@ -41,6 +45,10 @@ struct Constants {
         static let textViewCell = "TextViewCell"
         static let historyRecordCell = "HistioryRecordVC"
         static let colorCell = "ColorCell"
+        static let profileHorizontalCell = "ProfileHorizontalCell"
+        static let statusCell = "StatusCell"
+        static let dualSelectionCell = "DualSelectionCell"
+        static let scheduleCell = "ScheduleCell"
         //CollectionView
         static let profileCell = "ProfileCell"
         static let dashboardDataCell = "DashboarDataCell"
@@ -48,6 +56,7 @@ struct Constants {
         static let dataCell = "DataCell"
         static let pictureNameCell = "PictureNameCell"
         static let detailCell = "DetailCell"
+        static let singleLabelCell = "SingleLabelCell"
     }
     
     struct SFSymbols {
@@ -65,6 +74,7 @@ struct Constants {
         static let doctors = "Doctors"
         static let appointments = "Appointments"
         static let doctorDashboard = "DoctorDashboard"
+        static let doctorSettings = "DoctorSettings"
     }
     
     struct ViewIdentifiers {
@@ -76,5 +86,6 @@ struct Constants {
         static let addDoctorVC = "AddDoctorVC"
         static let authenticationVC = "AuthenticationVC"
         static let doctorDashboardNC = "DoctorDashboardNC"
+        static let doctorsSettingsVC = "DoctorSettingsVC"
     }
 }

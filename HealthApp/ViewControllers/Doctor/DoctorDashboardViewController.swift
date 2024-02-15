@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class DoctorDashboardViewController: UIViewController {
     
@@ -13,12 +14,20 @@ class DoctorDashboardViewController: UIViewController {
     @IBOutlet weak var todayPatientsCollectionView: UICollectionView!
     @IBOutlet weak var upcomingPatientPictureCell: UIImageView!
     @IBOutlet weak var upcomingPatientNameLabel: UILabel!
+    @IBOutlet weak var upcomingPatientImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.upcomingPatientPictureCell.image = .doctor2
         self.upcomingPatientPictureCell.setCircularImage()
-        self.upcomingPatientNameLabel.text = "Allison Doe"
+        self.upcomingPatientNameLabel.text = "Allison Doee"
+        self.upcomingPatientImageView.layer.borderWidth = 4
+        self.upcomingPatientImageView.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -29,6 +38,22 @@ class DoctorDashboardViewController: UIViewController {
         if let flowLayout = self.todayPatientsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.invalidateLayout()
         }
+    }
+    
+    @IBAction func seeMoreButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: Constants.Segues.showPatientProfileVC, sender: nil)
+    }
+    
+    @IBAction func qrButtonPressed(_ sender: UIBarButtonItem) {
+        let hostingController = UIHostingController(rootView: QRView())
+        self.navigationController?.pushViewController(hostingController, animated: true)
+    }
+    
+    
+    @IBAction func toolsButtonPressed(_ sender: UIBarButtonItem) {
+        guard let viewController = UIStoryboard(name: Constants.Storyboard.doctorSettings, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorsSettingsVC) as? DoctorSettingsViewController else { return }
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
@@ -50,31 +75,26 @@ extension DoctorDashboardViewController: UICollectionViewDelegate, UICollectionV
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.detailCell, for: indexPath) as! DetailCollectionViewCell
-        cell.customizeCell(title: "Testing upcoming", detail: "Detail")
-        return cell
         
+        switch indexPath.row {
+        case 0:
+            cell.customizeCell(title: "26 y/o", detail: "Age")
+        case 1:
+            cell.customizeCell(title: "1.72 mts", detail: "Height")
+        default:
+            cell.customizeCell(title: "65 Kgs", detail: "Weight")
+        }
+
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: Constants.Segues.showPatientsVC, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = view.frame.size.height
         let width = view.safeAreaLayoutGuide.layoutFrame.size.width
-        
-        if collectionView.tag == 0 {
-            return CGSize(width: width * 0.25, height: height * 0.15)
-        }
-        
-        return CGSize(width: width * 0.25, height: height * 0.20)
-        
-        /*let device = UIDevice.current
-         
-         if device.userInterfaceIdiom == .phone { //If device is an iPhone
-         if device.orientation.isLandscape { //If device is Landscaoe
-         return CGSize(width: width * 0.45, height: height * 0.4)
-         }
-         return CGSize(width: width * 0.95, height: height * 0.3)
-         }
-         return CGSize(width: width * 0.48, height: height * 0.35) //If device is iPad
-         }*/
-        
+        return collectionView.tag == 0 ? CGSize(width: width * 0.3, height: height * 0.16) : CGSize(width: width * 0.30, height: height * 0.16)
     }
 }

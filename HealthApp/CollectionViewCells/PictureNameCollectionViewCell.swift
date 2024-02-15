@@ -15,5 +15,7 @@ class PictureNameCollectionViewCell: UICollectionViewCell {
         self.pictureImageView.image = picture
         self.nameLabel.text = name
         self.pictureImageView.setCircularImage()
+        self.pictureImageView.layer.borderWidth = 4
+        self.pictureImageView.layer.borderColor = UIColor.white.cgColor
     }
 }
