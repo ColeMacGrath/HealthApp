@@ -45,7 +45,6 @@ class RequestManager {
         self.baseURL = "https://api.healthApp.local/"
     }
     
-    
     func request(url: URL? = nil, endPoint: EndPoint? = nil, method: HTTPMethod, body: [String: Any]? = nil, headers: [String: String]? = nil) async -> (httpStatusCode: HTTPStatusCode, body: Dictionary<String, Any>?, rawData: Data?) {
         
         guard let url = url ?? URL(string: self.baseURL + (endPoint?.rawValue ?? .empty)) else { return (.localError, nil, nil) }

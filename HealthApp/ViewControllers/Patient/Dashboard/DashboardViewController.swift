@@ -274,7 +274,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
             self.performSegue(withIdentifier: Constants.Segues.showCaloriesSummaryViewController, sender: nil)
         case 5:
             let scannerView = ScannerView(scanType: .nevus, description: "Center nevus in the sqaure and then press capture button") { nevusImage in
-                guard let nevusImage else { return }
+               // guard let nevusImage else { return }
             }
             self.selectedIdentifier = nil
             let hostingController = UIHostingController(rootView: scannerView)

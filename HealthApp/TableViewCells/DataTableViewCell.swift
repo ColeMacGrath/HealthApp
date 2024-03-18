@@ -34,7 +34,12 @@ class DataTableViewCell: UITableViewCell {
     func customizeCell(title: String, value: String, image: UIImage? = nil, imageURL: URL? = nil, roundedImage: Bool = false) {
         self.titleLabel.text = title
         self.valueLabel.text = value
-        self.customImageView.loadImageFrom(url: imageURL)
+        if let image {
+            self.customImageView.image = image
+        }
+        if let imageURL {
+            self.customImageView.loadImageFrom(url: imageURL)
+        }
         if roundedImage { self.customImageView.setCircularImage() }
     }
 

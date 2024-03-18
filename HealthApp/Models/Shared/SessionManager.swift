@@ -29,7 +29,6 @@ class SessionManager: Codable {
             doctorId = id
         }
         self.secureSave()
-        
     }
     
     private init() {

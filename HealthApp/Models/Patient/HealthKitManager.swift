@@ -138,10 +138,10 @@ class HealthKitManager {
     }
     
     func findLatestContinuousSleepSession(from samples: [HKCategorySample]) -> (start: Date, end: Date)? {
-        let gapThreshold: TimeInterval = 30 * 60 // 30 minutes
+        let gapThreshold: TimeInterval = 30 * 60
         
         let latestSession = samples
-            .sorted(by: { $0.startDate < $1.startDate }) // Ensure samples are sorted by start date
+            .sorted(by: { $0.startDate < $1.startDate })
             .reduce(into: [(start: Date, end: Date)]()) { (sessions, sample) in
                 if let lastSession = sessions.last {
                     if sample.startDate <= lastSession.end.addingTimeInterval(gapThreshold) {

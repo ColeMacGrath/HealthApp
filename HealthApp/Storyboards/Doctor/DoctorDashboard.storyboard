@@ -239,6 +239,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="patientInfoCollectionView" destination="nuU-Jx-Io9" id="IBf-Rb-nUy"/>
+                        <outlet property="patientsNumberLabel" destination="W3b-MX-Fgc" id="hGM-LC-G1w"/>
                         <outlet property="todayPatientsCollectionView" destination="fpb-wg-mIq" id="4aL-aH-uma"/>
                         <outlet property="upcomingPatientImageView" destination="Rb4-Is-fq7" id="xuH-ej-lvy"/>
                         <outlet property="upcomingPatientNameLabel" destination="yPa-20-5Xh" id="wT7-50-DI3"/>
@@ -312,7 +313,7 @@
             <color red="1" green="0.70399999618530273" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

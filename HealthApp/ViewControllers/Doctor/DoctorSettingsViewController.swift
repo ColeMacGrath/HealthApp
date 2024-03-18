@@ -19,7 +19,7 @@ class DoctorSettingsViewController: UIViewController {
 
 extension DoctorSettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,9 +43,18 @@ extension DoctorSettingsViewController: UITableViewDelegate, UITableViewDataSour
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
             var content = UIListContentConfiguration.cell()
             content.textProperties.font = UIFont(name: "HelveticaNeue", size: 18.0) ?? UIFont()
-            content.textProperties.color = .white
-            content.textProperties.alignment = .center
-            content.text = "Save"
+            if indexPath.section == 3 {
+                cell.backgroundColor = .systemRed
+                content.textProperties.color = .white
+                content.textProperties.alignment = .center
+                content.text = "Save"
+            } else {
+                cell.backgroundColor = .clear
+                content.textProperties.color = .systemRed
+                content.textProperties.alignment = .center
+                content.text = "Log out"
+            }
+           
             cell.contentConfiguration = content
             return cell
         }
@@ -56,6 +65,8 @@ extension DoctorSettingsViewController: UITableViewDelegate, UITableViewDataSour
             self.performSegue(withIdentifier: Constants.Segues.showSchedulesVC, sender: nil)
         } else if indexPath.section == 3 {
             self.navigationController?.popViewController(animated: true)
+        } else if indexPath.section == 4 {
+            SessionManager.shared.logOut()
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

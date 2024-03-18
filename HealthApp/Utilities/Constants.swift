@@ -75,6 +75,7 @@ struct Constants {
         static let appointments = "Appointments"
         static let doctorDashboard = "DoctorDashboard"
         static let doctorSettings = "DoctorSettings"
+        static let patientProfile = "PatientProfile"
     }
     
     struct ViewIdentifiers {
@@ -89,5 +90,6 @@ struct Constants {
         static let authenticationVC = "AuthenticationVC"
         static let doctorDashboardNC = "DoctorDashboardNC"
         static let doctorsSettingsVC = "DoctorSettingsVC"
+        static let patientProfileVC = "PatientProfileVC"
     }
 }

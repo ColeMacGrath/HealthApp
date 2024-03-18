@@ -14,11 +14,11 @@ class DoctorDashboardViewController: UIViewController {
     @IBOutlet weak var todayPatientsCollectionView: UICollectionView!
     @IBOutlet weak var upcomingPatientNameLabel: UILabel!
     @IBOutlet weak var upcomingPatientImageView: CacheImageView!
+    @IBOutlet weak var patientsNumberLabel: UILabel!
     private var appointments: [Appointment] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.upcomingPatientImageView.setCircularImage()
         self.upcomingPatientImageView.layer.borderWidth = 4
         self.upcomingPatientImageView.layer.borderColor = UIColor.white.cgColor
@@ -37,6 +37,19 @@ class DoctorDashboardViewController: UIViewController {
         }
         if let flowLayout = self.todayPatientsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.invalidateLayout()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segues.showPatientProfileVC,
+           let destinationViewController = segue.destination as? PatientProfileViewController,
+           let upcomingPatient = self.appointments.last?.patient {
+            destinationViewController.patient = upcomingPatient
+        }
+        
+        if segue.identifier == Constants.Segues.showPatientsVC,
+           let destinationViewController = segue.destination as? PatientsViewController {
+            destinationViewController.todayPatients = self.appointments.compactMap { $0.patient }
         }
     }
     
@@ -65,6 +78,7 @@ class DoctorDashboardViewController: UIViewController {
                 self.upcomingPatientImageView.loadImageFrom(url: patient.profilePicture)
                 self.upcomingPatientNameLabel.text = patient.fullName
             }
+            self.patientsNumberLabel.text = "You've got \(self.appointments.count) patients today"
             self.todayPatientsCollectionView.reloadData()
             self.patientInfoCollectionView.reloadData()
         }
@@ -82,7 +96,6 @@ class DoctorDashboardViewController: UIViewController {
     
     @IBAction func toolsButtonPressed(_ sender: UIBarButtonItem) {
         guard let viewController = UIStoryboard(name: Constants.Storyboard.doctorSettings, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorsSettingsVC) as? DoctorSettingsViewController else { return }
-        
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -116,10 +129,7 @@ extension DoctorDashboardViewController: UICollectionViewDelegate, UICollectionV
                 cell.customizeCell(title: "\(patient.weight) Kgs", detail: "Weight")
             }
 
-        } else {
-            cell.customizeCell(title: "fdsafsa y/o", detail: "Age")
         }
-       
         return cell
     }
     

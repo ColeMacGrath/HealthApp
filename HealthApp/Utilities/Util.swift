@@ -57,19 +57,16 @@ extension UINavigationController {
         self.navigationBar.isTranslucent = true
         self.navigationBar.backgroundColor = .clear
         
-        // Hide title and back button text, but keep the back arrow
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        // Ensure swipe back gesture is enabled
         self.interactivePopGestureRecognizer?.delegate = nil
     }
     
     func defaultNavigation() {
-        // Restore the navigation bar to its original state
         self.navigationBar.setBackgroundImage(nil, for: .default)
         self.navigationBar.shadowImage = nil
         self.navigationBar.isTranslucent = true
-        self.navigationBar.backgroundColor = nil  // Set this to your default color if needed
+        self.navigationBar.backgroundColor = nil
     }
     
     func setMinimalBackButton() {
@@ -214,23 +211,25 @@ extension UIViewController {
     }
     
     static func topMostViewController() -> UIViewController? {
-            guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else {
-                return nil
-            }
-            return topMostViewController(from: rootViewController)
+        guard let activeScene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene,
+              let keyWindow = activeScene.windows.first(where: { $0.isKeyWindow }),
+              let rootViewController = keyWindow.rootViewController else { return nil }
+        return topMostViewController(from: rootViewController)
+    }
+    
+    private static func topMostViewController(from viewController: UIViewController) -> UIViewController {
+        if let presentedViewController = viewController.presentedViewController {
+            return topMostViewController(from: presentedViewController)
+        } else if let navigationController = viewController as? UINavigationController,
+                    let visibleViewController = navigationController.visibleViewController {
+            return topMostViewController(from: visibleViewController)
+        } else if let tabBarController = viewController as? UITabBarController,
+                    let selectedViewController = tabBarController.selectedViewController {
+            return topMostViewController(from: selectedViewController)
+        } else {
+            return viewController
         }
-
-        private static func topMostViewController(from viewController: UIViewController) -> UIViewController {
-            if let presentedViewController = viewController.presentedViewController {
-                return topMostViewController(from: presentedViewController)
-            } else if let navigationController = viewController as? UINavigationController, let visibleViewController = navigationController.visibleViewController {
-                return topMostViewController(from: visibleViewController)
-            } else if let tabBarController = viewController as? UITabBarController, let selectedViewController = tabBarController.selectedViewController {
-                return topMostViewController(from: selectedViewController)
-            } else {
-                return viewController
-            }
-        }
+    }
 }
 
 extension Int {
@@ -291,8 +290,8 @@ extension UIButton {
         newActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(newActivityIndicator)
 
-        let indicatorHeight = 20.0 // or whatever size you prefer
-        let indicatorWidth = 20.0  // same as height for a square indicator
+        let indicatorHeight = 20.0
+        let indicatorWidth = 20.0
 
         NSLayoutConstraint.activate([
             newActivityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),

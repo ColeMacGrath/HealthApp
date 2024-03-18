@@ -8,24 +8,51 @@
 import UIKit
 
 class PatientProfileViewController: UIViewController {
-    
-    let dataOptions = [
-        DataOption(title: "Calories Burned", value: "1324", image:  UIImage(named: "Exercise") ?? UIImage(), color: .blue),
-        DataOption(title: "Sleep", value: "7 Hrs", image: UIImage(named: "Sleep") ?? UIImage(), color: .purple),
-        DataOption(title: "Weight", value: "85 kgs", image:  UIImage(named: "weight") ?? UIImage(), color: .green),
-        DataOption(title: "Hearth BPM", value: "70 Bpm", image: UIImage(named: "Hearth") ?? UIImage(), color: .red),
-        DataOption(title: "Ingested Food", value: "Spaghetti", image: UIImage(named: "Eat") ?? UIImage(), color: .systemPink)
-    ]
-    let favouriteOptions = [
-        DataOption(title: "Ingested Food", value: "Spaghetti", image: UIImage(named: "Eat") ?? UIImage(), color: .favourite1),
-        DataOption(title: "Weight", value: "85 kgs", image:  UIImage(named: "weight") ?? UIImage(), color: .favourite2),
-        DataOption(title: "Hearth BPM", value: "70 Bpm", image: UIImage(named: "Hearth") ?? UIImage(), color: .favourite3),
-    ]
+    private var dataOptions = [DataOption]()
+    var favouriteOptions = [DataOption]()
     private var collectionView: UICollectionView?
+    @IBOutlet weak var tableView: UITableView!
+    var patient: Patient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let healthData = patient.healthData else { return }
+        self.loadFavouriteOptions(healthData: healthData)
+        self.loadDataOptions(healthData: healthData)
     }
+    
+    private func loadFavouriteOptions(healthData: HealthDataStructure) {
+        let healthData = self.patient.healthData
+        if let lastIngestedFood = healthData?.ingestedFood.last {
+            self.favouriteOptions.append(DataOption(title: "Ingested Food", value: lastIngestedFood.foodName, image: UIImage(named: "Eat") ?? UIImage(), color: .favourite1))
+        }
+        if let lastWeight = healthData?.weight.last {
+            self.favouriteOptions.append(DataOption(title: "Weight", value: "\(lastWeight.kilograms) kgs", image:  UIImage(named: "weight") ?? UIImage(), color: .favourite2))
+        }
+        if let lastHearthBPM = healthData?.hearthBPM.last {
+            self.favouriteOptions.append(DataOption(title: "Hearth BPM", value: "\(lastHearthBPM.BPM) Bpm", image: UIImage(named: "Hearth") ?? UIImage(), color: .favourite3))
+        }
+    }
+    
+    private func loadDataOptions(healthData: HealthDataStructure) {
+        if let caloriesBurned = healthData.caloriesBurned.last {
+            self.dataOptions.append(DataOption(title: "Calories Burned", value: "\(caloriesBurned.calories)", image:  UIImage(named: "Exercise") ?? UIImage(), color: .blue))
+        }
+        if let sleep = healthData.sleep.last,
+           let time = sleep.startDate.differenceBetween(date: sleep.endDate) {
+            self.dataOptions.append(DataOption(title: "Sleep", value: "\(time.hours) Hrs", image: UIImage(named: "Sleep") ?? UIImage(), color: .purple))
+        }
+        if let weight = healthData.weight.last {
+            self.dataOptions.append(DataOption(title: "Weight", value: "\(weight.kilograms) kgs", image:  UIImage(named: "weight") ?? UIImage(), color: .green))
+        }
+        if let hearthBPM = healthData.hearthBPM.last {
+            self.dataOptions.append(DataOption(title: "Hearth BPM", value: "\(hearthBPM.BPM) Bpm", image: UIImage(named: "Hearth") ?? UIImage(), color: .red))
+        }
+        if let ingestedFood = healthData.ingestedFood.last {
+            self.dataOptions.append(DataOption(title: "Ingested Food", value: "\(ingestedFood.foodName)", image: UIImage(named: "Eat") ?? UIImage(), color: .systemPink))
+        }
+    }
+    
 }
 
 extension PatientProfileViewController: UITableViewDataSource, UITableViewDelegate {
@@ -49,17 +76,17 @@ extension PatientProfileViewController: UITableViewDataSource, UITableViewDelega
             guard indexPath.row == 1 else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.imageCell, for: indexPath) as! ImageTableViewCell
                 cell.customImageView.setCircularImage()
-                cell.customImageView.image = .doctor
+                cell.customImageView.loadImageFrom(url: self.patient.profilePicture)
                 cell.separatorInset.removeSeparator()
                 return cell
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
             var content = UIListContentConfiguration.cell()
-            content.text = "Allison Doe"
+            content.text = self.patient.fullName
             content.textProperties.alignment = .center
             content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 22.0) ?? UIFont()
-            content.secondaryText = "Female"
+            content.secondaryText = self.patient.biologicalSex
             content.secondaryTextProperties.color = .secondaryLabel
             content.secondaryTextProperties.alignment = .center
             content.secondaryTextProperties.font = UIFont(name: "HelveticaNeue", size: 18.0) ?? UIFont()
@@ -98,21 +125,7 @@ extension PatientProfileViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.dataCell, for: indexPath) as! DataCellCollectionViewCell
-        var favourite = self.favouriteOptions[indexPath.row]
-        var stringValue = String.empty
-        
-        switch indexPath.row {
-        case 0:
-            stringValue = "Spagetthi"
-        case 1:
-            stringValue = "65.0 Kgs"
-        case 2:
-            stringValue = "70.0 BPM"
-        default: break
-        }
-        
-        favourite.value = stringValue
-        
+        let favourite = self.favouriteOptions[indexPath.row]
         cell.customizeCell(image: favourite.image, title: favourite.title, value: favourite.value, color: favourite.color)
         return cell
     }
