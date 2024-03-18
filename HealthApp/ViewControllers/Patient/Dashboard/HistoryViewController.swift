@@ -17,7 +17,7 @@ class HistoryViewController: UIViewController {
     private let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
     var healthIdentifier: HKQuantityTypeIdentifier!
     var appliedFilter = false
-    var healthRecords = [HealthData]()
+    var healthRecords = [GenericHealthData]()
     var from: Date?
     var to: Date?
     
@@ -50,7 +50,7 @@ class HistoryViewController: UIViewController {
         let initalDate = from ?? Date().onPast(days: self.daysFor(identifier: self.healthIdentifier))
         let finalDate = to ?? Date()
         HealthKitManager.shared.quantityRecordsFor(typeIdentifier: self.healthIdentifier, withUnit: unit, from: initalDate, to: finalDate) { records in
-            let healthRecords = records.map { HealthData(value: $0.value, date: $0.date) }
+            let healthRecords = records.map { GenericHealthData(value: $0.value, date: $0.date) }
             DispatchQueue.main.async {
                 guard !healthRecords.isEmpty else {
                     self.showFloatingAlert(text: "No records available", alertType: .warning)

@@ -17,23 +17,26 @@ class InitialViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard self.loggedIn else {
+        
+        guard SessionManager.shared.isLoggedIn else {
             self.performSegue(withIdentifier: Constants.Segues.showLoginViewController, sender: nil)
             return
         }
         
+        guard SessionManager.shared.getPatientId() != nil else {
+            let doctorDashboard = UIStoryboard(name: Constants.Storyboard.doctorDashboard, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorDashboardNC)
+            doctorDashboard.modalPresentationStyle = .fullScreen
+            self.present(doctorDashboard, animated: false)
+            return
+        }
+        
+        let dashboardViewController = UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController)
+        dashboardViewController.modalPresentationStyle = .fullScreen
+        self.present(dashboardViewController, animated: false)
+        
         /*guard let autenticationViewController = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.authenticationVC) as? AutenticationViewController else { return }
          autenticationViewController.modalPresentationStyle = .fullScreen
          self.present(autenticationViewController, animated: false)*/
-        
-        let presetingViewController = UIDevice.current.userInterfaceIdiom == .phone ? UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController) : self.getSplitViewController()
-         presetingViewController.modalPresentationStyle = .fullScreen
-         self.present(presetingViewController, animated: false)
-        
-        /*let doctorDashboard = UIStoryboard(name: Constants.Storyboard.doctorDashboard, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorDashboardNC)
-        doctorDashboard.modalPresentationStyle = .fullScreen
-        self.present(doctorDashboard, animated: false)*/
-        
     }
     
     private func getSplitViewController() -> UISplitViewController {

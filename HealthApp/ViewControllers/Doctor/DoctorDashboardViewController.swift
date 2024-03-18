@@ -12,19 +12,17 @@ class DoctorDashboardViewController: UIViewController {
     
     @IBOutlet weak var patientInfoCollectionView: UICollectionView!
     @IBOutlet weak var todayPatientsCollectionView: UICollectionView!
-    @IBOutlet weak var upcomingPatientPictureCell: UIImageView!
     @IBOutlet weak var upcomingPatientNameLabel: UILabel!
-    @IBOutlet weak var upcomingPatientImageView: UIImageView!
+    @IBOutlet weak var upcomingPatientImageView: CacheImageView!
+    private var appointments: [Appointment] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.upcomingPatientPictureCell.image = .doctor2
-        self.upcomingPatientPictureCell.setCircularImage()
-        self.upcomingPatientNameLabel.text = "Allison Doe"
+        
+        self.upcomingPatientImageView.setCircularImage()
         self.upcomingPatientImageView.layer.borderWidth = 4
         self.upcomingPatientImageView.layer.borderColor = UIColor.white.cgColor
-        
-        
+        self.loadAppointmnets()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +37,36 @@ class DoctorDashboardViewController: UIViewController {
         }
         if let flowLayout = self.todayPatientsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.invalidateLayout()
+        }
+    }
+    
+    private func loadAppointmnets() {
+        guard let url = RequestManager.shared.getURLWithDoctorFor(endpoint: .appointments) else {
+            self.showFloatingAlert(text: "Error loading appointments", alertType: .error)
+            return
+        }
+        Task {
+            guard let responseData = await RequestManager.shared.request(url: url, method: .get).rawData else {
+                self.showFloatingAlert(text: "Error loading appointments", alertType: .error)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .customISO8601
+                let appointmentsContainer = try decoder.decode(AppointmentsContainer.self, from: responseData)
+                self.appointments = appointmentsContainer.appointments.filter({ $0.date.isOnSameDayThan(date: .today ?? Date()) }).sorted { $0.date > $1.date }
+            } catch {
+                self.appointments.removeAll()
+                self.showFloatingAlert(text: "Error loading appointments", alertType: .error)
+            }
+            
+            if let patient = self.appointments.last?.patient {
+                self.upcomingPatientImageView.loadImageFrom(url: patient.profilePicture)
+                self.upcomingPatientNameLabel.text = patient.fullName
+            }
+            self.todayPatientsCollectionView.reloadData()
+            self.patientInfoCollectionView.reloadData()
         }
     }
     
@@ -67,26 +95,31 @@ extension DoctorDashboardViewController: UICollectionViewDelegate, UICollectionV
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collectionView.tag == 0 ? 5 : 3
+        collectionView.tag == 0 ? self.appointments.count : 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.pictureNameCell, for: indexPath) as! PictureNameCollectionViewCell
-            cell.customizeCell(picture: .doctor, name: "Testing")
+            let patient = self.appointments[indexPath.row].patient
+            cell.customizeCell(pictureURL: patient.profilePicture, name: patient.fullName)
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Cells.detailCell, for: indexPath) as! DetailCollectionViewCell
-        
-        switch indexPath.row {
-        case 0:
-            cell.customizeCell(title: "26 y/o", detail: "Age")
-        case 1:
-            cell.customizeCell(title: "1.72 mts", detail: "Height")
-        default:
-            cell.customizeCell(title: "65 Kgs", detail: "Weight")
-        }
+        if let patient = self.appointments.last?.patient {
+            switch indexPath.row {
+            case 0:
+                cell.customizeCell(title: "\(patient.age) y/o", detail: "Age")
+            case 1:
+                cell.customizeCell(title: "\(patient.height / 100) mts", detail: "Height")
+            default:
+                cell.customizeCell(title: "\(patient.weight) Kgs", detail: "Weight")
+            }
 
+        } else {
+            cell.customizeCell(title: "fdsafsa y/o", detail: "Age")
+        }
+       
         return cell
     }
     

@@ -31,10 +31,10 @@ class DataTableViewCell: UITableViewCell {
         if roundedImage { self.customImageView.setCircularImage() }
     }
     
-    func customizeCell(title: String, value: String, image: UIImage, roundedImage: Bool = false) {
+    func customizeCell(title: String, value: String, image: UIImage? = nil, imageURL: URL? = nil, roundedImage: Bool = false) {
         self.titleLabel.text = title
         self.valueLabel.text = value
-        self.customImageView.image = image
+        self.customImageView.loadImageFrom(url: imageURL)
         if roundedImage { self.customImageView.setCircularImage() }
     }
 

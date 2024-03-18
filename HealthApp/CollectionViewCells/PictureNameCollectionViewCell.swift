@@ -8,11 +8,11 @@
 import UIKit
 
 class PictureNameCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var pictureImageView: UIImageView!
+    @IBOutlet weak var pictureImageView: CacheImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    func customizeCell(picture: UIImage, name: String) {
-        self.pictureImageView.image = picture
+    func customizeCell(pictureURL: URL?, name: String) {
+        self.pictureImageView.loadImageFrom(url: pictureURL)
         self.nameLabel.text = name
         self.pictureImageView.setCircularImage()
         self.pictureImageView.layer.borderWidth = 4

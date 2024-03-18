@@ -4,7 +4,17 @@
       "firstName": "John",
       "id": 0,
       "lastName": "Doe",
+      "age": 28,
+      "weight": 74,
+      "height": 180,
+      "biologicalSex": "Male",
+      "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg",
       "doctors": [
+        1,
+        2,
+        3,
+        4,
+        5,
         0
       ],
       "healthData": {
@@ -41,8 +51,8 @@
         "ingestedFood": [
           {
             "date": "2024-02-11T03:30:00.000Z",
-            "foodName": "Apple",
-            "calories": 150
+            "calories": 150,
+            "foodName": "Apple"
           }
         ],
         "sleep": [
@@ -61,7 +71,13 @@
       "firstName": "Allison",
       "id": 1,
       "lastName": "Doe",
+      "age": 28,
+      "weight": 60,
+      "height": 172,
+      "biologicalSex": "Female",
+      "profilePicture": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "doctors": [
+        0,
         3,
         4,
         5,
@@ -101,8 +117,8 @@
         "ingestedFood": [
           {
             "date": "2024-02-11T03:30:00.000Z",
-            "foodName": "Apple",
-            "calories": 150
+            "calories": 150,
+            "foodName": "Apple"
           }
         ],
         "sleep": [

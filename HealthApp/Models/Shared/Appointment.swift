@@ -10,6 +10,7 @@ import Foundation
 struct Appointment: Codable {
     let id: Int
     let doctor: Doctor
+    let patient: Patient
     let date: Date
     let notes: String
 }

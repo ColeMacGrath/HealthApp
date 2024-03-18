@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController  {
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,27 +94,31 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.contentConfiguration = content
             
             return cell
-        } else if indexPath.section == 2 {
+        }
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
-            cell.selectionStyle = .default
-            cell.backgroundColor = .systemRed
-            cell.separatorInset.addSeparator()
             var content = UIListContentConfiguration.cell()
+            content.textProperties.alignment = .center
+            cell.selectionStyle = .default
+        
+        if indexPath.section == 2 {
+            cell.backgroundColor = .systemRed
             content.text = "Save"
             content.textProperties.color = .white
-            content.textProperties.alignment = .center
-            cell.contentConfiguration = content
-            return cell
+        } else {
+            cell.backgroundColor = .clear
+            content.text = "Log Out"
+            content.textProperties.color = .systemRed
         }
+        cell.contentConfiguration = content
         
-        return UITableViewCell()
-        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 3 {
             self.performSegue(withIdentifier: Constants.Segues.showFitzpatrickView, sender: nil)
-
+        } else if indexPath.section == 3 {
+            SessionManager.shared.logOut()
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

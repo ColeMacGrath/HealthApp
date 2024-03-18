@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -50,7 +50,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="122" height="141"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4rC-0t-mkx">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4rC-0t-mkx" customClass="CacheImageView" customModule="HealthApp" customModuleProvider="target">
                                                             <rect key="frame" x="11" y="8" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="4rC-0t-mkx" secondAttribute="height" multiplier="1:1" id="OCa-yk-ioG"/>
@@ -78,7 +78,7 @@
                                                 <size key="customSize" width="122" height="141"/>
                                                 <connections>
                                                     <outlet property="nameLabel" destination="txI-he-O2X" id="afg-VZ-mWh"/>
-                                                    <outlet property="pictureImageView" destination="4rC-0t-mkx" id="9mh-wQ-aK0"/>
+                                                    <outlet property="pictureImageView" destination="4rC-0t-mkx" id="b2z-vh-Kv9"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -124,7 +124,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1So-1t-ac8">
                                         <rect key="frame" x="18" y="118" width="404" height="90"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-Is-fq7">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-Is-fq7" customClass="CacheImageView" customModule="HealthApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Rb4-Is-fq7" secondAttribute="height" multiplier="1:1" id="Hxw-zr-pOj"/>
@@ -240,9 +240,8 @@
                     <connections>
                         <outlet property="patientInfoCollectionView" destination="nuU-Jx-Io9" id="IBf-Rb-nUy"/>
                         <outlet property="todayPatientsCollectionView" destination="fpb-wg-mIq" id="4aL-aH-uma"/>
-                        <outlet property="upcomingPatientImageView" destination="Rb4-Is-fq7" id="QJa-Jo-vfG"/>
+                        <outlet property="upcomingPatientImageView" destination="Rb4-Is-fq7" id="xuH-ej-lvy"/>
                         <outlet property="upcomingPatientNameLabel" destination="yPa-20-5Xh" id="wT7-50-DI3"/>
-                        <outlet property="upcomingPatientPictureCell" destination="Rb4-Is-fq7" id="nft-Oj-xQw"/>
                         <segue destination="18c-Jd-QGL" kind="show" identifier="ShowPatientsVC" id="iJM-GX-gQc"/>
                         <segue destination="00o-8G-UGx" kind="show" identifier="ShowPatientProfileVC" id="9LU-xu-fFe"/>
                     </connections>
@@ -313,7 +312,7 @@
             <color red="1" green="0.70399999618530273" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

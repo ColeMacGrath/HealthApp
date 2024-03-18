@@ -12,6 +12,7 @@ enum EndPoint: String {
     case doctors = "doctors"
     case bookApointment = "bookAppointment"
     case appointments = "appointments"
+    case patients = "patients"
 }
 
 enum User: String {
@@ -55,11 +56,12 @@ class RequestManager {
         headers = headers == nil ? [:] : headers
         
         if SessionManager.shared.isLoggedIn {
-            guard let sessionToken = SessionManager.shared.sessionToken else {
-                SessionManager.shared.clearSession()
+            guard let sessionToken = SessionManager.shared.getSessionToken() else {
+                SessionManager.shared.logOut()
                 return (.localError, nil, nil)
             }
             headers?["sessionToken"] = sessionToken
+            headers?["userType"] = SessionManager.shared.getPatientId() != nil ? "patient" : "doctor"
         }
         
         headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }

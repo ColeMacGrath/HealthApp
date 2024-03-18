@@ -24,8 +24,3 @@ struct Doctor: Codable {
         "\(self.firstName) \(self.lastName)"
     }
 }
-
-struct Schedule: Codable {
-    let day: String
-    let times: [String]
-}

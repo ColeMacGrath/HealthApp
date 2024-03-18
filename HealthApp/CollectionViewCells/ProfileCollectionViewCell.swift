@@ -10,7 +10,7 @@ import UIKit
 class ProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: CacheImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var biologicalSexLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,9 +19,9 @@ class ProfileCollectionViewCell: UICollectionViewCell {
         profileImageView.clipsToBounds = true
     }
     
-    func customizeCell(image: UIImage, name: String, gender: String) {
+    func customizeCell(image: UIImage, name: String, biologicalSex: String) {
         self.profileImageView.image = image
         self.nameLabel.text = name
-        self.genderLabel.text = gender
+        self.biologicalSexLabel.text = biologicalSex
     }
 }

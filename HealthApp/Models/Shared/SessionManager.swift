@@ -12,9 +12,9 @@ class SessionManager: Codable {
     static let shared = SessionManager()
     
     private var currentUserSession = "currentUserSession"
-    var patientId: Int?
-    var doctorId: Int?
-    var sessionToken: String?
+    private var patientId: Int?
+    private var doctorId: Int?
+    private var sessionToken: String?
     
     init(json: Dictionary<String, Any>) {
         guard let token = json["sessionToken"] as? String,
@@ -69,19 +69,19 @@ class SessionManager: Codable {
     }
     
     func getPatientId() -> Int? {
-        guard let patientId else {
+        guard self.isLoggedIn else {
             self.logOut()
             return nil
         }
-        return patientId
+        return self.patientId
     }
     
     func getDoctorId() -> Int? {
-        guard let doctorId else {
+        guard self.isLoggedIn else {
             self.logOut()
             return nil
         }
-        return doctorId
+        return self.doctorId
     }
     
     func getSessionToken() -> String? {

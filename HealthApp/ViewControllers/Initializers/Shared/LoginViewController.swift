@@ -33,8 +33,13 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
-                _ = SessionManager(json: body)
-                
+                let session = SessionManager(json: body)
+                guard session.getPatientId() != nil else {
+                    let doctorDashboard = UIStoryboard(name: Constants.Storyboard.doctorDashboard, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorDashboardNC)
+                    doctorDashboard.modalPresentationStyle = .fullScreen
+                    self.present(doctorDashboard, animated: true)
+                    return
+                }
                 let dashboardViewController = UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController)
                 dashboardViewController.modalPresentationStyle = .fullScreen
                 self.present(dashboardViewController, animated: true)

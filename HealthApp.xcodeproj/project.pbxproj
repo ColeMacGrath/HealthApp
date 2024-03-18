@@ -76,6 +76,8 @@
 		B324F0DF2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324F0DE2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift */; };
 		B3271BEF2B786B8E00F8634B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BEE2B786B8E00F8634B /* LoginViewController.swift */; };
 		B3271BF12B787E8700F8634B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3271BF02B787E8700F8634B /* KeychainManager.swift */; };
+		B327D2CA2BA7FC0300E5819A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B327D2C92BA7FC0300E5819A /* Schedule.swift */; };
+		B327D2CC2BA7FC1300E5819A /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B327D2CB2BA7FC1300E5819A /* Patient.swift */; };
 		B32D7E9F2B636FA30078A08C /* AddDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */; };
 		B33DD0922B54BA0D000A4C1B /* FitzpatrickScale.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B33DD0912B54BA0D000A4C1B /* FitzpatrickScale.mlmodel */; };
 		B33DD0952B54BB54000A4C1B /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33DD0932B54BB54000A4C1B /* History.storyboard */; };
@@ -169,6 +171,8 @@
 		B324F0DE2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B3271BEE2B786B8E00F8634B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B3271BF02B787E8700F8634B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		B327D2C92BA7FC0300E5819A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		B327D2CB2BA7FC1300E5819A /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		B32D7E9E2B636FA30078A08C /* AddDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDoctorViewController.swift; sourceTree = "<group>"; };
 		B33DD0912B54BA0D000A4C1B /* FitzpatrickScale.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FitzpatrickScale.mlmodel; sourceTree = "<group>"; };
 		B33DD0942B54BB54000A4C1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HealthApp/Storyboards/HealthApp/Storyboards/Base.lproj/History.storyboard; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 				B32459FF2B794BBF00377F5E /* CacheImageView.swift */,
 				B3C44A352BA7B58C002F6691 /* SessionManager.swift */,
 				B3271BF02B787E8700F8634B /* KeychainManager.swift */,
+				B327D2C92BA7FC0300E5819A /* Schedule.swift */,
+				B327D2CB2BA7FC1300E5819A /* Patient.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -644,6 +650,7 @@
 				4F537FFB2B40AF7700710E4D /* Person.swift in Sources */,
 				B324F0D72B7DBA630005C394 /* ProfileHorizontalTableViewCell.swift in Sources */,
 				B3271BF12B787E8700F8634B /* KeychainManager.swift in Sources */,
+				B327D2CA2BA7FC0300E5819A /* Schedule.swift in Sources */,
 				4FCDDD6B2B464C3800F2CC69 /* RecommendationViewController.swift in Sources */,
 				4FC7D5562B3F57FE00FFF1F6 /* AppointmentsViewController.swift in Sources */,
 				4F13FBC92B3E1016002120D9 /* DataCollectionViewCell.swift in Sources */,
@@ -653,6 +660,7 @@
 				B324F0DF2B7DC1490005C394 /* SingleLabelCollectionViewCell.swift in Sources */,
 				B324F0D52B7DB1A40005C394 /* DoctorSettingsViewController.swift in Sources */,
 				4F2FE19D2B3E9164002DBBD2 /* DoctorCollectionViewCell.swift in Sources */,
+				B327D2CC2BA7FC1300E5819A /* Patient.swift in Sources */,
 				4FBF87232B41E18F00DF4E3E /* FloatingAlertView.swift in Sources */,
 				B324F0D92B7DBAB90005C394 /* DualSelectionTableViewCell.swift in Sources */,
 				4F89FC6E2B3DFAC600B932B6 /* Util.swift in Sources */,

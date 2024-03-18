@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 import Charts
 
-struct HealthData: Identifiable {
+struct GenericHealthData: Identifiable {
     let id = UUID()
     let value: Double
     let date: Date
 }
 
 struct LineChart: View {
-    var healthRecords: [HealthData]
+    var healthRecords: [GenericHealthData]
     
     static var dateFormatter: DateFormatter = {
         var df = DateFormatter()
