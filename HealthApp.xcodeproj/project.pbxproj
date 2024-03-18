@@ -86,6 +86,7 @@
 		B39E349F2B7A749A001E4485 /* DoctorDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */; };
 		B39E34A12B7A7583001E4485 /* PictureNameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */; };
 		B39E34A52B7A76A0001E4485 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */; };
+		B3C44A362BA7B58C002F6691 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C44A352BA7B58C002F6691 /* SessionManager.swift */; };
 		B3CB9FF92B7B2FBA00C92742 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CB9FF82B7B2FBA00C92742 /* Patients.storyboard */; };
 		B3CB9FFB2B7B2FC500C92742 /* PatientProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CB9FFA2B7B2FC500C92742 /* PatientProfile.storyboard */; };
 		B3CB9FFD2B7B309A00C92742 /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB9FFC2B7B309A00C92742 /* PatientProfileViewController.swift */; };
@@ -177,6 +178,7 @@
 		B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDashboardViewController.swift; sourceTree = "<group>"; };
 		B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureNameCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3C44A352BA7B58C002F6691 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		B3CB9FF82B7B2FBA00C92742 /* Patients.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Patients.storyboard; sourceTree = "<group>"; };
 		B3CB9FFA2B7B2FC500C92742 /* PatientProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PatientProfile.storyboard; sourceTree = "<group>"; };
 		B3CB9FFC2B7B309A00C92742 /* PatientProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
@@ -446,9 +448,7 @@
 			children = (
 				4F537FF72B408E0400710E4D /* HealthKitManager.swift */,
 				4F537FFA2B40AF7700710E4D /* Person.swift */,
-				4FCDDD682B464BAA00F2CC69 /* RequestManager.swift */,
 				4FCDDD6E2B464D1D00F2CC69 /* Config.swift */,
-				B3271BF02B787E8700F8634B /* KeychainManager.swift */,
 			);
 			path = Patient;
 			sourceTree = "<group>";
@@ -463,9 +463,12 @@
 		B31308F62B79C160007BB47C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4FCDDD682B464BAA00F2CC69 /* RequestManager.swift */,
 				B31B8A642B788EDD004285BB /* Doctor.swift */,
 				B3245A012B79542C00377F5E /* Appointment.swift */,
 				B32459FF2B794BBF00377F5E /* CacheImageView.swift */,
+				B3C44A352BA7B58C002F6691 /* SessionManager.swift */,
+				B3271BF02B787E8700F8634B /* KeychainManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				4F2FE1972B3E7961002DBBD2 /* LabelButtonTableViewCell.swift in Sources */,
 				B39E34A52B7A76A0001E4485 /* DetailCollectionViewCell.swift in Sources */,
 				4F89FC692B3DF66500B932B6 /* PrimaryTableViewController.swift in Sources */,
+				B3C44A362BA7B58C002F6691 /* SessionManager.swift in Sources */,
 				4F2FE1952B3E7911002DBBD2 /* TextFieldTableViewCell.swift in Sources */,
 				4FC0B9DC2B3DDE8500F49ECD /* AppDelegate.swift in Sources */,
 				4F537FF82B408E0400710E4D /* HealthKitManager.swift in Sources */,

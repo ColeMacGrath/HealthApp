@@ -21,7 +21,7 @@ class AppointmentViewController: UIViewController {
     }
     
     @IBAction func deleteAppointmentButtonPressed(_ sender: UIButton) {
-        guard let url = URL(string: RequestManager.shared.baseURL + "\(self.appointment.id)/" + "appointment") else {
+        guard let url = URL(string: RequestManager.shared.baseURL + "\(self.appointment.id)/" + EndPoint.appointments.rawValue) else {
             self.showFloatingAlert(text: "Error deleting appointment", alertType: .error)
             return
         }

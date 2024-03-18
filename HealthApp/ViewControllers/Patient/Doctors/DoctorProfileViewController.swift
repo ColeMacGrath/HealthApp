@@ -40,17 +40,22 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.profileImageCell, for: indexPath) as! ProfileImageTableViewCell
             cell.customImageView.loadImageFrom(url: self.doctor.backgroundImage)
             return cell
-        } else if indexPath.row < 3 {
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.buttonCell, for: indexPath) as! ButtonCellTableViewCell
+            cell.button.isUserInteractionEnabled = false
+            cell.button.setTitle("Book Appointment", for: .normal)
+            return cell
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
-            
             if indexPath.row == 1 {
                 var content = UIListContentConfiguration.cell()
                 content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 20.0) ?? UIFont()
@@ -60,8 +65,7 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
                 content.secondaryTextProperties.color = .secondaryLabel
                 content.secondaryText = self.doctor.specialization
                 cell.contentConfiguration = content
-                return cell
-            } else {
+            } else if indexPath.row == 2 {
                 var content = UIListContentConfiguration.cell()
                 let baseString = self.doctor.description ?? .empty
                 let fullRange = NSRange(location: 0, length: baseString.count)
@@ -74,18 +78,39 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
                 }
                 content.attributedText = attributedString
                 cell.contentConfiguration = content
-                return cell
+            } else {
+                var content = UIListContentConfiguration.cell()
+                cell.backgroundColor = .clear
+                content.text = "Delete Doctor"
+                content.textProperties.color = .red
+                content.textProperties.alignment = .center
+                cell.contentConfiguration = content
             }
+            return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.buttonCell, for: indexPath) as! ButtonCellTableViewCell
-        cell.button.isUserInteractionEnabled = false
-        cell.button.setTitle("Book Appointment", for: .normal)
-        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row == 3 else { return }
-        self.performSegue(withIdentifier: Constants.Segues.showBookAppointmentVC, sender: nil)
+        if indexPath.row == 3 {
+            self.performSegue(withIdentifier: Constants.Segues.showBookAppointmentVC, sender: nil)
+        } else if indexPath.row == 4 {
+            guard let url = URL(string: "https://api.healthapp.local/doctor") else { return }
+            Task {
+                let response = await RequestManager.shared.request(url: url, method: .delete, body: [
+                    "userId": 0,
+                    "doctorId": self.doctor.id
+                ])
+                
+                guard response.httpStatusCode == .success else {
+                    self.showFloatingAlert(text: "Error at deleting", alertType: .error)
+                    return
+                }
+                
+                self.showFloatingAlert(text: "Doctor deleted", alertType: .success)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

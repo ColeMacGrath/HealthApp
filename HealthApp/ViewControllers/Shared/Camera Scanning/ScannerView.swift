@@ -19,14 +19,23 @@ struct ScannerView: View {
     @Environment(\.presentationMode) var presentationMode
     var scanType: ScanType
     var description: String?
+    @State private var showAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     var onImageCapture: ((UIImage?) -> Void)?
     
     var body: some View {
         ZStack {
-            CameraView(scanType: self.scanType, onImageCapture: { capturedImage in
-                self.presentationMode.wrappedValue.dismiss()
-                self.onImageCapture?(capturedImage)
-            })
+            
+            if self.scanType == .qr {
+                CameraView(scanType: self.scanType, onQRCodeDetected: handleQRCode)
+            } else {
+                CameraView(scanType: self.scanType, onImageCapture: { capturedImage in
+                    self.presentationMode.wrappedValue.dismiss()
+                    self.onImageCapture?(capturedImage)
+                })
+            }
+            
             DimmedOverlayView(showAsCapsule: self.scanType == .face)
                 .foregroundStyle(.white)
             if self.scanType == .face {
@@ -80,8 +89,49 @@ struct ScannerView: View {
                     }
                 }
             }
+        }.alert(isPresented: $showAlert) {
+            Alert(title: Text(self.alertTitle), message: Text(self.alertMessage), dismissButton: .default(Text("OK"), action: {
+                guard self.alertMessage.isEmpty else { return }
+                self.presentationMode.wrappedValue.dismiss()
+            }))
         }
     }
+    
+    private func handleQRCode(_ code: String) {
+        if self.isValidHealthAppURL(code) {
+            guard let url = URL(string: "https://api.healthapp.local/doctor") else { return }
+            Task {
+                let response = await RequestManager.shared.request(url: url, method: .patch, body: [
+                    "userId": 0,
+                    "doctorId": code
+                ])
+                
+                guard response.httpStatusCode == .success else {
+                    self.alertTitle = "Couldn't add Doctor"
+                    self.alertMessage = "Couldn't add this doctor, check QR is valid and doctor is active"
+                    self.showAlert = true
+                    return
+                }
+                
+                self.alertTitle = "Doctor Added"
+                self.alertMessage = ""
+                self.showAlert = true
+            }
+        } else {
+            self.alertTitle = "Couldn't add Doctor"
+            self.alertMessage = "Invalid QR Code, check code is a HealthApp Code"
+            self.showAlert = true
+        }
+    }
+    
+    private func isValidHealthAppURL(_ urlString: String) -> Bool {
+        let pattern = "^healthApp://[a-zA-Z0-9]+$"
+        guard let regex = try? NSRegularExpression(pattern: pattern) else { return false }
+
+        let range = NSRange(location: 0, length: urlString.utf16.count)
+        return regex.firstMatch(in: urlString, options: [], range: range) != nil
+    }
+    
 }
 
 struct CameraView: UIViewControllerRepresentable {
@@ -90,6 +140,7 @@ struct CameraView: UIViewControllerRepresentable {
     private let videoOutput = AVCaptureVideoDataOutput()
     var scanType: ScanType
     var onImageCapture: ((UIImage?) -> Void)?
+    var onQRCodeDetected: ((String) -> Void)?
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self, onImageCapture: onImageCapture)
@@ -148,6 +199,11 @@ struct CameraView: UIViewControllerRepresentable {
     
     func handleQRCode(_ code: String) {
         self.stopScanning()
+        
+        DispatchQueue.main.async {
+            self.onQRCodeDetected?(code)
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
             self.resumeScanning()
         })

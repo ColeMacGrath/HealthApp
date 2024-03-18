@@ -20,9 +20,11 @@ class DoctorDashboardViewController: UIViewController {
         super.viewDidLoad()
         self.upcomingPatientPictureCell.image = .doctor2
         self.upcomingPatientPictureCell.setCircularImage()
-        self.upcomingPatientNameLabel.text = "Allison Doee"
+        self.upcomingPatientNameLabel.text = "Allison Doe"
         self.upcomingPatientImageView.layer.borderWidth = 4
         self.upcomingPatientImageView.layer.borderColor = UIColor.white.cgColor
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

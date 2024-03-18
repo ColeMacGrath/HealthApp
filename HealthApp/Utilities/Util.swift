@@ -212,6 +212,25 @@ extension UIViewController {
         ])
         
     }
+    
+    static func topMostViewController() -> UIViewController? {
+            guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else {
+                return nil
+            }
+            return topMostViewController(from: rootViewController)
+        }
+
+        private static func topMostViewController(from viewController: UIViewController) -> UIViewController {
+            if let presentedViewController = viewController.presentedViewController {
+                return topMostViewController(from: presentedViewController)
+            } else if let navigationController = viewController as? UINavigationController, let visibleViewController = navigationController.visibleViewController {
+                return topMostViewController(from: visibleViewController)
+            } else if let tabBarController = viewController as? UITabBarController, let selectedViewController = tabBarController.selectedViewController {
+                return topMostViewController(from: selectedViewController)
+            } else {
+                return viewController
+            }
+        }
 }
 
 extension Int {

@@ -8,7 +8,7 @@
 import UIKit
 
 class InitialViewController: UIViewController {
-    private var loggedIn = true
+    private var loggedIn = SessionManager.shared.isLoggedIn
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +23,16 @@ class InitialViewController: UIViewController {
         }
         
         /*guard let autenticationViewController = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.authenticationVC) as? AutenticationViewController else { return }
-        autenticationViewController.modalPresentationStyle = .fullScreen
-        self.present(autenticationViewController, animated: false)*/
+         autenticationViewController.modalPresentationStyle = .fullScreen
+         self.present(autenticationViewController, animated: false)*/
         
-        /*let presetingViewController = UIDevice.current.userInterfaceIdiom == .phone ? UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController) : self.getSplitViewController()
-        presetingViewController.modalPresentationStyle = .fullScreen
-        self.present(presetingViewController, animated: false)*/
+        let presetingViewController = UIDevice.current.userInterfaceIdiom == .phone ? UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController) : self.getSplitViewController()
+         presetingViewController.modalPresentationStyle = .fullScreen
+         self.present(presetingViewController, animated: false)
         
-        
-        let doctorDashboard = UIStoryboard(name: Constants.Storyboard.doctorDashboard, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorDashboardNC)
+        /*let doctorDashboard = UIStoryboard(name: Constants.Storyboard.doctorDashboard, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.doctorDashboardNC)
         doctorDashboard.modalPresentationStyle = .fullScreen
-        self.present(doctorDashboard, animated: false)
+        self.present(doctorDashboard, animated: false)*/
         
     }
     

@@ -78,6 +78,7 @@ struct Constants {
     }
     
     struct ViewIdentifiers {
+        static let initialViewController = "InitialViewController"
         static let primaryTableViewController = "PrimaryTableViewController"
         static let tabBarViewController = "TabBarController"
         static let dashboardNavigationController = "DashboardNC"

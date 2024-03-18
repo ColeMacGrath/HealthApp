@@ -11,6 +11,13 @@ enum EndPoint: String {
     case login = "login"
     case doctors = "doctors"
     case bookApointment = "bookAppointment"
+    case appointments = "appointments"
+}
+
+enum User: String {
+    case patient
+    case doctor
+    case none
 }
 
 enum HTTPStatusCode: Int {
@@ -29,6 +36,7 @@ class RequestManager {
     enum HTTPMethod: String {
         case get = "GET"
         case post = "POST"
+        case patch = "PATCH"
         case delete = "DELETE"
     }
     
@@ -41,9 +49,21 @@ class RequestManager {
         
         guard let url = url ?? URL(string: self.baseURL + (endPoint?.rawValue ?? .empty)) else { return (.localError, nil, nil) }
         var request = URLRequest(url: url)
+        var headers = headers
         
         request.httpMethod = method.rawValue
+        headers = headers == nil ? [:] : headers
+        
+        if SessionManager.shared.isLoggedIn {
+            guard let sessionToken = SessionManager.shared.sessionToken else {
+                SessionManager.shared.clearSession()
+                return (.localError, nil, nil)
+            }
+            headers?["sessionToken"] = sessionToken
+        }
+        
         headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
+        
         if let body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         }
@@ -55,12 +75,42 @@ class RequestManager {
             }
             
             let statusCode = httpResponse.statusCode
+            guard self.getHTTPStatusCodeFrom(statusCode: statusCode) != .unauthorized else {
+                SessionManager.shared.logOut()
+                return (.unauthorized, nil, nil)
+            }
+            
             let responseBody = try? JSONSerialization.jsonObject(with: data) as? Dictionary<String, Any>
             
             return (self.getHTTPStatusCodeFrom(statusCode: statusCode), responseBody, data)
         } catch {
             return (.localError, nil, nil)
         }
+    }
+    
+    func getURLWithPatientFor(endpoint: EndPoint) -> URL? {
+        self.getURLWithIdFor(user: .patient, endpoint: endpoint)
+    }
+    
+    func getURLWithDoctorFor(endpoint: EndPoint) -> URL? {
+        self.getURLWithIdFor(user: .doctor, endpoint: endpoint)
+    }
+    
+    private func getURLWithIdFor(user: User, endpoint: EndPoint) -> URL? {
+        guard var components = URLComponents(string: baseURL) else { return nil }
+        let userId = user == .patient ? self.getPatientId() : self.getDoctorId()
+        let endpointPath = endpoint.rawValue
+        let fullPath = "\(userId)/\(endpointPath)"
+        components.path = (components.path) + fullPath
+        return components.url
+    }
+    
+    private func getPatientId() -> String {
+        return "\(0)"
+    }
+    
+    private func getDoctorId() -> String {
+        return "\(0)"
     }
     
     private func getHTTPStatusCodeFrom(statusCode: Int) -> HTTPStatusCode {

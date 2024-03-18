@@ -1,166 +1,170 @@
 {
-    "doctors": [
-      {
-        "id": 0,
-        "firstName": "Juan Gabriel",
-        "lastName": "Gomila Salas",
-        "specialization": "Cardiologist",
-        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-square.png?raw=true",
-        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-vertical.png?raw=true",
-        "schedules": [
-          {
-            "times": [
-              "08:00",
-              "09:00",
-              "10:00"
-            ],
-            "day": "monday"
-          },
-          {
-            "day": "friday",
-            "times": [
-              "14:00",
-              "15:00",
-              "16:00"
-            ]
-          }
-        ],
-        "description": "Dr. Juan Gabriel Gomila Salas is a distinguished Cardiologist with over 15 years of experience in diagnosing and managing heart diseases. Specializing in interventional cardiology and heart failure management, he employs cutting-edge techniques and tailored care approaches. Committed to advancing cardiac health through innovative research and education, Dr. Gomila Salas leads a team of dedicated professionals at the Heart Health Institute. His approach to patient care is marked by compassion and expertise in handling complex cardiac conditions."
-      },
-      {
-        "id": 1,
-        "firstName": "Allison",
-        "lastName": "Doe",
-        "specialization": "Dermatologist",
-        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-square.png?raw=true",
-        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-vertical.png?raw=true",
-        "schedules": [
-          {
-            "times": [
-              "08:00",
-              "09:00",
-              "10:00"
-            ],
-            "day": "monday"
-          },
-          {
-            "day": "friday",
-            "times": [
-              "14:00",
-              "15:00",
-              "16:00"
-            ]
-          }
-        ],
-        "description": "Dr. Allison Doe is a renowned Dermatologist with extensive experience in treating a wide range of skin conditions. Her expertise spans cosmetic dermatology, laser treatments, and skin cancer surgery, offering both aesthetic and medical solutions. Dr. Doe is dedicated to providing personalized care, utilizing the latest advancements in dermatological science. She practices at the Advanced Skin Care Center, where she leads a team focused on delivering comprehensive skin health services. Known for her patient-centered approach, Dr. Doe is committed to achieving the best outcomes for her patients' skin health and well-being."
-      },
-      {
-        "id": 2,
-        "firstName": "Carlos",
-        "lastName": "Rivera",
-        "specialization": "Traumatologist",
-        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Carlos/Carlos-square.png?raw=true",
-        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Carlos/Carlos-vertical.png?raw=true",
-        "schedules": [
-          {
-            "times": [
-              "08:00",
-              "09:00",
-              "10:00"
-            ],
-            "day": "monday"
-          },
-          {
-            "day": "friday",
-            "times": [
-              "14:00",
-              "15:00",
-              "16:00"
-            ]
-          }
-        ],
-        "description": "Dr. Carlos Rivera is a prominent Traumatologist with extensive experience in the field of orthopedic surgery and trauma care. Specializing in the treatment of fractures, sports injuries, and complex musculoskeletal conditions, he applies advanced surgical techniques and rehabilitation strategies to restore function and mobility. Dr. Rivera leads a team of specialists at the Comprehensive Trauma and Orthopedic Center, where they are committed to excellence in patient care and recovery outcomes. His approach is characterized by a commitment to personalized care, innovation in treatment methods, and a focus on patient education to prevent future injuries."
-      },
-      {
-        "id": 3,
-        "firstName": "Sophia",
-        "lastName": "Chen",
-        "specialization": "Gastroenterologist",
-        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Sophia/Sophia-square.png?raw=true",
-        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Sophia/Sophia-vertical.png?raw=true",
-        "schedules": [
-          {
-            "times": [
-              "08:00",
-              "09:00",
-              "10:00"
-            ],
-            "day": "monday"
-          },
-          {
-            "day": "friday",
-            "times": [
-              "14:00",
-              "15:00",
-              "16:00"
-            ]
-          }
-        ],
-        "description": "Dr. Sophia Chen is an esteemed Gastroenterologist with a deep understanding of digestive disorders and their management. Her expertise includes the diagnosis and treatment of conditions such as inflammatory bowel disease, gastroesophageal reflux, and liver diseases, utilizing the latest in endoscopic techniques and personalized treatment plans. Dr. Chen is dedicated to improving her patients' quality of life through comprehensive care and innovative research in digestive health. She practices at the Digestive Health Institute, leading a team focused on providing advanced, patient-centered gastrointestinal care. Her approach is marked by a commitment to excellence, compassion, and the pursuit of the best possible outcomes for her patients."
-      },
-      {
-        "id": 4,
-        "firstName": "Alexander",
-        "lastName": "Kim",
-        "specialization": "Hematologist",
-        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Alexander/Alerxander-sqaure.png?raw=true",
-        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Alexander/Alexander-vertical.png?raw=true",
-        "schedules": [
-          {
-            "times": [
-              "08:00",
-              "09:00",
-              "10:00"
-            ],
-            "day": "monday"
-          },
-          {
-            "day": "friday",
-            "times": [
-              "14:00",
-              "15:00",
-              "16:00"
-            ]
-          }
-        ],
-        "description": "Dr. Alexander Kim is a distinguished Hematologist known for his expertise in blood disorders, ranging from anemia to clotting disorders and hematological malignancies. With a focus on personalized medicine, he incorporates advanced diagnostic techniques and tailored treatment strategies to manage complex blood conditions effectively. Dr. Kim is committed to advancing the field of hematology through research, patient education, and the development of novel therapies. He serves as a lead physician at the Center for Blood Disorders, where his approach to patient care emphasizes compassion, innovation, and the pursuit of excellence in treating and understanding hematological diseases."
-      },
-      {
-        "id": 5,
-        "firstName": "Emily",
-        "lastName": "Patel",
-        "specialization": "Neurologist",
-        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Emily/Emily-square.png?raw=true",
-        "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Emily/Emily-vertical.png?raw=true",
-        "schedules": [
-          {
-            "times": [
-              "08:00",
-              "09:00",
-              "10:00"
-            ],
-            "day": "monday"
-          },
-          {
-            "day": "friday",
-            "times": [
-              "14:00",
-              "15:00",
-              "16:00"
-            ]
-          }
-        ],
-        "description": "Dr. Emily Patel is a leading Neurologist with a focus on diagnosing and treating neurological disorders such as epilepsy, Parkinson's disease, and multiple sclerosis. Her practice integrates advanced neuroimaging techniques, neurophysiological testing, and personalized treatment plans to address the complex needs of her patients. Dr. Patel is dedicated to improving neurological health through cutting-edge research, patient education, and the development of innovative therapies. She heads the Neurological Care and Research Center, where her team is committed to providing comprehensive, compassionate care. Known for her patient-centered approach, Dr. Patel works tirelessly to enhance the quality of life for individuals living with neurological conditions."
-      }
-    ]
-  }
+  "doctors": [
+    {
+      "schedules": [
+        {
+          "times": [
+            "08:00",
+            "09:00",
+            "10:00"
+          ],
+          "day": "monday"
+        },
+        {
+          "day": "friday",
+          "times": [
+            "14:00",
+            "15:00",
+            "16:00"
+          ]
+        }
+      ],
+      "lastName": "Gomila Salas",
+      "firstName": "Juan Gabriel",
+      "id": 0,
+      "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-square.png?raw=true",
+      "description": "Dr. Juan Gabriel Gomila Salas is a distinguished Cardiologist with over 15 years of experience in diagnosing and managing heart diseases. Specializing in interventional cardiology and heart failure management, he employs cutting-edge techniques and tailored care approaches. Committed to advancing cardiac health through innovative research and education, Dr. Gomila Salas leads a team of dedicated professionals at the Heart Health Institute. His approach to patient care is marked by compassion and expertise in handling complex cardiac conditions.",
+      "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-vertical.png?raw=true",
+      "specialization": "Cardiologist",
+      "patients": [
+        1,
+        0
+      ]
+    },
+    {
+      "lastName": "Doe",
+      "firstName": "Allison",
+      "id": 1,
+      "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-square.png?raw=true",
+      "specialization": "Dermatologist",
+      "description": "Dr. Allison Doe is a renowned Dermatologist with extensive experience in treating a wide range of skin conditions. Her expertise spans cosmetic dermatology, laser treatments, and skin cancer surgery, offering both aesthetic and medical solutions. Dr. Doe is dedicated to providing personalized care, utilizing the latest advancements in dermatological science. She practices at the Advanced Skin Care Center, where she leads a team focused on delivering comprehensive skin health services. Known for her patient-centered approach, Dr. Doe is committed to achieving the best outcomes for her patients' skin health and well-being.",
+      "schedules": [
+        {
+          "times": [
+            "08:00",
+            "09:00",
+            "10:00"
+          ],
+          "day": "monday"
+        },
+        {
+          "day": "friday",
+          "times": [
+            "14:00",
+            "15:00",
+            "16:00"
+          ]
+        }
+      ],
+      "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-vertical.png?raw=true"
+    },
+    {
+      "lastName": "Rivera",
+      "firstName": "Carlos",
+      "id": 2,
+      "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Carlos/Carlos-square.png?raw=true",
+      "specialization": "Traumatologist",
+      "description": "Dr. Carlos Rivera is a prominent Traumatologist with extensive experience in the field of orthopedic surgery and trauma care. Specializing in the treatment of fractures, sports injuries, and complex musculoskeletal conditions, he applies advanced surgical techniques and rehabilitation strategies to restore function and mobility. Dr. Rivera leads a team of specialists at the Comprehensive Trauma and Orthopedic Center, where they are committed to excellence in patient care and recovery outcomes. His approach is characterized by a commitment to personalized care, innovation in treatment methods, and a focus on patient education to prevent future injuries.",
+      "schedules": [
+        {
+          "times": [
+            "08:00",
+            "09:00",
+            "10:00"
+          ],
+          "day": "monday"
+        },
+        {
+          "day": "friday",
+          "times": [
+            "14:00",
+            "15:00",
+            "16:00"
+          ]
+        }
+      ],
+      "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Carlos/Carlos-vertical.png?raw=true"
+    },
+    {
+      "lastName": "Chen",
+      "firstName": "Sophia",
+      "id": 3,
+      "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Sophia/Sophia-square.png?raw=true",
+      "specialization": "Gastroenterologist",
+      "description": "Dr. Sophia Chen is an esteemed Gastroenterologist with a deep understanding of digestive disorders and their management. Her expertise includes the diagnosis and treatment of conditions such as inflammatory bowel disease, gastroesophageal reflux, and liver diseases, utilizing the latest in endoscopic techniques and personalized treatment plans. Dr. Chen is dedicated to improving her patients' quality of life through comprehensive care and innovative research in digestive health. She practices at the Digestive Health Institute, leading a team focused on providing advanced, patient-centered gastrointestinal care. Her approach is marked by a commitment to excellence, compassion, and the pursuit of the best possible outcomes for her patients.",
+      "schedules": [
+        {
+          "times": [
+            "08:00",
+            "09:00",
+            "10:00"
+          ],
+          "day": "monday"
+        },
+        {
+          "day": "friday",
+          "times": [
+            "14:00",
+            "15:00",
+            "16:00"
+          ]
+        }
+      ],
+      "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Sophia/Sophia-vertical.png?raw=true"
+    },
+    {
+      "lastName": "Kim",
+      "firstName": "Alexander",
+      "id": 4,
+      "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Alexander/Alerxander-sqaure.png?raw=true",
+      "specialization": "Hematologist",
+      "description": "Dr. Alexander Kim is a distinguished Hematologist known for his expertise in blood disorders, ranging from anemia to clotting disorders and hematological malignancies. With a focus on personalized medicine, he incorporates advanced diagnostic techniques and tailored treatment strategies to manage complex blood conditions effectively. Dr. Kim is committed to advancing the field of hematology through research, patient education, and the development of novel therapies. He serves as a lead physician at the Center for Blood Disorders, where his approach to patient care emphasizes compassion, innovation, and the pursuit of excellence in treating and understanding hematological diseases.",
+      "schedules": [
+        {
+          "times": [
+            "08:00",
+            "09:00",
+            "10:00"
+          ],
+          "day": "monday"
+        },
+        {
+          "day": "friday",
+          "times": [
+            "14:00",
+            "15:00",
+            "16:00"
+          ]
+        }
+      ],
+      "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Alexander/Alexander-vertical.png?raw=true"
+    },
+    {
+      "lastName": "Patel",
+      "firstName": "Emily",
+      "id": 5,
+      "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Emily/Emily-square.png?raw=true",
+      "specialization": "Neurologist",
+      "description": "Dr. Emily Patel is a leading Neurologist with a focus on diagnosing and treating neurological disorders such as epilepsy, Parkinson's disease, and multiple sclerosis. Her practice integrates advanced neuroimaging techniques, neurophysiological testing, and personalized treatment plans to address the complex needs of her patients. Dr. Patel is dedicated to improving neurological health through cutting-edge research, patient education, and the development of innovative therapies. She heads the Neurological Care and Research Center, where her team is committed to providing comprehensive, compassionate care. Known for her patient-centered approach, Dr. Patel works tirelessly to enhance the quality of life for individuals living with neurological conditions.",
+      "schedules": [
+        {
+          "times": [
+            "08:00",
+            "09:00",
+            "10:00"
+          ],
+          "day": "monday"
+        },
+        {
+          "day": "friday",
+          "times": [
+            "14:00",
+            "15:00",
+            "16:00"
+          ]
+        }
+      ],
+      "backgroundImage": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Emily/Emily-vertical.png?raw=true"
+    }
+  ]
+}

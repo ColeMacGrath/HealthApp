@@ -33,7 +33,7 @@ class AppointmentsViewController: UIViewController {
     }
     
     private func loadAppointmnets() {
-        guard let url = URL(string: RequestManager.shared.baseURL + "0/" + "appointments") else {
+        guard let url = RequestManager.shared.getURLWithPatientFor(endpoint: .appointments) else {
             self.showFloatingAlert(text: "Error loading appointments", alertType: .error)
             return
         }

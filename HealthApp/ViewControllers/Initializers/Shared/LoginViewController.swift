@@ -28,11 +28,12 @@ class LoginViewController: UIViewController {
             
             switch response.httpStatusCode {
             case .success:
-                guard let body = response.body,
-                      KeychainManager.shared.save(dictionary: body, identifier: "session") == .success else {
+                guard let body = response.body else {
                     self.showFloatingAlert(text: "Oops! Something went wrong. Try again.", alertType: .error)
                     return
                 }
+                
+                _ = SessionManager(json: body)
                 
                 let dashboardViewController = UIStoryboard(name: Constants.Storyboard.tabBar, bundle: nil).instantiateViewController(withIdentifier: Constants.ViewIdentifiers.tabBarViewController)
                 dashboardViewController.modalPresentationStyle = .fullScreen

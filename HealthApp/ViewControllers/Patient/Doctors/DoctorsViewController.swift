@@ -21,7 +21,7 @@ class DoctorsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let url = URL(string: RequestManager.shared.baseURL + "0/" + "doctors") else {
+        guard let url = RequestManager.shared.getURLWithPatientFor(endpoint: .doctors) else {
             self.showFloatingAlert(text: "Error loading doctors", alertType: .error)
             return
         }
