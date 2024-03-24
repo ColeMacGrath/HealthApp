@@ -98,11 +98,11 @@ struct ScannerView: View {
     }
     
     private func handleQRCode(_ code: String) {
+        guard let patientId = SessionManager.shared.getPatientId() else { return }
         if self.isValidHealthAppURL(code) {
-            guard let url = URL(string: "https://api.healthapp.local/doctor") else { return }
             Task {
-                let response = await RequestManager.shared.request(url: url, method: .patch, body: [
-                    "userId": 0,
+                let response = await RequestManager.shared.request(endPoint: .doctors, method: .patch, body: [
+                    "userId": patientId,
                     "doctorId": code
                 ])
                 

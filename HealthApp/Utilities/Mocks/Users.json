@@ -42,8 +42,8 @@
         "ingestedFood": [
           {
             "date": "2024-02-11T03:30:00.000Z",
-            "calories": 150,
-            "foodName": "Apple"
+            "foodName": "Apple",
+            "calories": 150
           }
         ],
         "sleep": [
@@ -109,8 +109,8 @@
         "ingestedFood": [
           {
             "date": "2024-02-11T03:30:00.000Z",
-            "calories": 150,
-            "foodName": "Apple"
+            "foodName": "Apple",
+            "calories": 150
           }
         ],
         "sleep": [
@@ -175,8 +175,8 @@
         "ingestedFood": [
           {
             "date": "2024-02-11T03:30:00.000Z",
-            "calories": 150,
-            "foodName": "Apple"
+            "foodName": "Apple",
+            "calories": 150
           }
         ],
         "sleep": [
@@ -241,8 +241,8 @@
         "ingestedFood": [
           {
             "date": "2024-02-11T03:30:00.000Z",
-            "calories": 150,
-            "foodName": "Apple"
+            "foodName": "Apple",
+            "calories": 150
           }
         ],
         "sleep": [
@@ -303,8 +303,8 @@
         "ingestedFood": [
           {
             "date": "2024-02-11T03:30:00.000Z",
-            "calories": 150,
-            "foodName": "Apple"
+            "foodName": "Apple",
+            "calories": 150
           }
         ],
         "sleep": [

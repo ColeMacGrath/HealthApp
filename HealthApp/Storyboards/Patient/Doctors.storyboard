@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wEH-Ba-NJB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wEH-Ba-NJB">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -262,9 +262,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="042-GH-qY2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="042-GH-qY2">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileImageCell" rowHeight="409" id="lfv-1a-Jbh" customClass="ProfileImageTableViewCell" customModule="HealthApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="409"/>
@@ -273,19 +272,60 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="409"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9CV-8c-KGK" customClass="CacheImageView" customModule="HealthApp" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor2" translatesAutoresizingMaskIntoConstraints="NO" id="9CV-8c-KGK" customClass="CacheImageView" customModule="HealthApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="409"/>
                                                 </imageView>
+                                                <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpw-ga-7nB">
+                                                    <rect key="frame" x="0.0" y="286.33333333333331" width="393" height="122.66666666666669"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="i4l-Gu-5SQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="122.66666666666669"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                    <blurEffect style="regular"/>
+                                                </visualEffectView>
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iHE-5w-ogc">
+                                                    <rect key="frame" x="28" y="339.66666666666669" width="345" height="50.333333333333314"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdX-ZH-sso">
+                                                            <rect key="frame" x="0.0" y="0.0" width="61.333333333333336" height="29"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="0.20000000000000001" height="0.20000000000000001"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HW-1G-FH9">
+                                                            <rect key="frame" x="0.0" y="29" width="44.333333333333336" height="21.333333333333329"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="0.20000000000000001" height="0.20000000000000001"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9CV-8c-KGK" firstAttribute="leading" secondItem="VNO-YE-CNb" secondAttribute="leading" id="2ce-PH-E67"/>
+                                                <constraint firstAttribute="trailing" secondItem="wpw-ga-7nB" secondAttribute="trailing" id="9rc-fG-EED"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iHE-5w-ogc" secondAttribute="trailing" id="JIq-UA-czN"/>
+                                                <constraint firstItem="wpw-ga-7nB" firstAttribute="leading" secondItem="VNO-YE-CNb" secondAttribute="leading" id="Md4-No-WIn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="iHE-5w-ogc" secondAttribute="bottom" constant="8" id="bnf-SV-kjD"/>
+                                                <constraint firstAttribute="bottom" secondItem="wpw-ga-7nB" secondAttribute="bottom" id="fra-fJ-Hkh"/>
                                                 <constraint firstAttribute="trailing" secondItem="9CV-8c-KGK" secondAttribute="trailing" id="gzE-VV-rNM"/>
+                                                <constraint firstItem="iHE-5w-ogc" firstAttribute="leading" secondItem="VNO-YE-CNb" secondAttribute="leadingMargin" constant="8" id="oQC-Uk-cw6"/>
                                                 <constraint firstAttribute="bottom" secondItem="9CV-8c-KGK" secondAttribute="bottom" id="uga-EB-IMt"/>
                                                 <constraint firstItem="9CV-8c-KGK" firstAttribute="top" secondItem="VNO-YE-CNb" secondAttribute="top" id="zuW-J1-zm4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="wpw-ga-7nB" firstAttribute="height" secondItem="lfv-1a-Jbh" secondAttribute="height" multiplier="0.3" id="gYm-Sg-VmB"/>
+                                        </constraints>
                                         <connections>
+                                            <outlet property="customDetailLabel" destination="0HW-1G-FH9" id="RfL-FI-Flf"/>
                                             <outlet property="customImageView" destination="9CV-8c-KGK" id="AyJ-9l-Lrp"/>
+                                            <outlet property="customTitleLabel" destination="hdX-ZH-sso" id="WTz-5S-4BQ"/>
+                                            <outlet property="visualEffectView" destination="wpw-ga-7nB" id="i8P-Xe-ciO"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicCell" textLabel="7KI-lW-Phl" style="IBUITableViewCellStyleDefault" id="suk-la-paa">
@@ -378,8 +418,9 @@
     </scenes>
     <resources>
         <image name="clock.fill" catalog="system" width="128" height="123"/>
+        <image name="doctor2" width="291.33334350585938" height="260"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -388,10 +429,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

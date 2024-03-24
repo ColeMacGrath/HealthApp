@@ -24,6 +24,10 @@ HealthApp is an innovative application designed to revolutionize the way we trac
       <img src="README Files/My Doctors.png" alt="My Doctors" width="200"/><br>
       My Doctors
     </td>
+    <td align="center">
+      <img src="README Files/Doctor Profile.png" alt="Doctor Profile" width="200"/><br>
+      Doctor Profile
+    </td>
   </tr>
   <tr>
     <td align="center">
@@ -38,12 +42,12 @@ HealthApp is an innovative application designed to revolutionize the way we trac
       <img src="README Files/Created Appointment.png" alt="Created Appointment" width="200"/><br>
       Created Appointment
     </td>
-  </tr>
-  <tr>
     <td align="center">
       <img src="README Files/Fitzpatrick Explanation.png" alt="Fitzpatrick Explanation" width="200"/><br>
       Fitzpatrick Explanation
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <img src="README Files/Fitzpatrick Scan.png" alt="Fitzpatrick Scan" width="200"/><br>
       Fitzpatrick Scan
@@ -52,8 +56,6 @@ HealthApp is an innovative application designed to revolutionize the way we trac
       <img src="README Files/Fitzpatrick.png" alt="Fitzpatrick" width="200"/><br>
       Fitzpatrick
     </td>
-  </tr>
-  <tr>
     <td align="center">
       <img src="README Files/Nevus.png" alt="Nevus" width="200"/><br>
       Nevus
@@ -62,18 +64,20 @@ HealthApp is an innovative application designed to revolutionize the way we trac
       <img src="README Files/History.png" alt="History" width="200"/><br>
       History
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <img src="README Files/Sleep.png" alt="Sleep" width="200"/><br>
       Sleep
     </td>
-  </tr>
-  <tr>
-    <td align="center" colspan="3">
+    <td align="center">
       <img src="README Files/QR.png" alt="QR" width="200"/><br>
       QR
     </td>
+    <!-- The remaining cells are left out as we've distributed all elements -->
   </tr>
 </table>
+
 
 ## Features ✨
 

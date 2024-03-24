@@ -19,11 +19,12 @@ class BookAppointmentViewController: UIViewController {
     }
     
     private func bookAppointment() async {
-        guard let date = datePicker?.date else { return }
+        guard let date = datePicker?.date,
+        let patientId = SessionManager.shared.getPatientId() else { return }
         var body: Dictionary<String, Any> = [
             "doctorId": self.doctor.id,
             "date": date.ISO8601WithwithFractionalSeconds,
-            "userId": 0
+            "userId": patientId
         ]
         if let notes = notesTextView?.text {
             body["notes"] = notes

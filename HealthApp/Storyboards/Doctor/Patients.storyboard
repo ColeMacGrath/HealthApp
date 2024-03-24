@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bwz-ax-5ix">
-                                <rect key="frame" x="0.0" y="-8" width="430" height="906"/>
+                                <rect key="frame" x="0.0" y="-8" width="430" height="948"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search Patients" id="O4q-xa-cKB">
                                     <rect key="frame" x="0.0" y="0.0" width="430" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -86,7 +86,7 @@
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="p6r-IY-09y" firstAttribute="trailing" secondItem="bwz-ax-5ix" secondAttribute="trailing" id="0g2-ab-izy"/>
-                            <constraint firstItem="p6r-IY-09y" firstAttribute="bottom" secondItem="bwz-ax-5ix" secondAttribute="bottom" id="FDc-yK-PHM"/>
+                            <constraint firstItem="p6r-IY-09y" firstAttribute="bottom" secondItem="bwz-ax-5ix" secondAttribute="bottomMargin" id="FDc-yK-PHM"/>
                             <constraint firstItem="bwz-ax-5ix" firstAttribute="leading" secondItem="p6r-IY-09y" secondAttribute="leading" id="OcM-ch-GPh"/>
                             <constraint firstItem="bwz-ax-5ix" firstAttribute="topMargin" secondItem="p6r-IY-09y" secondAttribute="top" id="gRn-K8-1PJ"/>
                         </constraints>

@@ -40,33 +40,24 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.profileImageCell, for: indexPath) as! ProfileImageTableViewCell
-            cell.customImageView.loadImageFrom(url: self.doctor.backgroundImage)
+            cell.customizeCell(imageURL: self.doctor.backgroundImage, title: self.doctor.fullName, detail: self.doctor.specialization)
             return cell
-        case 3:
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.buttonCell, for: indexPath) as! ButtonCellTableViewCell
             cell.button.isUserInteractionEnabled = false
             cell.button.setTitle("Book Appointment", for: .normal)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.basicCell, for: indexPath)
+            var content = UIListContentConfiguration.cell()
             if indexPath.row == 1 {
-                var content = UIListContentConfiguration.cell()
-                content.textProperties.font = UIFont(name: "HelveticaNeue-Medium", size: 20.0) ?? UIFont()
-                content.textProperties.alignment = .natural
-                content.text = self.doctor.fullName
-                content.secondaryTextProperties.font = UIFont(name: "HelveticaNeue", size: 18.0) ?? UIFont()
-                content.secondaryTextProperties.color = .secondaryLabel
-                content.secondaryText = self.doctor.specialization
-                cell.contentConfiguration = content
-            } else if indexPath.row == 2 {
-                var content = UIListContentConfiguration.cell()
                 let baseString = self.doctor.description ?? .empty
                 let fullRange = NSRange(location: 0, length: baseString.count)
                 let attributedString = NSMutableAttributedString(string: baseString)
@@ -79,7 +70,6 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
                 content.attributedText = attributedString
                 cell.contentConfiguration = content
             } else {
-                var content = UIListContentConfiguration.cell()
                 cell.backgroundColor = .clear
                 content.text = "Delete Doctor"
                 content.textProperties.color = .red
@@ -92,13 +82,13 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
             self.performSegue(withIdentifier: Constants.Segues.showBookAppointmentVC, sender: nil)
-        } else if indexPath.row == 4 {
-            guard let url = URL(string: "https://api.healthapp.local/doctor") else { return }
+        } else if indexPath.row == 3 {
+            guard let patientId = SessionManager.shared.getPatientId() else { return }
             Task {
-                let response = await RequestManager.shared.request(url: url, method: .delete, body: [
-                    "userId": 0,
+                let response = await RequestManager.shared.request(endPoint: .doctors, method: .delete, body: [
+                    "userId": patientId,
                     "doctorId": self.doctor.id
                 ])
                 
@@ -114,6 +104,6 @@ extension DoctorProfileViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == 0 ? self.view.frame.size.height * 0.60 : UITableView.automaticDimension
+        indexPath.row == 0 ? self.view.frame.size.height * 0.50 : UITableView.automaticDimension
     }
 }
