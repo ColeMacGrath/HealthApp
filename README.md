@@ -128,5 +128,49 @@ HealthApp is an innovative application designed to revolutionize the way we trac
 To test HealthApp with simulated data:
 
 1. Install Proxyman on your Mac.
+
 2. Configure Proxyman to route HealthApp's network traffic through it.
-3. Use the provided mocking rules to simulate various data scenarios.
+
+   1. Project is working with following loca URL: https://api.healthapp.local/
+
+   2. For configuring URL's, paths, etc. confifgure at: HealthApp/Models/Shared/RequestManager.swift
+
+      1. You'll find base url like this: 
+
+      ```swift
+      private init() {
+        self.baseURL = "https://api.healthApp.local/"
+      }
+      ```
+
+      2. For enpoints you'll fund an enum like this:
+
+      ```swift
+      enum EndPoint: String {
+          case login = "login"
+          case doctors = "doctors"
+          case bookApointment = "bookAppointment"
+          case appointments = "appointments"
+          case patients = "patients"
+      }
+      ```
+
+3. Configure your paths:
+
+Since all scripts works with JSON files you'll need to configure your project's paths, by default in all scripts you'll find something like this at the begging of file: 
+
+```javascript
+const userFilePath = "~/Documents/Developer/iOS/";
+```
+
+You'll need to replace this for the path where your project is located.
+
+|    Script Name     |                   Matching Rule                   |   Type   | Method |
+| :----------------: | :-----------------------------------------------: | :------: | :----: |
+|  Book Appointment  |    https://api.healthapp.local/bookAppointment    | Wildcard |  POST  |
+| Delete Appointment | https:\/\/api\.healthApp\.local\/.*\/appointment  |  Regex   | DELETE |
+|  Appointment List  |        https://api.healthapp.local/doctors        | Wildcard |  GET   |
+|     Add Doctor     | https:\/\/api\.healthapp\.local\/.*\/appointments |  Regex   | PATCH  |
+|   Delete Doctor    |        https://api.healthapp.local/doctors        | Wildcard | DELETE |
+|    Doctors List    |   https:\/\/api\.healthapp\.local\/.*\/doctors    |  Regex   |  GET   |
+|   Patients List    |   https:\/\/api\.healthapp\.local\/.*\/patients   |  Regex   |  GET   |

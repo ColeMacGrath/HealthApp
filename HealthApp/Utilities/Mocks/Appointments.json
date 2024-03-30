@@ -1,12 +1,100 @@
 {
   "appointments": [
     {
-      "date": "2024-03-19T00:53:00.000Z",
+      "doctor": {
+        "firstName": "Juan Gabriel",
+        "id": 0,
+        "lastName": "Gomila Salas",
+        "specialization": "Cardiologist",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-square.png?raw=true"
+      },
       "id": 0,
       "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
       "patient": {
         "height": 179,
         "weight": 72,
+        "firstName": "John",
+        "id": 0,
+        "biologicalSex": "Male",
+        "age": 28,
+        "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg",
+        "lastName": "Doe"
+      },
+      "date": "2024-03-19T00:53:00.000Z"
+    },
+    {
+      "doctor": {
+        "firstName": "Juan Gabriel",
+        "id": 0,
+        "lastName": "Gomila Salas",
+        "specialization": "Cardiologist",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-square.png?raw=true"
+      },
+      "id": 1,
+      "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
+      "patient": {
+        "height": 170,
+        "weight": 59,
+        "firstName": "Allison",
+        "id": 1,
+        "biologicalSex": "Female",
+        "age": 28,
+        "profilePicture": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "lastName": "Doe"
+      },
+      "date": "2024-03-19T00:53:00.000Z"
+    },
+    {
+      "date": "2024-03-24T20:17:00.000Z",
+      "id": 2,
+      "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
+      "patient": {
+        "height": 180,
+        "weight": 74,
+        "firstName": "John",
+        "id": 0,
+        "biologicalSex": "Male",
+        "age": 28,
+        "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg",
+        "lastName": "Doe"
+      },
+      "doctor": {
+        "firstName": "Allison",
+        "id": 1,
+        "lastName": "Doe",
+        "specialization": "Dermatologist",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-square.png?raw=true"
+      }
+    },
+    {
+      "doctor": {
+        "firstName": "Juan Gabriel",
+        "id": 0,
+        "lastName": "Gomila Salas",
+        "specialization": "Cardiologist",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Juan%20Gabriel/Juan%20Gabriel-square.png?raw=true"
+      },
+      "id": 3,
+      "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
+      "patient": {
+        "height": 180,
+        "weight": 74,
+        "firstName": "John",
+        "id": 0,
+        "biologicalSex": "Male",
+        "age": 28,
+        "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg",
+        "lastName": "Doe"
+      },
+      "date": "2024-03-19T02:53:00.000Z"
+    },
+    {
+      "date": "2024-03-30T00:30:00.000Z",
+      "id": 4,
+      "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
+      "patient": {
+        "height": 180,
+        "weight": 74,
         "firstName": "John",
         "id": 0,
         "biologicalSex": "Male",
@@ -23,17 +111,39 @@
       }
     },
     {
-      "date": "2024-03-19T00:53:00.000Z",
-      "id": 1,
-      "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
-      "patient": {
-        "height": 170,
-        "weight": 59,
+      "doctor": {
         "firstName": "Allison",
         "id": 1,
-        "biologicalSex": "Female",
+        "lastName": "Doe",
+        "specialization": "Dermatologist",
+        "profilePicture": "https://github.com/ColeMacGrath/HealthApp/blob/master/HealthApp/Utilities/Profile%20Pictures/Allison/Allison-square.png?raw=true"
+      },
+      "id": 5,
+      "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
+      "patient": {
+        "height": 180,
+        "weight": 74,
+        "firstName": "John",
+        "id": 0,
+        "biologicalSex": "Male",
         "age": 28,
-        "profilePicture": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg",
+        "lastName": "Doe"
+      },
+      "date": "2024-03-30T01:30:00.000Z"
+    },
+    {
+      "date": "2024-03-30T03:00:00.000Z",
+      "id": 6,
+      "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.",
+      "patient": {
+        "height": 180,
+        "weight": 74,
+        "firstName": "John",
+        "id": 1,
+        "biologicalSex": "Male",
+        "age": 28,
+        "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg",
         "lastName": "Doe"
       },
       "doctor": {
@@ -45,7 +155,7 @@
       }
     },
     {
-      "id": 2,
+      "id": 7,
       "doctor": {
         "id": 1,
         "firstName": "Allison",
@@ -63,7 +173,7 @@
         "age": 28,
         "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg"
       },
-      "date": "2024-03-24T20:17:00.000Z",
+      "date": "2024-03-30T03:30:00.000Z",
       "notes": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
     }
   ]

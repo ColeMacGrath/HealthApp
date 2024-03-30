@@ -43,7 +43,6 @@ class HealthKitManager {
         }
     }
     
-    // Fetch Quantity Type Records
     func quantityRecordsFor(typeIdentifier: HKQuantityTypeIdentifier, withUnit unit: HKUnit, from startDate: Date? = nil, to endDate: Date? = nil, completion: @escaping ([(date: Date, value: Double)]) -> Void) {
         guard let type = HKObjectType.quantityType(forIdentifier: typeIdentifier) else {
             completion([])
@@ -89,7 +88,6 @@ class HealthKitManager {
         }
     }
     
-    // Fetch Category Type Records (e.g., Sleep Analysis)
     func categoryRecordsFor(typeIdentifier: HKCategoryTypeIdentifier, from startDate: Date? = nil, to endDate: Date? = nil, completion: @escaping ([HKCategorySample]?,[(date: Date, value: String)]) -> Void) {
         guard let type = HKObjectType.categoryType(forIdentifier: typeIdentifier) else {
             completion(nil, [])

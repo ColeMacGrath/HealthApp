@@ -19,7 +19,7 @@ class AppointmentConflictViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.profilePictureImageView.setCircularImage()
         self.profilePictureImageView.loadImageFrom(url: self.appointment.doctor.profilePicture)
         self.personTitleLabel.text = self.appointment.doctor.fullName
         self.personSubtitleLabel.text = self.appointment.doctor.specialization

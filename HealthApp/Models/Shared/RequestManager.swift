@@ -45,8 +45,21 @@ class RequestManager {
         self.baseURL = "https://api.healthApp.local/"
     }
     
+    private func getURLWithIdFor(user: User, endpoint: EndPoint) -> URL? {
+        guard var components = URLComponents(string: baseURL),
+              let userId = user == .patient ? SessionManager.shared.getPatientId() : SessionManager.shared.getDoctorId() else { return nil }
+        let endpointPath = endpoint.rawValue
+        let fullPath = "\(userId)/\(endpointPath)"
+        components.path = (components.path) + fullPath
+        return components.url
+    }
+    
+    private func getHTTPStatusCodeFrom(statusCode: Int) -> HTTPStatusCode {
+        guard let responseCode = HTTPStatusCode(rawValue: statusCode) else { return .localError }
+        return responseCode
+    }
+    
     func request(url: URL? = nil, endPoint: EndPoint? = nil, method: HTTPMethod, body: [String: Any]? = nil, headers: [String: String]? = nil) async -> (httpStatusCode: HTTPStatusCode, body: Dictionary<String, Any>?, rawData: Data?) {
-        
         guard let url = url ?? URL(string: self.baseURL + (endPoint?.rawValue ?? .empty)) else { return (.localError, nil, nil) }
         var request = URLRequest(url: url)
         var headers = headers
@@ -95,27 +108,5 @@ class RequestManager {
     
     func getURLWithDoctorFor(endpoint: EndPoint) -> URL? {
         self.getURLWithIdFor(user: .doctor, endpoint: endpoint)
-    }
-    
-    private func getURLWithIdFor(user: User, endpoint: EndPoint) -> URL? {
-        guard var components = URLComponents(string: baseURL) else { return nil }
-        let userId = user == .patient ? self.getPatientId() : self.getDoctorId()
-        let endpointPath = endpoint.rawValue
-        let fullPath = "\(userId)/\(endpointPath)"
-        components.path = (components.path) + fullPath
-        return components.url
-    }
-    
-    private func getPatientId() -> String {
-        return "\(0)"
-    }
-    
-    private func getDoctorId() -> String {
-        return "\(0)"
-    }
-    
-    private func getHTTPStatusCodeFrom(statusCode: Int) -> HTTPStatusCode {
-        guard let responseCode = HTTPStatusCode(rawValue: statusCode) else { return .localError }
-        return responseCode
     }
 }

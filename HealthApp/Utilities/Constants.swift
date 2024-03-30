@@ -26,6 +26,7 @@ struct Constants {
         static let showPatientsVC = "ShowPatientsVC"
         static let showSchedulesVC = "ShowSchedulesVC"
         static let showEditProfileVC = "ShowEditProfileVC"
+        static let showAppointmentConflictVC = "ShowAppointmentConflictVC"
     }
     
     struct Cells {
@@ -65,6 +66,7 @@ struct Constants {
         static let heart = "heart"
         static let heartFill = "heart.fill"
         static let calendar = "calendar"
+        static let trashCircleFill = "trash.circle.fill"
     }
     
     struct Storyboard {

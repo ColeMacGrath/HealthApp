@@ -28,7 +28,7 @@ class AppointmentsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == Constants.Segues.showAppointmentVC,
               let destination = segue.destination as? AppointmentViewController,
-            let selectedAppointment  else { return }
+              let selectedAppointment  else { return }
         destination.appointment = selectedAppointment
     }
     
@@ -93,6 +93,35 @@ extension AppointmentsViewController: UITableViewDataSource, UITableViewDelegate
         self.selectedAppointment = self.appointments[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: Constants.Segues.showAppointmentVC, sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard indexPath.section == 1 else {  return nil }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            guard let url = URL(string: RequestManager.shared.baseURL + "\(self.appointments[indexPath.row])/" + EndPoint.appointments.rawValue) else {
+                self.showFloatingAlert(text: "Error deleting appointment", alertType: .error)
+                completionHandler(false)
+                return
+            }
+            Task {
+                guard await RequestManager.shared.request(url: url, method: .delete).httpStatusCode == .empty else {
+                    self.showFloatingAlert(text: "Error deleting appointment", alertType: .error)
+                    completionHandler(false)
+                    return
+                }
+                
+                self.appointments.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                completionHandler(true)
+                self.showFloatingAlert(text: "Appointment Deleted", alertType: .success)
+            }
+        }
+        
+        deleteAction.image = .sfSymbol(Constants.SFSymbols.trashCircleFill, color: .white)
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return configuration
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

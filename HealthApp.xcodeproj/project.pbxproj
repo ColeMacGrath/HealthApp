@@ -85,6 +85,7 @@
 		B33DD09B2B54BBAE000A4C1B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33DD0992B54BBAE000A4C1B /* Profile.storyboard */; };
 		B33DD09E2B54BEEC000A4C1B /* FitzpatrickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DD09D2B54BEEC000A4C1B /* FitzpatrickViewController.swift */; };
 		B33DD0A02B54DD67000A4C1B /* FitzpatrickExplanationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33DD09F2B54DD67000A4C1B /* FitzpatrickExplanationViewController.swift */; };
+		B35BFA2A2BB793E800780F60 /* AppointmentConflictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35BFA292BB793E800780F60 /* AppointmentConflictViewController.swift */; };
 		B39E349F2B7A749A001E4485 /* DoctorDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */; };
 		B39E34A12B7A7583001E4485 /* PictureNameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */; };
 		B39E34A52B7A76A0001E4485 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */; };
@@ -180,6 +181,7 @@
 		B33DD09A2B54BBAE000A4C1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HealthApp/Storyboards/HealthApp/Storyboards/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		B33DD09D2B54BEEC000A4C1B /* FitzpatrickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzpatrickViewController.swift; sourceTree = "<group>"; };
 		B33DD09F2B54DD67000A4C1B /* FitzpatrickExplanationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzpatrickExplanationViewController.swift; sourceTree = "<group>"; };
+		B35BFA292BB793E800780F60 /* AppointmentConflictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentConflictViewController.swift; path = HealthApp/ViewControllers/AppointmentConflictViewController.swift; sourceTree = SOURCE_ROOT; };
 		B39E349E2B7A749A001E4485 /* DoctorDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDashboardViewController.swift; sourceTree = "<group>"; };
 		B39E34A02B7A7583001E4485 /* PictureNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureNameCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39E34A42B7A76A0001E4485 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			children = (
 				4FBF871C2B41DF6B00DF4E3E /* Initializers */,
 				B31308F92B79C195007BB47C /* Shared */,
+				B35BFA292BB793E800780F60 /* AppointmentConflictViewController.swift */,
 				B31308F82B79C18F007BB47C /* Doctor */,
 				B31308F72B79C181007BB47C /* Patient */,
 			);
@@ -686,6 +689,7 @@
 				4FC0B9DC2B3DDE8500F49ECD /* AppDelegate.swift in Sources */,
 				4F537FF82B408E0400710E4D /* HealthKitManager.swift in Sources */,
 				B33DD0922B54BA0D000A4C1B /* FitzpatrickScale.mlmodel in Sources */,
+				B35BFA2A2BB793E800780F60 /* AppointmentConflictViewController.swift in Sources */,
 				4FC7D5502B3F4BE600FFF1F6 /* ProfileImageTableViewCell.swift in Sources */,
 				B33DD09E2B54BEEC000A4C1B /* FitzpatrickViewController.swift in Sources */,
 				4FF761972B3FA214002EE5DC /* TextViewTableViewCell.swift in Sources */,

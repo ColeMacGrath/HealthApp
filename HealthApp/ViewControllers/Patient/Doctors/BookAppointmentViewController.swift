@@ -12,10 +12,18 @@ class BookAppointmentViewController: UIViewController {
     var doctor: Doctor!
     var datePicker: UIDatePicker?
     var notesTextView: UITextView?
+    var conflictAppointment: Appointment?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setMinimalBackButton()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == Constants.Segues.showAppointmentConflictVC,
+              let conflictAppointment,
+              let destination = segue.destination as? AppointmentConflictViewController else { return }
+        destination.appointment = conflictAppointment
     }
     
     private func bookAppointment() async {
@@ -31,18 +39,27 @@ class BookAppointmentViewController: UIViewController {
         }
         
         let response = await RequestManager.shared.request(endPoint: .bookApointment, method: .post, body: body)
-        guard response.httpStatusCode == .created else {
-            if response.httpStatusCode == .conflict {
-                self.showFloatingAlert(text: "Unavailable schedule", alertType: .warning)
-            } else {
-                self.showFloatingAlert(text: "Couldn't create appointment", alertType: .error)
+        if response.httpStatusCode == .conflict,
+           let rawData = response.rawData {
+            do {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .customISO8601
+                let appointment = try decoder.decode(Appointment.self, from: rawData)
+                self.conflictAppointment = appointment
+                self.performSegue(withIdentifier: Constants.Segues.showAppointmentConflictVC, sender: nil)
+            } catch {
+                self.showFloatingAlert(text: "Unavailable schedule for \(self.doctor.firstName)", alertType: .error)
             }
+            return
+        }
+        
+        guard response.httpStatusCode == .created else {
+            self.showFloatingAlert(text: "Couldn't create appointment", alertType: .error)
             return
         }
         
         self.showFloatingAlert(text: "Appointment created", alertType: .success)
         self.navigationController?.popToRootViewController(animated: true)
-        
     }
 
 }
