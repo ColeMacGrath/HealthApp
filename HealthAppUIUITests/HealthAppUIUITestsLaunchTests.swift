@@ -1,13 +1,13 @@
 //
-//  HealthAppUIUITestsLaunchTests.swift
-//  HealthAppUIUITests
+//  HealthAppTestsLaunchTests.swift
+//  HealthAppTests
 //
 //  Created by Moisés Córdova on 2024-10-20.
 //
 
 import XCTest
 
-final class HealthAppUIUITestsLaunchTests: XCTestCase {
+final class HealthAppTestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
