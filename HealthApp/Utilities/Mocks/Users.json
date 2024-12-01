@@ -1,0 +1,324 @@
+{
+  "users": [
+    {
+      "weight": 74,
+      "height": 180,
+      "firstName": "John",
+      "id": 0,
+      "age": 28,
+      "biologicalSex": "Male",
+      "profilePicture": "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg",
+      "healthData": {
+        "caloriesBurned": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          }
+        ],
+        "hearthBPM": [
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          }
+        ],
+        "weight": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          }
+        ],
+        "ingestedFood": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "foodName": "Apple",
+            "calories": 150
+          }
+        ],
+        "sleep": [
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          }
+        ]
+      },
+      "doctors": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "lastName": "Doe"
+    },
+    {
+      "weight": 60,
+      "height": 172,
+      "firstName": "Allison",
+      "id": 1,
+      "age": 28,
+      "biologicalSex": "Female",
+      "profilePicture": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "healthData": {
+        "caloriesBurned": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          }
+        ],
+        "hearthBPM": [
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          }
+        ],
+        "weight": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          }
+        ],
+        "ingestedFood": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "foodName": "Apple",
+            "calories": 150
+          }
+        ],
+        "sleep": [
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          }
+        ]
+      },
+      "doctors": [
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "lastName": "Doe"
+    },
+    {
+      "weight": 60,
+      "height": 172,
+      "firstName": "Kate",
+      "id": 3,
+      "age": 28,
+      "biologicalSex": "Female",
+      "profilePicture": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW4lMjBwcm9maWxlfGVufDB8fDB8fHww",
+      "healthData": {
+        "caloriesBurned": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          }
+        ],
+        "hearthBPM": [
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          }
+        ],
+        "weight": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          }
+        ],
+        "ingestedFood": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "foodName": "Apple",
+            "calories": 150
+          }
+        ],
+        "sleep": [
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          }
+        ]
+      },
+      "doctors": [
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "lastName": "Doe"
+    },
+    {
+      "weight": 60,
+      "height": 172,
+      "firstName": "Rebecca",
+      "id": 4,
+      "age": 28,
+      "biologicalSex": "Female",
+      "profilePicture": "https://as2.ftcdn.net/v2/jpg/04/59/84/01/1000_F_459840199_8chfkrUzhB9E7qW3KywORj5dH8j9UkvU.jpg",
+      "healthData": {
+        "caloriesBurned": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          }
+        ],
+        "hearthBPM": [
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          }
+        ],
+        "weight": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          }
+        ],
+        "ingestedFood": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "foodName": "Apple",
+            "calories": 150
+          }
+        ],
+        "sleep": [
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          }
+        ]
+      },
+      "doctors": [
+        0
+      ],
+      "lastName": "Doe"
+    },
+    {
+      "weight": 60,
+      "height": 172,
+      "firstName": "Martin",
+      "id": 5,
+      "age": 28,
+      "biologicalSex": "Male",
+      "profilePicture": "https://attractmorematches.com/wp-content/uploads/2023/10/Screenshot-2023-10-18-at-5.08.47-PM.png",
+      "healthData": {
+        "caloriesBurned": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "calories": 100
+          }
+        ],
+        "hearthBPM": [
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "BPM": 70,
+            "date": "2024-02-11T03:30:00.000Z"
+          }
+        ],
+        "weight": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          },
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "kilograms": 70
+          }
+        ],
+        "ingestedFood": [
+          {
+            "date": "2024-02-11T03:30:00.000Z",
+            "foodName": "Apple",
+            "calories": 150
+          }
+        ],
+        "sleep": [
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          },
+          {
+            "endDate": "2024-02-11T03:30:00.000Z",
+            "startDate": "2024-02-11T03:30:00.000Z"
+          }
+        ]
+      },
+      "lastName": "Doe"
+    }
+  ]
+}

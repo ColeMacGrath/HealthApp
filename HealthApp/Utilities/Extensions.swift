@@ -100,7 +100,7 @@ extension Font {
 extension Array where Element == Doctor {
     static var doctorsSample: [Doctor] {
         [
-            Doctor(
+            /*Doctor(
                 firstName: "Maria",
                 lastName: "Lopez",
                 description: "Dr. Maria Lopez is an empathetic Neurology Specialist, guiding patients through complex neurological disorders with care and the latest treatment advancements.",
@@ -155,7 +155,7 @@ extension Array where Element == Doctor {
                 darkBackgroundColor: Color(red: 0.353, green: 0.204, blue: 0.067) // Rich dark bronze
             )
             
-        ]
+        */]
     }
 }
 

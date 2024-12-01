@@ -9,16 +9,17 @@ import SwiftUI
 
 struct DoctorsView: View {
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(DoctorsModel.self) private var model
     @State private var path = NavigationPath()
-    private var doctors: [Doctor] = .doctorsSample
     
     var body: some View {
+        @Bindable var model = model
         NavigationStack(path: $path) {
             List {
                 Section(header: Text("Recent Appointments")) {
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(doctors.shuffled()) { doctor in
+                            ForEach(model.doctors) { doctor in
                                 RecentAppointmentView(doctor: doctor)
                                     .onTapGesture {
                                         path.append(doctor)
@@ -30,10 +31,14 @@ struct DoctorsView: View {
                 }.listRowBackground(Color.clear)
                 
                 Section(header: Text("My Doctors")) {
-                    ForEach(doctors) { doctor in
-                        SubtitleRowView(title: doctor.fullName, subtitle: doctor.specialization, image: doctor.profilePicture, backgroundColor: doctor.backgroundColor(for: colorScheme), action: {
+                    ForEach(model.doctors) { doctor in
+                        SubtitleRowView(title: doctor.fullName, subtitle: doctor.specialization, imageURL: doctor.profilePicture, action: {
                             path.append(doctor)
                         }).withDisclosureIndicator()
+                        
+                        /*SubtitleRowView(title: doctor.fullName, subtitle: doctor.specialization, image: doctor.profilePicture, backgroundColor: doctor.backgroundColor(for: colorScheme), action: {
+                            path.append(doctor)
+                        }).withDisclosureIndicator()*/
                     }
                 }
             }
@@ -53,10 +58,16 @@ struct DoctorsView: View {
                 QRView()
             }
             .navigationTitle("My Doctors")
+        }.onAppear {
+            Task {
+                await model.fectchDoctors()
+            }
+            
         }
     }
 }
 
 #Preview {
     DoctorsView()
+        .environment(DoctorsModel())
 }

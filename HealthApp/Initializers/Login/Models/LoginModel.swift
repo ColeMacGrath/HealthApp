@@ -7,7 +7,8 @@
 
 import Foundation
 
-@Observable @MainActor
+@Observable
+@MainActor
 class LoginModel {
     var email: String = String() {
         didSet {
@@ -31,10 +32,10 @@ class LoginModel {
     
     func login() async {
         showLoadingView = true
-        let statusCode = await NetworkManager.shared.login(username: email, password: password)
+        let response = await NetworkManager.shared.login(username: email, password: password)
         
-        if statusCode == .ok {
-            print("LOGGED IN")
+        if response != .ok {
+            //SHOW ERROR VIEW
         }
         
         showLoadingView = false

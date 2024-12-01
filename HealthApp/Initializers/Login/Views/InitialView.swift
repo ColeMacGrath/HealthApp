@@ -10,12 +10,10 @@ import SwiftUI
 struct InitialView: View {
     @State private var screen: SelectableItem? = .home
     @StateObject private var dashboardViewModel = DashboardModel()
-    
+    @StateObject private var sessionManager = SessionManager.shared
     
     var body: some View {
-        if true {
-            LoginView()
-        } else {
+        if let loginData = sessionManager.loginData {
             TabView {
                 ForEach(SelectableItem.allCases) { screen in
                     NavigationStack {
@@ -24,6 +22,8 @@ struct InitialView: View {
                     .tabItem { screen.label }
                 }
             }
+        } else {
+            LoginView()
         }
     }
 }

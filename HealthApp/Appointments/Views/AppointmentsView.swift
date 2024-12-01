@@ -11,7 +11,7 @@ struct AppointmentsView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var selectedDate = Date()
     @State private var path = NavigationPath()
-    var doctors: [Doctor] = .doctorsSample
+    var doctors: [Doctor] = []
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -31,7 +31,7 @@ struct AppointmentsView: View {
                     }
                 }.listRowBackground(Color.clear)
                 
-                Section("Upcoming Appointments") {
+                /*Section("Upcoming Appointments") {
                     ForEach(doctors) { doctor in
                         SubtitleRowView(title: doctor.fullName, subtitle: "December 16, 2024 at 04:00 PM", image: doctor.profilePicture, backgroundColor: doctor.backgroundColor(for: colorScheme))
                             .withDisclosureIndicator()
@@ -40,14 +40,14 @@ struct AppointmentsView: View {
                             }
                         
                     }
-                }
+                }*/
                 
             }
             .navigationTitle("My Appointments")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: Doctor.self) { doctor in
-                AppointmentView(doctor: doctor)
-            }
+            //.navigationDestination(for: Doctor.self) { doctor in
+            //    AppointmentView(doctor: doctor)
+            //}
         }
     }
 }

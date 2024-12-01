@@ -23,25 +23,29 @@ struct DoctorProfileView: View {
     
     var body: some View {
         ZStack {
-            Color(doctor.backgroundColor(for: colorScheme))
-                .edgesIgnoringSafeArea(.all)
+            /*Color(doctor.backgroundColor(for: colorScheme))
+                .edgesIgnoringSafeArea(.all)*/
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(doctor.specialization)
-                            .foregroundStyle(.secondary)
+                        if let specialization = doctor.specialization {
+                            Text(specialization)
+                                .foregroundStyle(.secondary)
+                        }
                         Text(doctor.fullName)
                             .font(.title)
-                        Text(doctor.description)
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
+                        if let description = doctor.description {
+                            Text(description)
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                        }
                         
                     }.padding(.horizontal)
                     Spacer()
-                    doctor.profilePicture
-                        .frame(width: 150, height: 300.0)
-                        .padding(.leading)
-                        .padding(.bottom, -10)
+                    //doctor.profilePicture
+                    //    .frame(width: 150, height: 300.0)
+                    //    .padding(.leading)
+                    //    .padding(.bottom, -10)
                 }
                 
                 List {
@@ -74,7 +78,7 @@ struct DoctorProfileView: View {
 
 
 #Preview {
-    DoctorProfileView(doctor: Doctor(
+    /*DoctorProfileView(doctor: Doctor(
         firstName: "Maria",
         lastName: "Lopez",
         description: "Dr. Maria Lopez is an empathetic Neurology Specialist, guiding patients through complex neurological disorders with care and the latest treatment advancements.",
@@ -82,5 +86,5 @@ struct DoctorProfileView: View {
         profilePicture: Image("doctor0"),
         lightBackgroundColor: Color(red: 0.929, green: 0.808, blue: 0.855), // Soft pinkish tone
         darkBackgroundColor: Color(red: 0.353, green: 0.106, blue: 0.196) // Deep wine red
-    ))
+    ))*/
 }

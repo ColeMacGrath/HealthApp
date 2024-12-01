@@ -29,6 +29,7 @@ enum SelectableItem: CaseIterable, Identifiable {
             DashboardView(viewModel: dashboardViewModel)
         case .doctors:
             DoctorsView()
+                .environment(DoctorsModel())
         case .appointments:
             AppointmentsView()
         default:

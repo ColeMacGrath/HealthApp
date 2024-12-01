@@ -13,6 +13,7 @@ struct SubtitleRowView: View {
     var caption: String?
     var subtitle: String?
     var image: Image?
+    var imageURL: URL?
     var backgroundColor: Color = .clear
     var action: (() -> Void)?
     var circularCustomization: Bool = true
@@ -23,7 +24,18 @@ struct SubtitleRowView: View {
             action?()
         }) {
             HStack {
-                if let image {
+                if let imageURL {
+                    AsyncImage(url: imageURL) { phase in
+                        switch phase {
+                        case .success(let image):
+                            image
+                                .circularImageStyle(color: backgroundColor)
+                        default:
+                            Color.gray
+                                .clipShape(Circle())
+                        }
+                    }.frame(height: 60.0)
+                } else if let image {
                     if circularCustomization {
                         image
                             .circularImageStyle(color: backgroundColor)
@@ -32,6 +44,7 @@ struct SubtitleRowView: View {
                         image
                     }
                 }
+                
                 VStack(alignment: .leading) {
                     HStack(alignment: .bottom) {
                         Text(title)
