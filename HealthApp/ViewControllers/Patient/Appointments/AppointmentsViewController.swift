@@ -99,7 +99,7 @@ extension AppointmentsViewController: UITableViewDataSource, UITableViewDelegate
         guard indexPath.section == 1 else {  return nil }
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
-            guard let url = URL(string: RequestManager.shared.baseURL + "\(self.appointments[indexPath.row])/" + EndPoint.appointments.rawValue) else {
+            guard let url = URL(string: RequestManager.shared.baseURL + "\(self.appointments[indexPath.row].id)/" + EndPoint.appointment.rawValue) else {
                 self.showFloatingAlert(text: "Error deleting appointment", alertType: .error)
                 completionHandler(false)
                 return

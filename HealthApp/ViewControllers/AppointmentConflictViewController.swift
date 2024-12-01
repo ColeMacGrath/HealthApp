@@ -38,7 +38,7 @@ class AppointmentConflictViewController: UIViewController {
     
     
     @IBAction func cancelAppointmentButtonPressed(_ sender: UIButton) {
-        guard let url = URL(string: RequestManager.shared.baseURL + "\(self.appointment.id)/" + EndPoint.appointments.rawValue) else {
+        guard let url = URL(string: RequestManager.shared.baseURL +  "\(self.appointment.id)/" + EndPoint.appointment.rawValue) else {
             self.showFloatingAlert(text: "Error deleting appointment", alertType: .error)
             return
         }

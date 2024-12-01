@@ -10,15 +10,16 @@ import Foundation
 enum EndPoint: String {
     case login = "login"
     case doctors = "doctors"
-    case bookApointment = "bookAppointment"
-    case appointments = "appointments"
     case patients = "patients"
+    case appointment = "appointment"
+    case appointments = "appointments"
+    case bookApointment = "bookAppointment"
 }
 
 enum User: String {
-    case patient
-    case doctor
     case none
+    case doctor
+    case patient
 }
 
 enum HTTPStatusCode: Int {
@@ -30,8 +31,17 @@ enum HTTPStatusCode: Int {
     case localError = 900
 }
 
+fileprivate struct RequestManagerIdentifier {
+    let baseURL = "https://api.healthApp.local/"
+    let sessionToken = "sessionToken"
+    let patient = "patient"
+    let userTyoe = "userType"
+    let doctor = "doctor"
+}
+
 class RequestManager {
     static let shared = RequestManager()
+    private let identifiers = RequestManagerIdentifier()
     let baseURL: String
     
     enum HTTPMethod: String {
@@ -42,7 +52,7 @@ class RequestManager {
     }
     
     private init() {
-        self.baseURL = "https://api.healthApp.local/"
+        self.baseURL = self.identifiers.baseURL
     }
     
     private func getURLWithIdFor(user: User, endpoint: EndPoint) -> URL? {
@@ -59,7 +69,7 @@ class RequestManager {
         return responseCode
     }
     
-    func request(url: URL? = nil, endPoint: EndPoint? = nil, method: HTTPMethod, body: [String: Any]? = nil, headers: [String: String]? = nil) async -> (httpStatusCode: HTTPStatusCode, body: Dictionary<String, Any>?, rawData: Data?) {
+    private func makeRequest(url: URL? = nil, endPoint: EndPoint? = nil, method: HTTPMethod, body: [String: Any]? = nil, headers: [String: String]? = nil) async -> (httpStatusCode: HTTPStatusCode, body: Dictionary<String, Any>?, rawData: Data?) {
         guard let url = url ?? URL(string: self.baseURL + (endPoint?.rawValue ?? .empty)) else { return (.localError, nil, nil) }
         var request = URLRequest(url: url)
         var headers = headers
@@ -72,8 +82,8 @@ class RequestManager {
                 SessionManager.shared.logOut()
                 return (.localError, nil, nil)
             }
-            headers?["sessionToken"] = sessionToken
-            headers?["userType"] = SessionManager.shared.getPatientId() != nil ? "patient" : "doctor"
+            headers?[self.identifiers.sessionToken] = sessionToken
+            headers?[self.identifiers.userTyoe] = SessionManager.shared.getPatientId() != nil ? self.identifiers.patient : self.identifiers.doctor
         }
         
         headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
@@ -100,6 +110,14 @@ class RequestManager {
         } catch {
             return (.localError, nil, nil)
         }
+    }
+    
+    func request(url: URL, method: HTTPMethod, body: [String: Any]? = nil, headers: [String: String]? = nil) async -> (httpStatusCode: HTTPStatusCode, body: Dictionary<String, Any>?, rawData: Data?) {
+        return await makeRequest(url: url, method: method, body: body, headers: headers)
+    }
+    
+    func request(endPoint: EndPoint, method: HTTPMethod, body: [String: Any]? = nil, headers: [String: String]? = nil) async -> (httpStatusCode: HTTPStatusCode, body: Dictionary<String, Any>?, rawData: Data?) {
+        return await makeRequest(endPoint: endPoint, method: method, body: body, headers: headers)
     }
     
     func getURLWithPatientFor(endpoint: EndPoint) -> URL? {

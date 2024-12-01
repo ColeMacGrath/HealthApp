@@ -15,7 +15,6 @@ enum AlertType {
 }
 
 class FloatingAlertView: UIView {
-    
     private let imageView = UIImageView()
     private let textLabel = UILabel()
     private var dismissTimer: Timer?

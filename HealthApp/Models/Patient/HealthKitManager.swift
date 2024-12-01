@@ -125,8 +125,6 @@ class HealthKitManager {
         self.healthStore.execute(query)
     }
     
-
-    
     func processCategorySamples(_ samples: [HKCategorySample]) -> [(date: Date, value: String)] {
         return samples.map { sample in
             let date = sample.startDate
@@ -184,7 +182,8 @@ class HealthKitManager {
             let birthdayComponents = try self.healthStore.dateOfBirthComponents()
             let calendar = Calendar.current
             let currentYear = calendar.component(.year, from: Date())
-            let age = currentYear - birthdayComponents.year!
+            guard let year = birthdayComponents.year else { completion(nil); return }
+            let age = currentYear - year
             completion(age)
         } catch {
             completion(nil)
@@ -228,11 +227,11 @@ class HealthKitManager {
     func getFitzpatrickSkinType(completion: @escaping (String?, UIColor?) -> Void) {
         if let fitzpatrickSkinType = self.retrieveSecureFitzpatrickSkinType(),
            let hkfitzpatrickSkinType = HKFitzpatrickSkinType(rawValue: fitzpatrickSkinType) {
-            completion(self.getReadbleFitzpatrickSkinType(fitzpatrickSkinType: hkfitzpatrickSkinType), self.colorForFitzpatrickSkinType(hkfitzpatrickSkinType))
+            completion(self.getReadbleFitzpatrickSkinType(fitzpatrickSkinType: hkfitzpatrickSkinType), UIColor.colorFrom(skinType: hkfitzpatrickSkinType))
         } else {
             do {
                 let skinType = try healthStore.fitzpatrickSkinType().skinType
-                completion(self.getReadbleFitzpatrickSkinType(fitzpatrickSkinType: skinType), self.colorForFitzpatrickSkinType(skinType))
+                completion(self.getReadbleFitzpatrickSkinType(fitzpatrickSkinType: skinType), UIColor.colorFrom(skinType: skinType))
             } catch {
                 completion(nil, nil)
             }
@@ -320,9 +319,12 @@ class HealthKitManager {
         }
     }
     
-    func fetchIngestedFood(from startDate: Date? = nil, to endDate: Date? = nil, completion: @escaping ([(foodName: String, calories: Double)]) -> Void) {
-        let foodType = HKObjectType.correlationType(forIdentifier: .food)!
-        let calorieType = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!
+    func fetchIngestedFood(from startDate: Date? = nil, to endDate: Date? = nil, completion: @escaping ([(foodName: String, calories: Double)]?) -> Void) {
+        guard let foodType = HKObjectType.correlationType(forIdentifier: .food),
+              let calorieType = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
+            completion(nil)
+            return
+        }
 
         let predicate: NSPredicate
         if let startDate = startDate, let endDate = endDate {
@@ -342,8 +344,8 @@ class HealthKitManager {
                 let calorieSamples = correlation.objects.filter { $0.sampleType == calorieType }
 
                 let totalCalories = calorieSamples.reduce(0.0) { total, sample in
-                    let quantitySample = sample as! HKQuantitySample
-                    return total + quantitySample.quantity.doubleValue(for: HKUnit.kilocalorie())
+                    let quantitySample = sample as? HKQuantitySample
+                    return total + (quantitySample?.quantity.doubleValue(for: HKUnit.kilocalorie()) ?? 0.0)
                 }
 
                 return [(foodName, totalCalories)]
@@ -357,7 +359,11 @@ class HealthKitManager {
     
     func fetchLastIngestedFood(completion: @escaping ((foodName: String, calories: Double)?) -> Void) {
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
-        let query = HKSampleQuery(sampleType:  HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
+            completion(nil)
+            return
+        }
+        let query = HKSampleQuery(sampleType: quantityType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { (query, samples, error) in
             guard let samples = samples,
                   let mostRecentSample = samples.first as? HKQuantitySample else {
                 completion(nil)

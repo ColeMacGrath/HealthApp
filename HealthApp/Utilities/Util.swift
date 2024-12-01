@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import HealthKit
 
 extension UIImage {
     static func sfSymbol(_ symbolName: String, color: UIColor) -> UIImage {
@@ -327,6 +328,29 @@ extension JSONDecoder.DateDecodingStrategy {
             return date
         } else {
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot decode date string \(dateString)")
+        }
+    }
+}
+
+extension UIColor {
+    static func colorFrom(skinType: HKFitzpatrickSkinType) -> UIColor {
+        switch skinType {
+        case .notSet:
+            return .clear
+        case .I:
+            return UIColor(red: 1.00, green: 0.90, blue: 0.80, alpha: 1.0)
+        case .II:
+            return UIColor(red: 0.98, green: 0.82, blue: 0.70, alpha: 1.0)
+        case .III:
+            return UIColor(red: 0.80, green: 0.67, blue: 0.54, alpha: 1.0)
+        case .IV:
+            return UIColor(red: 0.60, green: 0.48, blue: 0.39, alpha: 1.0)
+        case .V:
+            return UIColor(red: 0.45, green: 0.34, blue: 0.28, alpha: 1.0)
+        case .VI:
+            return UIColor(red: 0.29, green: 0.24, blue: 0.20, alpha: 1.0)
+        @unknown default:
+            return UIColor.clear
         }
     }
 }
